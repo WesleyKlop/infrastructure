@@ -1,0 +1,27 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jackett
+  namespace: pirate-ship
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`app.wesleyklop.nl`) && PathPrefix(`/jackett`)
+      kind: Rule
+      services:
+        - name: jackett
+          port: 9117
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jackett
+  namespace: pirate-ship
+spec:
+  selector:
+    app: jackett
+  ports:
+    - protocol: TCP
+      port: 9117
+      targetPort: 9117

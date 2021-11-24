@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jackett
+  namespace: pirate-ship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jackett
+  template:
+    metadata:
+      labels:
+        app: jackett
+    spec:
+      containers:
+        - name: jackett
+          image: ghcr.io/linuxserver/jackett:latest
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 9117
+          volumeMounts:
+            - mountPath: /config
+              name: jackett-config
+            - mountPath: /downloads
+              name: watchfolder
+      volumes:
+        - name: jackett-config
+          hostPath:
+            path: /opt/jackett
+            type: Directory
+        - name: watchfolder
+          hostPath:
+            path: /tank/media/torrents/watch
+            type: Directory

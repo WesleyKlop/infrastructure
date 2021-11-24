@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+  namespace: pirate-ship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sonarr
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      containers:
+        - name: sonarr
+          image: ghcr.io/linuxserver/sonarr:latest
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 8989
+          volumeMounts:
+            - mountPath: /config
+              name: sonarr-config
+            - mountPath: /data
+              name: media
+      volumes:
+        - name: sonarr-config
+          hostPath:
+            path: /opt/sonarr
+            type: Directory
+        - name: media
+          hostPath:
+            path: /tank/media
+            type: Directory

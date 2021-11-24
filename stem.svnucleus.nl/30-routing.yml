@@ -1,0 +1,29 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingress-route
+  namespace: vote-system-svn
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`stem.svnucleus.nl`)
+      kind: Rule
+      services:
+        - name: service
+          port: 80
+  tls:
+    certResolver: letsencrypt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  namespace: vote-system-svn
+spec:
+  selector:
+    app: vote-system
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

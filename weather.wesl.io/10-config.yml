@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: weatherstation-config
+  namespace: ns-wesley
+data:
+  APP_PORT: "8080"
+  APP_ADDRESS: "0.0.0.0"
+---
+apiVersion: onepassword.com/v1
+kind: OnePasswordItem
+metadata:
+  name: weatherstation-db-url
+  namespace: ns-wesley
+spec:
+  itemPath: vaults/idris/items/weatherstation

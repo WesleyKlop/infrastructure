@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: wesley-io-ingress-route
+  namespace: ns-wesley
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`wesley.io`) || Host(`wesl.io`) || Host(`wesleyklop.nl`)
+      kind: Rule
+      services:
+        - name: wesley-io-svc
+          port: 80

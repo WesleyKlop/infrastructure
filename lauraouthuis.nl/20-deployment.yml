@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: ns-laura
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laura-site
+  template:
+    metadata:
+      labels:
+        app: laura-site
+    spec:
+      containers:
+        - name: laura-site
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: webroot
+      volumes:
+        - name: webroot
+          hostPath:
+            path: /home/laura/lauraouthuis.nl
+            type: Directory

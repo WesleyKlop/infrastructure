@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wesley-io-deployment
+  namespace: ns-wesley
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wesley-io
+  template:
+    metadata:
+      labels:
+        app: wesley-io
+    spec:
+      containers:
+        - name: wesley-io-site
+          image: docker.pkg.github.com/wesleyklop/wesley.io/site:develop
+          envFrom:
+            - configMapRef:
+                name: wesley-io-config
+          env:
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: app-key
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: db-password
+          ports:
+            - containerPort: 80

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+  namespace: pirate-ship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bazarr
+  template:
+    metadata:
+      labels:
+        app: bazarr
+    spec:
+      containers:
+        - name: bazarr
+          image: ghcr.io/linuxserver/bazarr:latest
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 6767
+          volumeMounts:
+            - mountPath: /config
+              name: bazarr-config
+            - mountPath: /data
+              name: media
+      volumes:
+        - name: bazarr-config
+          hostPath:
+            path: /opt/bazarr
+            type: Directory
+        - name: media
+          hostPath:
+            path: /tank/media
+            type: Directory

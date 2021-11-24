@@ -1,0 +1,27 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: calibre-web
+  namespace: pirate-ship
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`books.wesl.io`)
+      kind: Rule
+      services:
+        - name: calibre-web
+          port: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calibre-web
+  namespace: pirate-ship
+spec:
+  selector:
+    app: calibre-web
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083

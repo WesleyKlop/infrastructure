@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photos-wesl-io-deployment
+  namespace: ns-wesley
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photos-wesl-io
+  template:
+    metadata:
+      labels:
+        app: photos-wesl-io
+    spec:
+      containers:
+        - name: photos-wesl-io-site
+          image: photoprism/photoprism:latest
+          envFrom:
+            - configMapRef:
+                name: photos-wesl-io-config
+          env:
+            - name: PHOTOPRISM_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: photoprism
+                  key: password
+            - name: PHOTOPRISM_DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: photoprism
+                  key: db-username
+            - name: PHOTOPRISM_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: photoprism
+                  key: db-password
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /photoprism/originals
+              name: photos-wesl-io-photos
+            - mountPath: /photoprism/storage
+              name: photos-wesl-io-storage
+      volumes:
+        - name: photos-wesl-io-photos
+          hostPath:
+            path: /tank/media/photos
+            type: Directory
+        - name: photos-wesl-io-storage
+          hostPath:
+            path: /opt/photoprism/storage
+            type: Directory

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherstation-deployment
+  namespace: ns-wesley
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherstation
+  template:
+    metadata:
+      labels:
+        app: weatherstation
+    spec:
+      imagePullSecrets:
+        - name: ghcr-access-token
+      containers:
+        - name: api
+          image: ghcr.io/wesleyklop/weatherstation-api:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: weatherstation-config
+            - secretRef:
+                name: weatherstation-db-url
+        - name: web
+          image: ghcr.io/wesleyklop/weatherstation-web:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

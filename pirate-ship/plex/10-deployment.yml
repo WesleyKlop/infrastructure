@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plex
+  namespace: pirate-ship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+        - name: plex
+          image: plexinc/pms-docker:latest
+          envFrom:
+            - configMapRef:
+                name: base-config
+            - configMapRef:
+                name: plex-config
+            - secretRef:
+                name: plex-secrets
+          env:
+            - name: PLEX_CLAIM
+              valueFrom:
+                secretKeyRef:
+                  name: plex
+                  key: claim
+          ports:
+            - containerPort: 1900
+            - containerPort: 3005
+            - containerPort: 8324
+            - containerPort: 32400
+            - containerPort: 32410
+            - containerPort: 32412
+            - containerPort: 32413
+            - containerPort: 32414
+            - containerPort: 32469
+          volumeMounts:
+            - mountPath: /config
+              name: plex-config
+            - mountPath: /torrent
+              name: plex-transcode
+            - mountPath: /movies
+              name: movies
+            - mountPath: /series
+              name: series
+            - mountPath: /music
+              name: music
+      volumes:
+        - name: plex-config
+          hostPath:
+            path: /opt/plex/config
+            type: Directory
+        - name: plex-transcode
+          hostPath:
+            path: /opt/plex/transcode
+            type: Directory
+        - name: movies
+          hostPath:
+            path: /tank/media/movies
+            type: Directory
+        - name: series
+          hostPath:
+            path: /tank/media/series
+            type: Directory
+        - name: music
+          hostPath:
+            path: /tank/media/music
+            type: Directory
