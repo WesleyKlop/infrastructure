@@ -38,6 +38,7 @@ spec:
     app: pihole
   type: LoadBalancer
   loadBalancerIP: 10.0.0.240
+  externalTrafficPolicy: Local
   ports:
     - port: 53
       targetPort: 53
@@ -56,6 +57,7 @@ spec:
     app: pihole
   type: LoadBalancer
   loadBalancerIP: 10.0.0.240
+  externalTrafficPolicy: Local
   ports:
     - port: 53
       targetPort: 53
