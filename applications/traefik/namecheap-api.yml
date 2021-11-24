@@ -1,0 +1,8 @@
+apiVersion: onepassword.com/v1
+kind: OnePasswordItem
+metadata:
+  name: namecheap-api
+  namespace: traefik
+spec:
+  itemPath: "vaults/Idris/items/namecheap-api"
+
