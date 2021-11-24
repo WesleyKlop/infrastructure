@@ -5,4 +5,3 @@ metadata:
   namespace: traefik
 spec:
   itemPath: "vaults/Idris/items/namecheap-api"
-

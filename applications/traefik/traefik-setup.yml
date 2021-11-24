@@ -22,10 +22,9 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik.wesl.io`) 
+      match: Host(`traefik.wesl.io`)
       middlewares:
-        - name: traefik-dashboard-auth 
+        - name: traefik-dashboard-auth
       services:
         - kind: TraefikService
           name: api@internal
-

@@ -16,7 +16,7 @@ pilot:
   enabled: false
   # Toggle Pilot Dashboard
   # dashboard: false
- 
+
 # Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
@@ -31,13 +31,15 @@ providers:
     allowExternalNameServices: true
     # ingressClass: traefik-internal
     # labelSelector: environment=production,method=traefik
-    namespaces: []
+    namespaces:
+      []
       # - "default"
 
   kubernetesIngress:
     enabled: true
     # labelSelector: environment=production,method=traefik
-    namespaces: []
+    namespaces:
+      []
       # - "default"
     # IP used for Kubernetes Ingress endpoints
     publishedService:
@@ -63,7 +65,8 @@ volumes: []
 #   type: configMap
 
 # Additional volumeMounts to add to the Traefik container
-additionalVolumeMounts: []
+additionalVolumeMounts:
+  []
   # For instance when using a logshipper for access logs
   # - name: traefik-logs
   #   mountPath: /var/log/traefik
@@ -90,7 +93,8 @@ logs:
     # them to the selected output. In some cases, this option can greatly help performances.
     # bufferingSize: 100
     # Filtering https://docs.traefik.io/observability/access-logs/#filtering
-    filters: {}
+    filters:
+      {}
       # statuscodes: "200,300-302"
       # retryattempts: true
       # minduration: 10ms
@@ -99,12 +103,14 @@ logs:
     fields:
       general:
         defaultmode: keep
-        names: {}
+        names:
+          {}
           # Examples:
           # ClientUsername: drop
       headers:
         defaultmode: drop
-        names: {}
+        names:
+          {}
           # Examples:
           # User-Agent: redact
           # Authorization: drop
@@ -207,18 +213,18 @@ ports:
       options: ""
       certResolver: "namecheap"
       domains:
-          - main: wesleyklop.nl
-            sans:
-              - "*.wesleyklop.nl"
-          - main: wesl.io
-            sans:
-              - "*.wesl.io"
-          - main: wesley.io
-            sans:
-              - "*.wesley.io"
-          - main: lauraouthuis.nl
-            sans:
-              - "*.lauraouthuis.nl"
+        - main: wesleyklop.nl
+          sans:
+            - "*.wesleyklop.nl"
+        - main: wesl.io
+          sans:
+            - "*.wesl.io"
+        - main: wesley.io
+          sans:
+            - "*.wesley.io"
+        - main: lauraouthuis.nl
+          sans:
+            - "*.lauraouthuis.nl"
       # - main: example.com
       #   sans:
       #     - foo.example.com
@@ -237,7 +243,7 @@ ports:
     exposedPort: 9100
     # The port protocol (TCP/UDP)
     protocol: TCP
-    
+
 # Enable persistence using Persistent Volume Claims
 # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
 # After the pvc has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:

@@ -12,6 +12,8 @@ kubectl apply \
  -f radarr \
  -f sonarr \
  -f jackett \
- -f calibre-web
+ -f calibre-web \
+ -f plex \
+ -f transmission
 
 echo "Finished"
