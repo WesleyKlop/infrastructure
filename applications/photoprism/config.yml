@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: photos-wesl-io-config
-  namespace: ns-wesley
+  namespace: photoprism
 data:
   PHOTOPRISM_DARKTABLE_PRESETS: "false"
   PHOTOPRISM_DATABASE_DRIVER: mysql
@@ -29,6 +29,6 @@ apiVersion: onepassword.com/v1
 kind: OnePasswordItem
 metadata:
   name: photoprism
-  namespace: ns-wesley
+  namespace: photoprism
 spec:
   itemPath: vaults/idris/items/photoprism

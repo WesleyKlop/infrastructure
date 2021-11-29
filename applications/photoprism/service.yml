@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: photos-wesl-io-svc
-  namespace: ns-wesley
+  namespace: photoprism
 spec:
   selector:
     app: photos-wesl-io
