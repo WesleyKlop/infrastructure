@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overseerr
+  namespace: pirate-ship
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: overseerr
+  template:
+    metadata:
+      labels:
+        app: overseerr
+    spec:
+      containers:
+        - name: overseerr
+          image: ghcr.io/linuxserver/overseerr:latest
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 5055
+          volumeMounts:
+            - mountPath: /config
+              name: overseerr-config
+      volumes:
+        - name: overseerr-config
+          hostPath:
+            path: /opt/overseerr
+            type: Directory
