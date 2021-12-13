@@ -21,8 +21,6 @@ spec:
                 name: base-config
             - configMapRef:
                 name: plex-config
-            - secretRef:
-                name: plex-secrets
           env:
             - name: PLEX_CLAIM
               valueFrom:

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: wesley-io-site
-          image: docker.pkg.github.com/wesleyklop/wesley.io/site:develop
+          image: ghcr.io/wesleyklop/wesley.io/site:latest 
           envFrom:
             - configMapRef:
                 name: wesley-io-config
