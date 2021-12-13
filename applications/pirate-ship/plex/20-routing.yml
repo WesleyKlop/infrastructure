@@ -10,22 +10,8 @@ spec:
     - match: Host(`plex.wesleyklop.nl`)
       kind: Rule
       services:
-        - name: plex
+        - name: plex-lb-tcp
           port: web
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: plex
-  namespace: pirate-ship
-spec:
-  selector:
-    app: plex
-  ports:
-    - protocol: TCP
-      port: 32400
-      targetPort: 32400
-      name: web
 ---
 apiVersion: v1
 kind: Service
@@ -52,6 +38,10 @@ spec:
       port: 32469
       targetPort: 32469
       name: dlna
+    - protocol: TCP
+      port: 32400
+      targetPort: 32400
+      name: web
 ---
 apiVersion: v1
 kind: Service
