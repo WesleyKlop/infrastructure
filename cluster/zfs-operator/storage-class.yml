@@ -1,0 +1,16 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: tank-zfspv
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+parameters:
+  recordsize: "4k"
+  fstype: "zfs"
+  poolname: "tank/cluster"
+provisioner: zfs.csi.openebs.io
+allowedTopologies:
+  - matchLabelExpressions:
+    - key: kubernetes.io/hostname
+      values:
+        - idris
