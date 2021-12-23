@@ -48,6 +48,5 @@ spec:
             path: /tank/media/photos
             type: Directory
         - name: photos-wesl-io-storage
-          hostPath:
-            path: /tank/cluster/local/photoprism
-            type: Directory
+          persistentVolumeClaim:
+            claimName: photoprism-pvc
