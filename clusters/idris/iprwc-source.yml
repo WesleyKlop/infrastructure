@@ -8,5 +8,8 @@ spec:
   interval: 30s
   ref:
     branch: main
-  url: https://github.com/wesleyklop/iprwc
+  url: ssh://git@github.com:WesleyKlop/iprwc.git
+  secretRef:
+    name: github-ssh-credentials
+  
 
