@@ -1,14 +1,20 @@
 {
-    "extends": [
-        "config:base"
-    ],
-    "kubernetes": {
-        "fileMatch": ["\\.yaml$"]
-    },
-    "packageRules": [
-        {
-            "matchManagers": ["kubernetes"],
-            "groupName": "{{parentDir}} grouped"
-        }
-    ]
+  "extends": ["config:base"],
+  "hostRules": [
+    {
+      "matchHost": "ghcr.io",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolAQ//eW9fdYNasGCie9Z0K6jFsvEntRP7RDJ2x+rYulDpWgmmtpol/8pbq8rshNUyrPeZQLaU9OsUvHJxf5E4Z+G0p1JsIgMlF5uE/klqdGfDANq4QbEHVsx3BYGJyYUjfr12gby+sAcyjMY54J30cE1WMS7gV/pPIHUpH4sxZvMx+/9K1dE7fBOxOuYExq45uS67GeZYp9ITB5szjnw2CdYD3Hx23eWEjq3MNJkle6wdVHdWwTRR234WBakpMbaxwmJceSfgSIfSHHz6Z3VkU1cM43CRbuWnhv6NQFojR9bdNgClh5esJdCa2xIddl50wdfns9WUy/5ziYMaKz6aONRi+eQ8uA+zHxoBzwf1+VfnwM6gry78iYgwbdowPSnFCnDmSgenq/y1kn5Rmq8Js85PSk7V3E4PPDSGi6lEDnvW5HGZ6XgeHrsGuQUoJY+Pc8otv/9ecrNwXIv6rBBsuXtuMW1BVWXnnd/Nw9Jm6kFobl+Loyu/Wv1Gn5HVqZ9PjRJXaqGkEiYVu6bqksYD98goKUK2v4zJHVzf6uB/nWkMNy3QyuO2YGciK9PW8uCVP7zFdZpFWrSN3VAIZDE8hZBJw9psi6e29IbRKmh010h8PW6LalLu9e7SEUQ+BvxVN7y5wSWN6O9ONzdAr8I7OFeOfQ2OEZvUC75OhlzpKcXFO3LShwG+IlN0BgcjGmvCHrS1LEEA4oHbcgVmbsb3DgYcupZe9iCRJaBex4hpSlkYMFQi/xdFDLiXuI7Crss4gQ17XAZ+vqHRpkB18V2lq5CdctOqMCIuY9His/wbjhiqShhhOGAjzo26qqcVwQPUBORvZ+dYrOps5DDItzUgMT3CAbJailqSZdzZRA"
+      }
+    }
+  ],
+  "kubernetes": {
+    "fileMatch": ["\\.yaml$"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["kubernetes"],
+      "groupName": "{{parentDir}} grouped"
+    }
+  ]
 }
