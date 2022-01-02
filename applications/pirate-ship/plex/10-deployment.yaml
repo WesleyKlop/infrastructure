@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: plex
-          image: plexinc/pms-docker:latest
+          image: plexinc/pms-docker:1.25.2.5319-c43dc0277
           envFrom:
             - configMapRef:
                 name: base-config

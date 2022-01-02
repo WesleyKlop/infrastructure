@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: bazarr
-          image: ghcr.io/linuxserver/bazarr:latest
+          image: ghcr.io/linuxserver/bazarr:1.0.2
           envFrom:
             - configMapRef:
                 name: base-config
