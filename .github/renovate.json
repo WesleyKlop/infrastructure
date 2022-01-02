@@ -1,8 +1,14 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
-  }
+    "extends": [
+        "config:base"
+    ],
+    "kubernetes": {
+        "fileMatch": ["\\.yaml$"]
+    },
+    "packageRules": [
+        {
+            "matchManagers": ["kubernetes"],
+            "groupName": "{{parentDir}} updates"
+        }
+    ]
 }
