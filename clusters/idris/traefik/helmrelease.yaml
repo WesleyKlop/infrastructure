@@ -12,5 +12,5 @@ spec:
         name: traefik
       version: 10.6.1
       valuesFiles:
-        - ./values.yaml
+        - ../../../applications/traefik/values.yaml
   interval: 1m0s
