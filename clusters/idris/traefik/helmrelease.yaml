@@ -11,6 +11,7 @@ spec:
         kind: HelmRepository
         name: traefik
       version: 10.6.1
-      valuesFiles:
-        - ../../../applications/traefik/values.yaml
+  valuesFrom:
+    - kind: ConfigMap
+      name: traefik-config
   interval: 1m0s
