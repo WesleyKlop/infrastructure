@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: radarr
-          image: ghcr.io/linuxserver/radarr:3.2.2
+          image: ghcr.io/linuxserver/radarr:version-v3.2.2
           envFrom:
             - configMapRef:
                 name: base-config

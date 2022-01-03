@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jackett
-          image: ghcr.io/linuxserver/jackett:0.20.236
+          image: ghcr.io/linuxserver/jackett:version-v0.20.236
           envFrom:
             - configMapRef:
                 name: base-config
