@@ -1,5 +1,8 @@
 {
-  "extends": ["config:base", "group:kubernetes"],
+  "extends": [
+    "config:base",
+    "group:kubernetes"
+  ],
   "hostRules": [
     {
       "matchHost": "ghcr.io",
@@ -8,13 +11,10 @@
       }
     }
   ],
+  "additionalBranchPrefix": "{{parentDir}}-",
   "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
-  },
-  "packageRules": [
-    {
-      "matchManagers": ["kubernetes"],
-      "groupName": "{{parentDir}} grouped"
-    }
-  ]
+    "fileMatch": [
+      "\\.yaml$"
+    ]
+  }
 }
