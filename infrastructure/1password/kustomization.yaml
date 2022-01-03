@@ -5,12 +5,12 @@ resources:
   - namespace.yaml
   - helmrepo.yaml
   - helmrelease.yaml
-# secretGenerator:
-  # - name: 1password-credentials
-    # files:
-    #  - 1password-credentials.json
-  # - name: access-token
-    # files:
-    #  - access-token
-# configurations:
-  # - kustomizationconfig.yaml
+secretGenerator:
+  - name: 1password-credentials
+    files:
+     - 1password-credentials.json
+  - name: access-token
+    files:
+     - access-token
+configurations:
+  - kustomizationconfig.yaml
