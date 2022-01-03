@@ -5,16 +5,16 @@ resources:
   - namespace.yaml
   - helmrepo.yaml
   - helmrelease.yaml
-secretGenerator:
-  - name: 1password-credentials
-    files:
-     - 1password-credentials.json
-    options:
-      disableNameSuffixHash: true
-  - name: access-token
-    files:
-     - access-token
-    options:
-      disableNameSuffixHash: true
+# secretGenerator:
+#   - name: 1password-credentials
+#     files:
+#      - 1password-credentials.json
+#     options:
+#       disableNameSuffixHash: true
+#   - name: access-token
+#     files:
+#      - access-token
+#     options:
+#       disableNameSuffixHash: true
 configurations:
   - kustomizationconfig.yaml
