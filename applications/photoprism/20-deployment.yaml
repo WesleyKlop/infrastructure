@@ -7,6 +7,8 @@ spec:
   selector:
     matchLabels:
       app: photos-wesl-io
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
