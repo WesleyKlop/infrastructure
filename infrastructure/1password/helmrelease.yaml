@@ -23,3 +23,4 @@ spec:
       targetPath: operator.token.value
       valuesKey: access-token
   interval: 1m0s
+  maxHistory: 2
