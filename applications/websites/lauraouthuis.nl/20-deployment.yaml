@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment
-  namespace: ns-laura
 spec:
   replicas: 1
   selector:

@@ -4,4 +4,3 @@ namespace: pirate-ship
 resources:
   - 10-deployment.yaml
   - 20-routing.yaml
-  
