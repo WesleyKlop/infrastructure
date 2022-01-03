@@ -11,6 +11,6 @@ parameters:
 provisioner: zfs.csi.openebs.io
 allowedTopologies:
   - matchLabelExpressions:
-      - key: kubernetes.io/hostname
-        values:
-          - idris
+    - key: kubernetes.io/hostname
+      values:
+        - idris

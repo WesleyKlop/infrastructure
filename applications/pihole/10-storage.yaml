@@ -2,6 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: local
+  namespace: pihole
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
 ---
@@ -33,6 +34,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-etc-claim
+  namespace: pihole
 spec:
   storageClassName: local
   accessModes:
@@ -72,6 +74,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-dnsmasq-claim
+  namespace: pihole
 spec:
   storageClassName: local
   accessModes:
