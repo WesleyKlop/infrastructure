@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: photos-wesl-io-deployment
-  namespace: photoprism
 spec:
   replicas: 1
   selector:

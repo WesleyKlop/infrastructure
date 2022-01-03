@@ -11,5 +11,3 @@ spec:
   url: ssh://git@github.com/WesleyKlop/iprwc
   secretRef:
     name: github-ssh-credentials
-  
-

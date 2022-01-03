@@ -1,5 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: ns-wesley
 resources:
-  - gotk-components.yaml
-  - gotk-sync.yaml
+  - ns-wesley.yaml
+  - access-control.yaml
+  
+  
+  

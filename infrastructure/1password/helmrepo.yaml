@@ -1,0 +1,7 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: 1password
+spec:
+  interval: 10m0s
+  url: https://1password.github.io/connect-helm-charts
