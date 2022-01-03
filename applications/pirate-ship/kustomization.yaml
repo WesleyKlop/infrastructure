@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: pirate-ship
+resources:
+  - namespace.yaml
+  - config.yaml
+  - bazarr
+  - calibre-web
+  - jackett
+  - overseerr
+  - plex
+  - radarr
+  - sonarr
+  - transmission
+
+  

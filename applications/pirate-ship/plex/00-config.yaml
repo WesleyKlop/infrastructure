@@ -2,7 +2,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: plex-config
-  namespace: pirate-ship
 data:
   ADVERTISE_IP: "https://plex.wesleyklop.nl:443"
   PLEX_GID: "1337"
@@ -11,6 +10,5 @@ apiVersion: onepassword.com/v1
 kind: OnePasswordItem
 metadata:
   name: plex
-  namespace: pirate-ship
 spec:
   itemPath: "vaults/idris/items/plex"
