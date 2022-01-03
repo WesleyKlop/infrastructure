@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pihole
+  namespace: pihole
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - services:
+        - name: pihole
+          port: pihole-admin
+      match: Host(`pi-hole.wesl.io`)
+      kind: Rule

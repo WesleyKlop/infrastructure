@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: photos-wesl-io-ingress-route
-  namespace: photoprism
 spec:
   entryPoints:
     - websecure
