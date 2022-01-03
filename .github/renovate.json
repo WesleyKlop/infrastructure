@@ -1,7 +1,12 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     "group:kubernetes"
+  ],
+  "additionalBranchPrefix": "{{parentDir}}-",
+  "additionalReviewers": [
+    "WesleyKlop"
   ],
   "hostRules": [
     {
@@ -11,12 +16,6 @@
       }
     }
   ],
-  "additionalBranchPrefix": "{{parentDir}}-",
-  "kubernetes": {
-    "fileMatch": [
-      "\\.yaml$"
-    ]
-  },
   "packageRules": [
     {
       "matchManagers": [
@@ -24,5 +23,10 @@
       ],
       "groupName": "kubernetes"
     }
-  ]
+  ],
+  "kubernetes": {
+    "fileMatch": [
+      "\\.yaml$"
+    ]
+  }
 }
