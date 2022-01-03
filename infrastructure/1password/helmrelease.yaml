@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: connect
+spec:
+  chart:
+    spec:
+      chart: connect
+      sourceRef:
+        kind: HelmRepository
+        name: 1password
+      version: 1.6.0
+  values:
+    operator:
+      create: true
+  valuesFrom:
+    - kind: Secret
+      name: op-credentials
+      targetPath: connect.credentials
+      valuesKey: 1password-credentials.json
+    - kind: Secret
+      name: onepassword-token
+      targetPath: operator.token.value
+      valuesKey: token
+  interval: 1m0s
