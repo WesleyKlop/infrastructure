@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - sync.yaml
   - source.yaml
-  

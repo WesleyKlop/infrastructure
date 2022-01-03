@@ -6,4 +6,3 @@ resources:
   - traefik
   - zfs-operator
   - 1password
-  

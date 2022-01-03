@@ -4,4 +4,3 @@ namespace: 1password
 resources:
   - namespace.yaml
   - helmrepo.yaml
-

@@ -7,4 +7,3 @@ resources:
   - 20-deployment.yaml
   - 30-ingress-route.yaml
   - 31-service.yaml
-  

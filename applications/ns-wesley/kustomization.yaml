@@ -4,6 +4,3 @@ namespace: ns-wesley
 resources:
   - ns-wesley.yaml
   - access-control.yaml
-  
-  
-  
