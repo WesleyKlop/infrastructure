@@ -2057,7 +2057,7 @@ spec:
       serviceAccount: openebs-zfs-controller-sa
       containers:
         - name: csi-resizer
-          image: k8s.gcr.io/sig-storage/csi-resizer:v1.2.0
+          image: k8s.gcr.io/sig-storage/csi-resizer:v1.3.0
           args:
             - "--v=5"
             - "--csi-address=$(ADDRESS)"
@@ -2070,7 +2070,7 @@ spec:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
         - name: csi-snapshotter
-          image: k8s.gcr.io/sig-storage/csi-snapshotter:v4.0.0
+          image: k8s.gcr.io/sig-storage/csi-snapshotter:v4.2.1
           imagePullPolicy: IfNotPresent
           args:
             - "--csi-address=$(ADDRESS)"
@@ -2082,7 +2082,7 @@ spec:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
         - name: snapshot-controller
-          image: k8s.gcr.io/sig-storage/snapshot-controller:v4.0.0
+          image: k8s.gcr.io/sig-storage/snapshot-controller:v4.2.1
           args:
             - "--v=5"
             - "--leader-election=true"
@@ -2299,7 +2299,7 @@ spec:
       hostNetwork: true
       containers:
         - name: csi-node-driver-registrar
-          image: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.3.0
+          image: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.4.0
           imagePullPolicy: IfNotPresent
           args:
             - "--v=5"
