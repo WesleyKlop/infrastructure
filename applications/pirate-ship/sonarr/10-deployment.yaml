@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: sonarr
-          image: ghcr.io/linuxserver/sonarr:version-v3.0.6
+          image: ghcr.io/linuxserver/sonarr:version-3.0.6.1342
           envFrom:
             - configMapRef:
                 name: base-config
