@@ -16,5 +16,13 @@
     "fileMatch": [
       "\\.yaml$"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "matchManagers": [
+        "kubernetes"
+      ],
+      "groupName": "kubernetes",
+    }
+  ]
 }
