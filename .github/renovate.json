@@ -22,7 +22,7 @@
       "matchManagers": [
         "kubernetes"
       ],
-      "groupName": "kubernetes",
+      "groupName": "kubernetes"
     }
   ]
 }
