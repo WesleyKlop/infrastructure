@@ -14,3 +14,4 @@ spec:
     - kind: ConfigMap
       name: traefik-config
   interval: 1m0s
+  timeout: 10m

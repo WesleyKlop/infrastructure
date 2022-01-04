@@ -3,8 +3,13 @@ kind: Kustomization
 namespace: traefik
 resources:
   - setup.yaml
-  - namecheap-api.yaml
-  - values-config.yaml
   - storage.yaml
+  - namecheap-api.yaml
   - helmrelease.yaml
   - helmrepo.yaml
+configurations:
+  - kustomizationconfig.yaml
+configMapGenerator:
+  - name: traefik-config
+    files:
+      - values.yaml
