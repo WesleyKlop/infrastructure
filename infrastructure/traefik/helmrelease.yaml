@@ -10,6 +10,12 @@ spec:
         kind: HelmRepository
         name: traefik
       version: 10.9.1
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    remediation:
+      retries: -1
   valuesFrom:
     - kind: ConfigMap
       name: traefik-config
