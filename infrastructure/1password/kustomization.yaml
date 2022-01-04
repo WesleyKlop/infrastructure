@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: 1password
 resources:
   - namespace.yaml
-  - helmrepo.yaml
-  - helmrelease.yaml
+  # - helmrepo.yaml
+  # - helmrelease.yaml
 # Enable this when the files are available to generate the required config
 # secretGenerator:
 #   - name: 1password-credentials
