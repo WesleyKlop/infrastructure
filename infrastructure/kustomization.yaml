@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - flannel
   - metallb
-  # - traefik
+  - traefik
   - zfs-operator
   - 1password
