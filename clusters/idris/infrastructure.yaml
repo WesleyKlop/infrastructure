@@ -9,5 +9,5 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./infrastructure
-  prune: false
+  prune: true
   validation: client
