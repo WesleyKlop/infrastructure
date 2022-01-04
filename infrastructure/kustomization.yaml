@@ -5,4 +5,4 @@ resources:
   - metallb
   - traefik
   - zfs-operator
-  # - 1password
+  - 1password
