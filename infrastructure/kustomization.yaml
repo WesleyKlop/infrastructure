@@ -4,5 +4,5 @@ resources:
   - flannel
   - metallb
   # - traefik
-  - zfs-operator
+  # - zfs-operator
   - 1password
