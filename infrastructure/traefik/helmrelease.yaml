@@ -14,4 +14,10 @@ spec:
     - kind: ConfigMap
       name: traefik-config
   interval: 1m0s
-  timeout: 10m
+  install:
+    timeout: 10m
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
