@@ -192,7 +192,7 @@ ports:
     protocol: TCP
     # Use nodeport if set. This is useful if you have configured Traefik in a
     # LoadBalancer
-    nodePort: 80
+    #nodePort: 80
     # Port Redirections
     # Added in 2.2, you can make permanent redirects via entrypoints.
     # https://docs.traefik.io/routing/entrypoints/#redirection
@@ -204,7 +204,7 @@ ports:
     exposedPort: 443
     # The port protocol (TCP/UDP)
     protocol: TCP
-    nodePort: 443
+    #nodePort: 443
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls
     tls:
