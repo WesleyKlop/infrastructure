@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: photos-wesl-io-site
-          image: photoprism/photoprism:20211215
+          image: photoprism/photoprism:20220107
           envFrom:
             - configMapRef:
                 name: photos-wesl-io-config
