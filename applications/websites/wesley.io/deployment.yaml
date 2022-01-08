@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: wesley-io-site
-          image: ghcr.io/wesleyklop/wesley.io/site:latest
+          image: ghcr.io/wesleyklop/wesley.io:v0.5
           envFrom:
             - configMapRef:
                 name: wesley-io-config
