@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rutorrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rutorrent
+  template:
+    metadata:
+      labels:
+        app: rutorrent
+    spec:
+      containers:
+        - name: rutorrent
+          image: ghcr.io/crazy-max/rtorrent-rutorrent:3.10-0.9.8-0.13.8
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 6881
+              name: dht
+              protocol: UDP
+            - containerPort: 8000
+              name: rpc
+            - containerPort: 8080
+              name: web
+            - containerPort: 9000
+              name: webdav
+            - containerPort: 50000
+              name: inc
+          volumeMounts:
+            - mountPath: /data
+              name: config
+            - mountPath: /downloads
+              name: torrents
+            - mountPath: /passwd
+              name: passwd
+      volumes:
+        - name: config
+          hostPath:
+            path: /opt/rutorrent/config
+            type: Directory
+        - name: torrents
+          hostPath:
+            path: /tank/media/torrents
+            type: Directory
+        - name: passwd
+          hostPath:
+            path: /opt/rutorrent/passwd

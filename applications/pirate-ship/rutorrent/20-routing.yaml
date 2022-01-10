@@ -1,0 +1,57 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rutorrent
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`app.wesleyklop.nl`) && PathPrefix(`/rutorrent`)
+      kind: Rule
+      services:
+        - name: rutorrent
+          port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rutorrent
+spec:
+  selector:
+    app: rutorrent
+  ports:
+    - protocol: TCP
+      name: web
+      port: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rutorrent-lb-tcp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: rutorrent
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.243
+  selector:
+    app: rutorrent
+  ports:
+    - protocol: TCP
+      port: 50000
+      targetPort: 50000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rutorrent-lb-udp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: rutorrent
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.243
+  selector:
+    app: rutorrent
+  ports:
+    - protocol: UDP
+      port: 6881
+      targetPort: 6881
