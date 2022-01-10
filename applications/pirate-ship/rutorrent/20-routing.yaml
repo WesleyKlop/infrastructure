@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`app.wesleyklop.nl`) && PathPrefix(`/rutorrent`)
+    - match: Host(`rutorrent.wesleyklop.nl`)
       kind: Rule
       services:
         - name: rutorrent
