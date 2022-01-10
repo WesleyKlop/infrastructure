@@ -18,6 +18,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: base-config
+            - configMapRef:
+                name: rutorrent-config
           ports:
             - containerPort: 6881
               name: dht
