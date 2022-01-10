@@ -13,7 +13,7 @@ spec:
         app: rutorrent
     spec:
       containers:
-        - name: rutorrent
+        - name: rutorrent-app
           image: ghcr.io/crazy-max/rtorrent-rutorrent:3.10-0.9.8-0.13.8
           envFrom:
             - configMapRef:
