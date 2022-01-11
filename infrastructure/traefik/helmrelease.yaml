@@ -12,6 +12,10 @@ spec:
       version: 10.9.1
   interval: 1m0s
   maxHistory: 2
+  install:
+    # https://github.com/fluxcd/helm-controller/issues/142
+    # https://github.com/fluxcd/helm-controller/issues/289
+    disableWait: true
   values:
     env:
       - name: TZ
