@@ -1,7 +1,0 @@
-apiVersion: onepassword.com/v1
-kind: OnePasswordItem
-metadata:
-  name: sops-gpg
-  namespace: flux-system
-spec:
-  itemPath: vaults/idris/items/sops
