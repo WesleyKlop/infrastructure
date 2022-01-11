@@ -4,6 +4,7 @@ namespace: weatherstation
 resources:
   - 00-namespace.yaml
   - 10-config.yaml
+  - 11-ghcr-pull-secret.yaml
   - 20-deployment.yaml
   - 30-ingress-route.yaml
   - 30-service.yaml

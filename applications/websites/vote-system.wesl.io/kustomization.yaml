@@ -6,3 +6,4 @@ resources:
   - deployment.yaml
   - ingress-route.yaml
   - service.yaml
+  - ghcr-pull-secret.yaml
