@@ -12,6 +12,8 @@ spec:
       labels:
         app: weatherstation
     spec:
+      imagePullSecrets:
+        - name: ghcr-access-token
       containers:
         - name: api
           image: ghcr.io/wesleyklop/weatherstation-api:1
