@@ -10,17 +10,17 @@ spec:
         kind: HelmRepository
         name: 1password
       version: 1.7.0
-  values:
-    operator:
-      create: true
+  interval: 1m0s
+  maxHistory: 2
   valuesFrom:
     - kind: Secret
       name: 1password-credentials
       targetPath: connect.credentials
-      valuesKey: 1password-credentials.json
+      valuesKey: credentials
     - kind: Secret
-      name: access-token
+      name: 1password-credentials
       targetPath: operator.token.value
       valuesKey: access-token
-  interval: 1m0s
-  maxHistory: 2
+  values:
+    operator:
+      create: true
