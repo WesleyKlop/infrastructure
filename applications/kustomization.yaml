@@ -8,3 +8,4 @@ resources:
   - pihole
   - pirate-ship
   - websites
+  - slack
