@@ -10,3 +10,4 @@ resources:
   - websites
   - slack
   - notifications
+  - polaris
