@@ -9,7 +9,7 @@ spec:
     - kind: Rule
       match: Host(`traefik.wesl.io`)
       middlewares:
-        - name: traefik-dashboard-auth
+        - name: forward-auth
       services:
         - kind: TraefikService
           name: api@internal

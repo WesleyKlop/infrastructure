@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - storage.yaml
   - traefik-ui.yaml
-  - middlewares.yaml
+#  - middlewares.yaml
   - namecheap-api.yaml
   # Helm
   - helmrepo.yaml
