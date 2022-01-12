@@ -24,8 +24,6 @@ spec:
             - containerPort: 4181
               protocol: TCP
           env:
-            - name: DOMAIN
-              value: "wesl.io"
             - name: COOKIE_DOMAIN
               value: "wesl.io"
             - name: AUTH_HOST
