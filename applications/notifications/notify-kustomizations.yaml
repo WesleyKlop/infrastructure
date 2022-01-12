@@ -1,7 +1,7 @@
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: all-kustomizations
+  name: all-alerts
 spec:
   providerRef:
     name: slack
@@ -9,5 +9,11 @@ spec:
   eventSources:
     - kind: Kustomization
       namespace: flux-system
+      name: '*'
+    - kind: HelmRelease
+      namespace: 1password
+      name: '*'
+    - kind: HelmRelease
+      namespace: traefik
       name: '*'
   suspend: false
