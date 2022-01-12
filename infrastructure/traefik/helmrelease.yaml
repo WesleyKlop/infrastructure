@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: traefik
-      version: 10.9.1
+      version: ^10.9.0
   interval: 1m0s
   maxHistory: 2
   upgrade:

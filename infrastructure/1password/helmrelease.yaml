@@ -9,7 +9,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: 1password
-      version: 1.7.0
+      version: ^1.7.0
   interval: 1m0s
   maxHistory: 2
   valuesFrom:
