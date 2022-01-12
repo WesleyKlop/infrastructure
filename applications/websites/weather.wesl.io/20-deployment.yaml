@@ -22,6 +22,8 @@ spec:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+            runAsUser: 33
+            runAsGroup: 33
             capabilities:
               drop:
                 - ALL
@@ -54,6 +56,8 @@ spec:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+            runAsUser: 33
+            runAsGroup: 33
             capabilities:
               drop:
                 - ALL
