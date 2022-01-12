@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: polaris
+spec:
+  chart:
+    spec:
+      chart: polaris
+      sourceRef:
+        kind: HelmRepository
+        name: fairwinds-stable
+        namespace: flux-system
+      version: ^4.2.0
+  interval: 1m0s
+  maxHistory: 2

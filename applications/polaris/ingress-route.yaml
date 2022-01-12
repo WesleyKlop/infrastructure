@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: polaris-dashboard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`polaris.wesl.io`)
+      middlewares:
+        - name: forward-auth
+      services:
+        - name: polaris-dashboard
+          port: 80
