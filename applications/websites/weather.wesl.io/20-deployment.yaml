@@ -59,6 +59,8 @@ spec:
             capabilities:
               drop:
                 - ALL
+              add:
+                - CHOWN
           readinessProbe:
             httpGet:
               path: /
