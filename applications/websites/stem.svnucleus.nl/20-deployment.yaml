@@ -15,6 +15,7 @@ spec:
       containers:
         - name: vote-system
           image: ghcr.io/wesleyklop/vote-system:1
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: env-config

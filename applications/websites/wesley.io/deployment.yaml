@@ -15,6 +15,7 @@ spec:
       containers:
         - name: wesley-io-site
           image: ghcr.io/wesleyklop/wesley.io:v0.5.2
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: wesley-io-config

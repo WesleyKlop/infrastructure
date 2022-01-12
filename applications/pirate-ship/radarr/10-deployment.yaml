@@ -15,6 +15,7 @@ spec:
       containers:
         - name: radarr
           image: ghcr.io/linuxserver/radarr:version-3.2.2.5080
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: base-config

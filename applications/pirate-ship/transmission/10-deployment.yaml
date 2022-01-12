@@ -15,6 +15,7 @@ spec:
       containers:
         - name: transmission
           image: ghcr.io/linuxserver/transmission:version-3.00-r2
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: base-config

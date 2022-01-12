@@ -16,6 +16,7 @@ spec:
       containers:
         - name: sonarr
           image: ghcr.io/linuxserver/sonarr:version-3.0.6.1342
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: base-config

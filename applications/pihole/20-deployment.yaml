@@ -18,6 +18,7 @@ spec:
         - name: pihole
           image: pihole/pihole:2022.01.1
           imagePullPolicy: Always
+          imagePullPolicy: Always
           env:
             - name: TZ
               value: "Europe/Amsterdam"

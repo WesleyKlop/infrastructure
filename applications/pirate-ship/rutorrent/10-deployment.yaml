@@ -15,6 +15,7 @@ spec:
       containers:
         - name: rutorrent
           image: ghcr.io/crazy-max/rtorrent-rutorrent:3.10-0.9.8-0.13.8
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: base-config

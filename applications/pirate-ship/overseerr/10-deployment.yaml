@@ -15,6 +15,7 @@ spec:
       containers:
         - name: overseerr
           image: ghcr.io/linuxserver/overseerr:version-v1.28.0
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: base-config

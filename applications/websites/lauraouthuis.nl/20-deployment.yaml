@@ -15,6 +15,7 @@ spec:
       containers:
         - name: laura-site
           image: nginx:1.21.5-alpine
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           volumeMounts:

@@ -17,6 +17,8 @@ spec:
       containers:
         - name: vote-system-wesl-io-site
           image: ghcr.io/wesleyklop/vote-system:edge
+          imagePullPolicy: Always
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: vote-system-wesl-io-config
@@ -55,6 +57,8 @@ spec:
             - containerPort: 80
         - name: vote-system-wesl-io-websockets
           image: ghcr.io/wesleyklop/vote-system:edge
+          imagePullPolicy: Always
+          imagePullPolicy: Always
           command: ["php", "artisan", "websockets:serve"]
           envFrom:
             - configMapRef:
