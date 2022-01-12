@@ -61,6 +61,8 @@ spec:
                 - ALL
               add:
                 - CHOWN
+                - SETGID
+                - SETUID
           readinessProbe:
             httpGet:
               path: /
