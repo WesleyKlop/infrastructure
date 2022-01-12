@@ -9,7 +9,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: fairwinds-stable
-        namespace: flux-system
       version: ^4.2.0
   interval: 1m0s
   maxHistory: 2
