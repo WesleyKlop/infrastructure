@@ -10,6 +10,7 @@ spec:
       match: Host(`polaris.wesl.io`)
       middlewares:
         - name: forward-auth
+          namespace: traefik
       services:
         - name: polaris-dashboard
           port: 80
