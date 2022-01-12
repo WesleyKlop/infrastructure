@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: forward-auth
+  labels:
+    app: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`auth.wesl.io`)
+      kind: Rule
+      services:
+        - name: forward-auth
+          port: 4181
+      middlewares:
+        - name: forward-auth
