@@ -3,7 +3,7 @@ kind: GitRepository
 metadata:
   name: iprwc
 spec:
-  interval: 30s
+  interval: 1m0s
   ref:
     branch: main
   url: ssh://git@github.com/WesleyKlop/iprwc

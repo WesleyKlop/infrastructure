@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: iprwc
 spec:
-  interval: 5m0s
+  interval: 10m0s
   path: ./manifests
   prune: true
   sourceRef:
