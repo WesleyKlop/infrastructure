@@ -12,10 +12,10 @@
   "kubernetes": {
     "fileMatch": [".+\\.yaml$"],
     "ignorePaths": [
-      ".*/flux-system/.*\\.yaml$",
-      ".*helm-release\\.yaml$",
       ".github",
-      "infrastructure/zfs-operator"
+      "clusters/idris/flux-system/",
+      "infrastructure/zfs-operator/",
+      ".*helm-release\\.yaml$"
     ]
   },
   "helm-values": {
