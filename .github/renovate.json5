@@ -12,6 +12,7 @@
   "kubernetes": {
     "fileMatch": [".+\\.yaml$"],
     "ignorePaths": [
+      ".*/flux-system/.*",
       ".*helm-release\\.yaml$",
       ".github",
     ]
