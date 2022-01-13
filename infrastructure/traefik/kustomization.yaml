@@ -8,5 +8,5 @@ resources:
   - namecheap-api.yaml
   - tls-default.yaml
   # Helm
-  - helmrepo.yaml
-  - helmrelease.yaml
+  - helm-repo.yaml
+  - helm-release.yaml

@@ -5,10 +5,11 @@ metadata:
 spec:
   chart:
     spec:
+      # renovate: registryUrl=https://charts.fairwinds.com/stable
       chart: polaris
+      version: ^4.2.0
       sourceRef:
         kind: HelmRepository
         name: fairwinds-stable
-      version: ^4.2.0
   interval: 1m0s
   maxHistory: 2

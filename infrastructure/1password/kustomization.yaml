@@ -4,5 +4,5 @@ namespace: 1password
 resources:
   - namespace.yaml
   - secrets.yaml
-  - helmrepo.yaml
-  - helmrelease.yaml
+  - helm-repo.yaml
+  - helm-release.yaml
