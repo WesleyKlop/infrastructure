@@ -5,8 +5,8 @@ resources:
   - namespace.yaml
   - storage.yaml
   - traefik-ui.yaml
-#  - middlewares.yaml
   - namecheap-api.yaml
+  - tls-default.yaml
   # Helm
   - helmrepo.yaml
   - helmrelease.yaml
