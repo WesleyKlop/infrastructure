@@ -73,7 +73,7 @@ spec:
         protocol: TCP
         tls:
           enabled: true
-          options: "tls-default"
+          options: "traefik-tls-default"
           certResolver: "namecheap"
           domains:
             - main: wesleyklop.nl
