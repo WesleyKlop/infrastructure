@@ -55,6 +55,8 @@ spec:
               name: photos-wesl-io-photos
             - mountPath: /photoprism/storage
               name: photos-wesl-io-storage
+            - mountPath: /tmp
+              name: tmp
       volumes:
         - name: photos-wesl-io-photos
           hostPath:
@@ -63,3 +65,6 @@ spec:
         - name: photos-wesl-io-storage
           persistentVolumeClaim:
             claimName: photoprism-pvc
+        - name: tmp
+          emptyDir: {}
+
