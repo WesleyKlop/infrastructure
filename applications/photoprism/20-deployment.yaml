@@ -18,6 +18,17 @@ spec:
         - name: photos-wesl-io-site
           image: photoprism/photoprism:20220107
           imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 1000m
+              memory: 512Mi
           envFrom:
             - configMapRef:
                 name: photos-wesl-io-config
