@@ -36,18 +36,19 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: config
-            - mountPath: /downloads
-              name: torrents
             - mountPath: /passwd
               name: passwd
+            - mountPath: /downloads
+              name: media
+              subPath: torrents
       volumes:
         - name: config
           hostPath:
             path: /opt/rutorrent/config
             type: Directory
-        - name: torrents
+        - name: media
           hostPath:
-            path: /tank/media/torrents
+            path: /tank/media
             type: Directory
         - name: passwd
           hostPath:
