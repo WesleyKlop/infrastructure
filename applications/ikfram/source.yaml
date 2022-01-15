@@ -1,0 +1,11 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: ikfram
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: ssh://git@github.com/WesleyKlop/ikfram
+  secretRef:
+    name: github-ssh-credentials

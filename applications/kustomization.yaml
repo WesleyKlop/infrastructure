@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - forward-auth
   - iprwc
+  - ikfram
   - ns-wesley
   - photoprism
   - pihole
