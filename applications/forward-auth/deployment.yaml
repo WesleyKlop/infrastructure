@@ -21,6 +21,16 @@ spec:
         - image: thomseddon/traefik-forward-auth:2
           imagePullPolicy: Always
           name: forward-auth
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          resources:
+            limits:
+              cpu: 100m
+              memory: 32Mi
+            requests:
+              cpu: 10m
+              memory: 8Mi
           ports:
             - containerPort: 4181
               protocol: TCP
