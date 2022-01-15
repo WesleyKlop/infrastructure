@@ -1,0 +1,37 @@
+name: Testing
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  security-events: write
+
+
+concurrency:
+  group: ci/${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: kube-linter
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: mkdir -p ../results
+      - name: Scan infrastructure configuration
+        uses: stackrox/kube-linter-action@v1
+        id: kube-linter
+        continue-on-error: true
+        with:
+          directory: applications
+          config: .meta/kube-linter.yaml
+          format: sarif
+          output-file: ../results/kube-linter.sarif
+      - uses: github/codeql-action/upload-sarif@v1
+      - name: Fail on kube-linter issues
+        run: '[[ "${{ steps.kube-linter.outcome }}" == "success" ]]'
+
