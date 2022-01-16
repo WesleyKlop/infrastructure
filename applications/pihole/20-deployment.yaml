@@ -18,6 +18,18 @@ spec:
         - name: pihole
           image: pihole/pihole:2022.01.1
           imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 999
+            runAsGroup: 999
+            readOnlyRootFilesystem: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
           env:
             - name: TZ
               value: "Europe/Amsterdam"
