@@ -22,7 +22,7 @@ spec:
             runAsNonRoot: true
             runAsUser: 999
             runAsGroup: 999
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
           resources:
             requests:
               cpu: 100m
