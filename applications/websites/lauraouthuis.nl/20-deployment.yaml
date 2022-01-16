@@ -26,10 +26,8 @@ spec:
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: webroot
-            - mountPath: /var/cache
-              name: cache
-            - mountPath: /var/run
-              name: run-dir
+            - mountPath: /tmp
+              name: tmp-dir
           resources:
             requests:
               cpu: 10m
@@ -42,7 +40,5 @@ spec:
           hostPath:
             path: /home/laura/lauraouthuis.nl
             type: Directory
-        - name: cache
-          emptyDir: { }
-        - name: run-dir
+        - name: tmp-dir
           emptyDir: { }
