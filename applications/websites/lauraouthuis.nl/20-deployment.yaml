@@ -14,15 +14,35 @@ spec:
     spec:
       containers:
         - name: laura-site
-          image: nginx:1.21.5-alpine
+          image: nginxinc/nginx-unprivileged:1.21-alpine
           imagePullPolicy: Always
+          securityContext:
+            runAsUser: 101
+            runAsGroup: 101
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: webroot
+            - mountPath: /var/cache
+              name: cache
+            - mountPath: /var/run
+              name: run-dir
+          resources:
+            requests:
+              cpu: 10m
+              memory: 4Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
       volumes:
         - name: webroot
           hostPath:
             path: /home/laura/lauraouthuis.nl
             type: Directory
+        - name: cache
+          emptyDir: { }
+        - name: run-dir
+          emptyDir: { }
