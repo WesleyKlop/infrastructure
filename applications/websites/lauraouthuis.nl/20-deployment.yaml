@@ -35,6 +35,16 @@ spec:
             limits:
               cpu: 100m
               memory: 64Mi
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /
+            initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /
+            initialDelaySeconds: 30
       volumes:
         - name: webroot
           hostPath:
