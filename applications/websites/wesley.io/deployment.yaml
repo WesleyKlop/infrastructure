@@ -16,6 +16,13 @@ spec:
         - name: wesley-io-site
           image: ghcr.io/wesleyklop/wesley.io:v0.5.2
           imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 16Mi
           envFrom:
             - configMapRef:
                 name: wesley-io-config

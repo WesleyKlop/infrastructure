@@ -18,6 +18,13 @@ spec:
         - name: vote-system-wesl-io-site
           image: ghcr.io/wesleyklop/vote-system:edge
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 150m
+              memory: 384Mi
           envFrom:
             - configMapRef:
                 name: vote-system-wesl-io-config
@@ -57,6 +64,13 @@ spec:
         - name: vote-system-wesl-io-websockets
           image: ghcr.io/wesleyklop/vote-system:edge
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 150m
+              memory: 256Mi
           command: ["php", "artisan", "websockets:serve"]
           envFrom:
             - configMapRef:
