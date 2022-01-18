@@ -16,6 +16,13 @@ spec:
         - name: vote-system
           image: ghcr.io/wesleyklop/vote-system:1
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
           envFrom:
             - configMapRef:
                 name: env-config
