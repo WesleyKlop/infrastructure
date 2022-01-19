@@ -1,4 +1,4 @@
-name: Testing
+name: Linting k8s config for best practices
 
 on:
   pull_request:
@@ -9,7 +9,6 @@ on:
 permissions:
   contents: read
   security-events: write
-
 
 concurrency:
   group: ci/${{ github.ref }}

@@ -1,0 +1,38 @@
+name: Schedule - Upgrade Flux
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  upgrade-flux:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        cluster:
+          - idris
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fluxcd/flux2/action@main
+      - id: upgrade
+        run: |
+          UGLY_VERSION="$(flux -version --client -o json | jq '.flux' -r)"
+          flux install --version="${VERSION}" \
+            --export > ./clusters/${{ matrix.cluster }}/flux-system/gotk-components.yaml
+          echo "::set-output name=flux_version::$VERSION"
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ github.token }}
+          branch: "flux/upgrade-${{ steps.upgrade.outputs.flux_version }}"
+          delete-branch: true
+          title: "chore(deps): upgrade flux components to ${{ steps.upgrade.outputs.flux_version }}"
+          signoff: true
+          assignees: ${{ github.repository_owner }}
+          commit-message: "chore(deps): upgrade flux components to ${{ steps.upgrade.outputs.flux_version }}"
+          body: |
+            Release notes: https://github.com/fluxcd/flux2/releases/tag/${{ steps.upgrade.outputs.flux_version }}
