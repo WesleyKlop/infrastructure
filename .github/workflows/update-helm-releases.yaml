@@ -25,7 +25,15 @@ jobs:
       - name: Renovate Annotations Update
         uses: k8s-at-home/renovate-helm-releases@v1
         with:
-          cluster-path: ${{ matrix.cluster-path }}
+          cluster-path: clusters/idris
+      - name: Renovate Annotations Update
+        uses: k8s-at-home/renovate-helm-releases@v1
+        with:
+          cluster-path: applications
+      - name: Renovate Annotations Update
+        uses: k8s-at-home/renovate-helm-releases@v1
+        with:
+          cluster-path: infrastructure
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
