@@ -33,6 +33,7 @@ jobs:
           title: "chore(deps): upgrade flux components to ${{ steps.upgrade.outputs.flux_version }}"
           signoff: true
           assignees: ${{ github.repository_owner }}
+          author: github-actions <41898282+github-actions[bot]@users.noreply.github.com>
           commit-message: "chore(deps): upgrade flux components to ${{ steps.upgrade.outputs.flux_version }}"
           body: |
             Release notes: https://github.com/fluxcd/flux2/releases/tag/${{ steps.upgrade.outputs.flux_version }}
