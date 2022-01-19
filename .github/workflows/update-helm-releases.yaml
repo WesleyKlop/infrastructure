@@ -31,7 +31,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: "${{ steps.generate-token.outputs.token }}"
+          token: ${{ github.token }}
           branch: feature/renovate-annotations
           delete-branch: true
           title: "chore(ci): update renovate annotations"
