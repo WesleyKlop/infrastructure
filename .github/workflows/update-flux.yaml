@@ -21,7 +21,7 @@ jobs:
       - uses: fluxcd/flux2/action@main
       - id: upgrade
         run: |
-          UGLY_VERSION="$(flux -version --client -o json | jq '.flux' -r)"
+          UGLY_VERSION="$(flux version --client -o json | jq '.flux' -r)"
           flux install --version="${VERSION}" \
             --export > ./clusters/${{ matrix.cluster }}/flux-system/gotk-components.yaml
           echo "::set-output name=flux_version::$VERSION"
