@@ -28,7 +28,7 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ github.token }}
-          branch: "flux/upgrade-${{ steps.upgrade.outputs.flux_version }}"
+          branch: "feature/upgrade-flux-${{ steps.upgrade.outputs.flux_version }}"
           delete-branch: true
           title: "chore(deps): upgrade flux components to ${{ steps.upgrade.outputs.flux_version }}"
           signoff: true
