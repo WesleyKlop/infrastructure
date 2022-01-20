@@ -9,5 +9,5 @@ spec:
     - match: Host(`backups.wesl.io`)
       kind: Rule
       services:
-        - name: web
+        - name: urbackup-svc
           port: 55414
