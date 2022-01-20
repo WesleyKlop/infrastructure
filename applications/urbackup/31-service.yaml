@@ -7,6 +7,5 @@ spec:
     app: urbackup
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: web
+      port: 55414
       name: web
