@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: urbackup
-          image: uroni/urbackup-server:2.4.x
+          image: uroni/urbackup-server:2.4.x_i386
           imagePullPolicy: Always
           securityContext:
             capabilities:
