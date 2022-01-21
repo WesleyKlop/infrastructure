@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: photos-wesl-io-site
-          image: photoprism/photoprism:20220118
+          image: photoprism/photoprism:20220121
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: true
