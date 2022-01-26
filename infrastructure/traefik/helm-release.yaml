@@ -41,8 +41,8 @@ spec:
       - "--certificatesresolvers.namecheap.acme.dnschallenge.provider=namecheap"
       - "--certificatesresolvers.namecheap.acme.storage=/data/acme.json"
       - "--certificatesresolvers.letsencrypt.acme.email=wesley19097@gmail.com"
-      - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme-tls.json"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=websecure"
 
     envFrom:
       - secretRef:
