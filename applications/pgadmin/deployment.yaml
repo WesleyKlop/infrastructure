@@ -16,6 +16,13 @@ spec:
       labels:
         app: pgadmin
     spec:
+      initContainers:
+         - name: volume-permissions
+           image: busybox:1.31.1
+           command: ["sh", "-c", "chown -Rv 5050:5050 /data && chmod -Rv 700 /data"]
+           volumeMounts:
+           - name: pgadmin-data
+             mountPath: /data
       terminationGracePeriodSeconds: 60
       containers:
         - image: dpage/pgadmin4:6.4
@@ -23,6 +30,9 @@ spec:
           name: pgadmin
           securityContext:
             readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            runAsGroup: 5050
+            runAsUser: 5050
           resources:
             requests:
               cpu: 10m
@@ -32,8 +42,8 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: pgadmin-config
-              mountPath: /pgadmin4/servers.json
               subPath: servers.json
+              mountPath: /pgadmin4/servers.json
               readOnly: true
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
