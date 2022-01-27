@@ -12,3 +12,4 @@ resources:
   - slack
   - notifications
   - polaris
+  - pgadmin
