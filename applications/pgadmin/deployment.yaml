@@ -18,7 +18,7 @@ spec:
     spec:
       initContainers:
          - name: volume-permissions
-           image: busybox:1.31.1
+           image: busybox:1.35.0
            command: ["sh", "-c", "chown -Rv 5050:5050 /data && chmod -Rv 700 /data"]
            volumeMounts:
            - name: pgadmin-data
