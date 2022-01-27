@@ -6,7 +6,8 @@
       "Port": 5432,
       "Username": "postgres",
       "Host": "10.0.0.2",
-      "MaintenanceDB": "postgres"
+      "MaintenanceDB": "postgres",
+      "SSLMode": "prefer"
     }
   }
 }
