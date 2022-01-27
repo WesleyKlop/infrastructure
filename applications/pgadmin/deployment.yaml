@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           name: pgadmin
           securityContext:
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
           resources:
             limits:
               cpu: 100m
