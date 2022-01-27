@@ -24,9 +24,6 @@ spec:
           securityContext:
             readOnlyRootFilesystem: false
           resources:
-            limits:
-              cpu: 100m
-              memory: 32Mi
             requests:
               cpu: 10m
               memory: 8Mi
