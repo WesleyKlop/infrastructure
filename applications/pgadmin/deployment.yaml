@@ -45,6 +45,10 @@ spec:
               subPath: servers.json
               mountPath: /pgadmin4/servers.json
               readOnly: true
+            - name: pgadmin-config
+              subPath: config_local.py
+              mountPath: /pgadmin4/config_local.py
+              readOnly: true
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
           env:

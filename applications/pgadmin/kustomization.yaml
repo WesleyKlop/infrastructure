@@ -12,3 +12,4 @@ configMapGenerator:
   - name: pgadmin-config
     files:
       - config/servers.json
+      - config/config_local.py
