@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: pgadmin
   strategy:
-    type: RollingUpdate
+    type: Recreate
   template:
     metadata:
       labels:
