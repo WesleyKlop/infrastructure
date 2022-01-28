@@ -6,4 +6,5 @@ resources:
   - traefik
   - zfs-operator
   - 1password
+  - monitoring
   - secret.yaml
