@@ -4,3 +4,4 @@ namespace: monitoring
 resources:
   - namespace.yaml
   - kube-prometheus-stack
+  - service-monitors
