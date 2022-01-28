@@ -12,6 +12,11 @@ spec:
         kind: HelmRepository
         name: prometheus-community
   interval: 1m0s
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  timeout: 20m
   maxHistory: 2
   valuesFrom:
     - kind: ConfigMap
