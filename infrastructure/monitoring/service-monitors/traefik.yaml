@@ -12,4 +12,5 @@ spec:
   endpoints:
     - port: metrics
       path: /metrics
+      targetPort: 9100
 
