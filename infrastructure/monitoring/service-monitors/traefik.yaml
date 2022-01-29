@@ -2,8 +2,10 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: kube-prometheus-traefik
+  labels:
+    release: kube-prometheus-stack
+    app: treafik-metrics
 spec:
-  jobLabel: traefik-metrics
   selector:
     matchLabels:
       app.kubernetes.io/instance: traefik
