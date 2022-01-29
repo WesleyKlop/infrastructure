@@ -5,4 +5,5 @@ resources:
   - namespace.yaml
   - kube-prometheus-stack
   - service-monitors
+  - alert-managers
   - ingress-routes.yaml

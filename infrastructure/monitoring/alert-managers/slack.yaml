@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: slack-receiver
+  labels:
+    alertmanagerConfig: slack
+spec:
+  route:
+    groupBy: ['alertname']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'slack'
+  receivers:
+    - name: 'slack'
+      slackConfigs:
+        - channel: '#alerts'
+          sendResolved: true
+          apiURL:
+            key: webhook-url
+            name: alert-manager
+          title: '{{ template "alert_title" . }}'
+          text: '{{ template "alert_description" . }}'
+
+---
+apiVersion: onepassword.com/v1
+kind: OnePasswordItem
+metadata:
+  name: alert-manager
+spec:
+  itemPath: "vaults/idris/items/alert-manager"
