@@ -4,7 +4,7 @@ metadata:
   name: kube-prometheus-traefik-monitor
   labels:
     release: kube-prometheus-stack
-    app: treafik
+    app: traefik
 spec:
   selector:
     matchLabels:
