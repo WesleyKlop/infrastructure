@@ -8,9 +8,6 @@ spec:
   routes:
     - kind: Rule
       match: Host(`grafana.wesl.io`)
-      middlewares:
-        - name: forward-auth
-          namespace: traefik
       services:
         - name: kube-prometheus-stack-grafana
           port: http-web
