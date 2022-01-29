@@ -638,9 +638,7 @@ grafana:
   ## Timezone for the default dashboards
   ## Other options are: browser or a specific timezone, i.e. Europe/Luxembourg
   ##
-  defaultDashboardsTimezone: utc
-
-  adminPassword: prom-operator
+  defaultDashboardsTimezone: Europe/Amsterdam
 
   rbac:
     ## If true, Grafana PSPs will be created
