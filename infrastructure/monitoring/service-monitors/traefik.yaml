@@ -10,7 +10,8 @@ spec:
     matchLabels:
       app.kubernetes.io/name: traefik
   namespaceSelector:
-    any: true
+    matchNames:
+      - traefik
   endpoints:
     - port: metrics
       path: /metrics
