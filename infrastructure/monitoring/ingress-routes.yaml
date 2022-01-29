@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`grafana.wesl.io`)
+      middlewares:
+        - name: forward-auth
+          namespace: traefik
+      services:
+        - name: kube-prometheus-stack-grafana
+          port: http-web
+
