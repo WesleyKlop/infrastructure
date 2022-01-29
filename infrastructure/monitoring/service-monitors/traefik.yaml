@@ -9,8 +9,9 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: traefik
+  namespaceSelector:
+    any: true
   endpoints:
     - port: metrics
       path: /metrics
-      targetPort: 9100
 
