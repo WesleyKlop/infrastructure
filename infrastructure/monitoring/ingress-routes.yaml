@@ -11,4 +11,22 @@ spec:
       services:
         - name: kube-prometheus-stack-grafana
           port: http-web
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: alert-manager
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`alertmanager.wesl.io`)
+      middlewares:
+        - name: forward-auth
+          namespace: traefik
+      services:
+        - name: kube-prometheus-stack-alertmanager
+          port: http-web
+
 
