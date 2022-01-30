@@ -19,8 +19,6 @@ spec:
           apiURL:
             key: webhook-url
             name: alert-manager
-          title: '{{ template "alert_title" . }}'
-          text: '{{ template "alert_description" . }}'
 
 ---
 apiVersion: onepassword.com/v1

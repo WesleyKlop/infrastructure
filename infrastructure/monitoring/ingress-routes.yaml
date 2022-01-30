@@ -45,7 +45,3 @@ spec:
       services:
         - name: kube-prometheus-stack-prometheus
           port: http-web
-
-
-
-
