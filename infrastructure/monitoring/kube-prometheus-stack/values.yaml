@@ -2025,6 +2025,11 @@ prometheus:
   ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#prometheusspec
   ##
   prometheusSpec:
+    alerting:
+      alertmanagers:
+        - namespace: monitoring
+          name: kube-prometheus-stack-alertmanager
+          port: http-web
     ## If true, pass --storage.tsdb.max-block-duration=2h to prometheus. This is already done if using Thanos
     ##
     disableCompaction: false
