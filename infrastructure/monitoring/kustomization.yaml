@@ -4,6 +4,6 @@ namespace: monitoring
 resources:
   - namespace.yaml
   - kube-prometheus-stack
-  - service-monitors
+  - monitors
   - alert-managers
   - ingress-routes.yaml
