@@ -4,3 +4,4 @@ resources:
   - traefik.yaml
   - pihole.yaml
   - flux2.yaml
+  - metallb.yaml

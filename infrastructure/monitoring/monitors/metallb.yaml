@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: metallb
+  labels:
+    app: metallb
+    release: kube-prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - metallb-system
+  selector:
+    matchLabels:
+      app: metallb
+  podMetricsEndpoints:
+    - port: monitoring
