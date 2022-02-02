@@ -18,14 +18,3 @@ spec:
           annotations:
             description: '{{ $labels.instance }}: MetalLB instance has stale configuration.'
             summary: '{{ $labels.instance }}: MetalLB stale configuration.'
-        - alert: MetalLBUsableAddressUtilisation
-          expr: ((metallb_allocator_addresses_in_use_total / metallb_allocator_addresses_total) * 100) > 75
-          for: 2m
-          annotations:
-            description: 'MetalLB usable address utilisation for IP pool {{ $pool }} is currently at {{ $value }}%.'
-            summary: 'MetalLB address space utilisation alert.'
-        - alert: MetalLBNoUsableAddresses
-          expr: metallb_allocator_addresses_total == 0
-          annotations:
-            description: 'MetalLB has no usable addresses.'
-            summary: 'MetalLB no usable address space.'
