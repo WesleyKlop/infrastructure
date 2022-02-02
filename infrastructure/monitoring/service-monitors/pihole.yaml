@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: pihole
+      app: pihole
   namespaceSelector:
     matchNames:
       - pihole

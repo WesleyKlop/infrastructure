@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: pihole
   namespace: pihole
+  labels:
+    app: pihole
 spec:
   selector:
     app: pihole
