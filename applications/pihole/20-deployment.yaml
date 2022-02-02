@@ -15,6 +15,16 @@ spec:
         name: pihole
     spec:
       containers:
+        - name: exporter
+          image: ekofr/pihole-exporter:0.1.1
+          env:
+            - name: PIHOLE_HOSTNAME
+              value: pihole
+            - name: PIHOLE_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                    key: api-token
+                    name: pihole
         - name: pihole
           image: pihole/pihole:2022.01.1
           imagePullPolicy: Always
