@@ -24,6 +24,9 @@ spec:
             runAsUser: 65534
             runAsGroup: 65534
             readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 9617
+              name: metrics
           env:
             - name: PIHOLE_HOSTNAME
               value: pihole

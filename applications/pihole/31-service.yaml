@@ -10,6 +10,8 @@ spec:
     - port: 8000
       targetPort: 80
       name: pihole-admin
+    - port: 9617
+      name: metrics
 ---
 apiVersion: v1
 kind: Service
