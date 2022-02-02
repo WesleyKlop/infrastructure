@@ -6,4 +6,5 @@ resources:
   - kube-prometheus-stack
   - monitors
   - alert-managers
+  - rules
   - ingress-routes.yaml
