@@ -4,6 +4,7 @@ namespace: pihole
 resources:
   - 00-namespace.yaml
   - 10-storage.yaml
+  - 11-secret.yaml
   - 20-deployment.yaml
   - 30-ingress-route.yaml
   - 31-service.yaml
