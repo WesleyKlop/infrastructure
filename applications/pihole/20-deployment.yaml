@@ -17,6 +17,12 @@ spec:
       containers:
         - name: exporter
           image: ekofr/pihole-exporter:0.1.1
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65534
+            runAsGroup: 65534
+            readOnlyRootFilesystem: true
           env:
             - name: PIHOLE_HOSTNAME
               value: pihole
