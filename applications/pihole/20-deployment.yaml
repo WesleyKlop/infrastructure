@@ -14,6 +14,7 @@ spec:
         app: pihole
         name: pihole
     spec:
+      enableServiceLinks: false
       containers:
         - name: exporter
           image: ekofr/pihole-exporter:v0.1.1
