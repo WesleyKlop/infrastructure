@@ -635,7 +635,7 @@ grafana:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
     # https://github.com/coreos/prometheus-operator
     #
-    enabled: false
+    enabled: true
 
     # Path to use for scraping metrics. Might be different if server.root_url is set
     # in grafana.ini
