@@ -8,18 +8,18 @@ volumeBindingMode: WaitForFirstConsumer
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pihole-local-etc-volume
+  name: pihole-pv
   labels:
-    directory: etc
+    app: pihole
 spec:
   capacity:
-    storage: 2Gi
+    storage: 3Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local
   local:
-    path: /opt/pihole/pihole
+    path: /opt/pihole
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -32,53 +32,14 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: local-etc-claim
+  name: pihole-pvc
 spec:
   storageClassName: local
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 3Gi
   selector:
     matchLabels:
-      directory: etc
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pihole-local-dnsmasq-volume
-  labels:
-    directory: dnsmasq.d
-spec:
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local
-  local:
-    path: /opt/pihole/dnsmasq.d
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - idris
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: local-dnsmasq-claim
-spec:
-  storageClassName: local
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 500Mi
-  selector:
-    matchLabels:
-      directory: dnsmasq.d
+      app: pihole

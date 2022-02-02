@@ -50,14 +50,13 @@ spec:
             - name: DNSMASQ_LISTENING
               value: "all"
           volumeMounts:
-            - name: pihole-local-etc-volume
+            - name: storage
               mountPath: "/etc/pihole"
-            - name: pihole-local-dnsmasq-volume
+              subPath: pihole
+            - name: storage
               mountPath: "/etc/dnsmasq.d"
+              subPath: dnsmasq.d
       volumes:
-        - name: pihole-local-etc-volume
+        - name: storage
           persistentVolumeClaim:
-            claimName: local-etc-claim
-        - name: pihole-local-dnsmasq-volume
-          persistentVolumeClaim:
-            claimName: local-dnsmasq-claim
+            claimName: pihole-pvc
