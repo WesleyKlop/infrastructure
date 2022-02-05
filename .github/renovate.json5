@@ -13,8 +13,8 @@
     "fileMatch": [".+\\.yaml$"],
     "ignorePaths": [
       ".github",
-      "clusters/idris/flux-system/",
-      "infrastructure/zfs-operator/",
+      "clusters/idris/flux-system",
+      "infrastructure/zfs-operator",
       ".*helm-release\\.yaml$"
     ]
   },
