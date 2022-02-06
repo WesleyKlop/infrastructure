@@ -19,6 +19,8 @@ spec:
           securityContext:
             runAsNonRoot: true
             readOnlyRootFilesystem: true
+            runAsGroup: 911
+            runAsUser: 911
           ports:
             - containerPort: 9090
           envFrom:
