@@ -23,7 +23,7 @@ spec:
             runAsNonRoot: false
             readOnlyRootFilesystem: false
           ports:
-            - containerPort: 9090
+            - containerPort: 80
           envFrom:
             - configMapRef:
                 name: mealie-config
@@ -47,12 +47,12 @@ spec:
               memory: 256Mi
           readinessProbe:
             httpGet:
-              port: 9090
+              port: 80
               path: /
             initialDelaySeconds: 10
           livenessProbe:
             httpGet:
-              port: 9090
+              port: 80
               path: /
             initialDelaySeconds: 30
           volumeMounts:
