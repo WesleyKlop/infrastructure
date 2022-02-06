@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: false
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
           ports:
             - containerPort: 9090
           envFrom:
