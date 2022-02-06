@@ -14,15 +14,14 @@ spec:
       labels:
         app: mealie
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: mealie
           image: hkotel/mealie:v0.5.6
           imagePullPolicy: Always
           securityContext:
-            runAsNonRoot: true
+            runAsNonRoot: false
             readOnlyRootFilesystem: true
-            runAsGroup: 911
-            runAsUser: 911
           ports:
             - containerPort: 9090
           envFrom:
