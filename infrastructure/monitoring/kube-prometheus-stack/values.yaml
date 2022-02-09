@@ -1245,6 +1245,8 @@ kube-state-metrics:
 ##
 nodeExporter:
   enabled: true
+  extraArgs:
+    - '--collector.zfs'
 
 ## Configuration for prometheus-node-exporter subchart
 ##
