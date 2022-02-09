@@ -7,5 +7,5 @@ resources:
   - monitors
   - alert-managers
   - rules
-  - dashbaords
+  - dashboards
   - ingress-routes.yaml
