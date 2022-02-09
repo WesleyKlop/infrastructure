@@ -4,8 +4,14 @@ configMapGenerator:
   - name: traefik
     files:
       - traefik.json
+  - name: pi-hole
+    files:
       - pi-hole.json
+  - name: flux-cluster
+    files:
       - flux-cluster.json
+  - name: flux-control-plane
+    files:
       - flux-control-plane.json
 generatorOptions:
   labels:
