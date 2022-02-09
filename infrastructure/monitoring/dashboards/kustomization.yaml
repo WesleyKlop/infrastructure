@@ -3,7 +3,10 @@ kind: Kustomization
 configMapGenerator:
   - name: traefik
     files:
-      - "traefik.json"
+      - traefik.json
+      - pi-hole.json
+      - flux-cluster.json
+      - flux-control-plane.json
 generatorOptions:
   labels:
     grafana_dashboard: '1'

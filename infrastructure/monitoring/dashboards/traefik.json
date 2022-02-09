@@ -24,7 +24,7 @@
   "gnetId": 11462,
   "graphTooltip": 0,
   "id": 26,
-  "iteration": 1644413477381,
+  "iteration": 1644433273663,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1310,8 +1310,8 @@
     ]
   },
   "timezone": "",
-  "title": "Traefik 2.1",
-  "uid": "3ipsWfVix",
+  "title": "Traefik 2",
+  "uid": "3ipsWfViz",
   "version": 1,
   "weekStart": ""
 }
