@@ -556,6 +556,11 @@ grafana:
   ##
   defaultDashboardsTimezone: Europe/Amsterdam
 
+  admin:
+    existingSecret: grafana
+    userKey: username
+    passwordKey: password
+
   rbac:
     ## If true, Grafana PSPs will be created
     ##
