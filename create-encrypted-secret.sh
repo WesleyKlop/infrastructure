@@ -11,7 +11,6 @@ if ! test -f "$FILENAME"; then
 fi
 
 exec sops --encrypt \
---pgp="$GPG_KEY" \
 --encrypted-regex '^(data|stringData)$' \
 --in-place "$FILENAME"
 
