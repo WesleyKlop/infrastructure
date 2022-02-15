@@ -7,5 +7,4 @@ resources:
   - zfs-operator
   - 1password
   - monitoring
-  - linkerd
   - secret.yaml
