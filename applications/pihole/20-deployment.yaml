@@ -17,7 +17,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: exporter
-          image: ekofr/pihole-exporter:v0.2.0
+          image: ekofr/pihole-exporter:v0.3.0
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: true
