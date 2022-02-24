@@ -1,13 +1,18 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: wesley-io-ingress-route
 spec:
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`wesley.io`) || Host(`wesl.io`) || Host(`wesleyklop.nl`)
-      kind: Rule
-      services:
-        - name: wesley-io-svc
-          port: 80
+  rules:
+    - host: wesley.io
+      http: &rules
+        paths:
+          - backend:
+            service:
+              name: wesley-io-svc
+              port:
+                number: 80
+    - host: wesl.io
+      http: *rules
+    - host: wesleyklop.nl
+      http: *rules
