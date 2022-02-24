@@ -16,6 +16,9 @@ configMapGenerator:
   - name: zfs
     files:
       - zfs.json
+  - name: metallb
+    files:
+      - metallb.json
 generatorOptions:
   labels:
     grafana_dashboard: '1'
