@@ -1,13 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wesley-io-ingress-route
+  name: wesley-io-ingress
 spec:
   rules:
     - host: wesley.io
       http: &rules
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
                 name: wesley-io-svc
                 port:
