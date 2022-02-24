@@ -8,10 +8,10 @@ spec:
       http: &rules
         paths:
           - backend:
-            service:
-              name: wesley-io-svc
-              port:
-                number: 80
+              service:
+                name: wesley-io-svc
+                port:
+                  number: 80
     - host: wesl.io
       http: *rules
     - host: wesleyklop.nl
