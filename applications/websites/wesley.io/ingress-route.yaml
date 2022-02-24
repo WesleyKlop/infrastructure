@@ -5,12 +5,18 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
-  defaultBackend:
-    service:
-      name: wesley-io-svc
-      port:
-        number: 80
   rules:
     - host: wesley.io
+      http: &rules
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wesley-io-svc
+                port:
+                  number: 80
     - host: wesl.io
+      http: *rules
     - host: wesleyklop.nl
+      http: *rules
