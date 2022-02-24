@@ -8,3 +8,4 @@ resources:
   - 1password
   - monitoring
   - secret.yaml
+  - ingress-class.yaml
