@@ -13,15 +13,6 @@ spec:
         name: 1password
   interval: 1m0s
   maxHistory: 2
-  valuesFrom:
-    - kind: Secret
-      name: my-credentials
-      targetPath: connect.credentials
-      valuesKey: 1password-credentials.json
-    - kind: Secret
-      name: my-credentials
-      targetPath: operator.token.value
-      valuesKey: access-token
   values:
     operator:
       create: true
