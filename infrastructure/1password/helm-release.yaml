@@ -15,11 +15,11 @@ spec:
   maxHistory: 2
   valuesFrom:
     - kind: Secret
-      name: 1password-credentials
+      name: op-credentials
       targetPath: connect.credentials
-      valuesKey: credentials
+      valuesKey: 1password-credentials.json
     - kind: Secret
-      name: 1password-credentials
+      name: op-credentials
       targetPath: operator.token.value
       valuesKey: access-token
   values:
