@@ -23,6 +23,7 @@ jobs:
         run: |
           VERSION="$(flux version --client -o json | jq '.flux' -r)"
           flux install --version="${VERSION}" \
+            --components-extra=image-reflector-controller,image-automation-controller \
             --export > ./clusters/${{ matrix.cluster }}/flux-system/gotk-components.yaml
           echo "::set-output name=flux_version::$VERSION"
       - uses: peter-evans/create-pull-request@v3
