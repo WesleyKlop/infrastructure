@@ -5,3 +5,4 @@ resources:
   - pihole.yaml
   - flux2.yaml
   - metallb.yaml
+  - keycloak.yaml

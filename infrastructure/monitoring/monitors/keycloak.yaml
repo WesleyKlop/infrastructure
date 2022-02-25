@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: keycloak-monitor
+  labels:
+    release: kube-prometheus-stack
+    app: keycloak
+spec:
+  selector:
+    matchLabels:
+      app: keycloak
+  namespaceSelector:
+    matchNames:
+      - keycloak
+  endpoints:
+    - port: http
+      path: /metrics
+
