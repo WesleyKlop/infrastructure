@@ -25,3 +25,7 @@ spec:
   values:
     operator:
       create: true
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
