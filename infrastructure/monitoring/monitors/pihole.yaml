@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: kube-prometheus-pihole-monitor
+  name: pihole
   labels:
     release: kube-prometheus-stack
     app: pihole
