@@ -561,6 +561,17 @@ grafana:
     userKey: username
     passwordKey: password
 
+  envValueFrom:
+    POSTGRES_USER:
+      secretKeyRef:
+        key: grafana-user
+        name: postgres
+    POSTGRES_PASSWORD:
+      secretKeyRef:
+        key: grafana-pass
+        name: postgres
+
+
   rbac:
     ## If true, Grafana PSPs will be created
     ##
@@ -615,7 +626,18 @@ grafana:
 
   ## Configure additional grafana datasources (passed through tpl)
   ## ref: http://docs.grafana.org/administration/provisioning/#datasources
-  additionalDataSources: []
+  additionalDataSources:
+    - name: PostgreSQL - Weatherstation
+      type: PostgreSQL
+      postgresVersion: 1290
+      database: weatherstation
+      user: $POSTGRES_USER
+      url: 10.0.0.2:5432
+      secureJsonData:
+        password: $POSTGRES_PASSWORD
+      jsonData:
+        sslmode: disable
+
   # - name: prometheus-sample
   #   access: proxy
   #   basicAuth: true
