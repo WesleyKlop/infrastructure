@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - sync.yaml
-  - pull-secret.yaml
