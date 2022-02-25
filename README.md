@@ -36,8 +36,8 @@ Flux reconciliation and upgrade notifications are automatically send to Slack.
 
 ## Todo
 
-- [ ] Logging with prometheus
-- [ ] Dashboard with Grafana
-- [ ] Automated testing
+- [x] Logging with prometheus
+- [x] Dashboard with Grafana
+- [x] Automated testing
 - [ ] Improve automated image updates
 - [ ] Reduce usage of hostPath volumes

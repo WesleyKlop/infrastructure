@@ -9,3 +9,4 @@ resources:
   - monitoring
   - secret.yaml
   - ingress-class.yaml
+  - storage.yaml
