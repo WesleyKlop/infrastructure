@@ -37,10 +37,6 @@ spec:
             - containerPort: 4181
               protocol: TCP
           env:
-            - name: COOKIE_DOMAIN
-              value: "wesl.io"
-            - name: AUTH_HOST
-              value: "auth.wesl.io"
             - name: PROVIDER_URI
               value: "https://keycloak.wesl.io/realms/traefik"
             - name: SECRET
@@ -48,6 +44,11 @@ spec:
                 secretKeyRef:
                   name: forward-auth-secrets
                   key: secret
+            - name: ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: forward-auth-secrets
+                  key: encryption-key
             - name: CLIENT_ID
               valueFrom:
                 secretKeyRef:
