@@ -56,5 +56,5 @@ spec:
             - name: CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  key: client-id
+                  key: client-secret
                   name: forward-auth-secrets
