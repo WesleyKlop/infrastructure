@@ -21,3 +21,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: keycloak
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
