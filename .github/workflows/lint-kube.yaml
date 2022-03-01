@@ -19,7 +19,7 @@ jobs:
     name: kube-linter
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: mkdir -p ../results
       - name: Scan infrastructure configuration
         uses: stackrox/kube-linter-action@v1
