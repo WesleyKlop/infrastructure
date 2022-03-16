@@ -3,7 +3,7 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "PBFA97CFB590B2093",
+        "datasource": "Prometheus",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -17,8 +17,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 7845,
   "graphTooltip": 0,
-  "id": 31,
-  "iteration": 1644436460811,
+  "iteration": 1647426934348,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -85,7 +84,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -191,7 +190,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -315,7 +314,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -420,7 +419,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -542,7 +541,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -697,7 +696,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -793,7 +792,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -897,7 +896,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.4",
+      "pluginVersion": "8.4.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -971,7 +970,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -987,6 +986,9 @@
           "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(node_exporter_build_info{job=~\"node-exporter\"}, instance)",
+        "error": {
+          "message": "Datasource PBFA97CFB590B2093 was not found"
+        },
         "hide": 0,
         "includeAll": false,
         "multi": false,
@@ -1016,6 +1018,9 @@
           "uid": "PBFA97CFB590B2093"
         },
         "definition": "label_values(node_exporter_build_info{instance=~\"$node:(.*)\"}, instance)",
+        "error": {
+          "message": "Datasource PBFA97CFB590B2093 was not found"
+        },
         "hide": 2,
         "includeAll": false,
         "multi": false,
