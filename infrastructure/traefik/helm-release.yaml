@@ -31,7 +31,11 @@ spec:
         enabled: true
         allowCrossNamespace: true
         allowExternalNameServices: true
-        namespaces: [ ]
+        namespaces: []
+      kubernetesIngress:
+        enabled: true
+        publishedService:
+          enabled: true
 
     globalArguments:
       - "--global.checknewversion"
@@ -97,11 +101,11 @@ spec:
       size: 512Mi
       storageClass: "local-traefik-perms"
       path: /data
-      annotations: { }
+      annotations: {}
 
     securityContext:
       capabilities:
-        drop: [ ALL ]
+        drop: [ALL]
       readOnlyRootFilesystem: true
       runAsGroup: 65532
       runAsNonRoot: true
@@ -109,5 +113,3 @@ spec:
 
     podSecurityContext:
       fsGroup: 65532
-
-  
