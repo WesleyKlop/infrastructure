@@ -9,11 +9,25 @@ spec:
   eventSources:
     - kind: Kustomization
       namespace: flux-system
-      name: '*'
+      name: "*"
     - kind: HelmRelease
       namespace: 1password
-      name: '*'
+      name: "*"
     - kind: HelmRelease
       namespace: traefik
-      name: '*'
+      name: "*"
+  suspend: false
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Alert
+metadata:
+  name: kustomization-alerts
+spec:
+  providerRef:
+    name: infrastructure
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      namespace: flux-system
+      name: "*"
   suspend: false
