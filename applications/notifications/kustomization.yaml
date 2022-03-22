@@ -3,3 +3,5 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - notify-kustomizations.yaml
+  - flux-system-gh-provider.yaml
+  - commit-status.yaml
