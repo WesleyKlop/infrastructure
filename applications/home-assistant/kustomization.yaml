@@ -6,6 +6,7 @@ resources:
   - helm-release.yaml
   - helm-repo.yaml
   - ingress-route.yaml
+  - credentials.yaml
 configurations:
   - kustomizeconfig.yaml
 configMapGenerator:
