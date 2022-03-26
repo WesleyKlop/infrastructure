@@ -13,3 +13,4 @@ resources:
   - pgadmin
   - mealie
   - keycloak
+  - home-assistant
