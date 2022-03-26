@@ -34,7 +34,10 @@ securityContext:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
+    storageClass: "tank-zfspv"
+    accessMode: ReadWriteOnce
+    size: "10Gi"
   # -- Configure a hostPathMount to mount a USB device in the container.
   # @default -- See values.yaml
   usb:
