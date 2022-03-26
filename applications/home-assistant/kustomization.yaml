@@ -4,7 +4,7 @@ namespace: home-assistant
 resources:
   - namespace.yaml
   - helm-release.yaml
-  - helm-release.yaml
+  - helm-repo.yaml
 configurations:
   - kustomizeconfig.yaml
 configMapGenerator:
