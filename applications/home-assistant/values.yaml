@@ -52,7 +52,8 @@ metrics:
   serviceMonitor:
     interval: 1m
     scrapeTimeout: 30s
-    labels: {}
+    labels:
+      release: kube-prometheus-stack
     ## See https://www.home-assistant.io/docs/authentication/ for where to find
     ## long lived access token creation under your account profile, which is
     ## needed to monitor Home Assistant
@@ -64,7 +65,8 @@ metrics:
   # @default -- See values.yaml
   prometheusRule:
     enabled: true
-    labels: {}
+    labels:
+      release: kube-prometheus-stack
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
     rules:
