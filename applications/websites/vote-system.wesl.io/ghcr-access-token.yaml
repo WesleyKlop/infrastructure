@@ -1,0 +1,38 @@
+apiVersion: v1
+data:
+  .dockerconfigjson: ENC[AES256_GCM,data:6+dqOJZCshRCfq4ERxlhAI9pz5AM+lGNa7rIpmFC1THhHwOUv3w82+Y9IHfmzHiOyOJysOzLkG3JZHeLe5xnuBWuOJK30FMAxd5dlAuyHnw6pMVhSCm6sJTT5x86KOA0P8i48JOptQaPnt8nRSXaW6OTyLK4e6v2h8AnjazXZt3mgWK8gHKm5me5Y+NWIToOf6g8o+Ex80CfbN2ucI952OpweXrLurkPx93hBUc01J3ek71PIlkgtFcsy+3HZ6tebZdlYXBS7QPeRIIUQ5ahW5o1rYf35WmldjQSkJnLzy9bgz6sLTUulRUElLAMGwWuubgZmQs38d1KelZ0YUIreXD/H9MhRHH8c/gYokh2i1SJO9iiL/N1iCxZKjRU/80lnL9OKg==,iv:Bk14NKu+qNH2u7dAX+LrWx7nxBAJ8lJU40TgdaLAvQQ=,tag:BL5u/+QvvZO5Q4VgBoRGQQ==,type:str]
+kind: Secret
+metadata:
+  name: ghcr-access-token
+type: kubernetes.io/dockerconfigjson
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age: []
+  lastmodified: "2022-03-30T13:09:47Z"
+  mac: ENC[AES256_GCM,data:7G8f9MruUKAd+IEV0lAyt2TH44WWsWqlfSqLy3NIuZnM0/36INwZkPnWKGsdaPf4/P3G0b4EVWbuY35YpAgT2wcvQGVzPoYCkfgJxhExDsUthkzWoyAcspfkGRKcwSrxdrDgIUDKewq2au5VpBEIzMdC6xU14s4/IDVnOqjjcd8=,iv:8nLO5Prylx+WujOuGUiaEi965qU3+7fYHhCueP7kYuA=,tag:vsvhoI7j8MWTzqMkU0A8kQ==,type:str]
+  pgp:
+    - created_at: "2022-03-30T13:09:47Z"
+      enc: |
+        -----BEGIN PGP MESSAGE-----
+
+        hQIMA9SfNNfXEmWKARAAqr6LJ4xe9LA4hBmCobKrqP5B08xpOtcYtDtI/yfFX0DH
+        z1tADfVcakVelRrTrEzCxlWQP8ByZhbUmIqhLoKtTP7cAKln1rBM+3WdVlfirZ4H
+        Xn/5y1+tssklmI1Y4MslRL0tsJbwZ/lo+a6yfZSr2pUJWzQwJJeJC5Sv91WF5p9L
+        YRFsvpHmdhMgcKdBjr8jHQAM5nzH22Kp4N77qF8eCEf9bWBiAndZD/M+drbLpZuX
+        R+wOwij2Z6hU/FLPDkp72rxg0IWiNqVnmYHkwcb3VIkmYO+GpzwhbA2n4BYURp+l
+        VRO/s2VhVh/8ketfF6loADbVjUGrXwgLlViWJNSFjjrc1qZhYDkoOERU+KgTWcWr
+        szQ8Q9OoWkazJ8StLoKrOsZDDPflwZhY591DFWlQqo7NA/SCvT1teEdGgDEcA0I8
+        J1mamV8oxpPpNWilOl1D5VPZlKS9ieD1wuMND6WpGT9irzEsfDEtlnUno4O+HPKt
+        nSuMCF89apCBMBQzdekLkD2L13km3Kx/eykBUh+CAtifubOSPwt1XWLkvMoQOPFM
+        6xPFoJoxlcIUjHPGYCAeQEPiRsktCxDyTm2a/z3sk0Vy+uVXeADqv3SYCULw2X7A
+        hsItF7Q1MN5ppZCVVK9+3EEioFfMLWNXMY9tjCLbLrBp7Kqta68vjBII8af1tPjS
+        XgHPl3gBstBLYi8gmy9XBlxOJNZz3MZ25uL/XmjeaY55eG9qnSPsaEjlGphDeNd1
+        wHvkmO+D12w0b0KOceh2/JwNxrQc/fUka4AjPks0EPAuDRrFIlHyGRsWYWuptW0=
+        =OE/m
+        -----END PGP MESSAGE-----
+      fp: 08A206845A41CF2E937EC8E2AFB036649EF97CB6
+  encrypted_regex: ^(data|stringData)$
+  version: 3.7.2
