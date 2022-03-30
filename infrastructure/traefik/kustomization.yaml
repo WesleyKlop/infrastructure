@@ -10,3 +10,9 @@ resources:
   # Helm
   - helm-repo.yaml
   - helm-release.yaml
+configurations:
+  - kustomizeconfig.yaml
+configMapGenerator:
+  - name: values
+    files:
+      - config/values.yaml
