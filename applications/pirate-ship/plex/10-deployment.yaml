@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: plex
-          image: plexinc/pms-docker:1.25.2.5319-c43dc0277
+          image: plexinc/pms-docker:1.25.8.5663-e071c3d62
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
