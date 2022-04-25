@@ -30,7 +30,7 @@ jobs:
           config: .meta/kube-linter.yaml
           format: sarif
           output-file: ../results/kube-linter.sarif
-      - uses: github/codeql-action/upload-sarif@v1
+      - uses: github/codeql-action/upload-sarif@v2
       - name: Fail on kube-linter issues
         run: '[[ "${{ steps.kube-linter.outcome }}" == "success" ]]'
 
