@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: laura-site
-          image: nginxinc/nginx-unprivileged:1.21-alpine
+          image: nginxinc/nginx-unprivileged:1.22-alpine
           imagePullPolicy: Always
           securityContext:
             runAsUser: 101
