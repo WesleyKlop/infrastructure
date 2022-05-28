@@ -34,8 +34,8 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{ path[0] }}'
-      name: 'idris-{{ path[0] }}'
+        app.kubernetes.io/name: '{{ path[1] }}'
+      name: 'idris-{{ path[1] }}'
     spec:
       project: idris 
       source:
@@ -44,7 +44,7 @@ spec:
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ path.basename }}'
+        namespace: '{{ path[1] }}'
       syncPolicy:
         automated:
           allowEmpty: true
