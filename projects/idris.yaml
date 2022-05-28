@@ -35,7 +35,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: '{{ path[1] }}'
-      name: 'idris-{{ path[1] }}'
+      name: '{{ path[1] }}'
     spec:
       project: idris 
       source:
