@@ -15,7 +15,12 @@ spec:
     - namespace: '*'
       server: 'https://kubernetes.default.svc'
       name: 'in-cluster'
-
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
