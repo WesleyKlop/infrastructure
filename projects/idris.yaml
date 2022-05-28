@@ -21,7 +21,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: git@github.com:WesleyKlop/infrastructure.git
+      repoURL: https://github.com/WesleyKlop/infrastructure.git
       revision: HEAD
       directories:
       - path: apps/**/idris
@@ -33,7 +33,7 @@ spec:
     spec:
       project: idris 
       source:
-        repoURL: git@github.com:WesleyKlop/infrastructure.git
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
         targetRevision: HEAD
         path: '{{ path }}'
       destination:
