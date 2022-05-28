@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+- resources/namespace.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
+
+patchesStrategicMerge:
+  - "patches/disable-server-tls.yaml"
