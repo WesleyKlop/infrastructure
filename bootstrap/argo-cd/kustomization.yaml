@@ -6,6 +6,7 @@ namespace: argocd
 resources:
 - resources/namespace.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
+- resources/ingress-route.yaml
 
 patchesStrategicMerge:
   - "patches/disable-server-tls.yaml"
