@@ -3,5 +3,44 @@ kind: AppProject
 metadata:
   name: idris
   namespace: argocd
+  annotations:
+    argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
 spec:
   description: Apps on idris
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: idris
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: git@github.com:WesleyKlop/infrastructure.git
+      revision: HEAD
+      directories:
+      - path: apps/**/idris
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: '{{ path[0] }}'
+      name: 'idris-{{ path[0] }}'
+    spec:
+      project: idris 
+      source:
+        repoURL: git@github.com:WesleyKlop/infrastructure.git
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ path.basename }}'
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
