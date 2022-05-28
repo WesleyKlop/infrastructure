@@ -25,6 +25,8 @@ metadata:
   name: idris
   namespace: argocd
 spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: false
   generators:
   - git:
       repoURL: https://github.com/WesleyKlop/infrastructure.git
