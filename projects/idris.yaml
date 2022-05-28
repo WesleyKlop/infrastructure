@@ -36,8 +36,8 @@ spec:
   - git:
       repoURL: https://github.com/WesleyKlop/infrastructure.git
       revision: HEAD
-      directories:
-      - path: apps/**/idris
+      files:
+      - path: apps/**/idris/config.json
   template:
     metadata:
       labels:
@@ -51,6 +51,7 @@ spec:
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
+        namespace: '{{ destNamespace }}'
       syncPolicy:
         automated:
           allowEmpty: true
