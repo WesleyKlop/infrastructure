@@ -9,6 +9,12 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   description: Apps on idris
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: '*'
+      server: 'https://kubernetes.default.svc'
+      name: 'in-cluster'
 
 ---
 apiVersion: argoproj.io/v1alpha1
