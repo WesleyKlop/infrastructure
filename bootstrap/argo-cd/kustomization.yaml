@@ -8,6 +8,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
   - resources/ingress-route.yaml
   - resources/argocd-secret.yaml
+  - resources/argocd-notifications-secret.yaml
 
 patchesStrategicMerge:
   - "patches/disable-server-tls.yaml"
