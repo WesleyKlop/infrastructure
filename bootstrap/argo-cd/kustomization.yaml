@@ -17,5 +17,5 @@ configMapGenerator:
     behavior: merge
     literals:
       - statusbadge.enabled="true"
-      - url="https://argocd.wesl.io"
+      # - url="https://argocd.wesl.io"
       - kustomize.buildOptions="--enable-alpha-plugins --enable-helm"
