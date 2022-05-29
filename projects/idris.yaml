@@ -27,7 +27,6 @@ kind: ApplicationSet
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
   name: idris
   namespace: argocd
 spec:
@@ -41,9 +40,11 @@ spec:
           - path: apps/**/idris/config.json
   template:
     metadata:
+      name: "{{ path[1] }}"
       labels:
         app.kubernetes.io/name: "{{ path[1] }}"
-      name: "{{ path[1] }}"
+      annotations:
+        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
     spec:
       project: idris
       source:
