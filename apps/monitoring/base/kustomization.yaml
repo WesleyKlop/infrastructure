@@ -11,3 +11,4 @@ helmCharts:
     version: 35.4.2
     repo: https://prometheus-community.github.io/helm-charts
     valuesFile: values.yaml
+    namespace: monitoring
