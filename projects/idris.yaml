@@ -7,6 +7,7 @@ metadata:
     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
     argocd.argoproj.io/sync-options: PruneLast=true
     argocd.argoproj.io/sync-wave: "-2"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
 spec:
   description: Apps on idris
   sourceRepos:
@@ -43,8 +44,6 @@ spec:
       name: "{{ path[1] }}"
       labels:
         app.kubernetes.io/name: "{{ path[1] }}"
-      annotations:
-        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
     spec:
       project: idris
       source:
