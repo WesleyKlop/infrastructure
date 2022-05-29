@@ -4,10 +4,10 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- resources/namespace.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
-- resources/ingress-route.yaml
-- resources/argocd-secret.yaml
+  - resources/namespace.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
+  - resources/ingress-route.yaml
+  - resources/argocd-secret.yaml
 
 patchesStrategicMerge:
   - "patches/disable-server-tls.yaml"
@@ -19,3 +19,7 @@ configMapGenerator:
       - statusbadge.enabled="true"
       # - url="https://argocd.wesl.io"
       - kustomize.buildOptions="--enable-alpha-plugins --enable-helm"
+  - name: argocd-notifications-cm
+    behavior: merge
+    files:
+      - service.slack=config/service.slack.yaml

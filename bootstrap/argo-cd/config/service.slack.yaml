@@ -1,0 +1,2 @@
+apiURL: https://slack.com/api/chat.postMessage
+token: $slack-token

@@ -10,48 +10,49 @@ metadata:
 spec:
   description: Apps on idris
   sourceRepos:
-    - '*'
+    - "*"
   destinations:
-    - namespace: '*'
-      server: 'https://kubernetes.default.svc'
-      name: 'in-cluster'
+    - namespace: "*"
+      server: "https://kubernetes.default.svc"
+      name: "in-cluster"
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
   namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: "*"
+      kind: "*"
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
   name: idris
   namespace: argocd
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
   generators:
-  - git:
-      repoURL: https://github.com/WesleyKlop/infrastructure.git
-      revision: HEAD
-      files:
-      - path: apps/**/idris/config.json
+    - git:
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
+        revision: HEAD
+        files:
+          - path: apps/**/idris/config.json
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{ path[1] }}'
-      name: '{{ path[1] }}'
+        app.kubernetes.io/name: "{{ path[1] }}"
+      name: "{{ path[1] }}"
     spec:
-      project: idris 
+      project: idris
       source:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
         targetRevision: HEAD
-        path: '{{ path }}'
+        path: "{{ path }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ destNamespace }}'
+        namespace: "{{ destNamespace }}"
       syncPolicy:
         automated:
           allowEmpty: true
