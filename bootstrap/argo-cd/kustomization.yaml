@@ -24,3 +24,4 @@ configMapGenerator:
     behavior: merge
     files:
       - service.slack=config/service.slack.yaml
+      - subscriptions=config/subscriptions.yaml
