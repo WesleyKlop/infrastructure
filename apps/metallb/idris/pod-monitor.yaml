@@ -3,7 +3,6 @@ kind: PodMonitor
 metadata:
   name: metallb
   labels:
-    app: metallb
     release: kube-prometheus-stack
 spec:
   namespaceSelector:

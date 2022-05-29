@@ -7,12 +7,6 @@ configMapGenerator:
   - name: pi-hole
     files:
       - pi-hole.json
-  - name: flux-cluster
-    files:
-      - flux-cluster.json
-  - name: flux-control-plane
-    files:
-      - flux-control-plane.json
   - name: zfs
     files:
       - zfs.json
@@ -21,4 +15,4 @@ configMapGenerator:
       - metallb.json
 generatorOptions:
   labels:
-    grafana_dashboard: '1'
+    grafana_dashboard: "1"

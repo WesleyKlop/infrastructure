@@ -4,7 +4,6 @@ metadata:
   name: pihole
   labels:
     release: kube-prometheus-stack
-    app: pihole
 spec:
   selector:
     matchLabels:
@@ -15,4 +14,3 @@ spec:
   endpoints:
     - port: metrics
       path: /metrics
-

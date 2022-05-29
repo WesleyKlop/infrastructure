@@ -1,18 +1,17 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: keycloak-monitor
+  name: traefik
   labels:
     release: kube-prometheus-stack
-    app: keycloak
 spec:
   selector:
     matchLabels:
-      app: keycloak
+      app.kubernetes.io/name: traefik
   namespaceSelector:
     matchNames:
-      - keycloak
+      - traefik
   endpoints:
-    - port: http
+    - port: metrics
       path: /metrics
 
