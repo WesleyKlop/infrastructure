@@ -4,3 +4,4 @@ resources:
   - ../base
   - ./ingress-routes.yaml
   - ./slack-alert-manager.yaml
+  - ./credentials.yaml
