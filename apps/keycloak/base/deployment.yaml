@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    spec:
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      imagePullSecrets:
+        - name: ghcr-access-token
+      containers:
+        - name: keycloak
+          image: ghcr.io/wesleyklop/keycloak:1.0.0
+          imagePullPolicy: Always
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            runAsUser: 1000
+            readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: KC_DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: db-username
+                  name: keycloak-auth
+            - name: KC_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: db-password
+                  name: keycloak-auth
+          volumeMounts:
+            - mountPath: /opt/keycloak/conf
+              name: keycloak-config
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /opt/keycloak/data/tmp
+              name: kc-tmp
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            initialDelaySeconds: 45
+            httpGet:
+              path: /realms/master
+              port: 8080
+          livenessProbe:
+            initialDelaySeconds: 60
+            httpGet:
+              path: /realms/master
+              port: 8080
+      volumes:
+        - name: keycloak-config
+          configMap:
+            name: keycloak-config
+        - name: tmp
+          emptyDir: {}
+        - name: kc-tmp
+          emptyDir: {}
