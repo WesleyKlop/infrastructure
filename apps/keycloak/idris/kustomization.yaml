@@ -12,3 +12,8 @@ labels:
   - includeSelectors: true
     pairs:
       app.kubernetes.io/name: keycloak
+
+configMapGenerator:
+  - name: keycloak-config
+    files:
+      - keycloak.conf=config/keycloak.conf
