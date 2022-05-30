@@ -5,6 +5,9 @@ metadata:
   labels:
     release: kube-prometheus-stack
 spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: keycloak
   namespaceSelector:
     matchNames:
       - keycloak

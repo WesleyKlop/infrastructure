@@ -2,8 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: keycloak
-  labels:
-    app: keycloak
 spec:
   entryPoints:
     - websecure
