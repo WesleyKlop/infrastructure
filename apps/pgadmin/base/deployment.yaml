@@ -17,12 +17,13 @@ spec:
         app: pgadmin
     spec:
       initContainers:
-         - name: volume-permissions
-           image: busybox:1.35.0
-           command: ["sh", "-c", "chown -Rv 5050:5050 /data && chmod -Rv 700 /data"]
-           volumeMounts:
-           - name: pgadmin-data
-             mountPath: /data
+        - name: volume-permissions
+          image: busybox:1.35.0
+          command:
+            ["sh", "-c", "chown -Rv 5050:5050 /data && chmod -Rv 700 /data"]
+          volumeMounts:
+            - name: pgadmin-data
+              mountPath: /data
       terminationGracePeriodSeconds: 60
       containers:
         - image: dpage/pgadmin4:6.9
@@ -37,6 +38,9 @@ spec:
             requests:
               cpu: 10m
               memory: 8Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -65,7 +69,7 @@ spec:
             - name: PGADMIN_DISABLE_POSTFIX
               value: "true"
             - name: PGADMIN_LISTEN_PORT
-              value: '8080'
+              value: "8080"
       volumes:
         - name: pgadmin-config
           configMap:

@@ -8,7 +8,6 @@ resources:
   - websites
   - slack
   - notifications
-  - pgadmin
   - mealie
   - keycloak
   - home-assistant
