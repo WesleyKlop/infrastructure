@@ -63,6 +63,7 @@ spec:
                 - CHOWN
                 - SETGID
                 - SETUID
+                - NET_BIND_SERVICE
           readinessProbe:
             httpGet:
               path: /
