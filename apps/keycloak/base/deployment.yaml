@@ -66,4 +66,3 @@ spec:
         - name: tmp
           emptyDir: {}
         - name: kc-tmp
-          emptyDir: {}
