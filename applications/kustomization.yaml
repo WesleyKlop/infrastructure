@@ -9,5 +9,4 @@ resources:
   - slack
   - notifications
   - mealie
-  - keycloak
   - home-assistant
