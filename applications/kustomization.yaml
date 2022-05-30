@@ -10,3 +10,10 @@ resources:
   - notifications
   - mealie
   - home-assistant
+
+labels:
+  - pairs:
+      kustomize.toolkit.fluxcd.io/prune: disabled
+    fields:
+      - apiVersion: v1
+        kind: Namespace
