@@ -11,9 +11,13 @@ resources:
   - mealie
   - home-assistant
 
-labels:
-  - pairs:
-      kustomize.toolkit.fluxcd.io/prune: disabled
-    fields:
-      - apiVersion: v1
-        kind: Namespace
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/labels
+        value: {}
+      - op: add
+        path: /metadata/labels/kustomize.toolkit.fluxcd.io~1prune
+        value: disabled
+    target:
+      kind: Namespace
