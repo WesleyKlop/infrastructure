@@ -8,7 +8,6 @@ resources:
   - websites
   - slack
   - notifications
-  - polaris
   - pgadmin
   - mealie
   - keycloak
