@@ -5,6 +5,7 @@ resources:
   - ./routing.yaml
   - ./secret.yaml
   - ./service-monitor.yaml
+  - ./pull-secret.yaml
 
 labels:
   - pairs:
@@ -17,3 +18,11 @@ configMapGenerator:
   - name: keycloak-config
     files:
       - keycloak.conf=config/keycloak.conf
+
+patches:
+  - target:
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value: [{ name: keycloak-ghcr }]
