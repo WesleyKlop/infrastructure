@@ -1,0 +1,5 @@
+external-secrets:
+  image:
+    repository: ghcr.io/wesleyklop/external-secrets
+    tag: wkdev
+    pullPolicy: Always
