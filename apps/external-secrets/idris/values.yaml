@@ -1,7 +1,7 @@
 external-secrets:
-  image:
-    repository: ghcr.io/wesleyklop/external-secrets
-    tag: wkdev
-    pullPolicy: Always
+  # image:
+  # repository: ghcr.io/wesleyklop/external-secrets
+  # tag: wkdev
+  # pullPolicy: Always
   imagePullSecrets:
     - name: ghcr
