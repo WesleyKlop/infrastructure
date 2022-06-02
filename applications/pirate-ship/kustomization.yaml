@@ -4,9 +4,7 @@ namespace: pirate-ship
 resources:
   - namespace.yaml
   - config.yaml
-  - bazarr
   - calibre-web
-  - jackett
   - overseerr
   - plex
   - radarr
