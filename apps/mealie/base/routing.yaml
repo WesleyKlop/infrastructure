@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mealie
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`mealie.wesl.io`)
+      kind: Rule
+      services:
+        - name: mealie
+          port: 80
