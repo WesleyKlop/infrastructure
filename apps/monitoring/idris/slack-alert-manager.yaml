@@ -6,24 +6,33 @@ metadata:
     alertmanagerConfig: slack
 spec:
   route:
-    groupBy: ['alertname']
+    groupBy: ["alertname"]
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
-    receiver: 'slack'
+    receiver: "slack"
   receivers:
-    - name: 'slack'
+    - name: "slack"
       slackConfigs:
-        - channel: '#alerts'
+        - channel: "#alerts"
           sendResolved: true
           apiURL:
             key: webhook-url
             name: alert-manager
-
 ---
-apiVersion: onepassword.com/v1
-kind: OnePasswordItem
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
 metadata:
   name: alert-manager
 spec:
-  itemPath: "vaults/idris/items/alert-manager"
+  refreshInterval: 1h
+  secretStoreRef:
+    name: 1password
+    kind: ClusterSecretStore
+  target:
+    creationPolicy: Owner
+  data:
+    - secretKey: webhook-url
+      remoteRef:
+        key: alert-manager
+        property: webhook-url
