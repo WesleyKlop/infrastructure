@@ -1,20 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: pihole
   name: pihole
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: pihole
   template:
-    metadata:
-      labels:
-        app: pihole
-        name: pihole
     spec:
       enableServiceLinks: false
+      automountServiceAccountToken: false
       containers:
         - name: exporter
           image: ekofr/pihole-exporter:v0.3.0
@@ -35,17 +27,24 @@ spec:
             httpGet:
               path: /readiness
               port: 9617
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
           env:
             - name: PIHOLE_HOSTNAME
-              value: pihole.pihole.svc.cluster.local
+              value: pihole.pihole.svc.cluster.local.
             - name: PIHOLE_PORT
-              value: '8000'
+              value: "8000"
             - name: PIHOLE_API_TOKEN
               valueFrom:
                 secretKeyRef:
                   key: api-token
                   name: pihole
-        - name: pihole
+        - name: app
           image: pihole/pihole:2022.04.3
           imagePullPolicy: Always
           securityContext:
