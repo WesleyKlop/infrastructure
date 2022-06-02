@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: overseerr
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: overseerr
   template:
-    metadata:
-      labels:
-        app: overseerr
     spec:
       containers:
         - name: overseerr
