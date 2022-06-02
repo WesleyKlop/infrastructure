@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: bazarr
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: bazarr
   template:
-    metadata:
-      labels:
-        app: bazarr
     spec:
       containers:
         - name: bazarr

@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: jackett
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: jackett
   template:
-    metadata:
-      labels:
-        app: jackett
     spec:
       containers:
         - name: jackett
