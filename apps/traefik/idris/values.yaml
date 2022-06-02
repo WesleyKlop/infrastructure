@@ -39,23 +39,19 @@ traefik:
     traefik:
       port: 9000
       expose: false
-      exposedPort: 9000
       protocol: TCP
     metrics:
       port: 9100
       expose: true
-      exposedPort: 9100
       protocol: TCP
     web:
       port: 8000
       expose: true
-      nodePort: 80
       protocol: TCP
       redirectTo: websecure
     websecure:
       port: 8443
       expose: true
-      nodePort: 443
       protocol: TCP
       tls:
         enabled: true
