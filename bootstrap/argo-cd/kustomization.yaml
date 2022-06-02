@@ -6,6 +6,7 @@ namespace: argocd
 resources:
   - resources/namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml
   - resources/ingress-route.yaml
   - resources/argocd-secret.yaml
   - resources/argocd-notifications-secret.yaml
