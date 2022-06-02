@@ -46,16 +46,14 @@ traefik:
       protocol: TCP
     web:
       port: 8000
-      hostPort: 80
       expose: true
-      exposedPort: 80
+      nodePort: 80
       protocol: TCP
       redirectTo: websecure
     websecure:
       port: 8443
-      hostPort: 443
       expose: true
-      exposedPort: 443
+      nodePort: 443
       protocol: TCP
       tls:
         enabled: true
