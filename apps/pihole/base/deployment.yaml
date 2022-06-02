@@ -38,7 +38,7 @@ spec:
             - name: PIHOLE_HOSTNAME
               value: pihole.pihole.svc.cluster.local.
             - name: PIHOLE_PORT
-              value: "8000"
+              value: "80"
             - name: PIHOLE_API_TOKEN
               valueFrom:
                 secretKeyRef:
