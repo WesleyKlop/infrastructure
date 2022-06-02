@@ -43,6 +43,8 @@ spec:
       name: "{{ path[1] }}"
       labels:
         app.kubernetes.io/name: "{{ path[1] }}"
+      annotations:
+        notifications.argoproj.io/subscribe.on-sync-succeeded.slack: idris
     spec:
       project: idris
       source:
