@@ -5,10 +5,3 @@ metadata:
 data:
   ADVERTISE_IP: "https://plex.wesleyklop.nl:32400"
   PLEX_GID: "1337"
----
-apiVersion: onepassword.com/v1
-kind: OnePasswordItem
-metadata:
-  name: plex
-spec:
-  itemPath: "vaults/idris/items/plex"

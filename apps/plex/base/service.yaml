@@ -1,17 +1,3 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: plex
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`plex.wesleyklop.nl`)
-      kind: Rule
-      services:
-        - name: plex-lb-tcp
-          port: web
----
 apiVersion: v1
 kind: Service
 metadata:
