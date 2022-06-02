@@ -33,6 +33,8 @@ traefik:
     - secretRef:
         name: namecheap-api
 
+  service:
+    loadBalancerIP: 10.0.0.202
   ports:
     traefik:
       port: 9000
