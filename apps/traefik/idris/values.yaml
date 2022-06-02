@@ -34,7 +34,7 @@ traefik:
         name: namecheap-api
 
   service:
-    loadBalancerIP: 10.0.0.202
+    loadBalancerIP: 10.0.0.201
   ports:
     traefik:
       port: 9000
