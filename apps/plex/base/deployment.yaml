@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: plex
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: plex
   template:
-    metadata:
-      labels:
-        app: plex
     spec:
       containers:
         - name: plex
