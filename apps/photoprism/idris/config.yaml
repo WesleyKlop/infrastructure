@@ -23,10 +23,3 @@ data:
   PHOTOPRISM_SITE_TITLE: De foto kluis
   PHOTOPRISM_SITE_URL: https://photos.wesl.io:2342/
   PHOTOPRISM_UPLOAD_NSFW: "true"
----
-apiVersion: onepassword.com/v1
-kind: OnePasswordItem
-metadata:
-  name: photoprism
-spec:
-  itemPath: vaults/idris/items/photoprism
