@@ -21,6 +21,18 @@ spec:
       targetPort: 53
       protocol: TCP
       name: dns-tcp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-udp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "pihole"
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.240
+  externalTrafficPolicy: Local
+  ports:
     - port: 53
       targetPort: 53
       protocol: UDP
