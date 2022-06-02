@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: radarr
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: radarr
   template:
-    metadata:
-      labels:
-        app: radarr
     spec:
       containers:
         - name: radarr
