@@ -7,7 +7,6 @@ resources:
   - websites
   - slack
   - notifications
-  - home-assistant
 
 patches:
   - patch: |-
