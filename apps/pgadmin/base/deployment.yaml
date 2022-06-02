@@ -26,7 +26,7 @@ spec:
               mountPath: /data
       terminationGracePeriodSeconds: 60
       containers:
-        - image: dpage/pgadmin4:6.9
+        - image: dpage/pgadmin4:6.10
           imagePullPolicy: Always
           name: pgadmin
           securityContext:
