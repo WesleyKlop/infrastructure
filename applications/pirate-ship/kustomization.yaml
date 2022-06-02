@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: pirate-ship
 resources:
   - plex
-  - rutorrent

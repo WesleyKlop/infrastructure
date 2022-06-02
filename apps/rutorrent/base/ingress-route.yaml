@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rutorrent
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`rutorrent.wesleyklop.nl`)
+      kind: Rule
+      services:
+        - name: rutorrent
+          port: 8080
