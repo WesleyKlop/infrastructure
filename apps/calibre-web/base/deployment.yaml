@@ -3,14 +3,7 @@ kind: Deployment
 metadata:
   name: calibre-web
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: calibre-web
   template:
-    metadata:
-      labels:
-        app: calibre-web
     spec:
       containers:
         - name: calibre-web
