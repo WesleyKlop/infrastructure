@@ -6,6 +6,4 @@ resources:
   - config.yaml
   - overseerr
   - plex
-  - radarr
-  - sonarr
   - rutorrent
