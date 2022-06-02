@@ -2,12 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: forward-auth
-  labels:
-    app: forward-auth
 spec:
   type: ClusterIP
-  selector:
-    app: forward-auth
   ports:
     - name: auth-http
       port: 4181

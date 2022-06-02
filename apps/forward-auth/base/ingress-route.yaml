@@ -2,8 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: forward-auth
-  labels:
-    app: traefik
 spec:
   entryPoints:
     - websecure
