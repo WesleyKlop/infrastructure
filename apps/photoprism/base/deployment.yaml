@@ -40,6 +40,7 @@ spec:
           volumeMounts:
             - mountPath: /photoprism/originals
               name: photos
+              readOnly: true
             - mountPath: /photoprism/storage
               name: storage
             - mountPath: /tmp
