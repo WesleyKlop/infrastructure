@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../base
   - ./storage.yaml
+  - ./secret.yaml
 
 configMapGenerator:
   - name: photos-wesl-io-config
