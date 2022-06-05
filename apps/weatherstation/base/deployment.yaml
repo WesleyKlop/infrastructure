@@ -1,19 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: weatherstation-deployment
+  name: weatherstation-api
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: weatherstation
+      app.kubernetes.io/component: api
   template:
     metadata:
       labels:
-        app: weatherstation
+        app.kubernetes.io/component: api
     spec:
-      imagePullSecrets:
-        - name: ghcr-access-token
       containers:
         - name: api
           image: ghcr.io/wesleyklop/weatherstation-api:1
@@ -30,11 +27,11 @@ spec:
           readinessProbe:
             httpGet:
               path: /api/health
-              port: 8080
+              port: http
           livenessProbe:
             httpGet:
               path: /api/health
-              port: 8080
+              port: http
           resources:
             limits:
               cpu: 100m
@@ -44,11 +41,27 @@ spec:
               memory: 16Mi
           ports:
             - containerPort: 8080
+              name: http
           envFrom:
             - configMapRef:
-                name: weatherstation-config
+                name: weatherstation-cfg
             - secretRef:
-                name: weatherstation-db-url
+                name: weatherstation-secrets
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherstation-web
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: web
+    spec:
+      containers:
         - name: web
           image: ghcr.io/wesleyklop/weatherstation-web:1
           imagePullPolicy: Always
@@ -67,11 +80,11 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 80
+              port: http
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: http
           resources:
             limits:
               cpu: 100m
@@ -81,3 +94,4 @@ spec:
               memory: 16Mi
           ports:
             - containerPort: 80
+              name: http
