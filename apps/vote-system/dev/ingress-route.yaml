@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: vote-system-wesl-io-ingress-route
+  name: vote-system
 spec:
   entryPoints:
     - websecure
@@ -9,10 +9,10 @@ spec:
     - match: Host(`vote-system.wesl.io`)
       kind: Rule
       services:
-        - name: vote-system-wesl-io-svc
-          port: 80
+        - name: vote-system-http
+          port: http
     - match: Host(`vote-system.wesl.io`) && PathPrefix(`/app`)
       kind: Rule
       services:
-        - name: vote-system-wesl-io-svc
-          port: 6001
+        - name: vote-system-ws
+          port: ws
