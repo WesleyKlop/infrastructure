@@ -4,6 +4,7 @@ resources:
   - ../base
   - ./config.yaml
   - ./ingress-route.yaml
+  - ./secret.yaml
 
 labels:
   - pairs:
