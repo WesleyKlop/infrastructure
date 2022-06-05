@@ -21,6 +21,10 @@ spec:
             httpGet:
               path: /api/v1/status
               port: http
+          livenessProbe:
+            httpGet:
+              path: /api/v1/status
+              port: http
           resources:
             requests:
               cpu: 100m
