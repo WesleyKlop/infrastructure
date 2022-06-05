@@ -16,7 +16,7 @@ spec:
           - path: apps/vote-system/nucleus
   template:
     metadata:
-      name: "vote-system-{{ path[2] }}"
+      name: "vote-system-{{ path.basename }}"
     spec:
       project: idris
       source:
@@ -25,7 +25,7 @@ spec:
         path: "{{ path }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: "vote-system-{{ path[2] }}"
+        namespace: "vote-system-{{ path.basename }}"
       syncPolicy:
         automated:
           allowEmpty: false
