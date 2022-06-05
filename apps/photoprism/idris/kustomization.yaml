@@ -6,7 +6,14 @@ resources:
   - ./storage.yaml
   - ./secret.yaml
 
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: photoprism
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: photoprism
+
 configMapGenerator:
-  - name: photos-wesl-io-config
+  - name: photoprism-cfg
     envs:
       - env.conf

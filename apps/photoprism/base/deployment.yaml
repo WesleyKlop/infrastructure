@@ -3,16 +3,9 @@ kind: Deployment
 metadata:
   name: photos-wesl-io-deployment
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: photos-wesl-io
   strategy:
     type: Recreate
   template:
-    metadata:
-      labels:
-        app: photos-wesl-io
     spec:
       containers:
         - name: photos-wesl-io-site
@@ -22,6 +15,10 @@ spec:
             runAsNonRoot: true
             runAsUser: 1000
             readOnlyRootFilesystem: true
+          readinessProbe:
+            httpGet:
+              path: /api/v1/status
+              port: http
           resources:
             requests:
               cpu: 100m
@@ -31,40 +28,29 @@ spec:
               memory: 512Mi
           envFrom:
             - configMapRef:
-                name: photos-wesl-io-config
+                name: photoprism-cfg
+            - secretRef:
+                name: photoprism-secrets
           env:
-            - name: PHOTOPRISM_ADMIN_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: photoprism
-                  key: password
-            - name: PHOTOPRISM_DATABASE_USER
-              valueFrom:
-                secretKeyRef:
-                  name: photoprism
-                  key: db-username
-            - name: PHOTOPRISM_DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: photoprism
-                  key: db-password
+            - name: PHOTOPRISM_HTTP_PORT
+              value: "8080"
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+              name: http
           volumeMounts:
             - mountPath: /photoprism/originals
-              name: photos-wesl-io-photos
+              name: photos
             - mountPath: /photoprism/storage
-              name: photos-wesl-io-storage
+              name: storage
             - mountPath: /tmp
               name: tmp
       volumes:
-        - name: photos-wesl-io-photos
+        - name: photos
           hostPath:
             path: /tank/media/photos
             type: Directory
-        - name: photos-wesl-io-storage
+        - name: storage
           persistentVolumeClaim:
             claimName: photoprism-pvc
         - name: tmp
           emptyDir: {}
-

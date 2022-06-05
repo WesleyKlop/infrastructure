@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: photos-wesl-io-ingress-route
+  name: photoprism
 spec:
   entryPoints:
     - websecure
@@ -9,5 +9,5 @@ spec:
     - match: Host(`photos.wesl.io`)
       kind: Rule
       services:
-        - name: photos-wesl-io-svc
+        - name: photoprism
           port: 80
