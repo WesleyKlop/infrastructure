@@ -15,7 +15,7 @@ spec:
             runAsNonRoot: true
             runAsUser: 1000
             readOnlyRootFilesystem: true
-          readinessProbe:
+          startupProbe:
             initialDelaySeconds: 10
             periodSeconds: 5
             httpGet:
