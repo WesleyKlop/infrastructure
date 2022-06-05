@@ -16,6 +16,8 @@ spec:
             runAsUser: 1000
             readOnlyRootFilesystem: true
           readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
             httpGet:
               path: /api/v1/status
               port: http
