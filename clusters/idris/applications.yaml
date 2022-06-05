@@ -9,7 +9,7 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./applications
-  prune: false
+  prune: true
   validation: client
   decryption:
     provider: sops

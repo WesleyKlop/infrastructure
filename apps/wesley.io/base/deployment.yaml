@@ -1,16 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wesley-io-deployment
+  name: wesley-io
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: wesley-io
   template:
-    metadata:
-      labels:
-        app: wesley-io
     spec:
       containers:
         - name: wesley-io-site
@@ -25,7 +18,7 @@ spec:
               memory: 16Mi
           envFrom:
             - configMapRef:
-                name: wesley-io-config
+                name: wesley-io-cfg
           env:
             - name: APP_KEY
               valueFrom:
