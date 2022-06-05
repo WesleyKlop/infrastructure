@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: vote-system
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+  generators:
+    - git:
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
+        revision: HEAD
+        directories:
+          - path: apps/vote-system/syntax
+          - path: apps/vote-system/nucleus
+  template:
+    metadata:
+      name: "vote-system-{{ path[2] }}"
+    spec:
+      project: idris
+      source:
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
+        targetRevision: HEAD
+        path: "{{ path }}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "vote-system-{{ path[2] }}"
+      syncPolicy:
+        automated:
+          allowEmpty: false
+          prune: true
+          selfHeal: true
