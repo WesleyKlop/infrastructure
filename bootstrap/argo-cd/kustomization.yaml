@@ -12,7 +12,7 @@ resources:
 
 patchesStrategicMerge:
   - "patches/disable-server-tls.yaml"
-  - https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.2/catalog/install.yaml
 
 configMapGenerator:
   - name: argocd-cm
