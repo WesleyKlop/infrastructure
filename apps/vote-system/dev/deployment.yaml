@@ -58,7 +58,7 @@ spec:
           command: ["php", "artisan", "websockets:serve"]
           envFrom:
             - configMapRef:
-                name: vote-system-wesl-io-config
+                name: vote-system-cfg
             - secretRef:
                 name: vote-system-secrets
           ports:
