@@ -26,3 +26,4 @@ configMapGenerator:
     files:
       - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
+      - context=config/context.yaml
