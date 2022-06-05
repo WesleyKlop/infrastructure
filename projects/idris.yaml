@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: idris
-  namespace: argocd
   annotations:
     argocd-autopilot.argoproj-labs.io/default-dest-server: https://kubernetes.default.svc
     argocd.argoproj.io/sync-options: PruneLast=true
@@ -28,7 +27,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   name: idris
-  namespace: argocd
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: false
