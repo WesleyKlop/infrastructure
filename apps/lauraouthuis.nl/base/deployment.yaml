@@ -1,19 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: laura-blog
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: laura-site
   template:
-    metadata:
-      labels:
-        app: laura-site
     spec:
       containers:
-        - name: laura-site
+        - name: blog
           image: nginxinc/nginx-unprivileged:1.22-alpine
           imagePullPolicy: Always
           securityContext:
@@ -23,9 +16,11 @@ spec:
             readOnlyRootFilesystem: true
           ports:
             - containerPort: 8080
+              name: http
           volumeMounts:
             - mountPath: /usr/share/nginx/html
               name: webroot
+              readOnly: true
             - mountPath: /tmp
               name: tmp-dir
           resources:
@@ -37,12 +32,12 @@ spec:
               memory: 64Mi
           readinessProbe:
             httpGet:
-              port: 8080
+              port: http
               path: /
             initialDelaySeconds: 10
           livenessProbe:
             httpGet:
-              port: 8080
+              port: http
               path: /
             initialDelaySeconds: 30
       volumes:
@@ -51,4 +46,4 @@ spec:
             path: /home/laura/lauraouthuis.nl
             type: Directory
         - name: tmp-dir
-          emptyDir: { }
+          emptyDir: {}
