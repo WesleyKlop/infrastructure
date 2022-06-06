@@ -1,13 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
   name: cluster-resources
   namespace: argocd
 spec:
   generators:
-  - clusters: {}
+    - clusters: {}
   syncPolicy:
     preserveResourcesOnDeletion: true
   template:
@@ -18,7 +16,7 @@ spec:
       namespace: argocd
     spec:
       destination:
-        server: '{{server}}'
+        server: "{{server}}"
       project: default
       source:
         path: bootstrap/cluster-resources/{{name}}

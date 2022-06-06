@@ -1,12 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  labels:
-    app.kubernetes.io/name: argo-cd
   name: argo-cd
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: '-5'
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   destination:
     namespace: argocd
@@ -21,4 +19,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - allowEmpty=true
+      - allowEmpty=true
