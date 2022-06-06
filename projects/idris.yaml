@@ -39,8 +39,6 @@ spec:
   template:
     metadata:
       name: "{{ path[1] }}"
-      labels:
-        app.kubernetes.io/name: "{{ path[1] }}"
     spec:
       project: idris
       source:
