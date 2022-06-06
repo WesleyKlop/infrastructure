@@ -1,6 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
   name: cluster-resources
   namespace: argocd
 spec:
@@ -10,8 +12,6 @@ spec:
     preserveResourcesOnDeletion: true
   template:
     metadata:
-      labels:
-        app.kubernetes.io/name: cluster-resources-{{name}}
       name: cluster-resources-{{name}}
       namespace: argocd
     spec:
