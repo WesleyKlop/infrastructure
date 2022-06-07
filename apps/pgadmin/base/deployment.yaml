@@ -2,19 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pgadmin
-  labels:
-    app: pgadmin
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: pgadmin
   strategy:
     type: Recreate
   template:
-    metadata:
-      labels:
-        app: pgadmin
     spec:
       initContainers:
         - name: volume-permissions
