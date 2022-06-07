@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: radarr
 spec:
-  selector:
-    app: radarr
   ports:
     - protocol: TCP
       port: 7878
