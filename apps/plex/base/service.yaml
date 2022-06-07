@@ -7,8 +7,6 @@ metadata:
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.0.0.242
-  selector:
-    app: plex
   ports:
     - protocol: TCP
       port: 3005
@@ -36,8 +34,6 @@ metadata:
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.0.0.242
-  selector:
-    app: plex
   ports:
     - protocol: UDP
       port: 1900
