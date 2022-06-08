@@ -11,3 +11,11 @@ helmCharts:
     repo: https://k8s-at-home.com/charts/
     version: 13.2.0
     valuesFile: values.yaml
+
+configMapGenerator:
+  - name: home-assistant-config
+    files:
+      - configuration.yaml=config/configuration.yaml
+
+patchesStrategicMerge:
+  - "patches/deployment.yaml"
