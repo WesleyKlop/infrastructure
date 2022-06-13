@@ -6,6 +6,7 @@ namespace: argocd
 resources:
   - resources/namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.3.4/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/v0.12.0/manifests/install.yaml
   - resources/ingress-route.yaml
   - resources/argocd-secret.yaml
   - resources/argocd-notifications-secret.yaml
@@ -26,3 +27,7 @@ configMapGenerator:
       - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
       - context=config/context.yaml
+  - name: argocd-image-updater-config
+    behavior: merge
+    literals:
+      - log.level="debug"
