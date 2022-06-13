@@ -36,16 +36,6 @@ spec:
         revision: main
         files:
           - path: apps/**/idris/config.json
-        template:
-          metadata:
-            argocd-image-updater.argoproj.io/image-list: "{{ images }}"
-          spec:
-            project: idris
-            source:
-              repoURL: https://github.com/WesleyKlop/infrastructure.git
-              targetRevision: main
-              path: "{{ path }}"
-            destination: {}
   template:
     metadata:
       name: "{{ path[1] }}"
