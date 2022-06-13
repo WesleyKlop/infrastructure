@@ -41,11 +41,13 @@ spec:
   template:
     metadata:
       name: "vote-system-{{ path.basename }}"
+      annotations:
+        argocd-image-updater.argoproj.io/write-back-method: git
     spec:
       project: vote-system
       source:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
-        targetRevision: HEAD
+        targetRevision: main
         path: "{{ path }}"
       destination:
         server: https://kubernetes.default.svc

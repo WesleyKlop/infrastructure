@@ -33,17 +33,20 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
-        revision: HEAD
+        revision: main
         files:
           - path: apps/**/idris/config.json
   template:
     metadata:
       name: "{{ path[1] }}"
+      annotations:
+        argocd-image-updater.argoproj.io/write-back-method: git
+        argocd-image-updater.argoproj.io/image-list: "{{ images }}"
     spec:
       project: idris
       source:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
-        targetRevision: HEAD
+        targetRevision: main
         path: "{{ path }}"
       destination:
         server: https://kubernetes.default.svc
