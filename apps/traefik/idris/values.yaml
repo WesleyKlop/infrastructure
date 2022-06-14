@@ -54,7 +54,6 @@ traefik:
       http3: true
       tls:
         enabled: true
-        options: "traefik-tls-default@kubernetescrd"
         certResolver: "namecheap"
         domains:
           - main: wesleyklop.nl
