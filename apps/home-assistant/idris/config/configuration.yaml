@@ -15,3 +15,9 @@ http:
     - "10.244.0.0/24"
 
 prometheus:
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 10.0.0.0/24
+    home_interval: 10
+    consider_home: 180
