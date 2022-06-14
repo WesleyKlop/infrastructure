@@ -15,6 +15,3 @@ http:
     - "10.244.0.0/24"
 
 prometheus:
-
-device_tracker:
-  - platform: nmap_tracker
