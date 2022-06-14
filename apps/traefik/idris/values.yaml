@@ -51,6 +51,7 @@ traefik:
       port: 8443
       expose: true
       protocol: TCP
+      http3: true
       tls:
         enabled: true
         options: "traefik-tls-default@kubernetescrd"
@@ -78,13 +79,6 @@ traefik:
     path: /data
     annotations: {}
 
-  securityContext:
-    capabilities:
-      drop: [ALL]
-    readOnlyRootFilesystem: true
-    runAsGroup: 65532
-    runAsNonRoot: true
-    runAsUser: 65532
-
-  podSecurityContext:
-    fsGroup: 65532
+  experimental:
+    http3:
+      enabled: true
