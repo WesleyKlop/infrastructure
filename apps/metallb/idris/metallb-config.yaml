@@ -3,3 +3,4 @@ address-pools:
     protocol: layer2
     addresses:
       - 10.0.0.201-10.0.0.250
+      - 2001:1C00:1F00:0:B48A:4C2:F3E8:AA95/64
