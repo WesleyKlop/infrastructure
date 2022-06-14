@@ -36,9 +36,11 @@ spec:
               memory: 128Mi
           env:
             - name: PIHOLE_HOSTNAME
-              value: pihole.pihole.svc.cluster.local.
+              value: pihole.pihole.svc.cluster.local
             - name: PIHOLE_PORT
               value: "80"
+            - name: PIHOLE_PROTOCOL
+              value: "http"
             - name: PIHOLE_API_TOKEN
               valueFrom:
                 secretKeyRef:
