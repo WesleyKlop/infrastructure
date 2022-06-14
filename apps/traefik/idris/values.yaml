@@ -89,3 +89,7 @@ traefik:
   experimental:
     http3:
       enabled: true
+
+  logs:
+    access:
+      enabled: true
