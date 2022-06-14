@@ -75,6 +75,7 @@ traefik:
       metallb.universe.tf/allow-shared-ip: "traefik"
     spec:
       loadBalancerIP: 10.0.0.202
+      ipFamilyPolicy: PreferDualStack
 
   persistence:
     enabled: true
