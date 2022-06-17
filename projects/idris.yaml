@@ -49,7 +49,7 @@ spec:
     metadata:
       name: "{{ path[1] }}"
       annotations:
-        argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/gitops-rw
+        argocd-image-updater.argoproj.io/write-back-method: kustomization:secret:argocd/gitops-rw
         argocd-image-updater.argoproj.io/image-list: ""
         argocd-image-updater.argoproj.io/git-branch: :feature/update-{{ path[1] }}
     spec:
