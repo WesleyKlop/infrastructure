@@ -1,0 +1,4 @@
+registries:
+  - name: Github Container Registry
+    prefix: ghcr.io
+    credentials: pullsecret:argocd/ghcr

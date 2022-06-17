@@ -10,6 +10,7 @@ resources:
   - resources/ingress-route.yaml
   - resources/argocd-secret.yaml
   - resources/argocd-notifications-secret.yaml
+  - resources/pull-secret.yaml
 
 patchesStrategicMerge:
   - "patches/disable-server-tls.yaml"
@@ -31,3 +32,5 @@ configMapGenerator:
     behavior: merge
     literals:
       - log.level="debug"
+    files:
+      - registries.conf=config/registries.yaml
