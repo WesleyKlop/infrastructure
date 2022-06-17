@@ -11,10 +11,10 @@ spec:
         - name: sidecar
           image: busybox:1.35.0
           command:
-            - "mkdir"
-            - "-p"
-            - "/storage/sidecar"
-            - "/storage/cache"
+            - "chown"
+            - "-R"
+            - "1000:1000"
+            - "/storage"
           volumeMounts:
             - mountPath: /storage
               name: storage
