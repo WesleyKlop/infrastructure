@@ -12,7 +12,9 @@ spec:
           image: busybox:1.35.0
           command:
             - "mkdir"
+            - "-p"
             - "/storage/sidecar"
+            - "/storage/cache"
           volumeMounts:
             - mountPath: /storage
               name: storage
