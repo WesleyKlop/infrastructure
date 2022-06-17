@@ -11,8 +11,6 @@ resources:
   - resources/argocd-secret.yaml
   - resources/argocd-notifications-secret.yaml
   - resources/pull-secret.yaml
-  - resources/gitops-secret-rw.yaml
-  - resources/gitops-secret-ro.yaml
   - resources/repo-infrastructure.yaml
 
 patchesStrategicMerge:
