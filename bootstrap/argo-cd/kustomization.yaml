@@ -11,9 +11,10 @@ resources:
   - resources/argocd-secret.yaml
   - resources/argocd-notifications-secret.yaml
   - resources/pull-secret.yaml
+  - resources/gitops-secret-rw.yaml
 
 patchesStrategicMerge:
-  - "patches/disable-server-tls.yaml"
+  - patches/disable-server-tls.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.2/catalog/install.yaml
 
 configMapGenerator:
