@@ -14,13 +14,18 @@ spec:
         labels:
           argocd.argoproj.io/secret-type: repository
       data:
-        sshPrivateKey: "{{ .sshPrivateKey }}"
+        username: "{{ .username }}"
+        password: "{{ .password }}"
         type: git
-        url: git@github.com:WesleyKlop/infrastructure.git
+        url: https://github.com/WesleyKlop/infrastructure.git
         project: default
         name: infrastructure
   data:
-    - secretKey: sshPrivateKey
+    - secretKey: username
       remoteRef:
-        key: ArgoCD GitOps RO
-        property: private key
+        key: ArgoCD GitOps RW
+        property: username
+    - secretKey: password
+      remoteRef:
+        key: ArgoCD GitOps RW
+        property: pat
