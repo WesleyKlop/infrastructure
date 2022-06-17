@@ -18,4 +18,5 @@ configMapGenerator:
       - configuration.yaml=config/configuration.yaml
 
 patchesStrategicMerge:
-  - "patches/deployment.yaml"
+  []
+  # - "patches/deployment.yaml"
