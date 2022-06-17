@@ -36,3 +36,7 @@ configMapGenerator:
       - log.level="debug"
     files:
       - registries.conf=config/registries.yaml
+  - name: argocd-ssh-known-hosts-cm
+    behavior: merge
+    files:
+      - ssh_known_hosts=config/known_hosts
