@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: photos-wesl-io-deployment
+  name: photoprism
 spec:
   strategy:
     type: Recreate
   template:
     spec:
       containers:
-        - name: photos-wesl-io-site
+        - name: photoprism
           image: photoprism/photoprism:20220121
           imagePullPolicy: Always
           securityContext:
