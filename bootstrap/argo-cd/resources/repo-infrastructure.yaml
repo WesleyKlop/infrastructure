@@ -2,21 +2,23 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: gitops-ro
+  name: repo-infrastructure
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
     name: 1password
   target:
     creationPolicy: Owner
-    metadata:
-      labels:
-        argocd.argoproj.io/secret-type: repo-creds
     template:
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: repository
       data:
         sshPrivateKey: "{{ .sshPrivateKey }}"
         type: git
         url: git@github.com:WesleyKlop/infrastructure.git
+        project: default
+        name: infrastructure
   data:
     - secretKey: sshPrivateKey
       remoteRef:

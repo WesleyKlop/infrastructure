@@ -13,6 +13,7 @@ resources:
   - resources/pull-secret.yaml
   - resources/gitops-secret-rw.yaml
   - resources/gitops-secret-ro.yaml
+  - resources/repo-infrastructure.yaml
 
 patchesStrategicMerge:
   - patches/disable-server-tls.yaml
@@ -36,7 +37,3 @@ configMapGenerator:
       - log.level="debug"
     files:
       - registries.conf=config/registries.yaml
-  - name: argocd-ssh-known-hosts-cm
-    behavior: merge
-    files:
-      - ssh_known_hosts=config/known_hosts
