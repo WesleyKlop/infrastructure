@@ -32,7 +32,7 @@ spec:
     preserveResourcesOnDeletion: false
   generators:
     - git:
-        repoURL: git@github.com:WesleyKlop/infrastructure.git
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
         revision: main
         files:
           - path: apps/**/idris/config.json
@@ -44,7 +44,7 @@ spec:
             destination: {}
             project: idris
             source:
-              repoURL: git@github.com:WesleyKlop/infrastructure.git
+              repoURL: https://github.com/WesleyKlop/infrastructure.git
   template:
     metadata:
       name: "{{ path[1] }}"
@@ -55,7 +55,7 @@ spec:
     spec:
       project: idris
       source:
-        repoURL: git@github.com:WesleyKlop/infrastructure.git
+        repoURL: https://github.com/WesleyKlop/infrastructure.git
         targetRevision: main
         path: "{{ path }}"
       destination:
