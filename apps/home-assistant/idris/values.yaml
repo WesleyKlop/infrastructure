@@ -35,9 +35,8 @@ securityContext:
 persistence:
   config:
     enabled: true
-    storageClass: "tank-zfspv"
-    accessMode: ReadWriteOnce
-    size: "10Gi"
+    type: hostPath
+    hostPath: /opt/home-assistant
   # -- Configure a hostPathMount to mount a USB device in the container.
   # @default -- See values.yaml
   usb:
