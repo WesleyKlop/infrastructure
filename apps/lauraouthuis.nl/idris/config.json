@@ -1,4 +1,5 @@
 {
   "destNamespace": "laura",
-  "images": "app0=nginxinc/nginx-unprivileged"
+  "images": "app0=nginxinc/nginx-unprivileged",
+  "name": "lauraouthuis.nl"
 }

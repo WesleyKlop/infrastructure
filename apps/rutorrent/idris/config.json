@@ -1,4 +1,5 @@
 {
   "destNamespace": "pirate-ship",
-  "images": "app0=ghcr.io/crazy-max/rtorrent-rutorrent"
+  "images": "app0=ghcr.io/crazy-max/rtorrent-rutorrent",
+  "name": "rutorrent"
 }

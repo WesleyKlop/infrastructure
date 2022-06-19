@@ -1,4 +1,5 @@
 {
   "destNamespace": "pihole",
-  "images": "app0=ekofr/pihole-exporter,app1=pihole/pihole"
+  "images": "app0=ekofr/pihole-exporter,app1=pihole/pihole",
+  "name": "pihole"
 }

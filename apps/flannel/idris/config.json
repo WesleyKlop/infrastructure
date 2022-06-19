@@ -1,4 +1,5 @@
 {
   "destNamespace": "kube-system",
-  "images": ""
+  "images": "",
+  "name": "flannel"
 }

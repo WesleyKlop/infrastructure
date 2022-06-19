@@ -1,4 +1,5 @@
 {
   "destNamespace": "traefik",
-  "images": "app0=mesosphere/traefik-forward-auth"
+  "images": "app0=mesosphere/traefik-forward-auth",
+  "name": "forward-auth"
 }

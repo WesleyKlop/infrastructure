@@ -1,4 +1,5 @@
 {
   "destNamespace": "wesley-io",
-  "images": "app0=ghcr.io/wesleyklop/wesley.io"
+  "images": "app0=ghcr.io/wesleyklop/wesley.io",
+  "name": "wesley.io"
 }

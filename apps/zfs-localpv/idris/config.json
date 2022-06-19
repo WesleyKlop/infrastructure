@@ -1,3 +1,4 @@
 {
-  "destNamespace": "openebs"
+  "destNamespace": "openebs",
+  "name": "zfs-localpv"
 }

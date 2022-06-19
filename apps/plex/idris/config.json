@@ -1,4 +1,5 @@
 {
   "destNamespace": "pirate-ship",
-  "images": "app0=plexinc/pms-docker"
+  "images": "app0=plexinc/pms-docker",
+  "name": "plex"
 }

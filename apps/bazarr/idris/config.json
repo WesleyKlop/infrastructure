@@ -1,4 +1,5 @@
 {
   "destNamespace": "pirate-ship",
-  "images": "app0=ghcr.io/linuxserver/bazarr"
+  "images": "app0=ghcr.io/linuxserver/bazarr",
+  "name": "bazarr"
 }
