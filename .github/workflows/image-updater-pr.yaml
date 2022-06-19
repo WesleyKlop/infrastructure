@@ -1,3 +1,5 @@
+name: Automated Image updates
+
 on:
   push:
     branches:
