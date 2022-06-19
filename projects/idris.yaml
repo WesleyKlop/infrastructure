@@ -29,13 +29,13 @@ metadata:
   name: idris
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: false
+    preserveResourcesOnDeletion: true
   generators:
     - git:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
         revision: main
         files:
-          - path: .meta/base-config.json
+          # - path: .meta/base-config.json
           - path: apps/**/idris/config.json
   template:
     metadata:
@@ -43,7 +43,7 @@ spec:
       annotations:
         argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-infrastructure
         argocd-image-updater.argoproj.io/image-list: "{{ images }}"
-        argocd-image-updater.argoproj.io/git-branch: :feature/update-{{ path[1] }}
+        argocd-image-updater.argoproj.io/git-branch: ":feature/update-{{ path[1] }}"
         argocd-image-updater.argoproj.io/write-back-target: kustomization
         argocd-image-updater.argoproj.io/app0.update-strategy: "{{ updateStrategy }}"
         argocd-image-updater.argoproj.io/app0.allow-tags: "{{ allowTags }}"
