@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - "feature/update-**"
+
+jobs:
+  create-pr:
+    name: Create pull request
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@3
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.0.4
+        with:
+          branch: ${{ github.ref_name }}
+          base: main
+          reviewers: WesleyKlop
+
+  
