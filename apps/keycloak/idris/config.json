@@ -1,4 +1,4 @@
 {
   "destNamespace": "keycloak",
-  "images": "ghcr.io/wesleyklop/keycloak"
+  "images": "app0=ghcr.io/wesleyklop/keycloak"
 }

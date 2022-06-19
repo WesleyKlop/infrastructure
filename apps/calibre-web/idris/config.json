@@ -1,4 +1,4 @@
 {
   "destNamespace": "pirate-ship",
-  "images": "ghcr.io/linuxserver/calibre-web"
+  "images": "app0=ghcr.io/linuxserver/calibre-web"
 }

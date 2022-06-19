@@ -1,4 +1,4 @@
 {
   "destNamespace": "weatherstation",
-  "images": "ghcr.io/wesleyklop/weatherstation-api,ghcr.io/wesleyklop/weatherstation-web"
+  "images": "app0=ghcr.io/wesleyklop/weatherstation-api,app1=ghcr.io/wesleyklop/weatherstation-web"
 }

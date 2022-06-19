@@ -1,4 +1,4 @@
 {
   "destNamespace": "pgadmin",
-  "images": "busybox,dpage/pgadmin4"
+  "images": "app0=busybox,app1=dpage/pgadmin4"
 }

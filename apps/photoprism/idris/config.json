@@ -1,4 +1,4 @@
 {
   "destNamespace": "photoprism",
-  "images": "busybox,photoprism/photoprism"
+  "images": "app0=busybox,app1=photoprism/photoprism"
 }
