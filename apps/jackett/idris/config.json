@@ -1,5 +1,7 @@
 {
+  "name": "jackett",
   "destNamespace": "pirate-ship",
   "images": "app0=ghcr.io/linuxserver/jackett",
-  "name": "jackett"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

@@ -1,5 +1,7 @@
 {
+  "name": "mealie",
   "destNamespace": "mealie",
   "images": "app0=hkotel/mealie",
-  "name": "mealie"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

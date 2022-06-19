@@ -36,7 +36,6 @@ spec:
         revision: main
         files:
           - path: apps/**/idris/config.json
-          - path: .meta/base-config.json
   template:
     metadata:
       name: "{{ name }}"

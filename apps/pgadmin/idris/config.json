@@ -1,5 +1,7 @@
 {
+  "name": "pgadmin",
   "destNamespace": "pgadmin",
   "images": "app0=busybox,app1=dpage/pgadmin4",
-  "name": "pgadmin"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

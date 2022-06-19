@@ -1,4 +1,7 @@
 {
+  "name": "zfs-localpv",
   "destNamespace": "openebs",
-  "name": "zfs-localpv"
+  "images": "",
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

@@ -1,5 +1,7 @@
 {
+  "name": "rutorrent",
   "destNamespace": "pirate-ship",
   "images": "app0=ghcr.io/crazy-max/rtorrent-rutorrent",
-  "name": "rutorrent"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

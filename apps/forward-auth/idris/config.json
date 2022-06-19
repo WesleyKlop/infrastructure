@@ -1,5 +1,7 @@
 {
+  "name": "forward-auth",
   "destNamespace": "traefik",
   "images": "app0=mesosphere/traefik-forward-auth",
-  "name": "forward-auth"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

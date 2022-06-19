@@ -1,5 +1,7 @@
 {
+  "name": "traefik",
   "destNamespace": "traefik",
   "images": "",
-  "name": "traefik"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }

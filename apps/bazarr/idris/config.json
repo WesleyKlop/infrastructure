@@ -1,5 +1,7 @@
 {
+  "name": "bazarr",
   "destNamespace": "pirate-ship",
   "images": "app0=ghcr.io/linuxserver/bazarr",
-  "name": "bazarr"
+  "updateStrategy": "semver",
+  "allowTags": ""
 }
