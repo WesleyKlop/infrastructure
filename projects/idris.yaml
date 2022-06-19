@@ -43,6 +43,7 @@ spec:
         argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-infrastructure
         argocd-image-updater.argoproj.io/image-list: "{{ images }}"
         argocd-image-updater.argoproj.io/git-branch: :feature/update-{{ path[1] }}
+        argocd-image-updater.argoproj.io/write-back-target: kustomization
     spec:
       project: idris
       source:
