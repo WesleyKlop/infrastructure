@@ -35,8 +35,8 @@ spec:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
         revision: main
         files:
-          - path: .meta/base-config.json
           - path: apps/**/idris/config.json
+          - path: .meta/base-config.json
   template:
     metadata:
       name: "{{ name }}"
