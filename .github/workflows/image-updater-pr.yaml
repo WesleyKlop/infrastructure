@@ -12,11 +12,10 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4.0.4
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
         with:
-          branch: ${{ github.ref_name }}
-          base: main
-          reviewers: WesleyKlop
-
+          destination_branch: "main"
+          github_token: ${{ github.token }}
+          pr_reviewer: WesleyKlop
   
