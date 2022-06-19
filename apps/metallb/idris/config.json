@@ -1,3 +1,4 @@
 {
-  "destNamespace": "metallb-system"
+  "destNamespace": "metallb-system",
+  "images": ""
 }

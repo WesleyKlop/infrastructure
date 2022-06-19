@@ -1,3 +1,4 @@
 {
-  "destNamespace": "laura"
+  "destNamespace": "laura",
+  "images": "nginxinc/nginx-unprivileged"
 }

@@ -1,3 +1,4 @@
 {
-  "destNamespace": "home-assistant"
+  "destNamespace": "home-assistant",
+  "images": ""
 }

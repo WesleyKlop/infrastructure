@@ -1,3 +1,4 @@
 {
-  "destNamespace": "mealie"
+  "destNamespace": "mealie",
+  "images": "hkotel/mealie"
 }

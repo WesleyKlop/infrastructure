@@ -1,3 +1,4 @@
 {
-  "destNamespace": "traefik"
+  "destNamespace": "traefik",
+  "images": ""
 }

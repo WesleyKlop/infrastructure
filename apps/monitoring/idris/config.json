@@ -1,3 +1,4 @@
 {
-  "destNamespace": "monitoring"
+  "destNamespace": "monitoring",
+  "images": ""
 }

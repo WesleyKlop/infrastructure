@@ -1,3 +1,4 @@
 {
-  "destNamespace": "pgadmin"
+  "destNamespace": "pgadmin",
+  "images": "busybox,dpage/pgadmin4"
 }

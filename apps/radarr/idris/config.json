@@ -1,3 +1,4 @@
 {
-  "destNamespace": "pirate-ship"
+  "destNamespace": "pirate-ship",
+  "images": "ghcr.io/linuxserver/radarr"
 }

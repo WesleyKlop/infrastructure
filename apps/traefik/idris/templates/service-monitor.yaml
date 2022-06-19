@@ -14,4 +14,3 @@ spec:
   endpoints:
     - port: metrics
       path: /metrics
-

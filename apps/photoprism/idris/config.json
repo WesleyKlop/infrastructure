@@ -1,3 +1,4 @@
 {
-  "destNamespace": "photoprism"
+  "destNamespace": "photoprism",
+  "images": "busybox,photoprism/photoprism"
 }

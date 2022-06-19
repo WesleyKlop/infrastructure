@@ -1,3 +1,4 @@
 {
-  "destNamespace": "pihole"
+  "destNamespace": "pihole",
+  "images": "ekofr/pihole-exporter,pihole/pihole"
 }
