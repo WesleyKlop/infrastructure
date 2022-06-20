@@ -3,37 +3,25 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": {
-          "type": "datasource",
-          "uid": "grafana"
-        },
+        "datasource": "-- Grafana --",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
-        "target": {
-          "limit": 100,
-          "matchAny": false,
-          "tags": [],
-          "type": "dashboard"
-        },
         "type": "dashboard"
       }
     ]
   },
-  "editable": false,
-  "fiscalYearStartMonth": 0,
+  "editable": true,
+  "gnetId": null,
   "graphTooltip": 0,
-  "id": 31,
-  "iteration": 1655713132681,
+  "id": 1,
+  "iteration": 1605574886303,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -46,9 +34,8 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "content": "![argoimage](https://avatars1.githubusercontent.com/u/30269780?s=110&v=4)",
+      "datasource": "$datasource",
       "gridPos": {
         "h": 4,
         "w": 2,
@@ -57,50 +44,29 @@
       },
       "id": 26,
       "links": [],
-      "options": {
-        "content": "![argoimage](https://avatars1.githubusercontent.com/u/30269780?s=110&v=4)",
-        "mode": "markdown"
-      },
-      "pluginVersion": "8.5.3",
+      "mode": "markdown",
+      "options": {},
+      "title": "",
       "transparent": true,
       "type": "text"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "dtdurations"
-        },
-        "overrides": []
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "$datasource",
+      "format": "dtdurations",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 4,
@@ -109,21 +75,41 @@
         "y": 1
       },
       "id": 32,
+      "interval": null,
       "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "textMode": "auto"
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
       },
-      "pluginVersion": "8.5.3",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "time() - max(process_start_time_seconds{job=\"argocd-server-metrics\",namespace=~\"$namespace\"})",
@@ -132,46 +118,36 @@
           "refId": "A"
         }
       ],
+      "thresholds": "",
       "title": "Uptime",
-      "type": "stat"
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "rgb(31, 120, 193)",
-            "mode": "fixed"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "0"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "$datasource",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 4,
@@ -180,21 +156,41 @@
         "y": 1
       },
       "id": 94,
+      "interval": null,
       "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "textMode": "auto"
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
       },
-      "pluginVersion": "8.5.3",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "count(count by (server) (argocd_cluster_info{namespace=~\"$namespace\"}))",
@@ -204,46 +200,40 @@
           "refId": "A"
         }
       ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Clusters",
-      "type": "stat"
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "0",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "rgb(31, 120, 193)",
-            "mode": "fixed"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "$datasource",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 4,
@@ -252,22 +242,43 @@
         "y": 1
       },
       "id": 75,
+      "interval": null,
       "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.5.3",
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "repeat": null,
       "repeatDirection": "h",
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
+      },
+      "tableColumn": "",
       "targets": [
         {
           "expr": "sum(argocd_app_info{namespace=~\"$namespace\",dest_server=~\"$cluster\",health_status=~\"$health_status\",sync_status=~\"$sync_status\"})",
@@ -277,46 +288,38 @@
           "refId": "A"
         }
       ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Applications",
-      "type": "stat"
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "rgb(31, 120, 193)",
-            "mode": "fixed"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "0"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "$datasource",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
       },
       "gridPos": {
         "h": 4,
@@ -325,21 +328,41 @@
         "y": 1
       },
       "id": 107,
+      "interval": null,
       "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
         },
-        "textMode": "auto"
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true
       },
-      "pluginVersion": "8.5.3",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "count(count by (repo) (argocd_app_info{namespace=~\"$namespace\"}))",
@@ -349,46 +372,24 @@
           "refId": "A"
         }
       ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Repositories",
-      "type": "stat"
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "0",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "id": 0,
-              "op": "=",
-              "text": "0",
-              "type": 1,
-              "value": "null"
-            }
-          ],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
+      "cacheTimeout": null,
+      "datasource": "$datasource",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -398,16 +399,44 @@
       "id": 100,
       "links": [],
       "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "0",
+                "type": 1,
+                "value": "null"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ],
+            "unit": "none"
+          },
+          "override": {},
+          "overrides": [],
           "values": false
         },
+        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "6.5.2",
       "repeatDirection": "h",
       "targets": [
         {
@@ -419,23 +448,19 @@
           "refId": "A"
         }
       ],
+      "timeFrom": null,
+      "timeShift": null,
       "title": "Operations",
       "type": "gauge"
     },
     {
       "aliasColors": {},
       "bars": false,
+      "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "uid": "$datasource"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "links": []
-        },
-        "overrides": []
-      },
+      "datasource": "$datasource",
+      "decimals": null,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -466,11 +491,10 @@
       "links": [],
       "nullPointMode": "connected",
       "options": {
-        "alertThreshold": true
+        "dataLinks": []
       },
       "paceLength": 10,
       "percentage": false,
-      "pluginVersion": "8.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -489,7 +513,9 @@
         }
       ],
       "thresholds": [],
+      "timeFrom": null,
       "timeRegions": [],
+      "timeShift": null,
       "title": "Applications",
       "tooltip": {
         "shared": false,
@@ -498,7 +524,9 @@
       },
       "type": "graph",
       "xaxis": {
+        "buckets": null,
         "mode": "time",
+        "name": null,
         "show": true,
         "values": []
       },
@@ -506,24 +534,29 @@
         {
           "decimals": 0,
           "format": "short",
+          "label": null,
           "logBase": 1,
+          "max": null,
+          "min": null,
           "show": true
         },
         {
           "format": "short",
+          "label": null,
           "logBase": 1,
+          "max": null,
+          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false
+        "align": false,
+        "alignLevel": null
       }
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -542,11 +575,11 @@
             "Unknown": "rgb(255, 255, 255)"
           },
           "bars": false,
+          "cacheTimeout": null,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -568,6 +601,7 @@
             "min": false,
             "rightSide": true,
             "show": true,
+            "sideWidth": null,
             "sort": "current",
             "sortDesc": true,
             "total": false,
@@ -600,7 +634,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Health Status",
           "tooltip": {
             "shared": true,
@@ -609,24 +645,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 2,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -641,11 +686,11 @@
             "Unknown": "rgb(255, 255, 255)"
           },
           "bars": false,
+          "cacheTimeout": null,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -667,6 +712,7 @@
             "min": false,
             "rightSide": true,
             "show": true,
+            "sideWidth": null,
             "sort": "current",
             "sortDesc": true,
             "total": false,
@@ -699,7 +745,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Sync Status",
           "tooltip": {
             "shared": true,
@@ -708,24 +756,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 2,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -734,9 +791,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -750,9 +805,8 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -805,7 +859,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Sync Activity",
           "tooltip": {
             "shared": true,
@@ -814,7 +870,9 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
@@ -824,6 +882,7 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             },
@@ -832,11 +891,14 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -844,9 +906,8 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -898,7 +959,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Sync Failures",
           "tooltip": {
             "shared": true,
@@ -907,7 +970,9 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
@@ -917,6 +982,7 @@
               "format": "none",
               "label": "",
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             },
@@ -924,11 +990,14 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -937,9 +1006,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -953,22 +1020,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 8
+            "y": 12
           },
           "hiddenSeries": false,
           "id": 58,
@@ -990,11 +1049,10 @@
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "8.5.3",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1012,7 +1070,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Reconciliation Activity",
           "tooltip": {
             "shared": false,
@@ -1021,44 +1081,55 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
-          "cards": {},
+          "cards": {
+            "cardPadding": null,
+            "cardRound": null
+          },
           "color": {
             "cardColor": "#b4ff00",
             "colorScale": "sqrt",
             "colorScheme": "interpolateSpectral",
             "exponent": 0.5,
+            "min": null,
             "mode": "spectrum"
           },
           "dataFormat": "tsbuckets",
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 14
+            "y": 18
           },
           "heatmap": {},
           "hideZeroBuckets": false,
@@ -1068,6 +1139,7 @@
             "show": true
           },
           "links": [],
+          "options": {},
           "reverseYBuckets": false,
           "targets": [
             {
@@ -1079,6 +1151,8 @@
               "refId": "A"
             }
           ],
+          "timeFrom": null,
+          "timeShift": null,
           "title": "Reconciliation Performance",
           "tooltip": {
             "show": true,
@@ -1089,34 +1163,34 @@
           "xAxis": {
             "show": true
           },
+          "xBucketNumber": null,
+          "xBucketSize": null,
           "yAxis": {
+            "decimals": null,
             "format": "short",
             "logBase": 1,
-            "show": true
+            "max": null,
+            "min": null,
+            "show": true,
+            "splitFactor": null
           },
-          "yBucketBound": "auto"
+          "yBucketBound": "auto",
+          "yBucketNumber": null,
+          "yBucketSize": null
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 21
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 80,
@@ -1130,6 +1204,7 @@
             "min": false,
             "rightSide": true,
             "show": true,
+            "sideWidth": null,
             "sort": "current",
             "sortDesc": true,
             "total": false,
@@ -1140,11 +1215,10 @@
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "paceLength": 10,
           "percentage": false,
-          "pluginVersion": "8.5.3",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1163,7 +1237,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "K8s API Activity",
           "tooltip": {
             "shared": true,
@@ -1172,24 +1248,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1197,22 +1282,14 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 27
+            "y": 31
           },
           "hiddenSeries": false,
           "id": 96,
@@ -1225,6 +1302,7 @@
             "min": false,
             "rightSide": false,
             "show": true,
+            "sideWidth": null,
             "total": false,
             "values": true
           },
@@ -1233,10 +1311,9 @@
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.5.3",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1254,7 +1331,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Workqueue Depth",
           "tooltip": {
             "shared": true,
@@ -1263,26 +1342,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1290,22 +1376,15 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "links": []
-            },
-            "overrides": []
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 27
+            "y": 31
           },
           "hiddenSeries": false,
           "id": 98,
@@ -1325,10 +1404,9 @@
           "links": [],
           "nullPointMode": "null",
           "options": {
-            "alertThreshold": true
+            "dataLinks": []
           },
           "percentage": false,
-          "pluginVersion": "8.5.3",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1346,7 +1424,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Pending kubectl run",
           "tooltip": {
             "shared": true,
@@ -1355,7 +1435,9 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
@@ -1365,6 +1447,7 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             },
@@ -1373,12 +1456,14 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -1387,9 +1472,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1403,9 +1486,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1455,7 +1536,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Memory Usage",
           "tooltip": {
             "shared": false,
@@ -1464,24 +1547,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "bytes",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1489,9 +1581,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1543,7 +1633,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "CPU Usage",
           "tooltip": {
             "shared": false,
@@ -1552,7 +1644,9 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
@@ -1560,17 +1654,24 @@
             {
               "decimals": 1,
               "format": "none",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1578,9 +1679,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1632,7 +1731,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Goroutines",
           "tooltip": {
             "shared": false,
@@ -1641,24 +1742,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -1667,9 +1777,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1683,9 +1791,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1734,7 +1840,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Resource Objects Count",
           "tooltip": {
             "shared": false,
@@ -1743,24 +1851,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1768,9 +1885,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1820,7 +1935,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "API Resources Count",
           "tooltip": {
             "shared": false,
@@ -1829,24 +1946,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -1854,9 +1980,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1905,7 +2029,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Cluster Events Count",
           "tooltip": {
             "shared": false,
@@ -1914,24 +2040,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -1940,9 +2075,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1956,9 +2089,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -2003,7 +2134,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Git Requests (ls-remote)",
           "tooltip": {
             "shared": true,
@@ -2012,24 +2145,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2037,9 +2179,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -2084,7 +2224,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Git Requests (checkout)",
           "tooltip": {
             "shared": true,
@@ -2093,7 +2235,9 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
@@ -2102,20 +2246,29 @@
               "format": "short",
               "label": "",
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
-          "cards": {},
+          "cards": {
+            "cardPadding": null,
+            "cardRound": null
+          },
           "color": {
             "cardColor": "#b4ff00",
             "colorScale": "sqrt",
@@ -2124,9 +2277,7 @@
             "mode": "spectrum"
           },
           "dataFormat": "tsbuckets",
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "gridPos": {
             "h": 8,
             "w": 12,
@@ -2151,6 +2302,8 @@
               "refId": "A"
             }
           ],
+          "timeFrom": null,
+          "timeShift": null,
           "title": "Git Fetch Performance",
           "tooltip": {
             "show": true,
@@ -2160,15 +2313,26 @@
           "xAxis": {
             "show": true
           },
+          "xBucketNumber": null,
+          "xBucketSize": null,
           "yAxis": {
+            "decimals": null,
             "format": "short",
             "logBase": 1,
-            "show": true
+            "max": null,
+            "min": null,
+            "show": true,
+            "splitFactor": null
           },
-          "yBucketBound": "auto"
+          "yBucketBound": "auto",
+          "yBucketNumber": null,
+          "yBucketSize": null
         },
         {
-          "cards": {},
+          "cards": {
+            "cardPadding": null,
+            "cardRound": null
+          },
           "color": {
             "cardColor": "#b4ff00",
             "colorScale": "sqrt",
@@ -2177,9 +2341,7 @@
             "mode": "spectrum"
           },
           "dataFormat": "tsbuckets",
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "gridPos": {
             "h": 8,
             "w": 12,
@@ -2204,6 +2366,8 @@
               "refId": "A"
             }
           ],
+          "timeFrom": null,
+          "timeShift": null,
           "title": "Git Ls-Remote Performance",
           "tooltip": {
             "show": true,
@@ -2213,21 +2377,27 @@
           "xAxis": {
             "show": true
           },
+          "xBucketNumber": null,
+          "xBucketSize": null,
           "yAxis": {
+            "decimals": null,
             "format": "short",
             "logBase": 1,
-            "show": true
+            "max": null,
+            "min": null,
+            "show": true,
+            "splitFactor": null
           },
-          "yBucketBound": "auto"
+          "yBucketBound": "auto",
+          "yBucketNumber": null,
+          "yBucketSize": null
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -2273,7 +2443,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Memory Used",
           "tooltip": {
             "shared": true,
@@ -2282,24 +2454,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "bytes",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2307,9 +2488,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -2355,7 +2534,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Goroutines",
           "tooltip": {
             "shared": true,
@@ -2364,24 +2545,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -2390,9 +2580,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "uid": "$datasource"
-      },
+      "datasource": "$datasource",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2406,9 +2594,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 8,
@@ -2449,7 +2635,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Memory Used",
           "tooltip": {
             "shared": true,
@@ -2458,25 +2646,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "bytes",
+              "label": null,
               "logBase": 1,
+              "max": null,
               "min": "0",
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2484,9 +2680,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2527,7 +2721,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Goroutines",
           "tooltip": {
             "shared": true,
@@ -2536,24 +2732,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2561,9 +2766,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2604,7 +2807,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "GC Time Quantiles",
           "tooltip": {
             "shared": true,
@@ -2613,24 +2818,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2653,9 +2867,8 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
+          "decimals": null,
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2702,7 +2915,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "ApplicationService Requests",
           "tooltip": {
             "shared": false,
@@ -2711,24 +2926,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2736,9 +2960,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2783,7 +3005,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "ClusterService Requests",
           "tooltip": {
             "shared": false,
@@ -2792,24 +3016,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2817,9 +3050,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2864,7 +3095,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "ProjectService Requests",
           "tooltip": {
             "shared": true,
@@ -2873,24 +3106,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2898,9 +3140,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2952,7 +3192,9 @@
               "yaxis": "left"
             }
           ],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "RepositoryService Requests",
           "tooltip": {
             "shared": true,
@@ -2961,24 +3203,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -2986,9 +3237,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -3032,7 +3281,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "SessionService Requests",
           "tooltip": {
             "shared": true,
@@ -3041,24 +3292,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -3066,9 +3326,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -3112,7 +3370,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "VersionService Requests",
           "tooltip": {
             "shared": true,
@@ -3121,24 +3381,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -3146,9 +3415,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -3192,7 +3459,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "AccountService Requests",
           "tooltip": {
             "shared": true,
@@ -3201,24 +3470,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         },
         {
@@ -3226,9 +3504,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "uid": "$datasource"
-          },
+          "datasource": "$datasource",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -3272,7 +3548,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "SettingsService Requests",
           "tooltip": {
             "shared": true,
@@ -3281,24 +3559,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -3307,10 +3594,7 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3324,10 +3608,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
+          "datasource": null,
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3368,7 +3649,9 @@
             }
           ],
           "thresholds": [],
+          "timeFrom": null,
           "timeRegions": [],
+          "timeShift": null,
           "title": "Requests by result",
           "tooltip": {
             "shared": true,
@@ -3377,24 +3660,33 @@
           },
           "type": "graph",
           "xaxis": {
+            "buckets": null,
             "mode": "time",
+            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             },
             {
               "format": "short",
+              "label": null,
               "logBase": 1,
+              "max": null,
+              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false
+            "align": false,
+            "alignLevel": null
           }
         }
       ],
@@ -3403,24 +3695,23 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 36,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": false,
           "text": "Prometheus",
           "value": "Prometheus"
         },
         "hide": 0,
         "includeAll": false,
+        "label": null,
         "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
-        "queryValue": "",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -3429,29 +3720,25 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "$datasource"
-        },
+        "datasource": "$datasource",
         "definition": "label_values(kube_pod_info, namespace)",
         "hide": 0,
         "includeAll": true,
+        "label": null,
         "multi": false,
         "name": "namespace",
         "options": [],
-        "query": {
-          "query": "label_values(kube_pod_info, namespace)",
-          "refId": "Prometheus-namespace-Variable-Query"
-        },
+        "query": "label_values(kube_pod_info, namespace)",
         "refresh": 1,
         "regex": ".*argocd.*",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
+        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -3466,6 +3753,7 @@
           "value": "$__auto_interval_interval"
         },
         "hide": 0,
+        "label": null,
         "name": "interval",
         "options": [
           {
@@ -3528,6 +3816,7 @@
         },
         "hide": 0,
         "includeAll": false,
+        "label": null,
         "multi": false,
         "name": "grouping",
         "options": [
@@ -3558,25 +3847,21 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "$datasource"
-        },
+        "datasource": "$datasource",
         "definition": "label_values(argocd_cluster_info, server)",
         "hide": 0,
         "includeAll": true,
+        "label": null,
         "multi": false,
         "name": "cluster",
         "options": [],
-        "query": {
-          "query": "label_values(argocd_cluster_info, server)",
-          "refId": "Prometheus-cluster-Variable-Query"
-        },
+        "query": "label_values(argocd_cluster_info, server)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
+        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -3590,6 +3875,7 @@
         },
         "hide": 0,
         "includeAll": true,
+        "label": null,
         "multi": false,
         "name": "health_status",
         "options": [
@@ -3642,6 +3928,7 @@
         },
         "hide": 0,
         "includeAll": true,
+        "label": null,
         "multi": false,
         "name": "sync_status",
         "options": [
@@ -3689,11 +3976,20 @@
       "2h",
       "1d"
     ],
-    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
   },
   "timezone": "",
   "title": "ArgoCD",
   "uid": "LCAgc9rWz",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

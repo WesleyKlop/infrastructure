@@ -12,6 +12,7 @@ resources:
   - resources/argocd-notifications-secret.yaml
   - resources/pull-secret.yaml
   - resources/repo-infrastructure.yaml
+  - resources/service-monitor.yaml
 
 patchesStrategicMerge:
   - patches/disable-server-tls.yaml
