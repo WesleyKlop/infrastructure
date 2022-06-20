@@ -13,6 +13,9 @@ configMapGenerator:
   - name: metallb
     files:
       - metallb.json
+  - name: argo-cd
+    files:
+      - argocd.json
 generatorOptions:
   labels:
     grafana_dashboard: "1"
