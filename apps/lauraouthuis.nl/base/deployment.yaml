@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: blog
-          image: nginxinc/nginx-unprivileged:1.22-alpine
+          image: nginxinc/nginx-unprivileged:1.23-alpine
           imagePullPolicy: Always
           securityContext:
             runAsUser: 101
