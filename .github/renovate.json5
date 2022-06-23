@@ -12,25 +12,11 @@
   "kubernetes": {
     "fileMatch": [".+\\.yaml$"],
     "ignorePaths": [
-      ".github",
-      "clusters/idris/flux-system",
-      "infrastructure/zfs-operator",
-      ".*helm-release\\.yaml$"
+      ".github"
     ]
   },
   "helm-values": {
-    "fileMatch": [".*helm-release\\.yaml$"]
   },
-  "regexManagers": [
-    // regexManager to read and process HelmRelease files
-    {
-      "fileMatch": [".*helm-release\\.yaml$"],
-      "matchStrings": [
-        "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
-      ],
-      "datasourceTemplate": "helm"
-    },
-  ],
   "packageRules": [
     // setup datasources
     {
