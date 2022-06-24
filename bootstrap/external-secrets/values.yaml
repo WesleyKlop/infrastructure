@@ -1,7 +1,0 @@
-external-secrets:
-  image:
-    repository: ghcr.io/wesleyklop/external-secrets
-    tag: main
-    pullPolicy: Always
-  imagePullSecrets:
-    - name: ghcr
