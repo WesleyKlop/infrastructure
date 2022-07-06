@@ -38,6 +38,7 @@ spec:
           - path: apps/vote-system/syntax
           - path: apps/vote-system/nucleus
           - path: apps/vote-system/dev
+          - path: apps/vote-system/exon
   template:
     metadata:
       name: "vote-system-{{ path.basename }}"
