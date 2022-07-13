@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: bootstrap/argo-cd
+    path: bootstrap/argo-cd/idris
     repoURL: https://github.com/WesleyKlop/infrastructure.git
   syncPolicy:
     automated:
