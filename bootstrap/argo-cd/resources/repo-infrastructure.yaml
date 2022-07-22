@@ -1,0 +1,31 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: repo-infrastructure
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: 1password
+  target:
+    creationPolicy: Owner
+    template:
+      metadata:
+        labels:
+          argocd.argoproj.io/secret-type: repository
+      data:
+        username: "{{ .username }}"
+        password: "{{ .password }}"
+        type: git
+        url: https://github.com/WesleyKlop/infrastructure.git
+        project: default
+        name: infrastructure
+  data:
+    - secretKey: username
+      remoteRef:
+        key: ArgoCD GitOps RW
+        property: username
+    - secretKey: password
+      remoteRef:
+        key: ArgoCD GitOps RW
+        property: pat
