@@ -6,12 +6,21 @@ spec:
   domains:
     - 'argocd.javelin.wesl.io'
 ---
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: argocd-fe-config
+spec:
+  redirectToHttps:
+    enabled: true
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server
   annotations:
     networking.gke.io/managed-certificates: argocd-server
+    networking.gke.io/v1beta1.FrontendConfig: argocd-fe-config
 spec:
   rules:
     - host: argocd.javelin.wesl.io
