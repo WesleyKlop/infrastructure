@@ -9,5 +9,5 @@ resources:
 
 patchesStrategicMerge:
   - patches/service-account.yaml
-  - patches/pod-schedule.yaml
+  # - patches/pod-schedule.yaml
   - patches/config-gke.yaml
