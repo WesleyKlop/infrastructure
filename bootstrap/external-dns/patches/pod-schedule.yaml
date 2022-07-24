@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-dns
+spec:
+  template:
+    spec:
+      nodeSelector:
+        "iam.gke.io/gke-metadata-server-enabled": 'true'
