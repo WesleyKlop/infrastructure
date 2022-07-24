@@ -1,7 +1,17 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: argocd-server
+spec:
+  domains:
+    - 'argocd.javelin.wesl.io'
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-server
+  annotations:
+    networking.gke.io/managed-certificates: argocd-server
 spec:
   rules:
     - host: argocd.javelin.wesl.io
