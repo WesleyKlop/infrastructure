@@ -13,6 +13,7 @@ spec:
   source:
     path: bootstrap/argo-cd
     repoURL: https://github.com/WesleyKlop/infrastructure.git
+    targetRevision: javelin 
   syncPolicy:
     automated:
       allowEmpty: true

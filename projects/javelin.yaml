@@ -33,7 +33,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/WesleyKlop/infrastructure.git
-        revision: main
+        revision: javelin
         files:
           - path: apps/**/javelin/config.json
   template:
