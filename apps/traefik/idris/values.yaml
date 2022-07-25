@@ -22,9 +22,9 @@ traefik:
     - "--global.checknewversion"
 
   additionalArguments:
-    - "--certificatesresolvers.namecheap.acme.email=wesley19097@gmail.com"
-    - "--certificatesresolvers.namecheap.acme.dnschallenge.provider=namecheap"
-    - "--certificatesresolvers.namecheap.acme.storage=/data/acme.json"
+    - "--certificatesresolvers.cloudflare.acme.email=wesley19097@gmail.com"
+    - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+    - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
     - "--certificatesresolvers.letsencrypt.acme.email=wesley19097@gmail.com"
     - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
     - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=websecure"
@@ -32,6 +32,8 @@ traefik:
   envFrom:
     - secretRef:
         name: namecheap-api
+    - secretRef:
+        name: cloudflare-api
 
   ports:
     traefik:
@@ -54,7 +56,7 @@ traefik:
       http3: true
       tls:
         enabled: true
-        certResolver: "namecheap"
+        certResolver: "cloudflare"
         domains:
           - main: wesleyklop.nl
             sans:
