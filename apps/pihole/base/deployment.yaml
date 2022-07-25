@@ -47,7 +47,7 @@ spec:
                   key: api-token
                   name: pihole
         - name: app
-          image: pihole/pihole:2022.04.3
+          image: pihole/pihole:2022.07.1
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: false
