@@ -2,6 +2,7 @@
   "recommendations": [
     "ms-kubernetes-tools.vscode-kubernetes-tools",
     "redhat.vscode-yaml",
-    "EditorConfig.EditorConfig"
+    "editorconfig.editorconfig",
+    "hashicorp.terraform"
   ]
 }
