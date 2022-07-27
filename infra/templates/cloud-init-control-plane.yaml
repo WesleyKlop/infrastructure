@@ -1,0 +1,76 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+apt:
+  sources:
+    docker.list:
+      source: deb [arch=amd64 signed-by=$KEY_FILE] https://download.docker.com/linux/ubuntu $RELEASE stable
+      keyid: 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+
+packages:
+  - containerd.io
+
+write_files:
+  - path: /etc/systemd/system/kubelet.service.d/20-hetzner-cloud.conf
+    content: |
+      [Service]
+      Environment="KUBELET_EXTRA_ARGS=--cloud-provider=external"
+  - path: /etc/modules-load.d/kubernetes.conf
+    content: |
+      br_netfilter
+  - path: /etc/sysctl.conf
+    append: true
+    content: |
+      net.bridge.bridge-nf-call-iptables = 1
+      net.ipv4.ip_forward = 1
+      net.ipv6.conf.default.forwarding = 1
+  - path: /etc/containerd/config.toml
+    content: |
+      disabled_plugins = []
+      [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
+        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+          SystemdCgroup = true
+  - path: /root/.bashrc
+    append: true
+    content: |
+      export KUBECONFIG=/etc/kubernetes/admin.conf
+  - path: /root/bootstrap/secrets.yaml
+    content: |
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: hcloud
+        namespace: kube-system
+      stringData:
+        token: "${api_token}"
+        network: "${network_id}"
+      ---
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: hcloud-csi
+        namespace: kube-system
+      stringData:
+        token: "${api_token}"
+
+runcmd:
+  - [modprobe, br_netfilter]
+  - [sysctl, -p]
+  - [curl, -fsSLo, /usr/share/keyrings/kubernetes-archive-keyring.gpg, https://packages.cloud.google.com/apt/doc/apt-key.gpg]
+  - echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  - [apt, update]
+  - [apt, install, -y, kubelet, kubeadm, kubectl]
+  - [kubeadm, config, images, pull]
+  - [kubeadm, init, 
+      --ignore-preflight-errors, NumCPU, 
+      --pod-network-cidr, 10.244.0.0/16,
+      --apiserver-cert-extra-sans, 10.0.0.1,
+      --token, ${cluster_token}
+    ]
+  - [kubectl, apply, -f, /root/bootstrap/secrets.yaml]
+  - [kubectl, apply, -f, https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/latest/download/ccm.yaml]
+  - [kubectl, apply, -f, https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml]
+  - [kubectl, -n, kube-flannel, patch, ds, kube-flannel-ds, --type, json, -p, '[{"op":"add","path":"/spec/template/spec/tolerations/-","value":{"key":"node.cloudprovider.kubernetes.io/uninitialized","value":"true","effect":"NoSchedule"}}]']
+  - [kubectl, -n, kube-system, patch, deployment, coredns, --type, json, -p, '[{"op":"add","path":"/spec/template/spec/tolerations/-","value":{"key":"node.cloudprovider.kubernetes.io/uninitialized","value":"true","effect":"NoSchedule"}}]']
+  - [kubectl, apply, -f, https://raw.githubusercontent.com/hetznercloud/csi-driver/v1.6.0/deploy/kubernetes/hcloud-csi.yml]

@@ -1,8 +1,0 @@
-package_update: true
-package_upgrade: true
-
-write_files:
- - path: /etc/systemd/system/kubelet.service.d/20-hetzner-cloud.conf
-   content: |
-      [Service]
-      Environment="KUBELET_EXTRA_ARGS=--cloud-provider=external"
