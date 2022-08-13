@@ -1,18 +1,10 @@
-terraform {
-  cloud {
-    organization = "w3ssl3y"
+variable "hcloud_token" {
+  sensitive = true
+}
 
-    workspaces {
-      name = "javelin"
-    }
-  }
-  required_providers {
-    hcloud = {
-      source = "hetznercloud/hcloud"
-    }
-    random = {
-      source = "hashicorp/random"
-    }
-  }
-  required_version = ">= 1.0"
+variable "cluster_api_token" {
+  sensitive = true
+}
+
+variable "management_ssh_key_id" {
 }
