@@ -11,8 +11,7 @@ resource "hcloud_network_subnet" "kubernetes" {
   network_zone = "eu-central"
 }
 
-resource "hcloud_floating_ip" "kubernetes" {
-  name          = "load-balancer"
-  home_location = "nbg1"
-  type          = "ipv4"
+resource "hcloud_placement_group" "homelab" {
+  name = "homelab"
+  type = "spread"
 }

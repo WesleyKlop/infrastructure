@@ -15,14 +15,15 @@ data "cloudinit_config" "base-config" {
 
 resource "hcloud_server" "control-plane" {
   name        = "control-plane"
-  server_type = "cx11"
+  server_type = "cx21"
   image       = "ubuntu-20.04"
   location    = "nbg1"
   ssh_keys = [
     var.management_ssh_key_id,
     local.ssh_key_id
   ]
-  user_data = data.cloudinit_config.base-config.rendered
+  user_data          = data.cloudinit_config.base-config.rendered
+  placement_group_id = hcloud_placement_group.homelab.id
 
   network {
     network_id = hcloud_network.kubernetes.id
@@ -55,7 +56,9 @@ resource "hcloud_server" "control-plane" {
       kubeadm init \
         --ignore-preflight-errors NumCPU \
         --pod-network-cidr 10.244.0.0/16 \
-        --apiserver-cert-extra-sans ${self.network.*.ip[0]} \
+        --apiserver-advertise-address ${self.ipv4_address} \
+        --apiserver-cert-extra-sans ${self.ipv4_address},${self.network.*.ip[0]} \
+        --control-plane-endpoint ${self.network.*.ip[0]} \
         --upload-certs \
         --skip-token-print
       BASH
@@ -96,7 +99,8 @@ resource "hcloud_server" "worker" {
     var.management_ssh_key_id,
     local.ssh_key_id
   ]
-  user_data = data.cloudinit_config.base-config.rendered
+  user_data          = data.cloudinit_config.base-config.rendered
+  placement_group_id = hcloud_placement_group.homelab.id
 
   network {
     network_id = hcloud_network.kubernetes.id
@@ -126,7 +130,6 @@ resource "hcloud_server" "worker" {
       "set -eux",
       "cloud-init status --wait > /dev/null",
       "${data.external.kubeadm_join.result.command}",
-      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes"
     ]
   }
 }
