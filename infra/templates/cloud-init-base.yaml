@@ -252,3 +252,8 @@ write_files:
         namespace: kube-system
       stringData:
         token: "${api_token}"
+
+runcmd:
+  # Make sure required modules are loaded.
+  - ["modprobe", "br_netfilter"]
+  - ["sysctl", "--system"]
