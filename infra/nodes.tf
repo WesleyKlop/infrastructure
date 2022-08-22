@@ -55,7 +55,7 @@ resource "hcloud_server" "control-plane" {
       kubeadm init \
         --ignore-preflight-errors NumCPU \
         --pod-network-cidr 10.244.0.0/16 \
-        --apiserver-cert-extra-sans 10.0.0.1 \
+        --apiserver-cert-extra-sans ${self.network.*.ip[0]} \
         --upload-certs \
         --skip-token-print
       BASH
@@ -69,7 +69,7 @@ resource "hcloud_server" "control-plane" {
       "kubectl apply -f '/root/bootstrap/secrets.yaml'",
       "kubectl apply -f 'https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml'",
       "kubectl apply -f 'https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/latest/download/ccm.yaml'",
-      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=control-plane nodes"
+      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes"
     ]
   }
 }
@@ -78,15 +78,17 @@ data "external" "kubeadm_join" {
   program = ["${path.module}/scripts/kubeadm-join.sh"]
 
   query = {
-    host = hcloud_server.control-plane.ipv4_address
+    host         = hcloud_server.control-plane.ipv4_address
+    sshkey       = local.ssh_key_private
+    hostinternal = hcloud_server.control-plane.network.*.ip[0]
   }
 
   depends_on = [hcloud_server.control-plane]
 }
 
-
-resource "hcloud_server" "worker-1" {
-  name        = "worker-1"
+resource "hcloud_server" "worker" {
+  count       = 2
+  name        = "worker-${count.index}"
   server_type = "cx11"
   image       = "ubuntu-20.04"
   location    = "nbg1"
@@ -123,7 +125,8 @@ resource "hcloud_server" "worker-1" {
     inline = [
       "set -eux",
       "cloud-init status --wait > /dev/null",
-      "${data.external.kubeadm_join.result}",
+      "${data.external.kubeadm_join.result.command}",
+      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes"
     ]
   }
 }
