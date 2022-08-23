@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: homelab
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: git@github.com:wesleyklop/infrastructure
+  sshPrivateKey: |
+    ${indent(4, ssh_key)}

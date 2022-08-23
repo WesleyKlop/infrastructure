@@ -8,3 +8,7 @@ variable "cluster_api_token" {
 
 variable "management_ssh_key_id" {
 }
+
+variable "argocd_ssh_key" {
+  sensitive = true
+}

@@ -230,10 +230,6 @@ write_files:
       [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
           SystemdCgroup = true
-  - path: /root/.bashrc
-    append: true
-    content: |
-      export KUBECONFIG=/etc/kubernetes/admin.conf
   - path: /root/bootstrap/secrets.yaml
     content: |
       apiVersion: v1

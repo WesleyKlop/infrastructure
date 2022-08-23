@@ -1,3 +1,4 @@
 {
-    "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "files.autoSave": "afterDelay"
 }

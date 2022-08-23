@@ -36,7 +36,7 @@ resource "hcloud_server" "control-plane" {
 
   lifecycle {
     ignore_changes = [
-      # user_data,
+      user_data,
       location,
       ssh_keys
     ]
@@ -68,7 +68,7 @@ resource "hcloud_server" "control-plane" {
   provisioner "remote-exec" {
     inline = [
       "set -eux",
-      "export KUBECONFIG=/etc/kubernetes/admin.conf",
+      "cp /etc/kubernetes/admin.conf ~/.kube/config",
       "kubectl apply -f '/root/bootstrap/secrets.yaml'",
       "kubectl apply -f 'https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml'",
       "kubectl apply -f 'https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/latest/download/ccm.yaml'",
@@ -114,7 +114,7 @@ resource "hcloud_server" "worker" {
 
   lifecycle {
     ignore_changes = [
-      # user_data,
+      user_data,
       location,
       ssh_keys
     ]
