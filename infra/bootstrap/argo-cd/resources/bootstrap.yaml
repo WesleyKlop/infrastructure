@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+  name: bootstrap 
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - name: argo-cd
+            namespace: argocd
+          - name: external-dns
+            namespace: external-dns
+  template:
+    metadata:
+      name: "{{ name }}"
+    spec:
+      project: default 
+      source:
+        repoURL: git@github.com:wesleyklop/infrastructure
+        targetRevision: javelin
+        path: "bootstrap/{{ name }}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{ namespace }}"
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: false
+          selfHeal: true

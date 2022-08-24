@@ -1,6 +1,17 @@
 # Bootstraps the cluster
 
 resource "null_resource" "argocd" {
+  triggers = {
+    "generation" = 1
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "set -eu",
+      "rm -rf bootstrap/argo-cd",
+    ]
+  }
+
   connection {
     user        = "root"
     host        = hcloud_server.control-plane.ipv4_address
@@ -22,7 +33,7 @@ resource "null_resource" "argocd" {
   provisioner "remote-exec" {
     inline = [
       "set -eu",
-      "kubectl apply -k bootstrap/argo-cd",
+      "kubectl apply --server-side --force-conflicts -k bootstrap/argo-cd",
     ]
   }
 }

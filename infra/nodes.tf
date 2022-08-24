@@ -38,7 +38,8 @@ resource "hcloud_server" "control-plane" {
     ignore_changes = [
       user_data,
       location,
-      ssh_keys
+      ssh_keys,
+      network
     ]
   }
 
@@ -116,7 +117,8 @@ resource "hcloud_server" "worker" {
     ignore_changes = [
       user_data,
       location,
-      ssh_keys
+      ssh_keys,
+      network
     ]
   }
 
