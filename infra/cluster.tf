@@ -27,13 +27,14 @@ resource "null_resource" "argocd" {
     content = templatefile("${path.module}/templates/argocd-homelab-repository.yaml", {
       ssh_key = var.argocd_ssh_key
     })
-    destination = "/root/bootstrap/argo-cd/resources/argocd-homelab-repository.yaml"
+    destination = "/root/bootstrap/argocd-homelab-repository.yaml"
   }
 
   provisioner "remote-exec" {
     inline = [
       "set -eu",
       "kubectl apply --server-side --force-conflicts -k bootstrap/argo-cd",
+      "kubectl apply --server-side -f bootstrap/argocd-homelab-repository.yaml"
     ]
   }
 }

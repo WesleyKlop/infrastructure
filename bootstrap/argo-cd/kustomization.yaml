@@ -6,9 +6,3 @@ namespace: argocd
 resources:
   - '../../infra/bootstrap/argo-cd'
   - resources/ingress.yaml
-  # - resources/ingress-route.yaml
-  # - resources/argocd-secret.yaml
-  # - resources/argocd-notifications-secret.yaml
-  # - resources/pull-secret.yaml
-  # - resources/repo-infrastructure.yaml
-  # - resources/service-monitor.yaml
