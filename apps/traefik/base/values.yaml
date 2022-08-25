@@ -33,11 +33,19 @@ ports:
     expose: true
     protocol: TCP
     redirectTo: websecure
+    proxyProtocol:
+      trustedIps: 127.0.0.1/32,10.0.0.0/8
+    forwardedHeaders:
+      trustedIps: 127.0.0.1/32,10.0.0.0/8
   websecure:
     port: 8443
     expose: true
     protocol: TCP
     http3: false
+    proxyProtocol:
+      trustedIps: 127.0.0.1/32,10.0.0.0/8
+    forwardedHeaders:
+      trustedIps: 127.0.0.1/32,10.0.0.0/8
     tls:
       enabled: true
       certResolver: "cloudflare"
@@ -61,6 +69,8 @@ service:
     load-balancer.hetzner.cloud/location: nbg1
     load-balancer.hetzner.cloud/name: traefik
     load-balancer.hetzner.cloud/uses-proxyprotocol: true
+    load-balancer.hetzner.cloud/use-private-ip: true
+    load-balancer.hetzner.cloud/disable-private-ingress: true
 
 persistence:
   enabled: true
