@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - resources/namespace.yaml
+  - resources/storage-class.yaml
 
 helmCharts:
   - name: traefik

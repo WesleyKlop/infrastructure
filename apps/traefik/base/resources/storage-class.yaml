@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-traefik
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+mountOptions:
+  - dir_mode=0700
+  - file_mode=0600
+  - uid=65532
+  - gid=65532
