@@ -5,3 +5,4 @@ resources:
   - ../base
   - ./resources/cloudflare-api.yaml
   - ./resources/ingress-class.yaml
+  - ./resources/dashboard.yaml
