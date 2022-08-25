@@ -3,6 +3,6 @@ kind: Kustomization
 
 resources:
   - ./argo-cd
-  - github.com/external-secrets/external-secrets//config/crds/bases?ref=v0.5.9
+  - https://raw.githubusercontent.com/external-secrets/external-secrets/v0.5.9/deploy/crds/bundle.yaml
   - ./resources/argocd-homelab-repository.yaml
   - ./resources/bootstrap-store.yaml
