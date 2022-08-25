@@ -13,9 +13,9 @@ mountOptions:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: traefik
+  name: local-traefik
 spec:
-  storageClassName: "local-traefik"
+  storageClassName: local-traefik
   capacity:
     storage: "1Gi"
   accessModes:
