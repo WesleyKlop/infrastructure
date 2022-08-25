@@ -2,22 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-5"
-  name: bootstrap
+    argocd.argoproj.io/sync-wave: "-1"
+  name: apps
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true
   generators:
-    - list:
-        elements:
-          - name: argo-cd
-            namespace: argocd
-          - name: external-dns
-            namespace: external-dns
-          - name: external-secrets
-            namespace: external-secrets
-          - name: apps
-            namespace: argocd
+    - git:
+        repoURL: git@github.com:wesleyklop/infrastructure
+        revision: javelin
+        files:
+          - path: apps/**/javelin/config.json
   template:
     metadata:
       name: "{{ name }}"
@@ -26,7 +21,7 @@ spec:
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
-        path: "bootstrap/{{ name }}"
+        path: "{{ path }}"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{ namespace }}"
