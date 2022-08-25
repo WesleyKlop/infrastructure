@@ -12,8 +12,8 @@ spec:
         elements:
           - name: argo-cd
             namespace: argocd
-          - name: external-secrets
-            namespace: external-secrets
+          # - name: external-secrets
+          # namespace: external-secrets
   template:
     metadata:
       name: "{{ name }}"
