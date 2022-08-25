@@ -2,7 +2,13 @@
 
 resource "null_resource" "argocd" {
   triggers = {
-    "generation" = 3
+    "generation" = 1
+  }
+
+  connection {
+    user        = "root"
+    host        = hcloud_server.control-plane.ipv4_address
+    private_key = local.ssh_key_private
   }
 
   provisioner "remote-exec" {
@@ -10,12 +16,6 @@ resource "null_resource" "argocd" {
       "set -eu",
       "rm -rf /root/bootstrap",
     ]
-  }
-
-  connection {
-    user        = "root"
-    host        = hcloud_server.control-plane.ipv4_address
-    private_key = local.ssh_key_private
   }
 
   provisioner "file" {
@@ -41,7 +41,7 @@ resource "null_resource" "argocd" {
   provisioner "remote-exec" {
     inline = [
       "set -eu",
-      "kubectl apply --server-side --force-conflicts -k bootstrap"
+      "kubectl apply --server-side -k bootstrap"
     ]
   }
 }

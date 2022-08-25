@@ -12,7 +12,7 @@ spec:
             - --cloudflare-proxied # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
           envFrom:
             - secretRef:
-                name: cloudflare-secrets
+                name: cloudflare-api
           env:
             - name: EXTERNAL_DNS_SOURCE
               value: |-

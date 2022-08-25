@@ -41,3 +41,13 @@ Flux reconciliation and upgrade notifications are automatically send to Slack.
 - [x] Automated testing
 - [ ] Improve automated image updates
 - [ ] Reduce usage of hostPath volumes
+
+# Javelin
+
+Climate change forcing me to migrate to the cloud smh.
+
+## Bootstrapping
+
+This time I wanted it to be :sparkles: automated :sparkles: so this cluster is
+created on the Hetzner cloud platform using Terraform.
+

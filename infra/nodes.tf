@@ -69,6 +69,7 @@ resource "hcloud_server" "control-plane" {
   provisioner "remote-exec" {
     inline = [
       "set -eux",
+      "mkdir ~/.kube",
       "cp /etc/kubernetes/admin.conf ~/.kube/config",
       "kubectl apply -f '/root/bootstrap/secrets.yaml'",
       "kubectl apply -f 'https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml'",

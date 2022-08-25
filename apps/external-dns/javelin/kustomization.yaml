@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - ../base
+  - ./resources/cloudflare-api.yaml
