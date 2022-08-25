@@ -5,6 +5,8 @@ namespace: 1password
 
 resources:
   - ./resources/namespace.yaml
+  - ./resources/op-credentials.yaml
+  - ./resources/op-store.yaml
 
 helmCharts:
   - name: connect
