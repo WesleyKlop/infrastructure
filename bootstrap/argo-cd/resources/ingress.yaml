@@ -4,7 +4,6 @@ kind: Ingress
 metadata:
   name: argocd-server
 spec:
-  ingressClassName: nginx
   rules:
     - host: argocd.javelin.wesl.io
       http:
