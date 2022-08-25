@@ -2,7 +2,7 @@
 
 resource "null_resource" "argocd" {
   triggers = {
-    "generation" = 3
+    "generation" = 4
   }
 
   connection {
