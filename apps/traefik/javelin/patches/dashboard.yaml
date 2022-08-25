@@ -1,0 +1,5 @@
+$patch: delete
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
