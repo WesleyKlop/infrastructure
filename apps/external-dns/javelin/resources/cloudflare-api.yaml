@@ -10,11 +10,7 @@ spec:
   target:
     creationPolicy: Owner
   data:
-    - secretKey: CF_ZONE_API_TOKEN
-      remoteRef:
-        key: Cloudflare
-        property: api-key
-    - secretKey: CF_DNS_API_TOKEN
+    - secretKey: CF_API_TOKEN
       remoteRef:
         key: Cloudflare
         property: api-key
