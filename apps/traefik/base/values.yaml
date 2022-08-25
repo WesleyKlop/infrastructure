@@ -8,7 +8,7 @@ providers:
   kubernetesIngress:
     enabled: true
     publishedService:
-      enabled: true
+      enabled: traefik/traefik
 
 additionalArguments:
   - "--certificatesresolvers.cloudflare.acme.email=wesley19097@gmail.com"
