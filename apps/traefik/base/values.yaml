@@ -1,14 +1,11 @@
 traefik:
   ingressRoute:
     dashboard:
-      enabled: false
+      enabled: true
 
   providers:
     kubernetesCRD:
       enabled: false
-      allowCrossNamespace: true
-      allowExternalNameServices: true
-      namespaces: []
     kubernetesIngress:
       enabled: true
       publishedService:
