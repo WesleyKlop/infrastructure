@@ -9,6 +9,7 @@ resource "null_resource" "argocd" {
     inline = [
       "set -eu",
       "rm -rf /root/bootstrap",
+      "mkdir -p /root/bootstrap/argo-cd"
     ]
   }
 
