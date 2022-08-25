@@ -12,3 +12,12 @@ variable "management_ssh_key_id" {
 variable "argocd_ssh_key" {
   sensitive = true
 }
+
+
+variable "op_credentials" {
+  sensitive = true
+}
+
+variable "op_token" {
+  sensitive = true
+}

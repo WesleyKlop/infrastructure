@@ -2,13 +2,13 @@
 
 resource "null_resource" "argocd" {
   triggers = {
-    "generation" = 1
+    "generation" = 2
   }
 
   provisioner "remote-exec" {
     inline = [
       "set -eu",
-      "rm -rf bootstrap/argo-cd",
+      "rm -rf /root/bootstrap",
     ]
   }
 
@@ -28,6 +28,14 @@ resource "null_resource" "argocd" {
       ssh_key = var.argocd_ssh_key
     })
     destination = "/root/bootstrap/argocd-homelab-repository.yaml"
+  }
+
+  provisioner "file" {
+    content = templatefile("${path.module}/templates/bootstrap-store.yaml", {
+      op_token       = var.op_token
+      op_credentials = var.op_credentials
+    })
+    destination = "/root/bootstrap/bootstrap-store.yaml"
   }
 
   provisioner "remote-exec" {

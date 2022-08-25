@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
-  name: bootstrap 
+  name: bootstrap
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true
@@ -14,11 +14,13 @@ spec:
             namespace: argocd
           - name: external-dns
             namespace: external-dns
+          - name: external-secrets
+            namespace: external-secrets
   template:
     metadata:
       name: "{{ name }}"
     spec:
-      project: default 
+      project: default
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin

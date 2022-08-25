@@ -1,0 +1,12 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: bootstrap
+spec:
+  provider:
+    fake:
+      data:
+        - key: op-credentials
+          value: ${op_credentials}
+        - key: op-token
+          value: ${op_token}
