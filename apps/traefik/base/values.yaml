@@ -1,0 +1,82 @@
+traefik:
+  ingressRoute:
+    dashboard:
+      enabled: false
+
+  providers:
+    kubernetesCRD:
+      enabled: false
+      allowCrossNamespace: true
+      allowExternalNameServices: true
+      namespaces: []
+    kubernetesIngress:
+      enabled: true
+      publishedService:
+        enabled: true
+
+  additionalArguments:
+    - "--certificatesresolvers.cloudflare.acme.email=wesley19097@gmail.com"
+    - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+    - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+
+  envFrom:
+    - secretRef:
+        name: cloudflare-api
+
+  ports:
+    traefik:
+      port: 9000
+      expose: false
+      protocol: TCP
+    metrics:
+      port: 9100
+      expose: true
+      protocol: TCP
+    web:
+      port: 8000
+      expose: true
+      protocol: TCP
+      redirectTo: websecure
+    websecure:
+      port: 8443
+      expose: true
+      protocol: TCP
+      http3: true
+      tls:
+        enabled: true
+        certResolver: "cloudflare"
+        # domains:
+        #   - main: wesleyklop.nl
+        #     sans:
+        #       - "*.wesleyklop.nl"
+        #   - main: wesl.io
+        #     sans:
+        #       - "*.wesl.io"
+        #   - main: wesley.io
+        #     sans:
+        #       - "*.wesley.io"
+        #   - main: lauraouthuis.nl
+        #     sans:
+        #       - "*.lauraouthuis.nl"
+
+  service:
+    type: LoadBalancer
+    annotations:
+      load-balancer.hetzner.cloud/location: nbg1
+
+  persistence:
+    enabled: true
+    name: data
+    accessMode: ReadWriteOnce
+    size: 512Mi
+    storageClass: "hcloud-volumes"
+    path: /data
+    annotations: {}
+
+  experimental:
+    http3:
+      enabled: true
+
+  logs:
+    access:
+      enabled: true
