@@ -16,8 +16,6 @@ spec:
             namespace: external-dns
           - name: external-secrets
             namespace: external-secrets
-          - name: apps
-            namespace: argocd
   template:
     metadata:
       name: "{{ name }}"
