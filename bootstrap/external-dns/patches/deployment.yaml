@@ -10,7 +10,6 @@ spec:
           args:
             - --provider=cloudflare
             - --cloudflare-proxied # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
-            - --dry-run # TEMP
           envFrom:
             - secretRef:
                 name: cloudflare-secrets
