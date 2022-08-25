@@ -6,7 +6,7 @@ metadata:
   name: bootstrap
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: true
+    preserveResourcesOnDeletion: false
   generators:
     - list:
         elements:
