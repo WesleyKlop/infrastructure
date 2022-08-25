@@ -6,7 +6,7 @@ metadata:
   name: apps
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: true
+    preserveResourcesOnDeletion: false
   generators:
     - git:
         repoURL: git@github.com:wesleyklop/infrastructure
@@ -31,5 +31,5 @@ spec:
       syncPolicy:
         automated:
           allowEmpty: true
-          prune: false
+          prune: true
           selfHeal: true
