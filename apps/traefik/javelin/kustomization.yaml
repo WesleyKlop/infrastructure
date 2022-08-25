@@ -5,6 +5,3 @@ resources:
   - ../base
   - ./resources/cloudflare-api.yaml
   - ./resources/ingress-class.yaml
-
-patchesStrategicMerge:
-  - ./patches/dashboard.yaml
