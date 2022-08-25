@@ -13,6 +13,5 @@ helmCharts:
     repo: https://helm.traefik.io/traefik
     version: 10.24.0
     valuesFile: values.yaml
-    namespace: traefik
 
 patchesStrategicMerge: []
