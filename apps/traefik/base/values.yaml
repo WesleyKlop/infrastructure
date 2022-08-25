@@ -37,7 +37,7 @@ ports:
     port: 8443
     expose: true
     protocol: TCP
-    http3: true
+    http3: false
     tls:
       enabled: true
       certResolver: "cloudflare"
@@ -72,7 +72,7 @@ persistence:
 
 experimental:
   http3:
-    enabled: true
+    enabled: false
 
 logs:
   access:
