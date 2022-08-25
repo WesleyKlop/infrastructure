@@ -2,14 +2,13 @@
 
 resource "null_resource" "argocd" {
   triggers = {
-    "generation" = 2
+    "generation" = 3
   }
 
   provisioner "remote-exec" {
     inline = [
       "set -eu",
       "rm -rf /root/bootstrap",
-      "mkdir -p /root/bootstrap/argo-cd"
     ]
   }
 
@@ -20,15 +19,15 @@ resource "null_resource" "argocd" {
   }
 
   provisioner "file" {
-    source      = "./bootstrap/argo-cd"
-    destination = "/root/bootstrap/argo-cd"
+    source      = "./bootstrap"
+    destination = "/root/bootstrap"
   }
 
   provisioner "file" {
     content = templatefile("${path.module}/templates/argocd-homelab-repository.yaml", {
       ssh_key = var.argocd_ssh_key
     })
-    destination = "/root/bootstrap/argocd-homelab-repository.yaml"
+    destination = "/root/bootstrap/resources/argocd-homelab-repository.yaml"
   }
 
   provisioner "file" {
@@ -36,14 +35,13 @@ resource "null_resource" "argocd" {
       op_token       = var.op_token
       op_credentials = var.op_credentials
     })
-    destination = "/root/bootstrap/bootstrap-store.yaml"
+    destination = "/root/bootstrap/resources/bootstrap-store.yaml"
   }
 
   provisioner "remote-exec" {
     inline = [
       "set -eu",
-      "kubectl apply --server-side --force-conflicts -k bootstrap/argo-cd",
-      "kubectl apply --server-side -f bootstrap/argocd-homelab-repository.yaml"
+      "kubectl apply --server-side --force-conflicts -k bootstrap"
     ]
   }
 }
