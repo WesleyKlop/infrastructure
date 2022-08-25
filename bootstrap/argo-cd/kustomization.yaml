@@ -6,3 +6,10 @@ namespace: argocd
 resources:
   - ../../infra/bootstrap/argo-cd
   - resources/ingress.yaml
+
+configMapGenerator:
+  - name: argocd-cm
+    behavior: merge
+    literals:
+      - statusbadge.enabled="true"
+      - kustomize.buildOptions="--enable-helm"
