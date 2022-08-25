@@ -4,7 +4,7 @@ ingressRoute:
 
 providers:
   kubernetesCRD:
-    enabled: false
+    enabled: true
   kubernetesIngress:
     enabled: true
     publishedService:
