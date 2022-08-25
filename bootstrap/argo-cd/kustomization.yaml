@@ -8,9 +8,16 @@ resources:
   - resources/ingress.yaml
   - resources/apps.yaml
 
+patchesStrategicMerge:
+  - "patches/service-config.yaml"
+
 configMapGenerator:
   - name: argocd-cm
     behavior: merge
     literals:
       - statusbadge.enabled="true"
       - kustomize.buildOptions="--enable-helm"
+  - name: argocd-cmd-params-cm
+    behavior: merge
+    literals:
+      - server.insecure="true"
