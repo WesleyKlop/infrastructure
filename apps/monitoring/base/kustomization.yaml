@@ -9,7 +9,7 @@ resources:
 helmCharts:
   - name: kube-prometheus-stack
     includeCRDs: false
-    releaseName: kube-prometheus-stack
+    releaseName: monitoring
     version: 39.9.0
     repo: https://prometheus-community.github.io/helm-charts
     namespace: monitoring
