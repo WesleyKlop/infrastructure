@@ -24,7 +24,7 @@ resource "hcloud_server" "control-plane" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
-  firewall_ids       = [hcloud_firewall.homelab.id]
+  firewall_ids       = []
 
   network {
     network_id = hcloud_network.kubernetes.id
@@ -105,7 +105,7 @@ resource "hcloud_server" "worker" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
-  firewall_ids       = [hcloud_firewall.homelab.id]
+  firewall_ids       = []
 
   network {
     network_id = hcloud_network.kubernetes.id
