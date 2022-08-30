@@ -29,7 +29,6 @@ resource "random_password" "webhook-secret" {
 
 resource "github_repository_webhook" "argocd" {
   repository = github_repository.infrastructure.name
-  name       = "Argo CD webhook"
   active     = true
 
   events = ["push"]
