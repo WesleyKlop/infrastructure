@@ -5,7 +5,6 @@ namespace: argocd
 
 resources:
   - ../../infra/bootstrap/argo-cd
-  - resources/ingress.yaml
   - resources/apps.yaml
 
 configMapGenerator:
