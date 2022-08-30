@@ -4,6 +4,9 @@ alertmanager:
   enabled: true
   alertmanagerSpec:
     externalUrl: "https://alertmanager.wesley.io"
+    podMetadata:
+      labels:
+        app.kubernetes.io/part-of: monitoring
     storage:
       volumeClaimTemplate:
         spec:
@@ -28,6 +31,9 @@ prometheus:
   enabled: true
   prometheusSpec:
     externalUrl: "https://prometheus.wesley.io"
+    podMetadata:
+      labels:
+        app.kubernetes.io/part-of: monitoring
     storageSpec:
       volumeClaimTemplate:
         spec:
