@@ -10,7 +10,9 @@ providers:
     publishedService:
       enabled: traefik/traefik
 
-additionalArguments: []
+additionalArguments:
+  - "--entryPoints.websecure.proxyProtocol.trustedIPs=167.235.108.213"
+  - "--entryPoints.web.proxyProtocol.trustedIPs=167.235.108.213"
 
 certResolvers:
   cloudflare:
@@ -42,8 +44,6 @@ ports:
     expose: true
     protocol: TCP
     http3: false
-    proxyProtocol:
-      trustedIPs: "167.235.108.213"
     tls:
       enabled: true
       certResolver: "cloudflare"
