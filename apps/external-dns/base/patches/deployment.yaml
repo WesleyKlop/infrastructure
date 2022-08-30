@@ -9,7 +9,7 @@ spec:
         - name: external-dns
           args:
             - --provider=cloudflare
-            # - --cloudflare-proxied # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
+            - --cloudflare-proxied # (optional) enable the proxy feature of Cloudflare (DDOS protection, CDN...)
           envFrom:
             - secretRef:
                 name: cloudflare-api
