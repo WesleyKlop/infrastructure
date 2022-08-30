@@ -42,6 +42,9 @@ ports:
     expose: true
     protocol: TCP
     http3: false
+    proxyProtocol:
+      trustedIPs:
+        - "167.235.108.213"
     tls:
       enabled: true
       certResolver: "cloudflare"
