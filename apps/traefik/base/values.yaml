@@ -10,10 +10,14 @@ providers:
     publishedService:
       enabled: traefik/traefik
 
-additionalArguments:
-  - "--certificatesresolvers.cloudflare.acme.email=wesley19097@gmail.com"
-  - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
-  - "--certificatesresolvers.cloudflare.acme.storage=/data/acme.json"
+additionalArguments: []
+
+certResolvers:
+  cloudflare:
+    email: wesley19097@gmail.com
+    dnsChallenge:
+      provider: cloudflare
+    storage: /data/acme.json
 
 envFrom:
   - secretRef:
