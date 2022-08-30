@@ -32,6 +32,8 @@ prometheus:
   prometheusSpec:
     externalUrl: "https://prometheus.wesley.io"
     podMonitorSelectorNilUsesHelmValues: false
+    probeSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     podMetadata:
       labels:
