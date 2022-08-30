@@ -8,9 +8,6 @@ resources:
   - resources/ingress.yaml
   - resources/apps.yaml
 
-patchesStrategicMerge:
-- "patches/service-config.yaml"
-
 configMapGenerator:
   - name: argocd-cm
     behavior: merge
