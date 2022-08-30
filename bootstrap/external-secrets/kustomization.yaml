@@ -9,3 +9,4 @@ helmCharts:
     releaseName: external-secrets
     repo: https://charts.external-secrets.io
     version: 0.5.9
+    includeCRDs: true

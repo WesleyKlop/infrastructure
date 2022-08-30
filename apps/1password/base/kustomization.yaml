@@ -13,3 +13,4 @@ helmCharts:
     releaseName: connect
     repo: https://1password.github.io/connect-helm-charts
     version: 1.8.1
+    includeCRDs: false

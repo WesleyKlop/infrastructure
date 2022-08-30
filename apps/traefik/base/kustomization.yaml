@@ -12,5 +12,6 @@ helmCharts:
     version: 10.24.0
     valuesFile: values.yaml
     namespace: traefik
+    includeCRDs: true
 
 patchesStrategicMerge: []
