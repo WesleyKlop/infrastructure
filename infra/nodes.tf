@@ -24,6 +24,7 @@ resource "hcloud_server" "control-plane" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
+  firewall_ids       = [hcloud_firewall.homelab.id]
 
   network {
     network_id = hcloud_network.kubernetes.id
@@ -56,8 +57,8 @@ resource "hcloud_server" "control-plane" {
       <<-BASH
       kubeadm init \
         --ignore-preflight-errors NumCPU \
-        --pod-network-cidr 10.244.0.0/16 \
-        --apiserver-advertise-address ${self.ipv4_address} \
+        --pod-network-cidr ${local.pod_cidr_ipv4} \
+        --apiserver-advertise-address 0.0.0.0 \
         --apiserver-cert-extra-sans ${self.ipv4_address},${self.network.*.ip[0]} \
         --control-plane-endpoint ${self.network.*.ip[0]} \
         --upload-certs \
@@ -104,6 +105,7 @@ resource "hcloud_server" "worker" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
+  firewall_ids       = [hcloud_firewall.homelab.id]
 
   network {
     network_id = hcloud_network.kubernetes.id

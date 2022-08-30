@@ -14,6 +14,10 @@ resource "github_repository" "infrastructure" {
     "gitops",
     "kubernetes",
   ]
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_repository_deploy_key" "argocd-deploy-key" {
