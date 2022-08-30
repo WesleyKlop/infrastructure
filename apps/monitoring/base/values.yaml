@@ -1,6 +1,7 @@
 nameOverride: monitoring
 
 alertmanager:
+  enabled: true
   externalUrl: "https://alertmanager.wesley.io"
 
 grafana:
@@ -15,5 +16,6 @@ grafana:
     - grafana-piechart-panel
 
 prometheus:
+  enabled: true
   prometheusSpec:
     externalUrl: "https://prometheus.wesley.io"
