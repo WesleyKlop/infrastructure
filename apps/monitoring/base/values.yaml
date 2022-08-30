@@ -2,15 +2,16 @@ nameOverride: monitoring
 
 alertmanager:
   enabled: true
-  externalUrl: "https://alertmanager.wesley.io"
-  storage:
-    volumeClaimTemplate:
-      spec:
-        storageClassName: hcloud-volumes
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+  alertmanagerSpec:
+    externalUrl: "https://alertmanager.wesley.io"
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: hcloud-volumes
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
 
 grafana:
   defaultDashboardsTimezone: Europe/Amsterdam
