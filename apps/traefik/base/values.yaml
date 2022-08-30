@@ -78,6 +78,8 @@ experimental:
     enabled: false
 
 logs:
+  general:
+    level: INFO
   access:
     enabled: true
 
