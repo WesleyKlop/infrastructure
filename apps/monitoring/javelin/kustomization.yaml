@@ -6,3 +6,4 @@ namespace: monitoring
 resources:
   - ../base
   - ./resources/dashboards
+  - ./resources/grafana-secret.yaml

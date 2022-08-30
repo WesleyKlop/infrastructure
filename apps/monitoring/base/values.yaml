@@ -1,1 +1,19 @@
 nameOverride: monitoring
+
+alertmanager:
+  externalUrl: "https://alertmanager.wesley.io"
+
+grafana:
+  defaultDashboardsTimezone: Europe/Amsterdam
+
+  admin:
+    existingSecret: grafana
+    userKey: username
+    passwordKey: password
+
+  plugins:
+    - grafana-piechart-panel
+
+prometheus:
+  prometheusSpec:
+    externalUrl: "https://prometheus.wesley.io"
