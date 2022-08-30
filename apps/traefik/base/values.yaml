@@ -57,7 +57,7 @@ service:
     load-balancer.hetzner.cloud/disable-private-ingress: true
     load-balancer.hetzner.cloud/ipv6-disabled: true
     # Required because we have to use an IngressRoute to route argocd traffic which external-dns does not handle
-    external-dns.alpha.kubernetes.io/hostname: argocd.javelin.wesl.io
+    external-dns.alpha.kubernetes.io/hostname: argocd-javelin.wesl.io
 
 persistence:
   enabled: true
