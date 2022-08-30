@@ -3,4 +3,4 @@ kind: Service
 metadata:
   name: argocd-server
   annotations:
-    traefik.ingress.kubernetes.io/service.serversscheme: h2c
+    external-dns.alpha.kubernetes.io/hostname: argocd.javelin.wesl.io
