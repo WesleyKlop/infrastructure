@@ -35,7 +35,7 @@ kind: Ingress
 metadata:
   name: whoami
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
     - host: whoami.javelin.wesl.io
