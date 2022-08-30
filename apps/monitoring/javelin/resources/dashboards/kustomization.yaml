@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+configMapGenerator:
+  - name: traefik
+    files:
+      - traefik.json
+  - name: argo-cd
+    files:
+      - argocd.json
+generatorOptions:
+  labels:
+    grafana_dashboard: "1"
