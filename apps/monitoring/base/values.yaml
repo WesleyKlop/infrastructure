@@ -31,6 +31,8 @@ prometheus:
   enabled: true
   prometheusSpec:
     externalUrl: "https://prometheus.wesley.io"
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
     podMetadata:
       labels:
         app.kubernetes.io/part-of: monitoring
