@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: monitoring
+  name: grafana
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
@@ -16,6 +16,15 @@ spec:
                 name: monitoring-grafana
                 port:
                   name: http-web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alertmanager
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+spec:
+  rules:
     - host: alertmanager.wesley.io
       http:
         paths:
@@ -26,6 +35,15 @@ spec:
                 name: monitoring-alertmanager
                 port:
                   name: http-web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+spec:
+  rules:
     - host: prometheus.wesley.io
       http:
         paths:
