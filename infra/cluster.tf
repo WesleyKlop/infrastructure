@@ -2,7 +2,7 @@
 
 resource "null_resource" "argocd" {
   triggers = {
-    "generation" = 4
+    "generation" = 5
   }
 
   connection {
@@ -25,7 +25,7 @@ resource "null_resource" "argocd" {
 
   provisioner "file" {
     content = templatefile("${path.module}/templates/argocd-homelab-repository.yaml", {
-      ssh_key = var.argocd_ssh_key
+      ssh_key = tls_private_key.deploy-key.private_key_openssh
     })
     destination = "/root/bootstrap/resources/argocd-homelab-repository.yaml"
   }

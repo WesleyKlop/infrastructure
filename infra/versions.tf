@@ -38,9 +38,17 @@ terraform {
       source  = "hashicorp/null"
       version = ">= 3.1.0"
     }
+    github = {
+      source  = "integrations/github"
+      version = ">= 4.30.0"
+    }
   }
 }
 
 provider "hcloud" {
   token = var.hcloud_token
+}
+
+provider "github" {
+  token = var.github_token
 }
