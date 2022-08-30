@@ -38,7 +38,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
-    - host: whoami.javelin.wesl.io
+    - host: whoami-javelin.wesl.io
       http:
         paths:
           - path: /
