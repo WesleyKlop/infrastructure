@@ -51,13 +51,13 @@ ports:
       certResolver: "cloudflare"
 
 service:
-  type: NodePort
+  type: LoadBalancer
   annotations:
     load-balancer.hetzner.cloud/location: nbg1
     load-balancer.hetzner.cloud/name: traefik
     load-balancer.hetzner.cloud/uses-proxyprotocol: true
     load-balancer.hetzner.cloud/disable-private-ingress: true
-    load-balancer.hetzner.cloud/ipv6-disabled:
+    load-balancer.hetzner.cloud/ipv6-disabled: true
 
 persistence:
   enabled: true
