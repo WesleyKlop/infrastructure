@@ -3,6 +3,14 @@ nameOverride: monitoring
 alertmanager:
   enabled: true
   externalUrl: "https://alertmanager.wesley.io"
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: hcloud-volumes
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
 
 grafana:
   defaultDashboardsTimezone: Europe/Amsterdam
@@ -19,3 +27,11 @@ prometheus:
   enabled: true
   prometheusSpec:
     externalUrl: "https://prometheus.wesley.io"
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: hcloud-volumes
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
