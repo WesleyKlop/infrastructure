@@ -1,6 +1,6 @@
 ingressRoute:
   dashboard:
-    enabled: false
+    enabled: true
 
 providers:
   kubernetesCRD:
@@ -26,7 +26,7 @@ ports:
     protocol: TCP
   metrics:
     port: 9100
-    expose: true
+    expose: false
     protocol: TCP
   web:
     port: 8000
@@ -49,22 +49,9 @@ ports:
     tls:
       enabled: true
       certResolver: "cloudflare"
-      # domains:
-      #   - main: wesleyklop.nl
-      #     sans:
-      #       - "*.wesleyklop.nl"
-      #   - main: wesl.io
-      #     sans:
-      #       - "*.wesl.io"
-      #   - main: wesley.io
-      #     sans:
-      #       - "*.wesley.io"
-      #   - main: lauraouthuis.nl
-      #     sans:
-      #       - "*.lauraouthuis.nl"
 
 service:
-  type: LoadBalancer
+  type: NodePort
   annotations:
     load-balancer.hetzner.cloud/location: nbg1
     load-balancer.hetzner.cloud/name: traefik
@@ -80,6 +67,11 @@ persistence:
   storageClass: "local-traefik"
   path: /data
   annotations: {}
+
+metrics:
+  prometheus:
+    entryPoint: metrics
+    addRoutersLabels: true
 
 experimental:
   http3:
