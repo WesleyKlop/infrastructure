@@ -76,7 +76,11 @@ resource "hcloud_server" "control-plane" {
       "kubectl apply -f 'https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml'",
       "kubectl apply -f 'https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/latest/download/ccm.yaml'",
       "kubectl apply -f 'https://raw.githubusercontent.com/hetznercloud/csi-driver/v1.6.0/deploy/kubernetes/hcloud-csi.yml'",
-      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes"
+      "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes",
+      # Required for traefik, only on control-plane
+      "mkdir /opt/traefik",
+      "chown 65532:65532 /opt/traefik",
+      "chmod 700 /opt/traefik"
     ]
   }
 }
