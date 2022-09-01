@@ -102,10 +102,12 @@ locals {
 
     # GPG Keyservers
     {
-      direction       = "out"
-      protocol        = "tcp"
-      port            = "11371"
-      destination_ips = ["0.0.0.0/0"]
+      direction = "out"
+      protocol  = "tcp"
+      port      = "11371"
+      destination_ips = [
+        "0.0.0.0/0"
+      ]
     },
 
     # HTTP(s)
@@ -137,32 +139,6 @@ locals {
     }
 
     ], [
-
-    # Incoming http(s)(/3)
-    {
-      direction = "in"
-      protocol  = "tcp"
-      port      = "80"
-      source_ips = [
-        "0.0.0.0/0"
-      ]
-    },
-    {
-      direction = "in"
-      protocol  = "tcp"
-      port      = "443"
-      source_ips = [
-        "0.0.0.0/0"
-      ]
-    },
-    {
-      direction = "in"
-      protocol  = "udp"
-      port      = "443"
-      source_ips = [
-        "0.0.0.0/0"
-      ]
-    },
     # Argo CD Access to repositories
     {
       direction = "out"
