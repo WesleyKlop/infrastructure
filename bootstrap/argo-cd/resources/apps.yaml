@@ -22,7 +22,6 @@ spec:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
         path: "{{ path }}"
-        kustomize: {}
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{ namespace }}"
