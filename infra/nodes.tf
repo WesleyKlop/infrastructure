@@ -57,7 +57,7 @@ resource "hcloud_server" "control-plane" {
       <<-BASH
       kubeadm init \
         --ignore-preflight-errors NumCPU \
-        --pod-network-cidr ${local.pod_cidr_ipv4} \
+        --pod-network-cidr ${local.pod_ipv4_cidr} \
         --apiserver-advertise-address 0.0.0.0 \
         --apiserver-cert-extra-sans ${self.ipv4_address},${self.network.*.ip[0]} \
         --control-plane-endpoint ${self.network.*.ip[0]} \

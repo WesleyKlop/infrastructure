@@ -5,7 +5,7 @@ locals {
 
 locals {
   # The main network cidr that all subnets will be created upon
-  network_cidr_ipv4 = "10.0.0.0/8"
+  network_ipv4_cidr = "10.0.0.0/8"
 
   # The following IPs are important to be whitelisted because they communicate with Hetzner services and enable the CCM and CSI to work properly.
   # Source https://github.com/hetznercloud/csi-driver/issues/204#issuecomment-848625566
@@ -13,11 +13,11 @@ locals {
   hetzner_cloud_api_ipv4        = "213.239.246.1/32"
 
   # CIDR Ranges for cluster networking
-  pod_cidr_ipv4     = "10.244.0.0/16"
-  cluster_cidr_ipv4 = "10.98.0.0/16"
+  pod_ipv4_cidr     = "10.244.0.0/16"
+  cluster_ipv4_cidr = "10.98.0.0/16"
 
   whitelisted_ips = [
-    local.network_cidr_ipv4,
+    local.network_ipv4_cidr,
     local.hetzner_metadata_service_ipv4,
     local.hetzner_cloud_api_ipv4,
     "127.0.0.1/32",

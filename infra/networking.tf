@@ -1,11 +1,11 @@
 resource "hcloud_network" "kubernetes" {
-  ip_range = local.network_cidr_ipv4
+  ip_range = local.network_ipv4_cidr
   name     = "kubernetes"
 }
 
 resource "hcloud_network_subnet" "kubernetes" {
   network_id   = hcloud_network.kubernetes.id
-  ip_range     = local.cluster_cidr_ipv4
+  ip_range     = local.cluster_ipv4_cidr
   type         = "cloud"
   network_zone = "eu-central"
 }
