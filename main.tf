@@ -1,3 +1,12 @@
+resource "tls_private_key" "ssh-key" {
+  algorithm = "ED25519"
+}
+
+resource "hcloud_ssh_key" "tf-ssh-key" {
+  name       = "tf-ssh-key"
+  public_key = tls_private_key.ssh-key.public_key_openssh
+}
+
 module "control-plane" {
   source = "./modules/control-plane"
 
@@ -39,56 +48,19 @@ module "worker" {
   ]
 }
 
-resource "null_resource" "argocd" {
-  triggers = {
-    "generation" = 0
+module "gitops" {
+  source = "./modules/gitops"
+
+  providers = {
+    github = github
   }
 
-  connection {
-    user        = "root"
-    host        = module.control-plane.public_ipv4_address
-    private_key = local.ssh_key_private
-  }
+  argocd_url       = "https://argocd-javelin.wesl.io"
+  repo_name        = "infrastructure"
+  repo_description = "Server infrastructure in Kubernetes"
+  control_plane_ip = module.control-plane.public_ipv4_address
+  ssh_private_key  = local.ssh_key_private
 
-  provisioner "remote-exec" {
-    inline = [
-      "set -eu",
-      "rm -rf /root/bootstrap",
-    ]
-  }
-
-  provisioner "file" {
-    source      = "./bootstrap"
-    destination = "/root/bootstrap"
-  }
-
-  provisioner "file" {
-    content = templatefile("${path.module}/templates/infrastructure-repository.yaml", {
-      ssh_key = tls_private_key.deploy-key.private_key_openssh
-    })
-    destination = "/root/bootstrap/resources/infrastructure-repository.yaml"
-  }
-
-  provisioner "file" {
-    content = templatefile("${path.module}/templates/bootstrap-store.yaml", {
-      op_token       = var.op_token
-      op_credentials = var.op_credentials
-    })
-    destination = "/root/bootstrap/resources/bootstrap-store.yaml"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      <<-BASH
-      kubectl apply --server-side -k bootstrap
-      if [ $? -eq 0 ]; then
-        exit 0
-      else
-        sleep 10
-        kubectl apply --server-side -k bootstrap
-        exit $?
-      fi
-      BASH
-    ]
-  }
+  op_credentials = var.op_credentials
+  op_token       = var.op_token
 }

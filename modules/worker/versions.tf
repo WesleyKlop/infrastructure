@@ -6,5 +6,9 @@ terraform {
       source  = "hetznercloud/hcloud"
       version = ">= 1.35.0"
     }
+    null = {
+      source  = "hashicorp/null"
+      version = ">= 3.1.0"
+    }
   }
 }
