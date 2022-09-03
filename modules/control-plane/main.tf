@@ -43,6 +43,18 @@ resource "null_resource" "init" {
     ]
   }
 
+  depends_on = [
+    module.control_plane
+  ]
+}
+
+resource "null_resource" "bootstrap" {
+  connection {
+    user        = "root"
+    private_key = var.ssh_private_key
+    host        = local.public_ipv4_address
+  }
+
   provisioner "remote-exec" {
     inline = [
       "set -eux",
@@ -60,7 +72,7 @@ resource "null_resource" "init" {
   }
 
   depends_on = [
-    module.control_plane
+    null_resource.init
   ]
 }
 
@@ -72,5 +84,5 @@ data "external" "kubeadm_join" {
     sshkey = var.ssh_private_key
   }
 
-  depends_on = [null_resource.init]
+  depends_on = [null_resource.bootstrap]
 }

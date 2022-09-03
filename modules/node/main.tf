@@ -23,7 +23,7 @@ data "cloudinit_config" "user-data" {
 resource "hcloud_server" "node" {
   name               = var.name
   server_type        = var.server_type
-  image              = "ubuntu-22.04"
+  image              = "ubuntu-20.04"
   location           = "nbg1"
   ssh_keys           = var.authorized_keys
   user_data          = data.cloudinit_config.user-data.rendered
