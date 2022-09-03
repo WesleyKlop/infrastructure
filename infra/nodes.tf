@@ -24,7 +24,7 @@ resource "hcloud_server" "control-plane" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
-  firewall_ids       = []
+  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.homelab.id] : []
 
   network {
     network_id = hcloud_network.kubernetes.id
@@ -89,9 +89,8 @@ data "external" "kubeadm_join" {
   program = ["${path.module}/scripts/kubeadm-join.sh"]
 
   query = {
-    host         = hcloud_server.control-plane.ipv4_address
-    sshkey       = local.ssh_key_private
-    hostinternal = hcloud_server.control-plane.network.*.ip[0]
+    host   = hcloud_server.control-plane.ipv4_address
+    sshkey = local.ssh_key_private
   }
 
   depends_on = [hcloud_server.control-plane]
@@ -109,7 +108,7 @@ resource "hcloud_server" "worker" {
   ]
   user_data          = data.cloudinit_config.base-config.rendered
   placement_group_id = hcloud_placement_group.homelab.id
-  firewall_ids       = []
+  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.homelab.id] : []
 
   network {
     network_id = hcloud_network.kubernetes.id

@@ -142,9 +142,3 @@ resource "hcloud_firewall" "homelab" {
     ]
   }
 }
-
-resource "hcloud_firewall_attachment" "homelab" {
-  count       = local.firewall_enabled ? 1 : 0
-  firewall_id = hcloud_firewall.homelab.id
-  server_ids  = concat(hcloud_server.control-plane.*.id, hcloud_server.worker.*.id)
-}

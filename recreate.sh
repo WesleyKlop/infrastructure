@@ -4,8 +4,8 @@ set -euo pipefail
 
 cd infra
 
-tf state rm github_repository.infrastructure || true
-tf destroy -auto-approve
+terraform state rm github_repository.infrastructure || true
+terraform destroy -auto-approve
 
-tf import github_repository.infrastructure infrastructure
-tf apply -auto-approve
+terraform import github_repository.infrastructure infrastructure
+terraform apply -auto-approve

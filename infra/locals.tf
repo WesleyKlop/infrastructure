@@ -4,7 +4,7 @@ locals {
 }
 
 locals {
-  firewall_enabled = false
+  firewall_enabled = true
   # The main network cidr that all subnets will be created upon
   network_ipv4_cidr = "10.0.0.0/8"
 
@@ -15,7 +15,7 @@ locals {
 
   # CIDR Ranges for cluster networking
   pod_ipv4_cidr     = "10.244.0.0/16"
-  cluster_ipv4_cidr = "10.98.0.0/16"
+  cluster_ipv4_cidr = "10.42.0.0/16"
 
   whitelisted_ips = [
     local.network_ipv4_cidr,

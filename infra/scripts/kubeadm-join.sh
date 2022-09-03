@@ -2,7 +2,7 @@
 
 set -e
 
-eval "$(jq -r '@sh "HOST=\(.host) PRIV_KEY=\(.sshkey) HOST_INTERNAL=\(.hostinternal)"')"
+eval "$(jq -r '@sh "HOST=\(.host) PRIV_KEY=\(.sshkey)"')"
 
 echo "$PRIV_KEY" > /tmp/tmp_key
 chmod 600 /tmp/tmp_key
@@ -12,7 +12,6 @@ CMD="$(ssh -o BatchMode=yes \
  -o UserKnownHostsFile=/dev/null \
  -i /tmp/tmp_key \
   root@$HOST kubeadm token create --print-join-command --ttl 1h)"
-CMD="$(echo "$CMD" | sed "s/$HOST/$HOST_INTERNAL/")"
 
 rm /tmp/tmp_key
 
