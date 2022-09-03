@@ -1,22 +1,22 @@
-resource "hcloud_network" "kubernetes" {
+resource "hcloud_network" "cloudlab" {
   ip_range = local.network_ipv4_cidr
   name     = "kubernetes"
 }
 
-resource "hcloud_network_subnet" "kubernetes" {
-  network_id   = hcloud_network.kubernetes.id
+resource "hcloud_network_subnet" "nodes" {
+  network_id   = hcloud_network.cloudlab.id
   ip_range     = local.cluster_ipv4_cidr
   type         = "cloud"
   network_zone = "eu-central"
 }
 
-resource "hcloud_placement_group" "homelab" {
-  name = "homelab"
+resource "hcloud_placement_group" "cloudlab" {
+  name = "cloudlab"
   type = "spread"
 }
 
-resource "hcloud_firewall" "homelab" {
-  name = "homelab"
+resource "hcloud_firewall" "cloudlab" {
+  name = "cloudlab"
 
   # Allowing internal cluster traffic and Hetzner metadata service and cloud API IPs
   rule {

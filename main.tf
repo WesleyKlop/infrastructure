@@ -6,11 +6,11 @@ module "control-plane" {
   }
 
   cluster_api_token  = var.cluster_api_token
-  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.homelab.id] : []
-  placement_group_id = hcloud_placement_group.homelab.id
+  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.cloudlab.id] : []
+  placement_group_id = hcloud_placement_group.cloudlab.id
   name               = "control-plane"
   server_type        = "cx21"
-  network_id         = hcloud_network.kubernetes.id
+  network_id         = hcloud_network.cloudlab.id
   pod_ipv4_cidr      = local.pod_ipv4_cidr
   authorized_keys    = [var.management_ssh_key_id, local.ssh_key_id]
   ssh_private_key    = local.ssh_key_private
@@ -27,9 +27,9 @@ module "worker" {
   count              = 2
   name               = "worker-${count.index}"
   server_type        = "cx11"
-  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.homelab.id] : []
-  placement_group_id = hcloud_placement_group.homelab.id
-  network_id         = hcloud_network.kubernetes.id
+  firewall_ids       = local.firewall_enabled ? [hcloud_firewall.cloudlab.id] : []
+  placement_group_id = hcloud_placement_group.cloudlab.id
+  network_id         = hcloud_network.cloudlab.id
   authorized_keys    = [var.management_ssh_key_id, local.ssh_key_id]
   ssh_private_key    = local.ssh_key_private
   join_command       = module.control-plane.kubeadm_join_command
@@ -63,10 +63,10 @@ resource "null_resource" "argocd" {
   }
 
   provisioner "file" {
-    content = templatefile("${path.module}/templates/argocd-homelab-repository.yaml", {
+    content = templatefile("${path.module}/templates/infrastructure-repository.yaml", {
       ssh_key = tls_private_key.deploy-key.private_key_openssh
     })
-    destination = "/root/bootstrap/resources/argocd-homelab-repository.yaml"
+    destination = "/root/bootstrap/resources/infrastructure-repository.yaml"
   }
 
   provisioner "file" {

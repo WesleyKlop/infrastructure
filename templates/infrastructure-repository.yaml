@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: homelab
+  name: cloudlab
   namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repository

@@ -2,13 +2,12 @@
 
 set -euo pipefail
 
-cd infra
-
 terraform state rm github_repository.infrastructure || true
 hcloud load-balancer delete traefik || true
 terraform destroy -auto-approve
 
 terraform import github_repository.infrastructure infrastructure
+exit 0
 terraform apply -auto-approve
 
 CONTROL_PLANE="$(hcloud server describe control-plane -o json)"

@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ./argo-cd
-  - ./resources/argocd-homelab-repository.yaml
+  - ./resources/infrastructure-repository.yaml
   - https://raw.githubusercontent.com/external-secrets/external-secrets/v0.5.9/deploy/crds/bundle.yaml
   - ./resources/bootstrap-store.yaml
   - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.58.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
