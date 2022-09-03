@@ -26,6 +26,7 @@ resource "hcloud_firewall" "homelab" {
       port            = lookup(rule.value, "port", null)
       destination_ips = lookup(rule.value, "destination_ips", [])
       source_ips      = lookup(rule.value, "source_ips", [])
+      description     = lookup(rule.value, "description", null)
     }
   }
 }

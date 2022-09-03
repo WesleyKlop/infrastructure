@@ -43,107 +43,122 @@ locals {
       source_ips = local.whitelisted_ips
     },
 
-    # Allow all traffic to the kube api server
+    # Test traffic from services not working!?
     {
-      direction = "in"
-      protocol  = "tcp"
-      port      = "6443"
+      direction  = "in"
+      protocol   = "tcp"
+      port       = "any"
+      source_ips = ["10.96.0.0/12"]
+    },
+    {
+      direction       = "out"
+      protocol        = "tcp"
+      port            = "any"
+      destination_ips = ["10.96.0.0/12"]
+    },
+
+    {
+      description = "Allow all traffic to the kube api server"
+      direction   = "in"
+      protocol    = "tcp"
+      port        = "6443"
       source_ips = [
         "0.0.0.0/0"
       ]
     },
 
-    # Allow all traffic to the ssh port
     {
-      direction = "in"
-      protocol  = "tcp"
-      port      = "22"
+      description = "Allow all traffic towards ssh"
+      direction   = "in"
+      protocol    = "tcp"
+      port        = "22"
       source_ips = [
         "0.0.0.0/0"
       ]
     },
 
-    # Allow ping on ipv4
     {
-      direction = "in"
-      protocol  = "icmp"
+      description = "Allow ping on ipv4"
+      direction   = "in"
+      protocol    = "icmp"
       source_ips = [
         "0.0.0.0/0"
       ]
     },
 
     # Allow basic out traffic
-    # ICMP to ping outside services
     {
-      direction = "out"
-      protocol  = "icmp"
+      description = "ICMP to ping outside services"
+      direction   = "out"
+      protocol    = "icmp"
       destination_ips = [
         "0.0.0.0/0"
       ]
     },
 
-    # DNS
     {
-      direction = "out"
-      protocol  = "tcp"
-      port      = "53"
+      description = "DNS"
+      direction   = "out"
+      protocol    = "tcp"
+      port        = "53"
       destination_ips = [
         "0.0.0.0/0"
       ]
     },
     {
-      direction = "out"
-      protocol  = "udp"
-      port      = "53"
-      destination_ips = [
-        "0.0.0.0/0"
-      ]
-    },
-
-    # GPG Keyservers
-    {
-      direction = "out"
-      protocol  = "tcp"
-      port      = "11371"
+      description = "DNS"
+      direction   = "out"
+      protocol    = "udp"
+      port        = "53"
       destination_ips = [
         "0.0.0.0/0"
       ]
     },
 
-    # HTTP(s)
     {
-      direction = "out"
-      protocol  = "tcp"
-      port      = "80"
-      destination_ips = [
-        "0.0.0.0/0"
-      ]
-    },
-    {
-      direction = "out"
-      protocol  = "tcp"
-      port      = "443"
+      description = "GPG Keyservers"
+      direction   = "out"
+      protocol    = "tcp"
+      port        = "11371"
       destination_ips = [
         "0.0.0.0/0"
       ]
     },
 
-    #NTP
     {
-      direction = "out"
-      protocol  = "udp"
-      port      = "123"
+      description = "HTTP"
+      direction   = "out"
+      protocol    = "tcp"
+      port        = "80"
+      destination_ips = [
+        "0.0.0.0/0"
+      ]
+    },
+    {
+      description = "HTTPS"
+      direction   = "out"
+      protocol    = "tcp"
+      port        = "443"
+      destination_ips = [
+        "0.0.0.0/0"
+      ]
+    },
+
+    {
+      description = "NTP"
+      direction   = "out"
+      protocol    = "udp"
+      port        = "123"
       destination_ips = [
         "0.0.0.0/0"
       ]
     }
-
     ], [
-    # Argo CD Access to repositories
     {
-      direction = "out"
-      protocol  = "tcp"
-      port      = "22"
+      description = "Argo CD clone git repositories over ssh"
+      direction   = "out"
+      protocol    = "tcp"
+      port        = "22"
       destination_ips = [
         "0.0.0.0/0"
       ]
