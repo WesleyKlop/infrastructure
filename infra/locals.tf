@@ -45,16 +45,16 @@ locals {
 
     # Test traffic from services not working!?
     {
-      direction  = "in"
-      protocol   = "tcp"
-      port       = "any"
-      source_ips = ["10.96.0.0/12"]
-    },
-    {
       direction       = "out"
       protocol        = "tcp"
       port            = "any"
-      destination_ips = ["10.96.0.0/12"]
+      destination_ips = local.whitelisted_ips
+    },
+    {
+      direction       = "out"
+      protocol        = "udp"
+      port            = "any"
+      destination_ips = local.whitelisted_ips
     },
 
     {
