@@ -4,3 +4,6 @@ kind: Kustomization
 resources:
   - https://raw.githubusercontent.com/hetznercloud/hcloud-cloud-controller-manager/v1.12.1/deploy/ccm-networks.yaml
   - https://github.com/hetznercloud/csi-driver//deploy?ref=main
+
+patchesStrategicMerge:
+  - "patches/ccm.yaml"
