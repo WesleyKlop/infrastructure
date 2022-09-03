@@ -14,10 +14,10 @@ spec:
             namespace: argocd
           - name: external-secrets
             namespace: external-secrets
-          # - name: hetzner
-          # namespace: kube-system
-          # - name: flannel
-          # namespace: kube-flannel
+          - name: hetzner
+            namespace: kube-system
+          - name: flannel
+            namespace: kube-flannel
   template:
     metadata:
       name: "{{ name }}"
