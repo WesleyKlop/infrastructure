@@ -230,24 +230,6 @@ write_files:
       [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
         [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
           SystemdCgroup = true
-  - path: /root/bootstrap/secrets.yaml
-    content: |
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: hcloud
-        namespace: kube-system
-      stringData:
-        token: "${api_token}"
-        network: "${network_id}"
-      ---
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: hcloud-csi
-        namespace: kube-system
-      stringData:
-        token: "${api_token}"
 
 runcmd:
   # Make sure required modules are loaded.

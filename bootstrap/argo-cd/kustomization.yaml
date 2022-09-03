@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - ../../infra/bootstrap/argo-cd
+  - ../../init/argo-cd
   - resources/apps.yaml
 
 configMapGenerator:
