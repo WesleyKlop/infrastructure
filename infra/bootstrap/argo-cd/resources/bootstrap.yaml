@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-5"
+    argocd.argoproj.io/sync-wave: "-4"
   name: bootstrap
 spec:
   syncPolicy:
@@ -12,15 +12,20 @@ spec:
         elements:
           - name: argo-cd
             namespace: argocd
+            wave: "-4"
           - name: external-secrets
             namespace: external-secrets
+            wave: "-4"
           - name: hetzner
             namespace: kube-system
+            wave: "-5"
           - name: flannel
             namespace: kube-flannel
+            wave: "-5"
   template:
     metadata:
       name: "{{ name }}"
+      argocd.argoproj.io/sync-wave: "{{ wave }}"
     spec:
       project: default
       source:
