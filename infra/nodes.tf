@@ -60,7 +60,6 @@ resource "hcloud_server" "control-plane" {
         --pod-network-cidr ${local.pod_ipv4_cidr} \
         --apiserver-advertise-address 0.0.0.0 \
         --apiserver-cert-extra-sans ${self.ipv4_address},${self.network.*.ip[0]} \
-        --control-plane-endpoint ${self.network.*.ip[0]} \
         --upload-certs \
         --skip-token-print
       BASH
