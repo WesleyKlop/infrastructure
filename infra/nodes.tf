@@ -16,7 +16,7 @@ data "cloudinit_config" "base-config" {
 resource "hcloud_server" "control-plane" {
   name        = "control-plane"
   server_type = "cx21"
-  image       = "ubuntu-20.04"
+  image       = "ubuntu-22.04"
   location    = "nbg1"
   ssh_keys = [
     var.management_ssh_key_id,
@@ -99,7 +99,7 @@ resource "hcloud_server" "worker" {
   count       = 2
   name        = "worker-${count.index}"
   server_type = "cx11"
-  image       = "ubuntu-20.04"
+  image       = "ubuntu-22.04"
   location    = "nbg1"
   ssh_keys = [
     var.management_ssh_key_id,
