@@ -2,6 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-metrics
+  namespace: argocd
 spec:
   selector:
     matchLabels:
@@ -13,6 +14,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-server-metrics
+  namespace: argocd
 spec:
   selector:
     matchLabels:
@@ -24,6 +26,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: argocd-repo-server-metrics
+  namespace: argocd
 spec:
   selector:
     matchLabels:
