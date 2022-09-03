@@ -6,7 +6,7 @@ metadata:
   name: bootstrap
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: false
+    preserveResourcesOnDeletion: true
   generators:
     - list:
         elements:
@@ -33,7 +33,7 @@ spec:
       syncPolicy:
         automated:
           allowEmpty: true
-          prune: true
+          prune: false
           selfHeal: true
         syncOptions:
           - "ServerSideApply=true"
