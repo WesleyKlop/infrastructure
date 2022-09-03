@@ -74,7 +74,7 @@ resource "hcloud_server" "control-plane" {
       "cp /etc/kubernetes/admin.conf ~/.kube/config",
       "kubectl apply --server-side -f '/root/bootstrap/secrets.yaml'",
       "kubectl apply --server-side -f 'https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml'",
-      "kubectl apply --server-side -f 'https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/latest/download/ccm.yaml'",
+      "kubectl apply --server-side -f 'https://raw.githubusercontent.com/hetznercloud/hcloud-cloud-controller-manager/v1.12.1/deploy/ccm-networks.yaml'",
       "kubectl apply --server-side -f 'https://raw.githubusercontent.com/hetznercloud/csi-driver/v1.6.0/deploy/kubernetes/hcloud-csi.yml'",
       "kubectl wait --for=condition=Ready -l kubernetes.io/hostname=${self.name} nodes",
       # Required for traefik, only on control-plane

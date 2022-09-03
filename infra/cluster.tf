@@ -40,8 +40,16 @@ resource "null_resource" "argocd" {
 
   provisioner "remote-exec" {
     inline = [
-      "set -eu",
-      "kubectl apply --server-side -k bootstrap"
+      <<-BASH
+      kubectl apply --server-side -k bootstrap
+      if [ $? -eq 0 ]; then
+        exit 0
+      else
+        sleep 10
+        kubectl apply --server-side -k bootstrap
+        exit $?
+      fi
+      BASH
     ]
   }
 }
