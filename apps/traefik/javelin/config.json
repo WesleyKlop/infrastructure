@@ -1,4 +1,5 @@
 {
   "name": "traefik",
-  "namespace": "traefik"
+  "namespace": "traefik",
+  "wave": -1
 }

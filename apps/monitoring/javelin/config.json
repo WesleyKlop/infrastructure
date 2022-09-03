@@ -1,4 +1,5 @@
 {
   "name": "monitoring",
-  "namespace": "monitoring"
+  "namespace": "monitoring",
+  "wave": -1
 }

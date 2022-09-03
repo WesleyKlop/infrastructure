@@ -16,6 +16,8 @@ spec:
   template:
     metadata:
       name: "{{ name }}"
+      annotations:
+        argocd.argoproj.io/sync-wave: "{{ wave }}"
     spec:
       project: default
       source:

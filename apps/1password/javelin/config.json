@@ -1,4 +1,5 @@
 {
   "name": "1password-connect",
-  "namespace": "1password"
+  "namespace": "1password",
+  "wave": -3
 }
