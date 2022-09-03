@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-terraform state rm github_repository.infrastructure || true
+terraform state rm module.gitops.github_repository.gitops || true
 hcloud load-balancer delete traefik || true
 terraform destroy -auto-approve
 
-terraform import github_repository.infrastructure infrastructure
+terraform import module.gitops.github_repository.gitops infrastructure
 exit 0
 terraform apply -auto-approve
 
