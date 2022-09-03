@@ -4,7 +4,7 @@ locals {
 }
 
 locals {
-  firewall_enabled = true
+  firewall_enabled = false
   # The main network cidr that all subnets will be created upon
   network_ipv4_cidr = "10.0.0.0/8"
 
