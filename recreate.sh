@@ -7,7 +7,6 @@ hcloud load-balancer delete traefik || true
 terraform destroy -auto-approve
 
 terraform import module.gitops.github_repository.gitops infrastructure
-exit 0
 terraform apply -auto-approve
 
 CONTROL_PLANE="$(hcloud server describe control-plane -o json)"

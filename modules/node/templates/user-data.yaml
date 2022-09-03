@@ -219,7 +219,7 @@ write_files:
   - path: /etc/modules-load.d/kubernetes.conf
     content: |
       br_netfilter
-  - path: /etc/sysctl.d/kubernetes.conf
+  - path: /etc/sysctl.d/10-kubernetes.conf
     content: |
       net.bridge.bridge-nf-call-iptables = 1
       net.ipv4.ip_forward = 1

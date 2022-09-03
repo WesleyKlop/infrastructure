@@ -6,6 +6,7 @@ data "cloudinit_config" "user-data" {
     filename     = "init.yaml"
     content_type = "text/cloud-config"
     content      = file("${path.module}/templates/user-data.yaml")
+    merge_type   = "list(append)+dict(recurse_array)+str()"
   }
 
   dynamic "part" {
@@ -14,6 +15,7 @@ data "cloudinit_config" "user-data" {
       filename     = "init-${part.key}.yaml"
       content_type = "text/cloud-config"
       content      = part.value
+      merge_type   = "list(append)+dict(recurse_array)+str()"
     }
   }
 }
