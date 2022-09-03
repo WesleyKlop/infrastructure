@@ -27,4 +27,8 @@ resource "null_resource" "init" {
       "${var.join_command}",
     ]
   }
+
+  depends_on = [
+    module.worker
+  ]
 }

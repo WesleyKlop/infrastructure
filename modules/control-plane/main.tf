@@ -58,6 +58,10 @@ resource "null_resource" "init" {
       "chmod 700 /opt/traefik"
     ]
   }
+
+  depends_on = [
+    module.control_plane
+  ]
 }
 
 data "external" "kubeadm_join" {

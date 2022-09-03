@@ -1,6 +1,6 @@
 resource "hcloud_network" "cloudlab" {
   ip_range = local.network_ipv4_cidr
-  name     = "kubernetes"
+  name     = "cloudlab"
 }
 
 resource "hcloud_network_subnet" "nodes" {

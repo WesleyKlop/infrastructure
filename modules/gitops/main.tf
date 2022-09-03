@@ -68,7 +68,7 @@ resource "null_resource" "init" {
   }
 
   provisioner "file" {
-    source      = "${path.module}/../../../init"
+    source      = "${path.module}/../../init"
     destination = "/root/init"
   }
 

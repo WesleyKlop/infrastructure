@@ -22,7 +22,7 @@ module "control-plane" {
   network_id         = hcloud_network.cloudlab.id
   pod_ipv4_cidr      = local.pod_ipv4_cidr
   authorized_keys    = [var.management_ssh_key_id, local.ssh_key_id]
-  ssh_private_key    = local.ssh_key_private
+  ssh_private_key    = local.ssh_private_key
 }
 
 
@@ -40,7 +40,7 @@ module "worker" {
   placement_group_id = hcloud_placement_group.cloudlab.id
   network_id         = hcloud_network.cloudlab.id
   authorized_keys    = [var.management_ssh_key_id, local.ssh_key_id]
-  ssh_private_key    = local.ssh_key_private
+  ssh_private_key    = local.ssh_private_key
   join_command       = module.control-plane.kubeadm_join_command
 
   depends_on = [
@@ -59,8 +59,12 @@ module "gitops" {
   repo_name        = "infrastructure"
   repo_description = "Server infrastructure in Kubernetes"
   control_plane_ip = module.control-plane.public_ipv4_address
-  ssh_private_key  = local.ssh_key_private
+  ssh_private_key  = local.ssh_private_key
 
   op_credentials = var.op_credentials
   op_token       = var.op_token
+
+  depends_on = [
+    module.control-plane
+  ]
 }
