@@ -11,8 +11,10 @@ providers:
       enabled: traefik/traefik
 
 additionalArguments:
-  - "--entryPoints.websecure.proxyProtocol.trustedIPs=167.235.108.213"
-  - "--entryPoints.web.proxyProtocol.trustedIPs=167.235.108.213"
+  - "--entryPoints.websecure.forwardedHeaders.trustedIPs=167.235.0.0/16,10.0.0.0/8"
+  - "--entryPoints.websecure.proxyProtocol.trustedIPs=167.235.0.0/16,10.0.0.0/8"
+  - "--entryPoints.web.forwardedHeaders.trustedIPs=167.235.0.0/16,10.0.0.0/8"
+  - "--entryPoints.web.proxyProtocol.trustedIPs=167.235.0.0/16,10.0.0.0/8"
 
 certResolvers:
   cloudflare:
