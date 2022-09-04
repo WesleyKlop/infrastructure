@@ -34,7 +34,7 @@ resource "null_resource" "init" {
       kubeadm init \
         --ignore-preflight-errors NumCPU \
         --pod-network-cidr ${var.pod_ipv4_cidr} \
-        --apiserver-advertise-address 0.0.0.0 \
+        --apiserver-advertise-address ${local.private_ipv4_address} \
         --apiserver-cert-extra-sans ${local.public_ipv4_address},${local.private_ipv4_address} \
         --control-plane-endpoint ${local.private_ipv4_address} \
         --upload-certs \

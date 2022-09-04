@@ -204,6 +204,9 @@ apt:
         -----END PGP PUBLIC KEY BLOCK-----
 
 packages:
+  # Debug utils
+  - traceroute
+  # Kubernetes
   - containerd.io
   - kubeadm
   - kubectl
