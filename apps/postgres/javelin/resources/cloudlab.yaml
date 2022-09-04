@@ -1,0 +1,15 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: cloudlab
+spec:
+  numberOfInstances: 2
+  users: # Application/Robot users
+    wesley: []
+  databases:
+    wesley: wesley
+  postgresql:
+    version: "14"
+  volume:
+    size: 10Gi
+    storageClass: hcloud-volumes
