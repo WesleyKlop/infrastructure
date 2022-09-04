@@ -3,12 +3,12 @@ nameOverride: monitoring
 alertmanager:
   enabled: true
   alertmanagerSpec:
-    externalUrl: "https://alertmanager.wesley.io"
+    externalUrl: 'https://alertmanager.wesley.io'
     storage:
       volumeClaimTemplate:
         spec:
           storageClassName: hcloud-volumes
-          accessModes: ["ReadWriteOnce"]
+          accessModes: ['ReadWriteOnce']
           resources:
             requests:
               storage: 1Gi
@@ -27,7 +27,7 @@ grafana:
 prometheus:
   enabled: true
   prometheusSpec:
-    externalUrl: "https://prometheus.wesley.io"
+    externalUrl: 'https://prometheus.wesley.io'
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
@@ -36,7 +36,7 @@ prometheus:
       volumeClaimTemplate:
         spec:
           storageClassName: hcloud-volumes
-          accessModes: ["ReadWriteOnce"]
+          accessModes: ['ReadWriteOnce']
           resources:
             requests:
               storage: 10Gi

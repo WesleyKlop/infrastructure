@@ -4,10 +4,10 @@ metadata:
   name: default
 spec:
   clusterResourceWhitelist:
-    - group: "*"
-      kind: "*"
+    - group: '*'
+      kind: '*'
   destinations:
-    - namespace: "*"
-      server: "*"
+    - namespace: '*'
+      server: '*'
   sourceRepos:
-    - "*"
+    - '*'

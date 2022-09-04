@@ -10,9 +10,9 @@ automatically using Terraform!
 
 The repository is trying to follow Flux repository conventions. This means that:
 
-- Cluster configuration can be found under [clusters](clusters)
-- Infrastructure can be found under [infrastructure](infrastructure)
-- Applications can be found under [applications](applications)
+-   Cluster configuration can be found under [clusters](clusters)
+-   Infrastructure can be found under [infrastructure](infrastructure)
+-   Applications can be found under [applications](applications)
 
 ## Environment management
 
@@ -38,11 +38,11 @@ Flux reconciliation and upgrade notifications are automatically send to Slack.
 
 ## Todo
 
-- [x] Logging with prometheus
-- [x] Dashboard with Grafana
-- [x] Automatedtesting
-- [ ] Improve automated image updates
-- [ ] Reduce usage of hostPath volumes
+-   [x] Logging with prometheus
+-   [x] Dashboard with Grafana
+-   [x] Automatedtesting
+-   [ ] Improve automated image updates
+-   [ ] Reduce usage of hostPath volumes
 
 # Javelin
 
@@ -64,16 +64,18 @@ cluster into the desired state. Magic! :sparkles:
 So all secrets originate either from Terraform or from 1Password Connect. There
 are several secrets defined by Terraform that need to be provided beforehand:
 
-- `hcloud_token` giving Hetzner api access for Terraform.
-- `github_token` giving Github api access for Terraform.
+-   `hcloud_token` giving Hetzner api access for Terraform.
+-   `github_token` giving Github api access for Terraform.
 
-- `cluster_api_token` giving Hetzner api access for the Hcloud Cloud Controller
-  manager and Container Storage Interface.
-- `management_ssh_key_id` defining an extra ssh key id that should be added to
-  the nodes for management purposes. This is either a pubkey or hetzner ssh key id
+-   `cluster_api_token` giving Hetzner api access for the Hcloud Cloud
+    Controller manager and Container Storage Interface.
+-   `management_ssh_key_id` defining an extra ssh key id that should be added to
+    the nodes for management purposes. This is either a pubkey or hetzner ssh
+    key id
 
-- `op_credentials` giving 1password-connect access to 1password.
-- `op_token` giving external-secrets access to the vault via 1password-connect.
+-   `op_credentials` giving 1password-connect access to 1password.
+-   `op_token` giving external-secrets access to the vault via
+    1password-connect.
 
 ## GitOps
 

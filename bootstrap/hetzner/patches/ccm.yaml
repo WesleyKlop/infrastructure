@@ -9,9 +9,9 @@ spec:
       containers:
         - name: hcloud-cloud-controller-manager
           env:
-            - name: "HCLOUD_LOAD_BALANCERS_LOCATION"
-              value: "nbg1"
-            - name: "HCLOUD_LOAD_BALANCERS_USE_PRIVATE_IP"
-              value: "true"
-            - name: "HCLOUD_LOAD_BALANCERS_ENABLED"
-              value: "true"
+            - name: 'HCLOUD_LOAD_BALANCERS_LOCATION'
+              value: 'nbg1'
+            - name: 'HCLOUD_LOAD_BALANCERS_USE_PRIVATE_IP'
+              value: 'true'
+            - name: 'HCLOUD_LOAD_BALANCERS_ENABLED'
+              value: 'true'

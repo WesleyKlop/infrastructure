@@ -17,11 +17,11 @@ metadata:
 spec:
   storageClassName: local-traefik
   capacity:
-    storage: "1Gi"
+    storage: '1Gi'
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/opt/traefik"
+    path: '/opt/traefik'
   nodeAffinity:
     required:
       nodeSelectorTerms:

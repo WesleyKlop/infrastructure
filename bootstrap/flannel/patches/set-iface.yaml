@@ -9,6 +9,6 @@ spec:
       containers:
         - name: kube-flannel
           args:
-            - "--ip-masq"
-            - "--kube-subnet-mgr"
-            - "--iface=ens10"
+            - '--ip-masq'
+            - '--kube-subnet-mgr'
+            - '--iface=ens10'

@@ -8,4 +8,4 @@ resources:
   - github.com/kubernetes-sigs/external-dns//kustomize/?ref=v0.12.2
 
 patchesStrategicMerge:
-  - "patches/deployment.yaml"
+  - 'patches/deployment.yaml'

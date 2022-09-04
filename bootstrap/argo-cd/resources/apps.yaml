@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: '-1'
   name: apps
 spec:
   syncPolicy:
@@ -15,22 +15,22 @@ spec:
           - path: apps/**/javelin/config.json
   template:
     metadata:
-      name: "{{ name }}"
+      name: '{{ name }}'
       annotations:
-        argocd.argoproj.io/sync-wave: "{{ wave }}"
+        argocd.argoproj.io/sync-wave: '{{ wave }}'
     spec:
       project: default
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
-        path: "{{ path }}"
+        path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{ namespace }}"
+        namespace: '{{ namespace }}'
       syncPolicy:
         automated:
           allowEmpty: true
           prune: true
           selfHeal: true
         syncOptions:
-          - "ServerSideApply=true"
+          - 'ServerSideApply=true'

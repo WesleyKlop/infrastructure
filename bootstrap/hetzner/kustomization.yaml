@@ -6,4 +6,4 @@ resources:
   - github.com/hetznercloud/csi-driver//deploy?ref=main
 
 patchesStrategicMerge:
-  - "patches/ccm.yaml"
+  - 'patches/ccm.yaml'
