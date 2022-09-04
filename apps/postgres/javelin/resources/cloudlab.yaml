@@ -1,9 +1,9 @@
 apiVersion: acid.zalan.do/v1
 kind: postgresql
 metadata:
-  name: cloudlab
+  name: cloudlab-default
 spec:
-  teamId: default
+  teamId: cloudlab
   numberOfInstances: 2
   users: # Application/Robot users
     wesley: []
