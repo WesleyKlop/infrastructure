@@ -1,8 +1,10 @@
 # Infrastructure
 
-This repository contains the infrastructure for my Homelab. It currently
-consists of a single node kubernetes cluster deployed using kubeadm on Ubuntu
-20.04.
+This repository contains the infrastructure for my Homelab & Cloudlab.
+
+The Homelab is a single node kubeadm cluster running on Ubuntu 20.04 The
+Cloudlab is a 3 node kubeadm cluster running on Ubuntu 20.04, deployed fully
+automatically using Terraform!
 
 ## Repository layout
 
@@ -59,14 +61,16 @@ cluster into the desired state. Magic! :sparkles:
 
 ## Secrets
 
-So all secrets originate either from Terraform or from 1Password Connect.
-There are several secrets defined by Terraform that need to be provided beforehand:
+So all secrets originate either from Terraform or from 1Password Connect. There
+are several secrets defined by Terraform that need to be provided beforehand:
 
 - `hcloud_token` giving Hetzner api access for Terraform.
 - `github_token` giving Github api access for Terraform.
 
-- `cluster_api_token` giving Hetzner api access for the Hcloud Cloud Controller manager.
-- `management_ssh_key_id` defining an extra ssh key id that should be added to the nodes for management purposes.
+- `cluster_api_token` giving Hetzner api access for the Hcloud Cloud Controller
+  manager and Container Storage Interface.
+- `management_ssh_key_id` defining an extra ssh key id that should be added to
+  the nodes for management purposes. This is either a pubkey or hetzner ssh key id
 
 - `op_credentials` giving 1password-connect access to 1password.
 - `op_token` giving external-secrets access to the vault via 1password-connect.
@@ -77,4 +81,12 @@ Once bootstrapping is done, all state is managed following the GitOps pattern.
 
 ## Security & Maintenance
 
-YOLO :shrug: :shipit: <sup>I don't know yet... will get back to this later.</sup>
+YOLO :shrug: :shipit: <sup>I don't know yet... will get back to this
+later.</sup>
+
+The Cloudlab is secured by disabling all auth except ssh key auth. Almost all
+ports are closed by the configured firewall.
+
+Package updating etc I'm still thinking about. This is because nodes need to be
+upgraded manually using kubeadm. I will probably create a terraform resource to
+handle that in the future.

@@ -46,7 +46,6 @@ resource "hcloud_firewall" "cloudlab" {
       "0.0.0.0/0",
     ]
   }
-
   rule {
     description = "Allow all traffic towards ssh"
     direction   = "in"
