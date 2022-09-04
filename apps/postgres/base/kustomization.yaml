@@ -15,3 +15,4 @@ configMapGenerator:
     behavior: merge
     literals:
       - enable_crd_registration="false"
+      - enable_pod_disruption_budget="false"
