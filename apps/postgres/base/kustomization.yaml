@@ -18,4 +18,5 @@ configMapGenerator:
       - enable_pod_disruption_budget=false
       - enable_teams_api=false
       - enable_ebs_gp3_migration=false
+      - enable_master_load_balancer=false
       - workers=4
