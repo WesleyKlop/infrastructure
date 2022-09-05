@@ -14,7 +14,7 @@ spec:
         uuid-ossp: public
       schemas:
         public:
-          defaultRoles: false
+          defaultUsers: true
 
   postgresql:
     version: "14"
