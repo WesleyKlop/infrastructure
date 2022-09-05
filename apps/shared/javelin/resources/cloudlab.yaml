@@ -1,16 +1,19 @@
 apiVersion: acid.zalan.do/v1
 kind: postgresql
 metadata:
-  name: acid-cloudlab
+  name: cloudlab-db
+  namespace: default
 spec:
-  teamId: acid
+  teamId: cloudlab
   numberOfInstances: 1
-  users: # Application/Robot users
-    wesley: []
+  users:
+    wesley:
+      - createdb
+      - createrole
   databases:
     wesley: wesley
   postgresql:
-    version: '14'
+    version: "14"
   volume:
     size: 10Gi
     storageClass: hcloud-volumes
@@ -21,4 +24,3 @@ spec:
     limits:
       cpu: 500m
       memory: 500Mi
-  
