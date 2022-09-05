@@ -6,4 +6,3 @@ namespace: postgres-operator
 resources:
   - ../base
   - resources/cloudlab.yaml
-  - github.com/zalando/postgres-operator/ui/manifests?ref=v1.8.2

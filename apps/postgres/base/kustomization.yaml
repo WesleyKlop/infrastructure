@@ -16,4 +16,6 @@ configMapGenerator:
     literals:
       - enable_crd_registration=false
       - enable_pod_disruption_budget=false
+      - enable_teams_api=false
+      - enable_ebs_gp3_migration=false
       - workers=4
