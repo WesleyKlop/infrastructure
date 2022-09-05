@@ -10,7 +10,7 @@ spec:
   databases:
     wesley: wesley
   postgresql:
-    version: "14"
+    version: '14'
   volume:
     size: 10Gi
     storageClass: hcloud-volumes
