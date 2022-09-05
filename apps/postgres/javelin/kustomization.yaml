@@ -5,4 +5,4 @@ namespace: postgres-operator
 
 resources:
   - ../base
-  - resources/cloudlab.yaml
+  # - resources/cloudlab.yaml
