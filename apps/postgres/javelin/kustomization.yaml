@@ -14,3 +14,4 @@ configMapGenerator:
       - enable_ebs_gp3_migration=false
       - enable_master_load_balancer=false
       - workers=4
+      - watched_namespace=*
