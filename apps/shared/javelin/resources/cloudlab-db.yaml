@@ -6,12 +6,11 @@ metadata:
 spec:
   teamId: cloudlab
   numberOfInstances: 1
-  users:
+  preparedDatabases:
     wesley:
-      - createdb
-      - createrole
-  databases:
-    wesley: wesley
+      secretNamespace: wesley
+      extensions:
+        uuid-ossp: public
   postgresql:
     version: "14"
   volume:

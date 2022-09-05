@@ -13,5 +13,6 @@ configMapGenerator:
       - enable_teams_api=false
       - enable_ebs_gp3_migration=false
       - enable_master_load_balancer=false
+      - enable_cross_namespace_secret=true
       - workers=4
       - watched_namespace=*
