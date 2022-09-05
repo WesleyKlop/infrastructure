@@ -9,6 +9,7 @@ spec:
   preparedDatabases:
     wesley:
       secretNamespace: wesley
+      defaultUsers: true
       extensions:
         uuid-ossp: public
       schemas:
