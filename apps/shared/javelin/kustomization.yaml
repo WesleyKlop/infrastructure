@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - resources/wesley-ns.yaml
-  # - resources/cloudlab-db.yaml
+  - resources/cloudlab-db.yaml
