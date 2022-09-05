@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-    - host: wesley.io
+    - host: wesleyklop.nl
       http:
         paths:
           - path: /
