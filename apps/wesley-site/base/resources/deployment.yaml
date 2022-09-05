@@ -28,12 +28,12 @@ spec:
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: wesley-owner-user.cloudlab-db.pg-credentials
+                  name: wesley-writer-user.cloudlab-db.pg-credentials
                   key: username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: wesley-owner-user.cloudlab-db.pg-credentials
+                  name: wesley-writer-user.cloudlab-db.pg-credentials
                   key: password
           ports:
             - containerPort: 80
