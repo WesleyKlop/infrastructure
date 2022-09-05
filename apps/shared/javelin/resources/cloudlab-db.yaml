@@ -11,6 +11,9 @@ spec:
       secretNamespace: wesley
       extensions:
         uuid-ossp: public
+      schemas:
+        public: {}
+
   postgresql:
     version: "14"
   volume:
