@@ -37,3 +37,4 @@ spec:
                   key: password
           ports:
             - containerPort: 80
+              name: http
