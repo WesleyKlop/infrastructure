@@ -15,6 +15,14 @@ spec:
       schemas:
         public:
           defaultUsers: true
+    weatherstation:
+      secretNamespace: weatherstation
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public:
+          defaultUsers: true
 
   postgresql:
     version: "14"
