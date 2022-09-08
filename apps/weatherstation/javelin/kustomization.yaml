@@ -20,6 +20,6 @@ configMapGenerator:
 
 images:
   - name: ghcr.io/wesleyklop/weatherstation-api
-    newTag: 1.1.0
+    newTag: 1.0.0
   - name: ghcr.io/wesleyklop/weatherstation-web
     newTag: 1.1.0
