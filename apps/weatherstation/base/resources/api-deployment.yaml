@@ -45,8 +45,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: weatherstation-cfg
-            - secretRef:
-                name: weatherstation-secrets
           env:
             - name: DB_USERNAME
               valueFrom:
