@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vote-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`stem.exonleiden.nl`)
+      kind: Rule
+      services:
+        - name: vote-system
+          port: http
+  tls:
+    certResolver: letsencrypt

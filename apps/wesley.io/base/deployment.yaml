@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wesley-io
+spec:
+  template:
+    spec:
+      containers:
+        - name: wesley-io-site
+          image: ghcr.io/wesleyklop/wesley.io:v0.5.2
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 16Mi
+          envFrom:
+            - configMapRef:
+                name: wesley-io-cfg
+          env:
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: app-key
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: db-username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: wesley-io-credentials
+                  key: db-password
+          ports:
+            - containerPort: 80

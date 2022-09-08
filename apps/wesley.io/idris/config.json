@@ -1,0 +1,7 @@
+{
+  "name": "wesley.io",
+  "destNamespace": "wesley-io",
+  "images": "app0=ghcr.io/wesleyklop/wesley.io",
+  "updateStrategy": "semver",
+  "allowTags": ""
+}

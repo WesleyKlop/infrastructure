@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: vote-system-nucleus
+
+resources:
+  - ../base
+  - ./secret.yaml
+  - ./ingress-route.yaml
+
+configMapGenerator:
+  - name: vote-system-cfg
+    behavior: merge
+    literals:
+      - APP_NAME="S.V. Nucleus ALV"
+      - APP_URL="https://stem.svnucleus.nl"
+      - DB_DATABASE=votesystem_svn

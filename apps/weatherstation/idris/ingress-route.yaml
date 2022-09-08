@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: weatherstation
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`weather.wesl.io`)
+      kind: Rule
+      services:
+        - name: weatherstation-web
+          port: http
+    - match: Host(`weather.wesl.io`) && PathPrefix(`/api`)
+      kind: Rule
+      services:
+        - name: weatherstation-api
+          port: http
