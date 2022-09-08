@@ -1,7 +1,0 @@
-{
-  "name": "lauraouthuis.nl",
-  "destNamespace": "laura",
-  "images": "app0=nginxinc/nginx-unprivileged",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
