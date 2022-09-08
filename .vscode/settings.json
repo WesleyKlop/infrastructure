@@ -1,4 +1,5 @@
 {
   "gitlens.codeLens.enabled": false,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true
 }

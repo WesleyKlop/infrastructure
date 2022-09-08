@@ -1,0 +1,14 @@
+# This private volume exists because I often want to persist a small config directory or something
+# And the min volume size is 10gigs so this volume can be used multiple times
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: shared-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: hcloud-volumes
+  volumeMode: Filesystem
