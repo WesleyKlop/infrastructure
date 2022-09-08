@@ -8,5 +8,5 @@ resources:
 patchesStrategicMerge:
   - databases/weatherstation.yaml
   - databases/wesley.yaml
-  - databases/vote-system.yaml
-  - databases/mealie.yaml
+  # - databases/vote-system.yaml
+  # - databases/mealie.yaml
