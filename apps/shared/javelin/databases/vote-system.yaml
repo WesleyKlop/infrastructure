@@ -11,3 +11,10 @@ spec:
         uuid-ossp: public
       schemas:
         public: {}
+    votesystem_exon:
+      secretNamespace: vote-system-exon
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}

@@ -13,6 +13,7 @@ spec:
         revision: javelin
         directories:
           - path: apps/vote-system/nucleus
+          - path: apps/vote-system/exon
   template:
     metadata:
       name: 'vote-system-{{ path.basename }}'
