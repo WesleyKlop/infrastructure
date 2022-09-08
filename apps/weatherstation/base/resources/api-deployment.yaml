@@ -49,12 +49,12 @@ spec:
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: wesley-owner-user.cloudlab-db.pg-credentials
+                  name: weatherstation-owner-user.cloudlab-db.pg-credentials
                   key: username
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: wesley-owner-user.cloudlab-db.pg-credentials
+                  name: weatherstation-owner-user.cloudlab-db.pg-credentials
                   key: password
             - name: DATABASE_URL
               value: "postgres://$(DB_USERNAME):$(DB_PASSWORD)@cloudlab-db.default.svc.cluster.local/weatherstation"
