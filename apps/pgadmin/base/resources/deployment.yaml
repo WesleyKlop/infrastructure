@@ -46,7 +46,6 @@ spec:
               readOnly: true
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
-              subPath: pgadmin
           env:
             - name: PGADMIN_DEFAULT_EMAIL
               valueFrom:
