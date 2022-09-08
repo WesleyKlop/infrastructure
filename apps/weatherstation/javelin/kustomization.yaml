@@ -16,7 +16,7 @@ configMapGenerator:
   - name: weatherstation-cfg
     literals:
       - "APP_PORT=8080"
-      - "APP_HOST=0.0.0.0"
+      - "APP_ADDRESS=0.0.0.0"
 
 images:
   - name: ghcr.io/wesleyklop/weatherstation-api
