@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ../base
-  # - resources/ingress.yaml
+  - resources/ingress.yaml
 
 labels:
   - pairs:
