@@ -22,6 +22,11 @@ certResolvers:
     dnsChallenge:
       provider: cloudflare
     storage: /data/acme.json
+  http:
+    email: wesley19097@gmail.com
+    httpChallenge:
+      entryPoint: websecure
+    storage: /data/acme.json
 
 envFrom:
   - secretRef:
