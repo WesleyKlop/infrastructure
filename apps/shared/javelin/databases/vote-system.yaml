@@ -5,7 +5,7 @@ metadata:
 spec:
   preparedDatabases:
     votesystem_nucleus:
-      secretNamespace: votesystem-nucleus
+      secretNamespace: vote-system-nucleus
       defaultUsers: true
       extensions:
         uuid-ossp: public
