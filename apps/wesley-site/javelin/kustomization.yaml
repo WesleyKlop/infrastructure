@@ -6,6 +6,7 @@ namespace: wesley
 resources:
   - ../base
   - resources/secret.yaml
+  - resources/ingress.yaml
 
 patchesStrategicMerge:
   - patches/deployment-credentials.yaml
