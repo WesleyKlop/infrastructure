@@ -3,6 +3,7 @@
     "ms-kubernetes-tools.vscode-kubernetes-tools",
     "redhat.vscode-yaml",
     "editorconfig.editorconfig",
-    "hashicorp.terraform"
+    "hashicorp.terraform",
+    "esbenp.prettier-vscode"
   ]
 }

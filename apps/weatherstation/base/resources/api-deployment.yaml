@@ -57,4 +57,4 @@ spec:
                   name: weatherstation-owner-user.cloudlab-db.pg-credentials
                   key: password
             - name: DATABASE_URL
-              value: "postgres://$(DB_USERNAME):$(DB_PASSWORD)@cloudlab-db.default.svc.cluster.local/weatherstation"
+              value: 'postgres://$(DB_USERNAME):$(DB_PASSWORD)@cloudlab-db.default.svc.cluster.local/weatherstation'
