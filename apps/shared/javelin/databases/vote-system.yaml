@@ -18,3 +18,17 @@ spec:
         uuid-ossp: public
       schemas:
         public: {}
+    votesystem_syntax:
+      secretNamespace: vote-system-syntax
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
+    votesystem_dev:
+      secretNamespace: vote-system-dev
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
