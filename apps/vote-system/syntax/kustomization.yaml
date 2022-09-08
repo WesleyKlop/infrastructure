@@ -15,9 +15,9 @@ configMapGenerator:
   - name: vote-system-cfg
     behavior: merge
     literals:
-      - APP_NAME="S.V. Nucleus ALV"
-      - APP_URL="https://stem.wesley.io"
-      - DB_DATABASE=votesystem_nucleus
+      - APP_NAME=S.V. Syntax ALV
+      - APP_URL=https://syntaxbestuur.nl
+      - DB_DATABASE=votesystem_syntax
 
 labels:
   - pairs:
