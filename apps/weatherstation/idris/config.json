@@ -1,7 +1,0 @@
-{
-  "name": "weatherstation",
-  "destNamespace": "weatherstation",
-  "images": "app0=ghcr.io/wesleyklop/weatherstation-api,app1=ghcr.io/wesleyklop/weatherstation-web",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
