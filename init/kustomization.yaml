@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ./argo-cd
-  - ./resources/1password-namespace.yaml
+  - ./resources/1p-namespace.yaml
   - ./resources/infrastructure-repository.yaml
   - https://raw.githubusercontent.com/external-secrets/external-secrets/v0.5.9/deploy/crds/bundle.yaml
   - ./resources/bootstrap-store.yaml
