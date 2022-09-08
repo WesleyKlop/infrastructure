@@ -20,7 +20,7 @@ spec:
         argocd-image-updater.argoproj.io/write-back-method: git
         argocd.argoproj.io/sync-wave: '1'
     spec:
-      project: vote-system
+      project: default
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin

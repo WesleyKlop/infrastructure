@@ -8,6 +8,9 @@ resources:
   - resources/secret.yaml
   # - resources/ingress.yaml
 
+patchesStrategicMerge:
+  - patches/deployment-credentials.yaml
+
 configMapGenerator:
   - name: vote-system-cfg
     behavior: merge
