@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: 1password
 
 resources:
+  - ../../../init/resources/1password-namespace.yaml
   - ./resources/namespace.yaml
   - ./resources/op-credentials.yaml
   - ./resources/op-store.yaml

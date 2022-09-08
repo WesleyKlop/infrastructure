@@ -51,7 +51,7 @@ resource "github_repository_webhook" "argocd" {
 
 resource "null_resource" "init" {
   triggers = {
-    generation = 0
+    generation = 1
   }
 
   connection {
