@@ -6,7 +6,7 @@ namespace: vote-system-nucleus
 resources:
   - ../base
   - resources/secret.yaml
-  # - resources/ingress.yaml
+  - resources/ingress.yaml
 
 patchesStrategicMerge:
   - patches/deployment-credentials.yaml
@@ -16,7 +16,7 @@ configMapGenerator:
     behavior: merge
     literals:
       - APP_NAME="S.V. Nucleus ALV"
-      - APP_URL="https://stem.svnucleus.nl"
+      - APP_URL="https://stem.wesley.io"
       - DB_DATABASE=votesystem_nucleus
 
 labels:
