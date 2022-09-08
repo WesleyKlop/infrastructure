@@ -13,17 +13,14 @@ spec:
       extensions:
         uuid-ossp: public
       schemas:
-        public:
-          defaultUsers: true
+        public: {}
     weatherstation:
       secretNamespace: weatherstation
       defaultUsers: true
       extensions:
         uuid-ossp: public
       schemas:
-        public:
-          defaultUsers: true
-
+        public: {}
   postgresql:
     version: "14"
     parameters:
