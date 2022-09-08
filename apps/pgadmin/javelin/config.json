@@ -1,5 +1,5 @@
 {
   "name": "pgadmin",
-  "destNamespace": "pgadmin",
+  "namespace": "pgadmin",
   "wave": 1
 }
