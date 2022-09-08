@@ -4,7 +4,7 @@ metadata:
   name: cloudflare-api
   namespace: traefik
 spec:
-  refreshInterval: 1h
+  refreshInterval: 5m
   secretStoreRef:
     name: 1password
     kind: ClusterSecretStore

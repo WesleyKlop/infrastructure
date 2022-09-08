@@ -3,7 +3,7 @@ kind: ExternalSecret
 metadata:
   name: cloudflare-api
 spec:
-  refreshInterval: 1h
+  refreshInterval: 5m
   secretStoreRef:
     name: 1password
     kind: ClusterSecretStore
