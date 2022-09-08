@@ -3,9 +3,9 @@ apiVersion: v1
 metadata:
   name: pgadmin-pvc
 spec:
-  volumeName: shared-data
+  storageClassName: hcloud-volumes
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 512M
+      storage: 1Gi
