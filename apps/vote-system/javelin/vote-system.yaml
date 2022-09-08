@@ -14,6 +14,8 @@ spec:
         directories:
           - path: apps/vote-system/nucleus
           - path: apps/vote-system/exon
+          - path: apps/vote-system/dev
+          - path: apps/vote-system/syntax
   template:
     metadata:
       name: 'vote-system-{{ path.basename }}'
