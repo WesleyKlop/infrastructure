@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: weatherstation-cfg
-data:
-  APP_PORT: "8080"
-  APP_ADDRESS: "0.0.0.0"
