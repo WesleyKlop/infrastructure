@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vote-system-cfg
+data:
+  APP_ENV: production
+  APP_DEBUG: 'false'
+  LOG_CHANNEL: daily
+
+  # postgres
+  DB_CONNECTION: pgsql
+  DB_HOST: cloudlab-db.default.svc.cluster.local
+  DB_PORT: '5432'
+
+  BROADCAST_DRIVER: log
+  CACHE_DRIVER: file
+  QUEUE_CONNECTION: sync
+  SESSION_DRIVER: database
+  SESSION_LIFETIME: '120'
