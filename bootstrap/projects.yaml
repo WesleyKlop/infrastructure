@@ -13,6 +13,7 @@ spec:
   source:
     path: projects
     repoURL: git@github.com:wesleyklop/infrastructure.git
+    targetRevision: main
   syncPolicy:
     automated:
       allowEmpty: true
