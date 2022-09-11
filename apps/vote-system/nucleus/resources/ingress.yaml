@@ -4,10 +4,10 @@ metadata:
   name: vote-system
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    # traefik.ingress.kubernetes.io/router.tls.certresolver: http
+    traefik.ingress.kubernetes.io/router.tls.certresolver: http
 spec:
   rules:
-    - host: stem.wesley.io
+    - host: stem.svnucleus.nl
       http:
         paths:
           - path: /
