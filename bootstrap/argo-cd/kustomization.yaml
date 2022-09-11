@@ -20,6 +20,7 @@ configMapGenerator:
     literals:
       - server.insecure="true"
   - name: argocd-notifications-cm
+    behavior: merge
     files:
       - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
