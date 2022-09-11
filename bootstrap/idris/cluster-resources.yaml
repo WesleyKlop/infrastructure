@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: bootstrap/cluster-resources/idris
-    repoURL: https://github.com/WesleyKlop/infrastructure.git
+    repoURL: git@github.com:wesleyklop/infrastructure.git
   syncPolicy:
     automated:
       allowEmpty: true
