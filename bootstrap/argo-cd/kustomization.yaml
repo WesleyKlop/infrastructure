@@ -6,6 +6,7 @@ namespace: argocd
 resources:
   - ../../init/argo-cd
   - resources/apps.yaml
+  - resources/notifications-secret.yaml
 
 configMapGenerator:
   - name: argocd-cm
@@ -18,3 +19,8 @@ configMapGenerator:
     behavior: merge
     literals:
       - server.insecure="true"
+  - name: argocd-notifications-cm
+    files:
+      - service.slack=config/service.slack.yaml
+      - subscriptions=config/subscriptions.yaml
+      - context=config/context.yaml
