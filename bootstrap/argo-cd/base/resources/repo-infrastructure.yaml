@@ -1,4 +1,3 @@
----
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -14,18 +13,12 @@ spec:
         labels:
           argocd.argoproj.io/secret-type: repository
       data:
-        username: "{{ .username }}"
-        password: "{{ .password }}"
         type: git
-        url: https://github.com/WesleyKlop/infrastructure.git
-        project: default
+        url: git@github.com:wesleyklop/infrastructure.git
         name: infrastructure
+        sshPrivateKey: "{{ .key }}"
   data:
-    - secretKey: username
+    - secretKey: key
       remoteRef:
-        key: ArgoCD GitOps RW
-        property: username
-    - secretKey: password
-      remoteRef:
-        key: ArgoCD GitOps RW
-        property: pat
+        key: ArgoCD GitOps Idris
+        property: private key
