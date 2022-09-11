@@ -3,6 +3,4 @@ kind: Kustomization
 
 resources:
   - ../base
-  - ./prometheus-rule.yaml
-  - ./pod-monitor.yaml
   - ./metallb-config.yaml
