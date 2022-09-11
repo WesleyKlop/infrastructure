@@ -206,6 +206,7 @@ apt:
 packages:
   # Debug utils
   - traceroute
+  - dnsutils
   # Kubernetes
   - containerd.io
   - kubeadm
