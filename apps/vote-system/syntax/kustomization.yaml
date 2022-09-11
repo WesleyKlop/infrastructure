@@ -6,7 +6,7 @@ namespace: vote-system-syntax
 resources:
   - ../base
   - resources/secret.yaml
-  # - resources/ingress.yaml
+  - resources/ingress.yaml
 
 patchesStrategicMerge:
   - patches/deployment-credentials.yaml
