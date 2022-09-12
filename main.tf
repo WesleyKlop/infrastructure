@@ -35,7 +35,7 @@ module "worker" {
 
   count              = 3
   name               = "worker-${count.index}"
-  server_type        = "cx11"
+  server_type        = "cx21"
   firewall_ids       = local.firewall_enabled ? [hcloud_firewall.cloudlab.id] : []
   placement_group_id = hcloud_placement_group.cloudlab.id
   network_id         = hcloud_network.cloudlab.id
