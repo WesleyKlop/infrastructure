@@ -59,4 +59,4 @@ spec:
         automated:
           allowEmpty: true
           prune: false
-          selfHeal: true
+          selfHeal: false
