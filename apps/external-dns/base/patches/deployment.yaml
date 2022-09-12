@@ -18,3 +18,7 @@ spec:
               value: |-
                 service
                 ingress
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 7979

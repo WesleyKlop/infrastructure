@@ -5,6 +5,7 @@ namespace: external-dns
 
 resources:
   - resources/namespace.yaml
+  - resources/service.yaml
   - github.com/kubernetes-sigs/external-dns//kustomize/?ref=v0.12.2
 
 patchesStrategicMerge:

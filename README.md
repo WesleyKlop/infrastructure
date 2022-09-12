@@ -1,5 +1,7 @@
 # Infrastructure
 
+![Cloudlab Status](https://argocd-javelin.wesl.io/api/badge?name=argo-cd&revision=true)
+
 This repository contains the infrastructure for my Homelab & Cloudlab.
 
 The Homelab is a single node kubeadm cluster running on Ubuntu 20.04 The
