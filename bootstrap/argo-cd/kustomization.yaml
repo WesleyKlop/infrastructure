@@ -8,6 +8,9 @@ resources:
   - resources/apps.yaml
   - resources/notifications-secret.yaml
 
+patchesStrategicMerge:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml
+
 configMapGenerator:
   - name: argocd-cm
     behavior: merge
