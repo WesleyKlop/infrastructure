@@ -10,3 +10,12 @@ helmCharts:
     repo: https://charts.external-secrets.io
     version: 0.5.9
     includeCRDs: true
+    valuesInline:
+      serviceMonitor:
+        enabled: true
+      webhook:
+        serviceMonitor:
+          enabled: true
+      certController:
+        serviceMonitor:
+          enabled: true
