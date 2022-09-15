@@ -5,8 +5,9 @@ namespace: 1password
 
 resources:
   - ./resources/namespace.yaml
-  - ./resources/op-credentials.yaml
-  - ./resources/op-store.yaml
+
+patchesStrategicMerge:
+  - 'patches/patch-service.yaml'
 
 helmCharts:
   - name: connect

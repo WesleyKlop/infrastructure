@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - ../base
   - ./resources/op-credentials.yaml
-  - ./resources/op-store.yaml
 
+patchesStrategicMerge:
+  - 'patches/patch-service.yaml'
