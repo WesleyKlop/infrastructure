@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - ../../init/cloudlab/argo-cd
+  - ../../../init/cloudlab/argo-cd
   - resources/apps.yaml
   - resources/notifications-secret.yaml
 
