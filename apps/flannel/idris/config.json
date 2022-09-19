@@ -1,7 +1,0 @@
-{
-  "name": "flannel",
-  "destNamespace": "kube-system",
-  "images": "",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
