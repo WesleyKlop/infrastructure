@@ -5,10 +5,10 @@ metadata:
 allowVolumeExpansion: true
 reclaimPolicy: Delete
 parameters:
-  recordsize: "4k"
-  fstype: "zfs"
-  poolname: "tank/cluster"
-  shared: "yes"
+  recordsize: '4k'
+  fstype: 'zfs'
+  poolname: 'tank/cluster'
+  shared: 'yes'
 provisioner: zfs.csi.openebs.io
 allowedTopologies:
   - matchLabelExpressions:

@@ -5,4 +5,3 @@ resources:
   - ../base
   - ./resources/op-credentials.yaml
   - ./resources/op-store.yaml
-

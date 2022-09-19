@@ -154,9 +154,7 @@
       "options": {
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -364,10 +362,7 @@
   ],
   "schemaVersion": 36,
   "style": "dark",
-  "tags": [
-    "metallb ",
-    "prometheus"
-  ],
+  "tags": ["metallb ", "prometheus"],
   "templating": {
     "list": [
       {

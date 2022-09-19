@@ -6,15 +6,15 @@ metadata:
     alertmanagerConfig: slack
 spec:
   route:
-    groupBy: ["alertname"]
+    groupBy: ['alertname']
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
-    receiver: "slack"
+    receiver: 'slack'
   receivers:
-    - name: "slack"
+    - name: 'slack'
       slackConfigs:
-        - channel: "#alerts"
+        - channel: '#alerts'
           sendResolved: true
           apiURL:
             key: webhook-url

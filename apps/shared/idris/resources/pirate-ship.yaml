@@ -10,4 +10,4 @@ metadata:
   namespace: pirate-ship
 data:
   TZ: Europe/Amsterdam
-  PGID: "1337"
+  PGID: '1337'
