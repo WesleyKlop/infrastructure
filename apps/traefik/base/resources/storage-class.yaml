@@ -30,3 +30,4 @@ spec:
               operator: In
               values:
                 - control-plane
+                - idris
