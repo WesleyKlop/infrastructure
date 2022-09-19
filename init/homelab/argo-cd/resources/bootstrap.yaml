@@ -19,6 +19,9 @@ spec:
           - name: flannel
             namespace: kube-flannel
             wave: '-5'
+          - name: metallb
+            namespace: metallb-system
+            wave: '-5'
   template:
     metadata:
       name: '{{ name }}'
