@@ -1,7 +1,0 @@
-{
-  "name": "monitoring",
-  "destNamespace": "monitoring",
-  "images": "",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}

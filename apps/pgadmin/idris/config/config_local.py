@@ -1,1 +1,0 @@
-AUTHENTICATION_SOURCES = ['internal']
