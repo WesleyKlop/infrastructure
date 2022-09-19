@@ -1,0 +1,20 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: namecheap-api
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: 1password
+    kind: ClusterSecretStore
+  target:
+    creationPolicy: Owner
+  data:
+    - secretKey: NAMECHEAP_API_KEY
+      remoteRef:
+        key: namecheap-api
+        property: api-key
+    - secretKey: NAMECHEAP_API_USER
+      remoteRef:
+        key: namecheap-api
+        property: api-user

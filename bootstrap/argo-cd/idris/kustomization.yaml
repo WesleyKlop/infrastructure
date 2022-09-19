@@ -7,7 +7,6 @@ resources:
   - ../../../init/homelab/argo-cd
   - resources/apps.yaml
   - resources/notifications-secret.yaml
-  - resources/ingress.yaml
 
 patchesStrategicMerge:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml
