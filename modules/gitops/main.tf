@@ -58,7 +58,7 @@ resource "github_actions_secret" "tf_api_token" {
 
 resource "null_resource" "init" {
   triggers = {
-    generation = 2
+    generation = 1
   }
 
   connection {

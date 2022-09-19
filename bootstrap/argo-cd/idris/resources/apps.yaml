@@ -12,7 +12,7 @@ spec:
         repoURL: git@github.com:wesleyklop/infrastructure
         revision: javelin
         files:
-          - path: apps/**/javelin/config.json
+          - path: apps/**/idris/config.json
   template:
     metadata:
       name: '{{ name }}'
