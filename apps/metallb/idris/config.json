@@ -1,7 +1,0 @@
-{
-  "name": "metallb",
-  "destNamespace": "metallb-system",
-  "images": "",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
