@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
   # Secret management operators
-  - ./1password.yaml
   - ./external-secrets.yaml
