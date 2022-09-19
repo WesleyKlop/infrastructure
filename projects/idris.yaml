@@ -39,13 +39,6 @@ spec:
   template:
     metadata:
       name: "{{ name }}"
-      annotations:
-        argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-infrastructure
-        argocd-image-updater.argoproj.io/image-list: "{{ images }}"
-        argocd-image-updater.argoproj.io/git-branch: ":feature/update-{{ name }}"
-        argocd-image-updater.argoproj.io/write-back-target: kustomization
-        argocd-image-updater.argoproj.io/app0.update-strategy: "{{ updateStrategy }}"
-        argocd-image-updater.argoproj.io/app0.allow-tags: "{{ allowTags }}"
     spec:
       project: idris
       source:
