@@ -48,10 +48,17 @@ resource "github_repository_webhook" "argocd" {
   }
 }
 
+resource "github_actions_secret" "tf_api_token" {
+  repository = github_repository.gitops.name
+
+  secret_name     = "TF_API_TOKEN"
+  plaintext_value = var.gha_tf_api_token
+}
+
 
 resource "null_resource" "init" {
   triggers = {
-    generation = 1
+    generation = 2
   }
 
   connection {

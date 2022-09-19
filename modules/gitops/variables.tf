@@ -27,3 +27,8 @@ variable "op_credentials" {
   type      = string
   sensitive = true
 }
+
+variable "gha_tf_api_token" {
+  type      = string
+  sensitive = true
+}

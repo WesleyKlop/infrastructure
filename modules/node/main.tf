@@ -44,7 +44,8 @@ resource "hcloud_server" "node" {
       user_data,
       location,
       ssh_keys,
-      network
+      network,
+      server_type
     ]
   }
 }

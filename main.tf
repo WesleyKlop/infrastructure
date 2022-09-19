@@ -64,6 +64,8 @@ module "gitops" {
   op_credentials = var.op_credentials
   op_token       = var.op_token
 
+  gha_tf_api_token = var.gha_tf_api_token
+
   depends_on = [
     module.control-plane
   ]

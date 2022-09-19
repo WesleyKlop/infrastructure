@@ -5,7 +5,7 @@ terraform {
     organization = "w3ssl3y"
 
     workspaces {
-      name = "javelin"
+      name = "cloudlab"
     }
   }
 

@@ -1,21 +1,30 @@
 variable "hcloud_token" {
   sensitive = true
+  type      = string
 }
-variable "github_token" {
-  sensitive = true
-}
-
 variable "cluster_api_token" {
   sensitive = true
+  type      = string
 }
 
 variable "management_ssh_key_id" {
+  type = string
 }
 
 variable "op_credentials" {
   sensitive = true
+  type      = string
+}
+variable "op_token" {
+  type      = string
+  sensitive = true
 }
 
-variable "op_token" {
+variable "github_token" {
+  sensitive = true
+  type      = string
+}
+variable "gha_tf_api_token" {
+  type      = string
   sensitive = true
 }
