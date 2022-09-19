@@ -32,7 +32,7 @@ spec:
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
-        path: 'bootstrap/{{ name }}/cloudlab'
+        path: 'bootstrap/{{ name }}/javelin'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
