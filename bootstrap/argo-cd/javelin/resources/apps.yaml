@@ -2,26 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '-4'
-  name: bootstrap
+    argocd.argoproj.io/sync-wave: '-1'
+  name: apps
 spec:
   syncPolicy:
-    preserveResourcesOnDeletion: true
+    preserveResourcesOnDeletion: false
   generators:
-    - list:
-        elements:
-          - name: argo-cd
-            namespace: argocd
-            wave: '-4'
-          - name: external-secrets
-            namespace: external-secrets
-            wave: '-4'
-          - name: hetzner
-            namespace: kube-system
-            wave: '-5'
-          - name: flannel
-            namespace: kube-flannel
-            wave: '-5'
+    - git:
+        repoURL: git@github.com:wesleyklop/infrastructure
+        revision: javelin
+        files:
+          - path: apps/**/javelin/config.json
   template:
     metadata:
       name: '{{ name }}'
@@ -32,14 +23,14 @@ spec:
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
-        path: 'bootstrap/{{ name }}/cloudlab'
+        path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
       syncPolicy:
         automated:
           allowEmpty: true
-          prune: false
+          prune: true
           selfHeal: true
         syncOptions:
           - 'ServerSideApply=true'

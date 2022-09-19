@@ -1,0 +1,6 @@
+- recipients:
+    - slack:idris
+  triggers:
+    - on-health-degraded
+    - on-sync-failed
+    - on-sync-succeeded
