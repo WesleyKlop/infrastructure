@@ -29,7 +29,7 @@ spec:
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
         targetRevision: javelin
-        path: 'bootstrap/{{ name }}/homelab'
+        path: 'bootstrap/{{ name }}/idris'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
