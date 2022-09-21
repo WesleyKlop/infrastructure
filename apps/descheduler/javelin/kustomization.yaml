@@ -3,3 +3,10 @@ kind: Kustomization
 
 resources:
   - ../base
+
+configMapGenerator:
+  - name: descheduler-policy-configmap
+    namespace: kube-system
+    behavior: replace
+    files:
+      - policy.yaml=config/policy.yaml
