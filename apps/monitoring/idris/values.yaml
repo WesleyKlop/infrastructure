@@ -58,17 +58,7 @@ grafana:
 
   ## Configure additional grafana datasources (passed through tpl)
   ## ref: http://docs.grafana.org/administration/provisioning/#datasources
-  additionalDataSources:
-    - name: PostgreSQL - Weatherstation
-      type: PostgreSQL
-      postgresVersion: 1290
-      database: weatherstation
-      user: $POSTGRES_USER
-      url: 10.0.0.2:5432
-      secureJsonData:
-        password: $POSTGRES_PASSWORD
-      jsonData:
-        sslmode: disable
+  additionalDataSources: []
 
   plugins:
     - grafana-piechart-panel

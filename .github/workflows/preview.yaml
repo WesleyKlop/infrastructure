@@ -1,3 +1,5 @@
+name: Terraform
+
 on:
   pull_request:
 
