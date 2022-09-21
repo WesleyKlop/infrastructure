@@ -16,15 +16,12 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
-        working-directory: infra
       - name: Terraform Init
         id: init
         run: terraform init
-        working-directory: infra
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-        working-directory: infra
 
   plan:
     name: Plan Terraform changes
@@ -44,4 +41,3 @@ jobs:
         uses: tchupp/actions-terraform-pr@v1.0.13
         with:
           github-token: ${{ github.token }}
-          path: infra
