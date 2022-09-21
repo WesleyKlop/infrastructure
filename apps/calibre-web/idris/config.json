@@ -1,7 +1,0 @@
-{
-  "name": "calibre-web",
-  "destNamespace": "pirate-ship",
-  "images": "app0=ghcr.io/linuxserver/calibre-web",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}

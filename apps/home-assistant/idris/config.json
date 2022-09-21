@@ -1,7 +1,0 @@
-{
-  "name": "home-assistant",
-  "destNamespace": "home-assistant",
-  "images": "",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
