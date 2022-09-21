@@ -1,4 +1,5 @@
 {
   "name": "zfs-localpv",
-  "namespace": "openebs"
+  "namespace": "openebs",
+  "wave": -1
 }
