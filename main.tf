@@ -78,7 +78,8 @@ module "cloudlab-kubeadm" {
   for_each = toset([module.worker[0].public_ipv4_address])
   source   = "./modules/kube-node"
 
-  node_address    = each.value
-  ssh_private_key = local.ssh_private_key
-  kube_version    = "1.25"
+  node_address     = each.value
+  ssh_private_key  = local.ssh_private_key
+  kube_version     = "1.25.2"
+  is_control_plane = false
 }
