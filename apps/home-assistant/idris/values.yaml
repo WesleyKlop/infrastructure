@@ -1,0 +1,82 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: Europe/Amsterdam
+
+# -- Configures service settings for the chart. Normally this does not need to be modified.
+# @default -- See values.yaml
+service:
+  main:
+    type: LoadBalancer
+    ports:
+      http:
+        port: 8123
+
+# -- Enable devices to be discoverable
+hostNetwork: true
+
+# -- When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
+dnsPolicy: ClusterFirstWithHostNet
+
+securityContext:
+  # -- (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine
+  privileged: # true
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: hostPath
+    hostPath: /opt/home-assistant
+    mountPath: /config
+  # -- Configure a hostPathMount to mount a USB device in the container.
+  # @default -- See values.yaml
+  usb:
+    enabled: false
+    type: hostPath
+    hostPath: /path/to/device
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: true
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels:
+      release: kube-prometheus-stack
+    ## See https://www.home-assistant.io/docs/authentication/ for where to find
+    ## long lived access token creation under your account profile, which is
+    ## needed to monitor Home Assistant
+    bearerTokenSecret:
+      name: "home-assistant-credentials"
+      key: "prom-token"
+
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: true
+    labels:
+      release: kube-prometheus-stack
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: HomeAssistantAbsent
+      #   annotations:
+      #     description: Home Assistant has disappeared from Prometheus service discovery.
+      #     summary: Home Assistant is down.
+      #   expr: |
+      #     absent(up{job=~".*home-assistant.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
