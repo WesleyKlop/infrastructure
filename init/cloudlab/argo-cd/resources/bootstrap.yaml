@@ -31,7 +31,7 @@ spec:
       project: default
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
-        targetRevision: javelin
+        targetRevision: main
         path: 'bootstrap/{{ name }}/javelin'
       destination:
         server: https://kubernetes.default.svc

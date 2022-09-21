@@ -10,7 +10,7 @@ spec:
   generators:
     - git:
         repoURL: git@github.com:wesleyklop/infrastructure
-        revision: javelin
+        revision: main
         directories:
           - path: apps/vote-system/nucleus
           - path: apps/vote-system/exon
@@ -26,7 +26,7 @@ spec:
       project: default
       source:
         repoURL: git@github.com:wesleyklop/infrastructure
-        targetRevision: javelin
+        targetRevision: main
         path: '{{ path }}'
       destination:
         server: https://kubernetes.default.svc
