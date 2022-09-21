@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+  - ./resources/cloudflare-api.yaml
+  - ./resources/ingress-class.yaml
+  - ./resources/argocd-ingress.yaml
+  - ./resources/pod-monitor.yaml
+  - ./resources/whoami.yaml
+
+helmCharts:
+  - name: traefik
+    releaseName: traefik
+    repo: https://helm.traefik.io/traefik
+    version: 10.24.0
+    valuesFile: values.yaml
+    namespace: traefik
+    includeCRDs: true

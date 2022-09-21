@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+  - resources/storage.yaml
+  - resources/secret.yaml
+  - resources/ingress-route.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: photoprism
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: photoprism
+
+configMapGenerator:
+  - name: photoprism-cfg
+    envs:
+      - config/env.conf
+
+images:
+  - name: busybox
+    newTag: '1.35'
+  - name: photoprism/photoprism
+    newTag: '20220121'

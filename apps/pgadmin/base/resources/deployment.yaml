@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: volume-permissions
+          image: busybox:1.35.0
+          command: ['sh', '-c', 'chown -Rv 5050:5050 /data && chmod -Rv 700 /data']
+          volumeMounts:
+            - name: pgadmin-data
+              mountPath: /data
+      terminationGracePeriodSeconds: 60
+      containers:
+        - image: dpage/pgadmin4:6.13
+          imagePullPolicy: Always
+          name: pgadmin
+          securityContext:
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            runAsGroup: 5050
+            runAsUser: 5050
+          resources:
+            requests:
+              cpu: 10m
+              memory: 8Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: pgadmin-config
+              subPath: servers.json
+              mountPath: /pgadmin4/servers.json
+              readOnly: true
+            - name: pgadmin-config
+              subPath: config_local.py
+              mountPath: /pgadmin4/config_local.py
+              readOnly: true
+            - name: pgadmin-data
+              mountPath: /var/lib/pgadmin
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: pgadmin-secrets
+                  key: username
+            - name: PGADMIN_DEFAULT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgadmin-secrets
+                  key: password
+            - name: PGADMIN_DISABLE_POSTFIX
+              value: 'true'
+            - name: PGADMIN_LISTEN_PORT
+              value: '8080'
+      volumes:
+        - name: pgadmin-config
+          configMap:
+            name: pgadmin-config
+        - name: pgadmin-data
+          persistentVolumeClaim:
+            claimName: pgadmin-pvc

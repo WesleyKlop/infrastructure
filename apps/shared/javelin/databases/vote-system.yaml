@@ -1,0 +1,34 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: cloudlab-db
+spec:
+  preparedDatabases:
+    votesystem_nucleus:
+      secretNamespace: vote-system-nucleus
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
+    votesystem_exon:
+      secretNamespace: vote-system-exon
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
+    votesystem_syntax:
+      secretNamespace: vote-system-syntax
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
+    votesystem_dev:
+      secretNamespace: vote-system-dev
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}

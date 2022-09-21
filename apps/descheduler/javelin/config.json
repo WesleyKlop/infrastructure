@@ -1,0 +1,5 @@
+{
+  "name": "descheduler",
+  "namespace": "kube-system",
+  "wave": -5
+}

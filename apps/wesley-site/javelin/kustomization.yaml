@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: wesley
+
+resources:
+  - ../base
+  - resources/secret.yaml
+  - resources/ingress.yaml
+
+patchesStrategicMerge:
+  - patches/deployment-credentials.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: wesley-site
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: wesley-site
+
+configMapGenerator:
+  - name: wesley-site-cfg
+    envs:
+      - env.conf
+
+images:
+  - name: ghcr.io/wesleyklop/wesley.io
+    newTag: v0.5.2

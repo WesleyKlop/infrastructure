@@ -1,0 +1,20 @@
+#cloud-config
+write_files:
+  - path: /root/bootstrap/secrets.yaml
+    content: |
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: hcloud
+        namespace: kube-system
+      stringData:
+        token: "${api_token}"
+        network: "${network_id}"
+      ---
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: hcloud-csi
+        namespace: kube-system
+      stringData:
+        token: "${api_token}"

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overseerr
+spec:
+  template:
+    spec:
+      containers:
+        - name: overseerr
+          image: ghcr.io/linuxserver/overseerr:version-v1.28.0
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: base-config
+          ports:
+            - containerPort: 5055
+          volumeMounts:
+            - mountPath: /config
+              name: overseerr-config
+      volumes:
+        - name: overseerr-config
+          hostPath:
+            path: /opt/overseerr
+            type: Directory

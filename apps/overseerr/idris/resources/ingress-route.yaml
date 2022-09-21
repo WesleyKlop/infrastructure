@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: overseerr
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`overseerr.wesleyklop.nl`)
+      kind: Rule
+      services:
+        - name: overseerr
+          port: 5055

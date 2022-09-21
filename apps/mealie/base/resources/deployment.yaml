@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie
+spec:
+  replicas: 1
+  template:
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: mealie
+          image: hkotel/mealie:v0.5.6
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: mealie-config
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              port: 80
+              path: /
+            initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 80
+              path: /
+            initialDelaySeconds: 30
+          volumeMounts:
+            - name: storage
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mealie-pvc
+        - name: tmp
+          emptyDir: {}

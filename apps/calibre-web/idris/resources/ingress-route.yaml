@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: calibre-web
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`books.wesl.io`)
+      kind: Rule
+      services:
+        - name: calibre-web
+          port: 8083

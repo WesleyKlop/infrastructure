@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+  - ../../../init/homelab/argo-cd
+  - resources/apps.yaml
+  - resources/notifications-secret.yaml
+
+patchesStrategicMerge:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml
+
+configMapGenerator:
+  - name: argocd-cm
+    behavior: merge
+    literals:
+      - statusbadge.enabled="true"
+      - kustomize.buildOptions="--enable-helm"
+      - url="https://argocd.wesl.io"
+  - name: argocd-cmd-params-cm
+    behavior: merge
+    literals:
+      - server.insecure="true"
+  - name: argocd-notifications-cm
+    behavior: merge
+    files:
+      - service.slack=config/service.slack.yaml
+      - subscriptions=config/subscriptions.yaml
+      - context=config/context.yaml

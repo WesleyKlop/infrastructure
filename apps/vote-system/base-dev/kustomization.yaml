@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - resources/namespace.yaml
+  - resources/deployment.yaml
+  - resources/service.yaml
+
+configMapGenerator:
+  - name: vote-system-cfg
+    literals:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - LOG_CHANNEL=daily
+
+      - DB_CONNECTION=pgsql
+      - DB_HOST=cloudlab-db.default.svc.cluster.local
+      - DB_PORT=5432
+
+      - BROADCAST_DRIVER=pusher
+      - CACHE_DRIVER=file
+      - QUEUE_CONNECTION=sync
+      - SESSION_DRIVER=database
+      - SESSION_LIFETIME=120
+
+      - PUSHER_APP_ID=vote-system
+      - PUSHER_APP_KEY=vote-system
+      - PUSHER_APP_HOST=websockets
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: vote-system
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: vote-system

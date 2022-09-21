@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: bootstrap
+  namespace: 1password
+spec:
+  provider:
+    fake:
+      data:
+        - key: op-credentials
+          value: ${op_credentials}
+        - key: op-token
+          value: ${op_token}

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vote-system
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    # traefik.ingress.kubernetes.io/router.tls.certresolver: http
+spec:
+  rules:
+    - host: vote-system.wesl.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vote-system-http
+                port:
+                  name: http
+          - path: /app
+            pathType: Prefix
+            backend:
+              service:
+                name: vote-system-ws
+                port:
+                  name: ws

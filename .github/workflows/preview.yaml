@@ -1,0 +1,47 @@
+on:
+  pull_request:
+
+jobs:
+  check:
+    name: Check Terraform changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+        working-directory: infra
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: infra
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+        working-directory: infra
+
+  plan:
+    name: Plan Terraform changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    needs:
+      - check
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - name: Terraform PR
+        uses: tchupp/actions-terraform-pr@v1.0.13
+        with:
+          github-token: ${{ github.token }}
+          path: infra

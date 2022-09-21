@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pgadmin
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`pgadmin.wesl.io`)
+      kind: Rule
+      services:
+        - name: pgadmin
+          port: 8080
+      middlewares:
+        - name: forward-auth
+          namespace: traefik

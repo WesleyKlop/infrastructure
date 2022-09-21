@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+  - resources/ingress.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: weatherstation
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: weatherstation
+
+configMapGenerator:
+  - name: weatherstation-cfg
+    literals:
+      - 'APP_PORT=8080'
+      - 'APP_ADDRESS=0.0.0.0'
+
+images:
+  - name: ghcr.io/wesleyklop/weatherstation-api
+    newTag: 1.0.0
+  - name: ghcr.io/wesleyklop/weatherstation-web
+    newTag: 1.1.0

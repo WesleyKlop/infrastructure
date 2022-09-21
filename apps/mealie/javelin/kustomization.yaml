@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mealie
+
+resources:
+  - ../base
+  - resources/secret.yaml
+  - resources/ingress.yaml
+  - resources/storage.yaml
+
+patchesStrategicMerge:
+  - 'patches/deployment-secrets.yaml'
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: mealie
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: mealie
+
+configMapGenerator:
+  - name: mealie-config
+    envs:
+      - config/mealie.env

@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+  name: vote-system
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+  generators:
+    - git:
+        repoURL: git@github.com:wesleyklop/infrastructure
+        revision: main
+        directories:
+          - path: apps/vote-system/nucleus
+          - path: apps/vote-system/exon
+          - path: apps/vote-system/dev
+          - path: apps/vote-system/syntax
+  template:
+    metadata:
+      name: 'vote-system-{{ path.basename }}'
+      annotations:
+        argocd-image-updater.argoproj.io/write-back-method: git
+        argocd.argoproj.io/sync-wave: '1'
+    spec:
+      project: default
+      source:
+        repoURL: git@github.com:wesleyklop/infrastructure
+        targetRevision: main
+        path: '{{ path }}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'vote-system-{{ path.basename }}'
+      syncPolicy:
+        automated:
+          allowEmpty: false
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - 'ServerSideApply=true'

@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: radarr
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`app.wesleyklop.nl`) && PathPrefix(`/radarr`)
+      kind: Rule
+      services:
+        - name: radarr
+          port: 7878

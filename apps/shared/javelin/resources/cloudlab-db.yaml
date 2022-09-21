@@ -1,0 +1,22 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: cloudlab-db
+  namespace: default
+spec:
+  teamId: cloudlab
+  numberOfInstances: 1
+  postgresql:
+    version: '14'
+    parameters:
+      password_encryption: scram-sha-256
+  volume:
+    size: 10Gi
+    storageClass: hcloud-volumes
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi

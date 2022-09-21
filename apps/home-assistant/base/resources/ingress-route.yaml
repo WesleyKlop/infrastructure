@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: home-assistant
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`ha.wesl.io`)
+      kind: Rule
+      services:
+        - name: home-assistant
+          port: http

@@ -1,0 +1,8 @@
+{
+  "gitlens.codeLens.enabled": false,
+  "files.autoSave": "afterDelay",
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

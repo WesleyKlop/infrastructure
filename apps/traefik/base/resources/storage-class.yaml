@@ -1,0 +1,33 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-traefik
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+mountOptions:
+  - dir_mode=0700
+  - file_mode=0600
+  - uid=65532
+  - gid=65532
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-traefik
+spec:
+  storageClassName: local-traefik
+  capacity:
+    storage: '1Gi'
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: '/opt/traefik'
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - control-plane
+                - idris
