@@ -1,4 +1,4 @@
-variable "version" {
+variable "kube_version" {
   type = string
 }
 
