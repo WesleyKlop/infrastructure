@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-lb-tcp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: plex
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.242
+  ports:
+    - protocol: TCP
+      port: 3005
+      targetPort: 3005
+      name: do-not-know-1
+    - protocol: TCP
+      port: 8324
+      targetPort: 8324
+      name: roku
+    - protocol: TCP
+      port: 32469
+      targetPort: 32469
+      name: dlna
+    - protocol: TCP
+      port: 32400
+      targetPort: 32400
+      name: web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-lb-udp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: plex
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.242
+  ports:
+    - protocol: UDP
+      port: 1900
+      targetPort: 1900
+      name: dlna
+    - protocol: UDP
+      port: 32400
+      targetPort: 32400
+      name: web
+    - protocol: UDP
+      port: 32410
+      targetPort: 32410
+      name: gdm-1
+    - protocol: UDP
+      port: 32412
+      targetPort: 32412
+      name: gdm-2
+    - protocol: UDP
+      port: 32413
+      targetPort: 32413
+      name: gdm-3
+    - protocol: UDP
+      port: 32414
+      targetPort: 32414
+      name: gdm-4

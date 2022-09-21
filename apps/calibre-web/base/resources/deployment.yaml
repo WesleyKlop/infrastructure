@@ -11,7 +11,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: DOCKER_MODS
-              value: "linuxserver/calibre-web:calibre"
+              value: 'linuxserver/calibre-web:calibre'
           envFrom:
             - configMapRef:
                 name: base-config

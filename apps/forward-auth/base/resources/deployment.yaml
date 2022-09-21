@@ -34,7 +34,7 @@ spec:
             - name: COOKIE_DOMAIN
               value: wesl.io
             - name: PROVIDER_URI
-              value: "https://keycloak.wesl.io/realms/traefik"
+              value: 'https://keycloak.wesl.io/realms/traefik'
             - name: SECRET
               valueFrom:
                 secretKeyRef:

@@ -58,8 +58,8 @@ metrics:
     ## long lived access token creation under your account profile, which is
     ## needed to monitor Home Assistant
     bearerTokenSecret:
-      name: "home-assistant-credentials"
-      key: "prom-token"
+      name: 'home-assistant-credentials'
+      key: 'prom-token'
 
   # -- Enable and configure Prometheus Rules for the chart under this key.
   # @default -- See values.yaml
