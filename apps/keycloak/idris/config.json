@@ -1,7 +1,0 @@
-{
-  "name": "keycloak",
-  "destNamespace": "keycloak",
-  "images": "app0=ghcr.io/wesleyklop/keycloak",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}

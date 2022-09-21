@@ -1,7 +1,0 @@
-{
-  "name": "overseerr",
-  "destNamespace": "pirate-ship",
-  "images": "app0=ghcr.io/linuxserver/overseerr",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}

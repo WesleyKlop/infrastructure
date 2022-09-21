@@ -1,7 +1,0 @@
-{
-  "name": "plex",
-  "destNamespace": "pirate-ship",
-  "images": "app0=plexinc/pms-docker",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}

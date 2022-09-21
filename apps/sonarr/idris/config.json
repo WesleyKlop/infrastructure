@@ -1,7 +1,0 @@
-{
-  "name": "sonarr",
-  "destNamespace": "pirate-ship",
-  "images": "app0=ghcr.io/linuxserver/sonarr",
-  "updateStrategy": "semver",
-  "allowTags": ""
-}
