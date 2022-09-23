@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - ./resources/namespace.yaml
-  - github.com/wesleyklop/volgendeverjaardag//manifests?ref=v1.1.5
+  - github.com/wesleyklop/volgendeverjaardag//manifests?ref=v1.1.6
