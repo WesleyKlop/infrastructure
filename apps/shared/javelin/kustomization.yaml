@@ -6,7 +6,8 @@ resources:
   - resources/cloudlab-db.yaml
 
 patchesStrategicMerge:
+  - databases/mealie.yaml
+  - databases/volgendeverjaardag.yaml
+  - databases/vote-system.yaml
   - databases/weatherstation.yaml
   - databases/wesley.yaml
-  - databases/vote-system.yaml
-  - databases/mealie.yaml
