@@ -6,48 +6,28 @@
 This repository contains the infrastructure for my Homelab & Cloudlab.
 
 The Homelab is a single node kubeadm cluster running on Ubuntu 20.04 The
-Cloudlab is a 3 node kubeadm cluster running on Ubuntu 20.04, deployed fully
-automatically using Terraform!
+Cloudlab is a 4 node kubeadm cluster running on Ubuntu 20.04, deployed fully
+automatically to Hetzner using Terraform!
 
 ## Repository layout
 
-The repository is trying to follow Flux repository conventions. This means that:
+-   Terraform configuration is located in the root and [modules](modules)
+    folders. These define the node, control-plane, worker and this repo config.
+-   Init configuration to kick-start a cluster is located under [init](init).
+    These define some required secrets and configuration to setup argo-cd for
+    phase-2. At this point Argo CD takes over.
+-   Bootstrap configuration for phase-2 of initializing is located under
+    [bootstrap](bootstrap).
+-   Deployed app configuration is under [apps](apps).
 
--   Cluster configuration can be found under [clusters](clusters)
--   Infrastructure can be found under [infrastructure](infrastructure)
--   Applications can be found under [applications](applications)
-
-## Environment management
-
-Most applications use secrets to be configured. These are encrypted using sops
-and are automatically decrypted by Flux. If you want to create a new secret, you
-can just create a secret inside a yaml file like you normally would, and then
-run `create-encrypted-secret.sh [filename]`. These can be safely committed to
-the repository.
-
-This should preferably not be used though. Instead, the cluster has
-1password-connect installed and will automatically install secrets derived from
-references OnePasswordItems.
+# Homelab
 
 ## Storage
 
 The node has a 6TB storage pool on ZFS. Persistent Volume Claims can be created
 using the `tank-zfspv` storage class to use that storage.
 
-## Logging & alerts
-
-Logging is not really configured at the moment. I do have Lens metrics deployed.
-Flux reconciliation and upgrade notifications are automatically send to Slack.
-
-## Todo
-
--   [x] Logging with prometheus
--   [x] Dashboard with Grafana
--   [x] Automatedtesting
--   [ ] Improve automated image updates
--   [ ] Reduce usage of hostPath volumes
-
-# Javelin
+# Cloudlab
 
 Climate change forcing me to migrate to the cloud smh.
 
