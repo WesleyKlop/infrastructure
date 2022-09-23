@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../base
+  - resources/ingress.yaml
 
 patchesStrategicMerge:
-  - 'patches/deployment-secrets.yaml'
+  - patches/deployment-secrets.yaml
