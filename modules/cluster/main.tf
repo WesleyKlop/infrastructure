@@ -119,12 +119,7 @@ resource "null_resource" "worker-version" {
 
   provisioner "remote-exec" {
     inline = [
-      <<-BASH
-      #!/usr/bin/env bash
-      set -euxo pipefail
-
-      kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10
-      BASH
+      "kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10"
     ]
 
     # Controlling workers is done through the control-plane node
@@ -157,5 +152,18 @@ resource "null_resource" "worker-version" {
       systemctl restart kubelet
       BASH
     ]
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "kubectl uncordon ${each.key}"
+    ]
+
+    # Controlling workers is done through the control-plane node
+    connection {
+      user        = "root"
+      private_key = var.ssh_private_key
+      host        = var.control_plane
+    }
   }
 }
