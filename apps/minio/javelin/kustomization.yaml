@@ -5,3 +5,10 @@ resources:
   - ../base
   - resources/dev.yaml
   - resources/storage.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: minio
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/name: minio
