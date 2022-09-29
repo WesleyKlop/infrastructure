@@ -71,8 +71,8 @@ module "gitops" {
   ]
 }
 
-module "cloudlab-kubeadm" {
-  source = "./modules/kube-node"
+module "cloudlab-cluster" {
+  source = "./modules/cluster"
   depends_on = [
     local_sensitive_file.ssh_config
   ]
