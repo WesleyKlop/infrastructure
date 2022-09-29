@@ -73,10 +73,12 @@ module "gitops" {
 
 module "cloudlab-kubeadm" {
   # for_each = toset([
-  # for worker in module.worker : worker.public_ipv4_address
+  # for worker in module.worker : (worker.name) => worker.public_ipv4_address
   # ])
-  for_each = toset([module.worker[0].public_ipv4_address])
-  source   = "./modules/kube-node"
+  for_each = {
+    (module.worker[0].name) = module.worker[0].public_ipv4_address
+  }
+  source = "./modules/kube-node"
 
   node_address     = each.value
   ssh_private_key  = local.ssh_private_key
