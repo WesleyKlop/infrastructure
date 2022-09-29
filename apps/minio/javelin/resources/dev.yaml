@@ -12,6 +12,11 @@ spec:
       volumeMounts:
         - mountPath: /data
           name: minio # Corresponds to the `spec.volumes` Persistent Volume
+      ports:
+        - name: console
+          containerPort: 9090
+        - name: api
+          containerPort: 9000
   volumes:
     - name: minio
       persistentVolumeClaim:
