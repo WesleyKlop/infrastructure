@@ -73,9 +73,6 @@ module "gitops" {
 
 module "cloudlab-cluster" {
   source = "./modules/cluster"
-  depends_on = [
-    local_sensitive_file.ssh_config
-  ]
 
   control_plane = module.control-plane.public_ipv4_address
   workers = {
@@ -85,4 +82,9 @@ module "cloudlab-cluster" {
 
   ssh_private_key = local.ssh_private_key
   kube_version    = "1.25.2"
+
+  depends_on = [
+    module.control-plane,
+    module.worker[0]
+  ]
 }

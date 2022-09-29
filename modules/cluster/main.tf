@@ -54,7 +54,7 @@ resource "null_resource" "control-plane-version" {
       apt install -y -qq kubeadm="$LONG_VERSION"
       apt-mark hold kubeadm
 
-      kubeadm upgrade apply "v${var.kube_version}"
+      kubeadm upgrade apply -y "v${var.kube_version}"
 
       apt-mark unhold kubelet kubectl
       apt install -y kubectl="$LONG_VERSION" kubectl="$LONG_VERSION"
@@ -83,9 +83,10 @@ resource "null_resource" "worker-version" {
   }
 
   connection {
-    user        = "root"
-    private_key = var.ssh_private_key
-    host        = each.value
+    user         = "root"
+    private_key  = var.ssh_private_key
+    host         = each.value
+    bastion_host = var.control_plane
   }
 
   provisioner "remote-exec" {
@@ -105,7 +106,7 @@ resource "null_resource" "worker-version" {
         if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
           >&2 echo "But $LATEST_VERSION is the latest version so you might want to upgrade..."
         fi
-        exit 0
+        # exit 0
       fi
 
       apt-mark unhold kubeadm

@@ -142,16 +142,3 @@ resource "hcloud_firewall" "cloudlab" {
   }
 }
 
-resource "local_sensitive_file" "ssh_config" {
-  filename             = "~/.ssh/config"
-  directory_permission = "0700"
-  file_permission      = "0644"
-  content              = <<EOF
-Match address ${local.cluster_ipv4_cidr}
-  ProxyJump ${module.control-plane.public_ipv4_address}
-
-Host ${module.control-plane.public_ipv4_address}
-  HostName ${module.control-plane.public_ipv4_address}
-  ForwardAgent yes
-EOF
-}

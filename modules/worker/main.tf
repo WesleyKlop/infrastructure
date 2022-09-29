@@ -11,7 +11,7 @@ module "worker" {
   placement_group_id = var.placement_group_id
   server_type        = var.server_type
   authorized_keys    = var.authorized_keys
-  expose             = false
+  expose             = true
 }
 
 resource "null_resource" "init" {
