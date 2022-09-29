@@ -72,16 +72,16 @@ module "gitops" {
 }
 
 module "cloudlab-kubeadm" {
-  # for_each = toset([
-  # for worker in module.worker : (worker.name) => worker.public_ipv4_address
-  # ])
-  for_each = {
-    (module.worker[0].name) = module.worker[0].public_ipv4_address
-  }
   source = "./modules/kube-node"
+  depends_on = [
+    local_sensitive_file.ssh_config
+  ]
 
-  node_address     = each.value
-  ssh_private_key  = local.ssh_private_key
-  kube_version     = "1.25.2"
-  is_control_plane = false
+  control_plane = module.control-plane.public_ipv4_address
+  workers = {
+    for worker in module.worker : (worker.name) => worker.private_ipv4_address
+  }
+
+  ssh_private_key = local.ssh_private_key
+  kube_version    = "1.25.2"
 }

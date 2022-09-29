@@ -18,15 +18,16 @@
 # So basically we cannot manage this on a node level but only on a cluster level
 # But can be reused for both cloud- and homelab! :D
 
-resource "null_resource" "set-kube-version" {
+resource "null_resource" "control-plane-version" {
   triggers = {
-    "version" = var.kube_version
+    "version"       = var.kube_version
+    "control_plane" = sensitive(var.control_plane)
   }
 
   connection {
     user        = "root"
     private_key = var.ssh_private_key
-    host        = var.node_address
+    host        = var.control_plane
   }
 
   provisioner "remote-exec" {
@@ -53,11 +54,96 @@ resource "null_resource" "set-kube-version" {
       apt install -y -qq kubeadm="$LONG_VERSION"
       apt-mark hold kubeadm
 
-      if [ "${var.is_control_plane}" == "true" ]; then
-        kubeadm upgrade apply "v${var.kube_version}"
-      else
-        kubeadm upgrade node
+      kubeadm upgrade apply "v${var.kube_version}"
+
+      apt-mark unhold kubelet kubectl
+      apt install -y kubectl="$LONG_VERSION" kubectl="$LONG_VERSION"
+      apt-mark hold kubelet kubectl
+
+      apt-mark unhold containerd.io
+      apt upgrade -y containerd.io
+      apt-mark hold containerd.io
+
+      systemctl daemon-reload
+      systemctl restart kubelet
+      BASH
+    ]
+  }
+}
+
+resource "null_resource" "worker-version" {
+  triggers = {
+    "version" = var.kube_version
+  }
+  depends_on = [
+    null_resource.control-plane-version
+  ]
+  for_each = {
+    for name, ip in var.workers : name => ip
+  }
+
+  connection {
+    user        = "root"
+    private_key = var.ssh_private_key
+    host        = each.value
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      <<-BASH
+      #!/usr/bin/env bash
+      set -euxo pipefail
+
+      apt update -qq
+
+      CURRENT_VERSION="$(dpkg -s kubeadm | grep '^Version:' | cut -d' ' -f2)"
+      LONG_VERSION="${var.kube_version}-00"
+      LATEST_VERSION="$(apt info kubeadm | grep '^Version:' | cut -d' ' -f2)"
+
+      if [ "$CURRENT_VERSION" == "$LONG_VERSION" ]; then
+        echo "Already up to date, so not doing any updates."
+        if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; then
+          >&2 echo "But $LATEST_VERSION is the latest version so you might want to upgrade..."
+        fi
+        exit 0
       fi
+
+      apt-mark unhold kubeadm
+      apt install -y -qq kubeadm="$LONG_VERSION"
+      apt-mark hold kubeadm
+
+      kubeadm upgrade node
+      BASH
+    ]
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      <<-BASH
+      #!/usr/bin/env bash
+      set -euxo pipefail
+
+      kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10
+      BASH
+    ]
+
+    # Controlling workers is done through the control-plane node
+    connection {
+      user        = "root"
+      private_key = var.ssh_private_key
+      host        = var.control_plane
+    }
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      <<-BASH
+      #!/usr/bin/env bash
+      set -euxo pipefail
+
+      CURRENT_VERSION="$(dpkg -s kubeadm | grep '^Version:' | cut -d' ' -f2)"
+      LONG_VERSION="${var.kube_version}-00"
+      LATEST_VERSION="$(apt info kubeadm | grep '^Version:' | cut -d' ' -f2)"
 
       apt-mark unhold kubelet kubectl
       apt install -y kubectl="$LONG_VERSION" kubectl="$LONG_VERSION"

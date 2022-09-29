@@ -26,3 +26,8 @@ variable "user_data" {
   type    = list(string)
   default = []
 }
+
+variable "expose" {
+  type    = bool
+  default = true
+}
