@@ -79,7 +79,8 @@ module "cloudlab-cluster" {
 
   control_plane = module.control-plane.public_ipv4_address
   workers = {
-    for worker in module.worker : (worker.name) => worker.private_ipv4_address
+    # for worker in module.worker : (worker.name) => worker.private_ipv4_address
+    "worker-0" = module.worker[0].private_ipv4_address
   }
 
   ssh_private_key = local.ssh_private_key

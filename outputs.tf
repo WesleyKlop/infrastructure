@@ -3,5 +3,5 @@ output "control-plane-ip" {
 }
 
 output "public-key" {
-  value = tls_private_key.ssh-key.public_key_openssh
+  value = chomp(tls_private_key.ssh-key.public_key_openssh)
 }
