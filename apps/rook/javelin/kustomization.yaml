@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - ../base
-  # - resources/cluster.yaml
+  - resources/cluster.yaml
