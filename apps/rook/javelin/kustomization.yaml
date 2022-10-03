@@ -3,4 +3,6 @@ kind: Kustomization
 
 resources:
   - ../base
-  - resources/cluster.yaml
+  - resources/ceph-cluster.yaml
+  - resources/storage-pool.yaml
+  - resources/storage-class.yaml
