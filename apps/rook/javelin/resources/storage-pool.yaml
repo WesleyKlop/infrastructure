@@ -1,9 +1,16 @@
 apiVersion: ceph.rook.io/v1
-kind: CephBlockPool
+kind: CephFilesystem
 metadata:
-  name: replicapool
-  namespace: rook-ceph
+  name: cloudlab-fs
 spec:
-  failureDomain: host
-  replicated:
-    size: 3
+  metadataPool:
+    replicated:
+      size: 3
+  dataPools:
+    - name: replicated
+      replicated:
+        size: 3
+  preserveFilesystemOnDelete: true
+  metadataServer:
+    activeCount: 1
+    activeStandby: true
