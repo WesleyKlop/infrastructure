@@ -41,12 +41,12 @@ spec:
     count: 1
     modules:
       - name: pg_autoscaler
-        enabled: true
+        enabled: false
   dashboard:
     enabled: true
-    ssl: true
+    ssl: false
   crashCollector:
-    disable: false
+    disable: true
   storage:
     storageClassDeviceSets:
       - name: set1

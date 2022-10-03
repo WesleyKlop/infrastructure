@@ -4,5 +4,8 @@
   "editor.formatOnSave": true,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/dcermak/vscode-rke-cluster-config/main/schemas/cluster.yml.json": "file:///Users/wesley/Developer/WesleyKlop/infrastructure/apps/rook/javelin/resources/cluster.yaml"
   }
 }
