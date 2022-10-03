@@ -1,5 +1,5 @@
 {
   "name": "minio",
-  "namespace": "minio",
+  "namespace": "minio-operator",
   "wave": -1
 }
