@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - ../base
   - resources/secrets.yaml
-  - resources/storage.yaml
   - resources/ingress.yaml
 
 configMapGenerator:
