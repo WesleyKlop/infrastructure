@@ -120,7 +120,22 @@ resource "null_resource" "worker-version" {
 
   provisioner "remote-exec" {
     inline = [
-      "kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10"
+      <<-BASH
+        #!/usr/bin/env bash
+        set -euxo pipefail
+
+        LOCKFILE=/tmp/cluster-upgrade-node-lock
+
+        while [ -f "$LOCKFILE" ]; do
+          node="$(cat "$LOCKFILE")"
+          echo "Currently upgrading node \"$node\". Sleeping..."
+          sleep 10
+        done
+
+        echo "${each.key}" > "$LOCKFILE"
+        
+        kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10
+      BASH
     ]
 
     # Controlling workers is done through the control-plane node
@@ -157,7 +172,22 @@ resource "null_resource" "worker-version" {
 
   provisioner "remote-exec" {
     inline = [
-      "kubectl uncordon ${each.key}"
+      <<-BASH
+        #!/usr/bin/env bash
+        set -euxo pipefail
+
+        LOCKFILE=/tmp/cluster-upgrade-node-lock
+
+        kubectl uncordon ${each.key}
+
+        node="$(cat "$LOCKFILE")"
+        if [ "${each.key}" == "$node" ]; then
+          rm "$LOCKFILE"
+        else
+          >&2 echo "Wanted to remove lockfile but lockfile references "$node"... oh no.
+          kubectl get nodes -owide
+        fi
+      BASH
     ]
 
     # Controlling workers is done through the control-plane node
