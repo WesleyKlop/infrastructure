@@ -19,3 +19,6 @@ labels:
   - includeSelectors: true
     pairs:
       app.kubernetes.io/name: pgadmin
+
+patchesStrategicMerge:
+  - patches/add-storage.yaml

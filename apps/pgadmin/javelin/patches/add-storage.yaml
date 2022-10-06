@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  template:
+    spec:
+      volumes:
+        - name: pgadmin-data
+          emptyDir: {}

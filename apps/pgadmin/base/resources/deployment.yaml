@@ -62,6 +62,3 @@ spec:
         - name: pgadmin-config
           configMap:
             name: pgadmin-config
-        - name: pgadmin-data
-          persistentVolumeClaim:
-            claimName: pgadmin-pvc
