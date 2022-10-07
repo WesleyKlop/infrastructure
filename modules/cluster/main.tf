@@ -129,10 +129,16 @@ resource "null_resource" "worker-version" {
         while [ -f "$LOCKFILE" ]; do
           node="$(cat "$LOCKFILE")"
           echo "Currently upgrading node \"$node\". Sleeping..."
-          sleep 10
+          sleep 30
         done
 
         echo "${each.key}" > "$LOCKFILE"
+
+        node="$(cat "$LOCKFILE")"
+        if [ "${each.key}" != "$node" ]; then
+          >&2 echo "Failed to obtain node lock... $node got it earlier. Aborting"
+          exit 1
+        fi
         
         kubectl drain ${each.key} --ignore-daemonsets --delete-emptydir-data --force --grace-period=10
       BASH
@@ -184,7 +190,7 @@ resource "null_resource" "worker-version" {
         if [ "${each.key}" == "$node" ]; then
           rm "$LOCKFILE"
         else
-          >&2 echo "Wanted to remove lockfile but lockfile references "$node"... oh no.
+          >&2 echo "Wanted to remove lockfile but lockfile references \"$node\"... oh no."
           kubectl get nodes -owide
         fi
       BASH
