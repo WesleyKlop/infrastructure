@@ -87,3 +87,13 @@ module "cloudlab-cluster" {
     module.worker[0]
   ]
 }
+
+module "homelab-cluster" {
+  source = "./modules/cluster"
+
+  control_plane = var.homelab_ipv4_address
+  workers       = {}
+
+  ssh_private_key = local.ssh_private_key
+  kube_version    = "1.25.2"
+}
