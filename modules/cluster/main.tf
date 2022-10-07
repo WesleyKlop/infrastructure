@@ -1,23 +1,3 @@
-# NOTE TO SELF
-# This does not really work
-# Terraform will try to do all these upgrade parallel instead of sequential, taking down the entire cluster
-# Random idea:
-# 1a. Configure ssh config file, specifying to ProxyJump through the control-plane
-# 1b. Configure ssh agent???? Combined with ProxyJump and AgentForwarding might be nice.
-# 1c. Would also allow to lock down worker nodes further, like not exposing them to the internet
-# 1d. And we could proxy kube-api and ssh through the LB? Then we can also lock down the control plane node.
-#     But dont know how that would work with > 1 control planes.
-#  2. Upgrade the control-plane node first
-# 3a. Iterate through all worker nodes from the control-plane node
-# 3b.   First draining the node
-# 3c.   Then upgrading kubeadm/kubectl/kubelet
-# 3d.   Then upgrading containerd.io
-# 3e.   Then reloading kubelet
-# 3f.   Then uncordoning the node
-#  4. Profit
-# So basically we cannot manage this on a node level but only on a cluster level
-# But can be reused for both cloud- and homelab! :D
-
 resource "null_resource" "control-plane-version" {
   triggers = {
     "version"       = var.kube_version
