@@ -35,7 +35,7 @@ resource "hcloud_server" "node" {
   }
 
   public_net {
-    ipv4_enabled = true
+    ipv4_enabled = var.expose
     ipv6_enabled = false
   }
 

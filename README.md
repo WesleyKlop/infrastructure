@@ -48,17 +48,19 @@ So all secrets originate either from Terraform or from 1Password Connect. There
 are several secrets defined by Terraform that need to be provided beforehand:
 
 -   `hcloud_token` giving Hetzner api access for Terraform.
--   `github_token` giving Github api access for Terraform.
+-   `github_token` giving GitHub api access for Terraform.
 
 -   `cluster_api_token` giving Hetzner api access for the Hcloud Cloud
     Controller manager and Container Storage Interface.
 -   `management_ssh_key_id` defining an extra ssh key id that should be added to
-    the nodes for management purposes. This is either a pubkey or hetzner ssh
+    the nodes for management purposes. This is either a pubkey or Hetzner ssh
     key id
 
 -   `op_credentials` giving 1password-connect access to 1password.
 -   `op_token` giving external-secrets access to the vault via
     1password-connect.
+
+-   `gha_tf_api_token` giving GitHub actions access to Terraform Cloud.
 
 ## GitOps
 

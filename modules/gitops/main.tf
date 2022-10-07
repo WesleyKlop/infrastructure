@@ -9,9 +9,14 @@ resource "github_repository" "gitops" {
   name                   = var.repo_name
   vulnerability_alerts   = true
   topics = [
-    "argocd",
-    "gitops",
+    "terraform",
     "kubernetes",
+    "gitops",
+    "argocd",
+    "hetzner",
+    "traefik",
+    "homelab",
+    "cloudlab",
   ]
 
   lifecycle {

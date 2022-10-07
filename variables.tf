@@ -28,3 +28,8 @@ variable "gha_tf_api_token" {
   type      = string
   sensitive = true
 }
+
+variable "homelab_ipv4_address" {
+  type      = string
+  sensitive = true
+}

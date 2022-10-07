@@ -57,7 +57,7 @@ module "gitops" {
 
   argocd_url       = "https://argocd-javelin.wesl.io"
   repo_name        = "infrastructure"
-  repo_description = "Server infrastructure in Kubernetes"
+  repo_description = "My Homelab and Cloudlab"
   control_plane_ip = module.control-plane.public_ipv4_address
   ssh_private_key  = local.ssh_private_key
 
@@ -69,4 +69,31 @@ module "gitops" {
   depends_on = [
     module.control-plane
   ]
+}
+
+module "cloudlab-cluster" {
+  source = "./modules/cluster"
+
+  control_plane = module.control-plane.public_ipv4_address
+  workers = {
+    for worker in module.worker : (worker.name) => worker.private_ipv4_address
+  }
+
+  ssh_private_key = local.ssh_private_key
+  kube_version    = "1.25.2"
+
+  depends_on = [
+    module.control-plane,
+    module.worker[0]
+  ]
+}
+
+module "homelab-cluster" {
+  source = "./modules/cluster"
+
+  control_plane = var.homelab_ipv4_address
+  workers       = {}
+
+  ssh_private_key = local.ssh_private_key
+  kube_version    = "1.25.2"
 }
