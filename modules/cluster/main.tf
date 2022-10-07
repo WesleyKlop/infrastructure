@@ -57,7 +57,7 @@ resource "null_resource" "control-plane-version" {
       kubeadm upgrade apply -y "v${var.kube_version}"
 
       apt-mark unhold kubelet kubectl
-      apt install -y kubectl="$LONG_VERSION" kubectl="$LONG_VERSION"
+      apt install -y kubectl="$LONG_VERSION" kubelet="$LONG_VERSION"
       apt-mark hold kubelet kubectl
 
       apt-mark unhold containerd.io
@@ -163,7 +163,7 @@ resource "null_resource" "worker-version" {
       LATEST_VERSION="$(apt info kubeadm | grep '^Version:' | cut -d' ' -f2)"
 
       apt-mark unhold kubelet kubectl
-      apt install -y kubectl="$LONG_VERSION" kubectl="$LONG_VERSION"
+      apt install -y kubectl="$LONG_VERSION" kubelet="$LONG_VERSION"
       apt-mark hold kubelet kubectl
 
       apt-mark unhold containerd.io
