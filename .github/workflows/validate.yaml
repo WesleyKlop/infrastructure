@@ -34,9 +34,9 @@ jobs:
           for d in $(find apps -type d -name '${{ matrix.app }}'); do ( 
             cd "$d" 
             app="$(basename $d)"
-            kustomize build | \
-              kube-linter lint --format sarif - \
-            > "$GITHUB_WORKSPACE/../results/$app.sarif"
+            kustomize build > "$app.yaml"
+            kube-linter lint --format sarif "$app.yaml" \
+              > "$GITHUB_WORKSPACE/../results/$app.sarif"
           ); done
         continue-on-error: true
       - name: Upload SARIF file
