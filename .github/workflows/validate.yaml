@@ -22,7 +22,7 @@ jobs:
           repo: 'stackrox/kube-linter'
           version: 'tags/0.5.0'
           file: 'kube-linter-linux'
-          target: kube-linter
+          target: /home/runner/.local/bin/kube-linter
       - name: Lint apps on cloudlab
         run: |
           echo $PATH
