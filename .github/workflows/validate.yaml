@@ -33,7 +33,7 @@ jobs:
           chmod +x /home/runner/.local/bin/kube-linter
           for d in $(find apps -type d -name '${{ matrix.cluster }}'); do ( 
             cd "$d" 
-            app="$(basename $d)"
+            app="$(basename $(dirname $d))"
             kustomize build > "$app.yaml"
             kube-linter lint --format sarif "$app.yaml" \
               > "$GITHUB_WORKSPACE/../results/$app.sarif"
