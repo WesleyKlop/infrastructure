@@ -2,6 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
 
+  "github-actions": {
+    "enabled": false
+  },
   "kustomize": {},
   "terraform": {},
 
