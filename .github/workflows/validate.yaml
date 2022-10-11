@@ -22,7 +22,7 @@ jobs:
             cd "$d" 
             kustomize build | \
               kube-linter lint --format sarif - \
-            >> results.sarif
+            >> "$GITHUB_WORKSPACE/results.sarif"
           ); done
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
