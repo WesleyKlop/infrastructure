@@ -37,7 +37,9 @@ jobs:
             kustomize build > "$app.yaml"
             kube-linter lint --format sarif "$app.yaml" \
               > "$GITHUB_WORKSPACE/../results/$app.sarif"
+            echo "Results written to $app.sarif"
           ); done
+          ls -l ../results
         continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
