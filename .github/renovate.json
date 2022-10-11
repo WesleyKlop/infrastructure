@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
+  "semanticCommits": "enabled",
+  "rebaseWhen": "conflicted",
 
   "github-actions": {
     "enabled": false
@@ -19,6 +21,18 @@
       "matchManagers": ["kustomize", "terraform"],
       "matchUpdateTypes": ["major"],
       "automerge": false
+    }
+  ],
+
+  "detectHostRulesFromEnv": true,
+  "hostRules": [
+    {
+      "hostType": "docker",
+      "matchHost": "ghcr.io",
+      "username": "wesleyklop",
+      "encrypted": {
+        "password": "wcFMA/xDdHCJBTolARAAhxrSgG6UBPILMVDVEAQhvXJl7gd3bN90tEvCbzSbk80ffGv1fqK1n5EjvA+68eC6vjO6ia2Yc/nMV7f/TmuuvEC4Lta2BhAU1yzWQPPcrCnU+N7QBP348KtGySD707xE0hnJvpabW8elpJIWEwwPAW3EIlmxY48tjo8aG5qrrKwrXZ2YPcIcVGvUMBAE67Py4ihT66eiqUvbsL+UPH7sfjApmvh8pYoIfp/uv8fbtdvl0w1Xta+aHZl4YpJmgSxU27Fpu4kiTi8DPd3MjzQ8olGObownvmgtz/JwHUPlfDPnH6y0yy6EvN2WL7lTAXYcA0e+FaMn39gNNSa0iI0BtqXqnYE2RcJpjKYVzYUZRxB6DK7hhECMMjvmpSSsT4o/mmRFTCH5W0rFgNY1/zh7eOrtArIw8w8H/2STMlbh6UUbmWP4chxLPVjpeEWUXY8gGW+06f7Wp+agRZktS+0jNjhutJ+JCIihcW+gdv99P4sHnLSFSkTJoxFJ+bF03ITABqoR2fdo3U3ygkGYFX09LSVx96sEh2sNPi722nsrLeS3D0u0Te4U9PmGceOIqALgfQiWepzXmauEzRtxdiObz4mcWOn/0NRoZJjS8cwWi9GFkdoG30I2jMrPhG0i1sUodx1M8eI/7ny+iXeI+rWs0/G4va4zxAmezHvGEcvz2IDShwH6/+kS3GLxQ+wFkKx9L7ju4LZvLv6vIedR3E09BVL2ZoDUvC8zdBtsalcA4oMC00akcLNvL1hnz/TjZIwRFFoCotM3SNo0caYL7srBvonEzuBCvzoRmgmQy1mSFfJ0AWstJVdldVHQFS3rQwB4/j8ds4q22iEJ0DuQvfCc/d+Uekdo1YnPYQ"
+      }
     }
   ]
 }
