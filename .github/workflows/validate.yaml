@@ -25,7 +25,7 @@ jobs:
           target: /home/runner/.local/bin/kube-linter
       - name: Lint apps on cloudlab
         run: |
-          echo $PATH
+          chmod +x /home/runner/.local/bin/kube-linter
           for d in $(find apps -type d -name '${{ matrix.app }}'); do ( 
             cd "$d" 
             kustomize build | \
