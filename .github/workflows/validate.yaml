@@ -26,7 +26,7 @@ jobs:
           version: 'tags/0.5.0'
           file: 'kube-linter-linux'
           target: /home/runner/.local/bin/kube-linter
-      - name: Lint apps on cloudlab
+      - name: Lint apps on ${{ matrix.cluster }}
         run: |
           set +e
           mkdir ../results
@@ -34,8 +34,8 @@ jobs:
           for d in $(find apps -type d -name '${{ matrix.cluster }}'); do ( 
             cd "$d" 
             app="$(basename $(dirname $d))"
-            kustomize build > "$app.yaml"
-            kube-linter lint --format sarif "$app.yaml" \
+            kustomize build > "$app.${{ matrix.cluster }}.yaml"
+            kube-linter lint --format sarif "$app.${{ matrix.cluster }}.yaml" \
               > "$GITHUB_WORKSPACE/../results/$app.${{ matrix.cluster }}.sarif"
             echo "Results written to $app.${{ matrix.cluster }}.sarif"
           ); done
@@ -43,5 +43,3 @@ jobs:
         continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        with:
-          category: ${{ matrix.cluster }}
