@@ -1,11 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
+
+  "kustomize": {
+    "pinDigests": true
+  },
+  "terraform": {},
+
   "packageRules": [
     {
       "matchManagers": ["kustomize"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
-      "automerge": false,
-      "automergeType": "branch"
+      "matchUpdateTypes": ["major", "minor", "patch", "pinDigest", "digest"]
+    },
+    {
+      "matchManagers": ["terraform"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pinDigest", "digest"]
     }
   ]
 }
