@@ -9,7 +9,11 @@ on:
 
 jobs:
   kube-linter:
-    name: Kube lint apps
+    name: Kube lint apps on ${{ matrix.cluster }}
+    strategy:
+      fail-fast: false
+      matrix:
+        cluster: [javelin, idris]
     runs-on: ubuntu-22.04
     permissions:
       security-events: write
@@ -22,28 +26,32 @@ jobs:
           version: 'tags/0.5.0'
           file: 'kube-linter-linux'
           target: /home/runner/.local/bin/kube-linter
-      - name: Lint apps
+      - name: Prepare environment
         run: |
-          set +e
           mkdir ../results
           chmod +x /home/runner/.local/bin/kube-linter
-          for d in $(find apps -type d -name 'idris'); do ( 
-            cd "$d" 
-            app="$(basename $(dirname $d))"
-            kustomize build > "$app.idris.yaml"
-            kube-linter lint --format sarif "$app.idris.yaml" \
-              > "$GITHUB_WORKSPACE/../results/$app.idris.sarif"
-            echo "Results written to $app.idris.sarif"
+      - name: Lint apps on ${{ matrix.cluster }}
+        run: |
+          set +e
+          cluster="${{ matrix.cluster}}"
+          results="$(readlink -f "$GITHUB_WORKSPACE/../results")"
+
+          for dir in $(find apps -type d -name "$cluster"); do ( 
+            app="$(basename "$(dirname "$dir")")"
+
+            cd "$dir" 
+
+            kustomize build > "$app.$cluster.yaml"
+            kube-linter lint --format sarif "$app.$cluster.yaml" \
+              > "$results/$app.$cluster.sarif"
+
+            echo "Results written to $results/$app.$cluster.sarif"
           ); done
-          for d in $(find apps -type d -name 'javelin'); do ( 
-            cd "$d" 
-            app="$(basename $(dirname $d))"
-            kustomize build > "$app.javelin.yaml"
-            kube-linter lint --format sarif "$app.javelin.yaml" \
-              > "$GITHUB_WORKSPACE/../results/$app.javelin.sarif"
-            echo "Results written to $app.javelin.sarif"
-          ); done
-          find ../results -type f -empty -print -delete
         continue-on-error: true
+      - name: Cleanup results
+        run: |
+          find ../results -type f -empty -print -delete
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
+        with:
+          category: ${{ matrix.cluster }}
