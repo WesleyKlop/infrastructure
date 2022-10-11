@@ -11,6 +11,7 @@ jobs:
   kube-linter:
     name: Kube lint apps on ${{ matrix.cluster }}
     strategy:
+      fail-fast: false
       matrix:
         cluster: [javelin, idris]
     runs-on: ubuntu-22.04
