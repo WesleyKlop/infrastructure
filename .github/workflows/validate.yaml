@@ -39,8 +39,7 @@ jobs:
               > "$GITHUB_WORKSPACE/../results/$app.sarif"
             echo "Results written to $app.sarif"
           ); done
-          ls -l ../results
-           find ../results -type f -empty -print -delete
+          find ../results -type f -empty -print -delete
         continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
