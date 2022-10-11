@@ -9,10 +9,10 @@ on:
 
 jobs:
   kube-linter:
-    name: Kube lint apps on ${{ matrix.app }}
+    name: Kube lint apps on ${{ matrix.cluster }}
     strategy:
       matrix:
-        app: [javelin, idris]
+        cluster: [javelin, idris]
     runs-on: ubuntu-22.04
     permissions:
       security-events: write
@@ -31,7 +31,7 @@ jobs:
           set +e
           mkdir ../results
           chmod +x /home/runner/.local/bin/kube-linter
-          for d in $(find apps -type d -name '${{ matrix.app }}'); do ( 
+          for d in $(find apps -type d -name '${{ matrix.cluster }}'); do ( 
             cd "$d" 
             app="$(basename $d)"
             kustomize build > "$app.yaml"
