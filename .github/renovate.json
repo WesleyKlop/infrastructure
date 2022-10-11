@@ -10,12 +10,15 @@
 
   "packageRules": [
     {
-      "matchManagers": ["kustomize"],
-      "matchUpdateTypes": ["major", "minor", "patch", "pinDigest", "digest"]
+      "matchManagers": ["kustomize", "terraform"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
-      "matchManagers": ["terraform"],
-      "matchUpdateTypes": ["major", "minor", "patch", "pinDigest", "digest"]
+      "matchManagers": ["kustomize", "terraform"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     }
   ]
 }
