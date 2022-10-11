@@ -1,0 +1,31 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - renovate/*
+
+jobs:
+  kube-linter:
+    name: Kube lint apps on ${{ matrix.app }}
+    strategy:
+      matrix:
+        app: [javelin, idris]
+    runs-on: ubuntu-22.04
+    jobs:
+      - uses: actions/checkout@v3
+      - name: Lint apps on cloudlab
+        run: |
+          for d in $(find apps -type d -name '${{ matrix.app }}'); do ( 
+            cd "$d" 
+            kustomize build | \
+              kube-linter lint --format sarif - \
+            >> results.sarif
+          ); done
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
+          category: ${{ job.name }}-${{ matrix.app }}
