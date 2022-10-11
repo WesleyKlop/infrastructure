@@ -20,7 +20,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
-
       - uses: dsaltares/fetch-gh-release-asset@1.0.0
         with:
           repo: 'stackrox/kube-linter'
@@ -41,6 +40,7 @@ jobs:
             echo "Results written to $app.sarif"
           ); done
           ls -l ../results
+           find ../results -type f -empty -print -delete
         continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
