@@ -36,12 +36,10 @@ jobs:
             app="$(basename $(dirname $d))"
             kustomize build > "$app.yaml"
             kube-linter lint --format sarif "$app.yaml" \
-              > "$GITHUB_WORKSPACE/../results/$app.sarif"
-            echo "Results written to $app.sarif"
+              > "$GITHUB_WORKSPACE/../results/$app.${{ matrix.cluster }}.sarif"
+            echo "Results written to $app.${{ matrix.cluster }}.sarif"
           ); done
           find ../results -type f -empty -print -delete
         continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        with:
-          category: ${{ matrix.cluster }}
