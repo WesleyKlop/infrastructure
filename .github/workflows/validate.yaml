@@ -25,6 +25,7 @@ jobs:
           target: /home/runner/.local/bin/kube-linter
       - name: Lint apps on cloudlab
         run: |
+          set +e
           chmod +x /home/runner/.local/bin/kube-linter
           for d in $(find apps -type d -name '${{ matrix.app }}'); do ( 
             cd "$d" 
@@ -32,6 +33,7 @@ jobs:
               kube-linter lint --format sarif - \
             >> "$GITHUB_WORKSPACE/results.sarif"
           ); done
+        continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
