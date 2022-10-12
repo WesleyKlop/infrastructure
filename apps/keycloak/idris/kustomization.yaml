@@ -30,4 +30,4 @@ patches:
 
 images:
   - name: ghcr.io/wesleyklop/keycloak
-    newTag: '1.1'
+    newTag: '1.2'
