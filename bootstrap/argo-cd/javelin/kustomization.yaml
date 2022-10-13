@@ -31,3 +31,7 @@ configMapGenerator:
       - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
       - context=config/context.yaml
+  - name: argocd-rbac-cm
+    behavior: merge
+    files:
+      - policy.csv=config/rbac-policy.csv
