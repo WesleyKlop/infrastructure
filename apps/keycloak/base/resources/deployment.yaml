@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: keycloak
 spec:
-  replicas: 1
   strategy:
     type: RollingUpdate
   template:

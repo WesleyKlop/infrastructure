@@ -3,9 +3,6 @@ kind: Deployment
 metadata:
   name: forward-auth
 spec:
-  replicas: 1
-  strategy:
-    type: Recreate
   template:
     spec:
       terminationGracePeriodSeconds: 60

@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: mealie
 spec:
-  replicas: 1
   template:
     spec:
       automountServiceAccountToken: false
