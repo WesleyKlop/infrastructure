@@ -25,4 +25,4 @@ patchesStrategicMerge:
 
 images:
   - name: ghcr.io/wesleyklop/keycloak
-    newTag: '2.0'
+    newTag: '2.1'
