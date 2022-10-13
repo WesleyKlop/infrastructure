@@ -24,7 +24,6 @@
     }
   ],
 
-  "detectHostRulesFromEnv": true,
   "hostRules": [
     {
       "hostType": "docker",
