@@ -26,3 +26,13 @@ spec:
               value: '?sslmode=require'
             - name: KC_DB_URL_DATABASE
               value: keycloak
+            - name: KEYCLOAK_ADMIN
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-auth
+                  key: username
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-auth
+                  key: password
