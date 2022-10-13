@@ -1,0 +1,13 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: cloudlab-db
+spec:
+  preparedDatabases:
+    keycloak:
+      secretNamespace: keycloak
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}

@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   name: keycloak-monitor
   labels:
-    release: kube-prometheus-stack
+    release: monitoring
 spec:
   selector:
     matchLabels:

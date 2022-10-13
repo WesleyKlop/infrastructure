@@ -3,10 +3,9 @@ kind: Kustomization
 
 resources:
   - ../base
-  - resources/routing.yaml
+  - resources/ingress.yaml
   - resources/secret.yaml
   - resources/service-monitor.yaml
-  - resources/pull-secret.yaml
 
 labels:
   - pairs:
@@ -20,13 +19,9 @@ configMapGenerator:
     files:
       - keycloak.conf=config/keycloak.conf
 
-patches:
-  - target:
-      kind: Deployment
-    patch: |-
-      - op: add
-        path: /spec/template/spec/imagePullSecrets
-        value: [{ name: ghcr }]
+patchesStrategicMerge:
+  - patches/ns-label.yaml
+  - patches/deployment-config.yaml
 
 images:
   - name: ghcr.io/wesleyklop/keycloak

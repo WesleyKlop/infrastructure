@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - resources/wesley-ns.yaml
   - resources/cloudlab-db.yaml
+  - resources/pull-secret.yaml
 
 patchesStrategicMerge:
   - databases/mealie.yaml
@@ -11,3 +12,4 @@ patchesStrategicMerge:
   - databases/vote-system.yaml
   - databases/weatherstation.yaml
   - databases/wesley.yaml
+  - databases/keycloak.yaml

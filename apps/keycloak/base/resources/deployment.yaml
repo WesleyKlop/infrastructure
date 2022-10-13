@@ -9,8 +9,6 @@ spec:
     spec:
       automountServiceAccountToken: false
       enableServiceLinks: false
-      imagePullSecrets:
-        - name: ghcr-access-token
       containers:
         - name: keycloak
           image: ghcr.io/wesleyklop/keycloak:1.0.0
@@ -23,17 +21,6 @@ spec:
           ports:
             - containerPort: 8080
               name: http
-          env:
-            - name: KC_DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  key: db-username
-                  name: keycloak-auth
-            - name: KC_DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: db-password
-                  name: keycloak-auth
           volumeMounts:
             - mountPath: /opt/keycloak/conf
               name: keycloak-config
@@ -65,3 +52,4 @@ spec:
         - name: tmp
           emptyDir: {}
         - name: kc-tmp
+          emptyDir: {}
