@@ -32,19 +32,16 @@ spec:
             requests:
               cpu: 10m
               memory: 16Mi
-            limits:
-              cpu: 500m
-              memory: 512Mi
-          readinessProbe:
-            initialDelaySeconds: 45
-            httpGet:
-              path: /health/ready
-              port: 8080
-          livenessProbe:
-            initialDelaySeconds: 60
-            httpGet:
-              path: /health/live
-              port: 8080
+          # readinessProbe:
+          #   initialDelaySeconds: 45
+          #   httpGet:
+          #     path: /health/ready
+          #     port: 8080
+          # livenessProbe:
+          #   initialDelaySeconds: 60
+          #   httpGet:
+          #     path: /health/live
+          #     port: 8080
       volumes:
         - name: keycloak-config
           configMap:
