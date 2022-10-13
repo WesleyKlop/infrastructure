@@ -23,6 +23,6 @@ spec:
             - name: KC_DB_URL_HOST
               value: cloudlab-db.default.svc.cluster.local
             - name: KC_DB_URL_PROPERTIES
-              value: 'sslmode=require'
+              value: '?sslmode=require'
             - name: KC_DB_URL_DATABASE
               value: keycloak
