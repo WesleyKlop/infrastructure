@@ -10,13 +10,15 @@ spec:
       containers:
         - name: keycloak
           env:
-            - name: KC_DB_USERNAME
+            - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: keycloak-owner-user.cloudlab-db.pg-credentials
                   key: username
-            - name: KC_DB_PASSWORD
+            - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: keycloak-owner-user.cloudlab-db.pg-credentials
                   key: password
+            - name: KC_DB_URL
+              value: 'jdbc:postgres://$(DB_USERNAME):$(DB_PASSWORD)@cloudlab-db.default.svc.cluster.local/keycloak?sslmode=require'
