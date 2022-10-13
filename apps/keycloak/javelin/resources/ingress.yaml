@@ -23,6 +23,13 @@ spec:
                 name: keycloak
                 port:
                   name: http
+          - path: /js
+            pathType: Prefix
+            backend:
+              service:
+                name: keycloak
+                port:
+                  name: http
           - path: /admin
             pathType: Prefix
             backend:
