@@ -19,7 +19,7 @@ spec:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
             runAsUser: 1000
-            readOnlyRootFilesystem: false
+            readOnlyRootFilesystem: true
           ports:
             - containerPort: 8080
               name: http
@@ -51,12 +51,12 @@ spec:
           readinessProbe:
             initialDelaySeconds: 45
             httpGet:
-              path: /realms/master
+              path: /health/ready
               port: 8080
           livenessProbe:
             initialDelaySeconds: 60
             httpGet:
-              path: /realms/master
+              path: /health/live
               port: 8080
       volumes:
         - name: keycloak-config
