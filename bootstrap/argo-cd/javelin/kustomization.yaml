@@ -5,6 +5,7 @@ namespace: argocd
 
 resources:
   - ../../../init/cloudlab/argo-cd
+  - ../components/oauth
   - resources/apps.yaml
   - resources/notifications-secret.yaml
   - resources/argocd-secret.yaml
@@ -19,8 +20,6 @@ configMapGenerator:
       - statusbadge.enabled="true"
       - kustomize.buildOptions="--enable-helm"
       - url="https://argocd-javelin.wesl.io"
-    files:
-      - oidc.config=config/oidc.yaml
   - name: argocd-cmd-params-cm
     behavior: merge
     literals:
@@ -31,7 +30,3 @@ configMapGenerator:
       - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
       - context=config/context.yaml
-  - name: argocd-rbac-cm
-    behavior: merge
-    files:
-      - policy.csv=config/rbac-policy.csv

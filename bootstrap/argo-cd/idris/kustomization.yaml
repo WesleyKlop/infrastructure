@@ -5,6 +5,7 @@ namespace: argocd
 
 resources:
   - ../../../init/homelab/argo-cd
+  - ../components/oauth
   - resources/apps.yaml
   - resources/notifications-secret.yaml
 
