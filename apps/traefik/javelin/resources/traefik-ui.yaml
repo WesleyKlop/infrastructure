@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`traefik.wesley.io`)
+      middlewares:
+        - name: forward-auth
+      services:
+        - kind: TraefikService
+          name: api@internal
