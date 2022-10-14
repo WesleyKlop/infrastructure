@@ -5,13 +5,11 @@ namespace: argocd
 
 resources:
   - ../../../init/cloudlab/argo-cd
-  - ../components/oauth
   - resources/apps.yaml
-  - resources/notifications-secret.yaml
-  - resources/argocd-secret.yaml
 
-patchesStrategicMerge:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml
+components:
+  - ../components/oauth
+  - ../components/notifications
 
 configMapGenerator:
   - name: argocd-cm
@@ -27,6 +25,5 @@ configMapGenerator:
   - name: argocd-notifications-cm
     behavior: merge
     files:
-      - service.slack=config/service.slack.yaml
       - subscriptions=config/subscriptions.yaml
       - context=config/context.yaml
