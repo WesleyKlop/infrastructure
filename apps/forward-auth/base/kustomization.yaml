@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - resources/deployment.yaml
   - resources/service.yaml
-  - resources/middleware.yaml
