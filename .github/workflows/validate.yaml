@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cluster: [javelin, idris]
+        cluster: [javelin]
     runs-on: ubuntu-22.04
     permissions:
       security-events: write
