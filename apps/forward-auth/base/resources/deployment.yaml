@@ -27,12 +27,6 @@ spec:
             - containerPort: 4181
               protocol: TCP
           env:
-            - name: AUTH_HOST
-              value: auth.wesl.io
-            - name: COOKIE_DOMAIN
-              value: wesl.io
-            - name: PROVIDER_URI
-              value: 'https://keycloak.wesl.io/realms/master'
             - name: SECRET
               valueFrom:
                 secretKeyRef:
