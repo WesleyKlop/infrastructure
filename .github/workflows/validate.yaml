@@ -27,11 +27,7 @@ jobs:
           sarif_file: tfsec.sarif
 
   kube-linter:
-    name: Kube lint apps on ${{ matrix.cluster }}
-    strategy:
-      fail-fast: false
-      matrix:
-        cluster: [javelin]
+    name: Kube lint apps on cloudlab
     runs-on: ubuntu-22.04
     permissions:
       security-events: write
@@ -48,10 +44,10 @@ jobs:
         run: |
           mkdir ../results
           chmod +x /home/runner/.local/bin/kube-linter
-      - name: Lint apps on ${{ matrix.cluster }}
+      - name: Lint apps on cloudlab
         run: |
           set +e
-          cluster="${{ matrix.cluster}}"
+          cluster="javelin"
           results="$(readlink -f "$GITHUB_WORKSPACE/../results")"
 
           for dir in $(find apps -type d -name "$cluster"); do ( 
