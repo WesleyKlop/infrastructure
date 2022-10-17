@@ -5,7 +5,9 @@ resources:
   - ../base
   - resources/secrets.yaml
   - resources/ingress-route.yaml
-  - resources/middleware.yaml
+
+patchesStrategicMerge:
+  - patches/deployment-config.yaml
 
 labels:
   - includeSelectors: true

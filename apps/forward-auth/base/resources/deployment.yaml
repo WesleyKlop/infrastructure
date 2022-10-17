@@ -6,10 +6,11 @@ spec:
   template:
     spec:
       terminationGracePeriodSeconds: 60
+      automountServiceAccountToken: false
       containers:
-        - image: mesosphere/traefik-forward-auth:3.1.0
+        - name: forward-auth
+          image: mesosphere/traefik-forward-auth:3.1.0
           imagePullPolicy: Always
-          name: forward-auth
           securityContext:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
@@ -29,7 +30,7 @@ spec:
             - name: AUTH_HOST
               value: auth.wesl.io
             - name: COOKIE_DOMAIN
-              value: wesl.io,wesley.io
+              value: wesl.io
             - name: PROVIDER_URI
               value: 'https://keycloak.wesl.io/realms/master'
             - name: SECRET

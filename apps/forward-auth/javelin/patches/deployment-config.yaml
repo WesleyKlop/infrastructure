@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forward-auth
+spec:
+  template:
+    spec:
+      containers:
+        - name: forward-auth
+          env:
+            - name: AUTH_HOST
+              value: auth.wesley.io
+            - name: COOKIE_DOMAIN
+              value: wesley.io
+            - name: PROVIDER_URI
+              value: 'https://keycloak.wesl.io/realms/master'
