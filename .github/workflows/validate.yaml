@@ -55,7 +55,7 @@ jobs:
 
             cd "$dir" 
 
-            kustomize build | \
+            kustomize build --enable-helm | \
             kube-linter lint --format sarif - \
               > "$results/$app.$cluster.sarif"
 
