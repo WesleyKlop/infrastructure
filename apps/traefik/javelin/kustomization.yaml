@@ -8,6 +8,7 @@ resources:
   - ./resources/argocd-ingress.yaml
   - ./resources/pod-monitor.yaml
   - ./resources/whoami.yaml
+  - ./resources/traefik-ui.yaml
 
 helmCharts:
   - name: traefik
