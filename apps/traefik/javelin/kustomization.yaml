@@ -8,7 +8,6 @@ resources:
   - ./resources/argocd-ingress.yaml
   - ./resources/pod-monitor.yaml
   - ./resources/whoami.yaml
-  - ./resources/traefik-ui.yaml
 
 helmCharts:
   - name: traefik
@@ -18,3 +17,6 @@ helmCharts:
     valuesFile: values.yaml
     namespace: traefik
     includeCRDs: true
+
+patchesStrategicMerge:
+  - 'resources/traefik-ui.yaml'
