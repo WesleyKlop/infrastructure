@@ -17,7 +17,7 @@ configMapGenerator:
     literals:
       - statusbadge.enabled="true"
       - kustomize.buildOptions="--enable-helm"
-      - url="https://argocd-javelin.wesl.io"
+      - url="https://argocd.wesley.io"
   - name: argocd-cmd-params-cm
     behavior: merge
     literals:

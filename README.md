@@ -1,6 +1,6 @@
 # Infrastructure
 
-![Cloudlab Status](https://argocd-javelin.wesl.io/api/badge?name=argo-cd&revision=true)
+![Cloudlab Status](https://argocd.wesley.io/api/badge?name=argo-cd&revision=true)
 ![Homelab Status](https://argocd.wesl.io/api/badge?name=argo-cd&revision=true)
 
 This repository contains the infrastructure for my Homelab & Cloudlab.

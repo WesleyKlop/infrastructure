@@ -55,7 +55,7 @@ module "gitops" {
     github = github
   }
 
-  argocd_url       = "https://argocd-javelin.wesl.io"
+  argocd_url       = "https://argocd.wesley.io"
   repo_name        = "infrastructure"
   repo_description = "My Homelab and Cloudlab"
   control_plane_ip = module.control-plane.public_ipv4_address
