@@ -55,9 +55,8 @@ jobs:
 
             cd "$dir" 
 
-            kustomize build > "$app.$cluster.yaml"
-            mv "$app.$cluster.yaml" kustomization.yaml
-            kube-linter lint --format sarif kustomization.yaml \
+            kustomize build | \
+            kube-linter lint --format sarif \
               > "$results/$app.$cluster.sarif"
 
             echo "Results written to $results/$app.$cluster.sarif"
