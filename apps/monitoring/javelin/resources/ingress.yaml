@@ -23,6 +23,7 @@ metadata:
   name: alertmanager
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: forward-auth@kubernetescrd
 spec:
   rules:
     - host: alertmanager.wesley.io
@@ -42,6 +43,7 @@ metadata:
   name: prometheus
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: forward-auth@kubernetescrd
 spec:
   rules:
     - host: prometheus.wesley.io
