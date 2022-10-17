@@ -56,7 +56,7 @@ jobs:
             cd "$dir" 
 
             kustomize build | \
-            kube-linter lint --format sarif \
+            kube-linter lint --format sarif - \
               > "$results/$app.$cluster.sarif"
 
             echo "Results written to $results/$app.$cluster.sarif"
