@@ -1,6 +1,9 @@
 import os
 
-AUTHENTICATION_SOURCES = ['oauth2', 'internal']
+AUTHENTICATION_SOURCES = [
+    'oauth2', 
+    #'internal'
+]
 
 
 OAUTH2_CONFIG = [
@@ -27,9 +30,9 @@ OAUTH2_CONFIG = [
         # Note that an 'email' claim is required in the resulting profile
         'OAUTH2_SCOPE': 'openid email profile',
         # Font-awesome icon, ex: fa-github
-        'OAUTH2_ICON': None,
+        'OAUTH2_ICON': 'fa-sign-in-alt',
         # UI button colour, ex: #0000ff
-        'OAUTH2_BUTTON_COLOR': None,
+        'OAUTH2_BUTTON_COLOR': '#428bca',
     }
 ]
 
