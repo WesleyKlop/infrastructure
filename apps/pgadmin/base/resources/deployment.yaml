@@ -58,6 +58,11 @@ spec:
               value: 'true'
             - name: PGADMIN_LISTEN_PORT
               value: '8080'
+            - name: APP_OAUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: pgadmin-secrets
+                  key: oauth-secret
       volumes:
         - name: pgadmin-config
           configMap:
