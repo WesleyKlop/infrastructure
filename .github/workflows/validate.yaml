@@ -61,10 +61,8 @@ jobs:
 
             echo "Results written to $results/$app.$cluster.sarif"
           ); done
-        continue-on-error: true
-      - name: Cleanup results
-        run: |
           find ../results -type f -empty -print -delete
+        continue-on-error: true
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
