@@ -66,4 +66,4 @@ jobs:
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
-          wait-for-processing: true
+          wait-for-processing: false
