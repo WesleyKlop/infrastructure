@@ -1,3 +1,5 @@
+import os
+
 AUTHENTICATION_SOURCES = ['oauth2', 'internal']
 
 
