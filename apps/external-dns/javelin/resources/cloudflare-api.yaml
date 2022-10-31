@@ -13,8 +13,12 @@ spec:
     - secretKey: CF_API_TOKEN
       remoteRef:
         key: Cloudflare
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-key
     - secretKey: CF_API_EMAIL
       remoteRef:
         key: Cloudflare
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-user

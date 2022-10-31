@@ -35,4 +35,6 @@ spec:
     - secretKey: webhook-url
       remoteRef:
         key: alert-manager
+        conversionStrategy: Default
+        decodingStrategy: None
         property: webhook-url

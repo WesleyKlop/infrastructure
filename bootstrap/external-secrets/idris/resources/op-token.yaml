@@ -13,3 +13,5 @@ spec:
     - secretKey: token
       remoteRef:
         key: op-token
+        conversionStrategy: Default
+        decodingStrategy: None

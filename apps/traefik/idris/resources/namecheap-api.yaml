@@ -13,8 +13,12 @@ spec:
     - secretKey: NAMECHEAP_API_KEY
       remoteRef:
         key: namecheap-api
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-key
     - secretKey: NAMECHEAP_API_USER
       remoteRef:
         key: namecheap-api
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-user

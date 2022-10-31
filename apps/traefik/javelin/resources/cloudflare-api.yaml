@@ -14,12 +14,18 @@ spec:
     - secretKey: CF_ZONE_API_TOKEN
       remoteRef:
         key: Cloudflare
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-key
     - secretKey: CF_DNS_API_TOKEN
       remoteRef:
         key: Cloudflare
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-key
     - secretKey: CF_API_EMAIL
       remoteRef:
         key: Cloudflare
+        conversionStrategy: Default
+        decodingStrategy: None
         property: api-user
