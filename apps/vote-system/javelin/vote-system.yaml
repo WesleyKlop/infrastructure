@@ -38,3 +38,4 @@ spec:
           selfHeal: true
         syncOptions:
           - 'ServerSideApply=true'
+          - 'FailOnSharedResource=true'

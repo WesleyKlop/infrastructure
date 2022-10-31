@@ -43,6 +43,7 @@ spec:
           selfHeal: true
         syncOptions:
           - 'ServerSideApply=true'
+          - 'FailOnSharedResource=true'
       ignoreDifferences:
         - kind: CustomResourceDefinition
           group: apiextensions.k8s.io
