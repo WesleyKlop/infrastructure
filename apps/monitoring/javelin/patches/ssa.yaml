@@ -1,0 +1,6 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: monitoring-kubelet
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=false
