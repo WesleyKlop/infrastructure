@@ -33,5 +33,5 @@ spec:
           prune: true
           selfHeal: true
         syncOptions:
-          - 'ServerSideApply=true'
+          - 'ServerSideApply=false'
           - 'FailOnSharedResource=true'
