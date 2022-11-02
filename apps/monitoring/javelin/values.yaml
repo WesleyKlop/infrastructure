@@ -31,6 +31,8 @@ grafana:
         key: oauth-secret
 
   grafana.ini:
+    server:
+      root_url: https://grafana.wesley.io/
     auth.generic_oauth:
       enabled: true
       name: Keycloak
