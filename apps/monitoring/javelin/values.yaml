@@ -24,11 +24,12 @@ grafana:
   plugins:
     - grafana-piechart-panel
 
-  envValueFrom:
-    GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET:
-      secretKeyRef:
-        name: grafana
-        key: oauth-secret
+  extraSecretMounts:
+    - name: grafana
+      secretName: grafana
+      defaultMode: 0440
+      mountPath: /etc/secrets/auth_generic_oauth
+      readOnly: true
 
   grafana.ini:
     server:
@@ -42,7 +43,7 @@ grafana:
       token_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/token
       api_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/userinfo
       client_id: grafana
-      client_secret: ${GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET}
+      client_secret: $__file{/etc/secrets/auth_generic_oauth/oauth-secret}
       role_attribute_path: contains(groups[*], 'grafana-admins') && 'Admin' || 'Viewer'
 
 prometheus:
