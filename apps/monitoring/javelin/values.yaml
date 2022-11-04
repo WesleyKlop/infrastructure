@@ -37,7 +37,7 @@ grafana:
     auth.generic_oauth:
       enabled: true
       name: Keycloak
-      allow_sign_up: false
+      allow_sign_up: true
       scopes: profile email groups
       auth_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/auth
       token_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/token
