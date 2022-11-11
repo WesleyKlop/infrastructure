@@ -76,6 +76,7 @@ ports:
 
 service:
   type: LoadBalancer
+  single: true
   annotations:
     metallb.universe.tf/allow-shared-ip: 'traefik'
     metallb.universe.tf/loadBalancerIPs: 10.0.0.202
