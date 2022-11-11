@@ -50,15 +50,13 @@ ports:
     port: 8443
     expose: true
     protocol: TCP
-    http3:
-      enabled: false
+    http3: false
     tls:
       enabled: true
       certResolver: 'cloudflare'
 
 service:
   type: LoadBalancer
-  single: true
   annotations:
     load-balancer.hetzner.cloud/location: nbg1
     load-balancer.hetzner.cloud/name: traefik

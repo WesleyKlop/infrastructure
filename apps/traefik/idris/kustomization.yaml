@@ -5,6 +5,7 @@ resources:
   - ../base
   - ./resources/cloudflare-api.yaml
   - ./resources/namecheap-api.yaml
+  - ./resources/ingress-class.yaml
   - ./resources/argocd-ingress.yaml
   - ./resources/pod-monitor.yaml
   - ./resources/traefik-ui.yaml
@@ -13,7 +14,7 @@ helmCharts:
   - name: traefik
     releaseName: traefik
     repo: https://helm.traefik.io/traefik
-    version: 20.1.1
+    version: 16.2.0
     valuesFile: values.yaml
     namespace: traefik
     includeCRDs: true
