@@ -5,7 +5,6 @@ resources:
   - ../base
   - ./resources/cloudflare-api.yaml
   - ./resources/namecheap-api.yaml
-  - ./resources/ingress-class.yaml
   - ./resources/argocd-ingress.yaml
   - ./resources/pod-monitor.yaml
   - ./resources/traefik-ui.yaml
