@@ -56,7 +56,8 @@ ports:
     port: 8443
     expose: true
     protocol: TCP
-    http3: true
+    http3:
+      enabled: true
     tls:
       enabled: true
       certResolver: 'cloudflare'
