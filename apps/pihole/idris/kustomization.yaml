@@ -11,7 +11,7 @@ images:
   - name: ekofr/pihole-exporter
     newTag: v0.3.0
   - name: pihole/pihole
-    newTag: 2022.09.4
+    newTag: 2022.11.1
 
 labels:
   - includeSelectors: true
