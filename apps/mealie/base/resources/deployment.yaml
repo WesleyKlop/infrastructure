@@ -18,7 +18,7 @@ spec:
               name: web
           env:
             - name: API_URL
-              value: mealie.mealie.svc.cluster.local
+              value: https://mealie.wesl.io
           resources:
             requests:
               cpu: 10m
