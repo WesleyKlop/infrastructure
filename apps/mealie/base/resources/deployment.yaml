@@ -7,14 +7,49 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - name: mealie
-          image: hkotel/mealie:v0.5.6
+        - name: frontend
+          image: hkotel/mealie:frontend-v1.0.0beta-5
           imagePullPolicy: Always
           securityContext:
             runAsNonRoot: false
             readOnlyRootFilesystem: false
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+              name: web
+          env:
+            - name: API_URL
+              value: mealie.mealie.svc.cluster.local
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              port: web
+              path: /
+            initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              port: web
+              path: /
+            initialDelaySeconds: 30
+          volumeMounts:
+            - name: storage
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+        - name: backend
+          image: hkotel/mealie:api-v1.0.0beta-5
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+          ports:
+            - containerPort: 9000
+              name: api
           envFrom:
             - configMapRef:
                 name: mealie-config
@@ -27,12 +62,12 @@ spec:
               memory: 256Mi
           readinessProbe:
             httpGet:
-              port: 80
+              port: api
               path: /
             initialDelaySeconds: 10
           livenessProbe:
             httpGet:
-              port: 80
+              port: api
               path: /
             initialDelaySeconds: 30
           volumeMounts:

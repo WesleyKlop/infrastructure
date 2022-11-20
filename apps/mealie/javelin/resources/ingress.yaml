@@ -15,4 +15,11 @@ spec:
               service:
                 name: mealie
                 port:
-                  name: http
+                  name: web
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mealie
+                port:
+                  name: api

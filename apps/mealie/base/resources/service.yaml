@@ -5,6 +5,10 @@ metadata:
 spec:
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
-      name: http
+      targetPort: web
+      port: 3000
+      name: web
+    - protocol: TCP
+      targetPort: api
+      port: 9000
+      name: api
