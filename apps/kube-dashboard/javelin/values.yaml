@@ -1,12 +1,12 @@
 ## Serve application over HTTP without TLS
 ##
 ## Note: If set to true, you may want to add --enable-insecure-login to extraArgs
-protocolHttp: false
+protocolHttp: true
 
 service:
   type: ClusterIP
   # Dashboard service port
-  externalPort: 443
+  externalPort: 80
 
   ## LoadBalancerSourcesRange is a list of allowed CIDR values, which are combined with ServicePort to
   ## set allowed inbound rules on the security group assigned to the master load balancer
@@ -73,9 +73,9 @@ metrics-server:
   # TODO: Enable?
   enabled: false
   ## Example for additional args
-  # args:
-  #  - --kubelet-preferred-address-types=InternalIP
-  #  - --kubelet-insecure-tls
+  args:
+    #  - --kubelet-preferred-address-types=InternalIP
+    - --kubelet-insecure-tls
 
 serviceMonitor:
   enabled: true
