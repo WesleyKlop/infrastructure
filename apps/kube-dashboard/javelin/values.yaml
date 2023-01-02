@@ -1,12 +1,12 @@
 ## Serve application over HTTP without TLS
 ##
 ## Note: If set to true, you may want to add --enable-insecure-login to extraArgs
-protocolHttp: true
+protocolHttp: false
 
 service:
   type: ClusterIP
   # Dashboard service port
-  externalPort: 80
+  externalPort: 443
 
   ## LoadBalancerSourcesRange is a list of allowed CIDR values, which are combined with ServicePort to
   ## set allowed inbound rules on the security group assigned to the master load balancer
@@ -32,11 +32,12 @@ service:
 ingress:
   ## If true, Kubernetes Dashboard Ingress will be created.
   ##
-  enabled: false
+  enabled: true
 
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/service.serverstransport: kube-dashboard-transport@kubernetescrd
 
   ## Kubernetes Dashboard Ingress paths
   ## Both `/` and `/*` are required to work on gce ingress.
@@ -76,7 +77,7 @@ metrics-server:
   ## Example for additional args
   args:
     #  - --kubelet-preferred-address-types=InternalIP
-    - --kubelet-insecure-tls
+    # - --kubelet-insecure-tls
 
 serviceMonitor:
   enabled: true
