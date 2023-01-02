@@ -1,0 +1,81 @@
+## Serve application over HTTP without TLS
+##
+## Note: If set to true, you may want to add --enable-insecure-login to extraArgs
+protocolHttp: false
+
+service:
+  type: ClusterIP
+  # Dashboard service port
+  externalPort: 443
+
+  ## LoadBalancerSourcesRange is a list of allowed CIDR values, which are combined with ServicePort to
+  ## set allowed inbound rules on the security group assigned to the master load balancer
+  # loadBalancerSourceRanges: []
+
+  # clusterIP: ""
+
+  ## A user-specified IP address for load balancer to use as External IP (if supported)
+  # loadBalancerIP:
+
+  ## Additional Kubernetes Dashboard Service annotations
+  annotations: {}
+
+  ## Here labels can be added to the Kubernetes Dashboard service
+  labels: {}
+
+  ## Enable or disable the kubernetes.io/cluster-service label. Should be disabled for GKE clusters >=1.15.
+  ## Otherwise, the addon manager will presume ownership of the service and try to delete it.
+  clusterServiceLabel:
+    enabled: true
+    key: 'kubernetes.io/cluster-service'
+
+ingress:
+  ## If true, Kubernetes Dashboard Ingress will be created.
+  ##
+  enabled: true
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+
+  ## Kubernetes Dashboard Ingress paths
+  ## Both `/` and `/*` are required to work on gce ingress.
+  paths:
+    - /
+
+  hosts:
+    - k8s.wesl.io
+  ## Kubernetes Dashboard Ingress TLS configuration
+  ## Secrets must be manually created in the namespace
+  ##
+  # tls:
+  #   - secretName: kubernetes-dashboard-tls
+  #     hosts:
+  #       - kubernetes-dashboard.domain.com
+
+## Pinned CRDs that will be displayed in dashboard's menu
+pinnedCRDs:
+  - kind: customresourcedefinition
+    ##  Fully qualified name of a CRD
+    name: prometheuses.monitoring.coreos.com
+    ##  Display name
+    displayName: Prometheus
+    ##  Is this CRD namespaced?
+    namespaced: true
+
+## Metrics Scraper
+## Container to scrape, store, and retrieve a window of time from the Metrics Server.
+## refs: https://github.com/kubernetes-sigs/dashboard-metrics-scraper
+metricsScraper:
+  ## TODO: Enable?
+  enabled: false
+
+metrics-server:
+  # TODO: Enable?
+  enabled: false
+  ## Example for additional args
+  # args:
+  #  - --kubelet-preferred-address-types=InternalIP
+  #  - --kubelet-insecure-tls
+
+serviceMonitor:
+  enabled: true
