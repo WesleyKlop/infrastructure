@@ -10,3 +10,4 @@ helmCharts:
     repo: https://kubernetes.github.io/dashboard/
     version: 6.0.0
     valuesFile: values.yaml
+    namespace: kube-dashboard
