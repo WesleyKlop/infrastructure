@@ -4,15 +4,13 @@
   "semanticCommits": "enabled",
   "rebaseWhen": "conflicted",
 
-  "github-actions": {
-    "enabled": false
-  },
+  "github-actions": {},
   "kustomize": {},
   "terraform": {},
 
   "packageRules": [
     {
-      "matchManagers": ["kustomize", "terraform"],
+      "matchManagers": ["kustomize", "terraform", "github-actions"],
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true,
       "automergeType": "branch"
