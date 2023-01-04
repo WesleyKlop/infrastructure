@@ -1,0 +1,8 @@
+[
+  {
+    "displayName": "Prometheus",
+    "kind": "customresourcedefinition",
+    "name": "prometheuses.monitoring.coreos.com",
+    "namespaced": true
+  }
+]

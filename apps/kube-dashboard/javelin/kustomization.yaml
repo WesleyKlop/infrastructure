@@ -3,11 +3,9 @@ kind: Kustomization
 
 resources:
   - ../base
+  - resources/ingress.yaml
 
-helmCharts:
-  - name: kubernetes-dashboard
-    releaseName: kubernetes-dashboard
-    repo: https://kubernetes.github.io/dashboard/
-    version: 6.0.0
-    valuesFile: values.yaml
-    namespace: kube-dashboard
+configMapGenerator:
+  - name: kubernetes-dashboard-settings
+    files:
+      - '_pinnedCRD=config/pinnedCRD.json'

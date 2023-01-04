@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth@kubernetescrd
+  labels:
+    app.kubernetes.io/instance: kube-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard
+  name: kubernetes-dashboard
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: k8s.wesl.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: kubernetes-dashboard
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

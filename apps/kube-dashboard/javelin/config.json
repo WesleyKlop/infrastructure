@@ -1,5 +1,5 @@
 {
   "name": "kube-dashboard",
-  "namespace": "kube-dashboard",
+  "namespace": "kubernetes-dashboard",
   "wave": 1
 }
