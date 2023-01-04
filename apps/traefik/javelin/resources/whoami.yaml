@@ -35,6 +35,7 @@ metadata:
   name: whoami
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth@kubernetescrd
 spec:
   rules:
     - host: whoami.wesl.io
