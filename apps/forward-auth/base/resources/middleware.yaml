@@ -7,3 +7,4 @@ spec:
     address: http://forward-auth:4181
     authResponseHeaders:
       - X-Forwarded-User
+      - Authorization
