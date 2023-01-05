@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: pgadmin
 spec:
+  strategy:
+    type: Recreate
   template:
     spec:
       initContainers:

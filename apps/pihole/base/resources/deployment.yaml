@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: pihole
 spec:
+  strategy:
+    type: Recreate
   template:
     spec:
       enableServiceLinks: false
