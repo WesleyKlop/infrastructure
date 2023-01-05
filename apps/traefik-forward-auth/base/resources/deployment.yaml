@@ -6,6 +6,7 @@ spec:
   template:
     spec:
       terminationGracePeriodSeconds: 60
+      serviceAccountName: forward-auth
       containers:
         - name: forward-auth
           image: mesosphere/traefik-forward-auth:3.1.0
