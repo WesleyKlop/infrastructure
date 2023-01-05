@@ -14,5 +14,3 @@ spec:
               value: wesley.io
             - name: PROVIDER_URI
               value: 'https://keycloak.wesl.io/realms/master'
-            - name: FORWARD_TOKEN_HEADER_NAME
-              value: Authorization

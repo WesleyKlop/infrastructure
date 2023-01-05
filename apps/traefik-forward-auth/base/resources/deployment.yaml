@@ -47,3 +47,5 @@ spec:
                 secretKeyRef:
                   key: client-secret
                   name: forward-auth-secrets
+            - name: FORWARD_TOKEN_HEADER_NAME
+              value: Authorization
