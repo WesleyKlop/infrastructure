@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: traefik-forward-auth@kubernetescrd
 spec:
   rules:
-    - host: whoami.wesl.io
+    - host: whoami.wesley.io
       http:
         paths:
           - path: /
