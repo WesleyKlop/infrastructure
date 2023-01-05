@@ -1,0 +1,5 @@
+{
+  "name": "kube-dashboard",
+  "namespace": "kube-dashboard",
+  "wave": 1
+}

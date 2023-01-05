@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-    - host: weather.wesl.io
+    - host: weather.wesley.io
       http:
         paths:
           - path: /

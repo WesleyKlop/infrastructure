@@ -13,7 +13,7 @@ configMapGenerator:
     behavior: merge
     literals:
       - APP_NAME="Vote System Dev"
-      - APP_URL="https://vote-system.wesl.io"
+      - APP_URL="https://vote-system.wesley.io"
       - DB_DATABASE=votesystem_dev
 
 patchesStrategicMerge:

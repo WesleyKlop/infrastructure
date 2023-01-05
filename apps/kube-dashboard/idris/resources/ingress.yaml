@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: k8s.wesley.io
+    - host: k8s.wesl.io
       http:
         paths:
           - backend:
