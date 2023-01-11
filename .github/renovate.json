@@ -18,7 +18,7 @@
       "platformAutomerge": true
     },
     {
-      "matchManagers": ["kustomize", "terraform"],
+      "matchManagers": ["kustomize", "terraform", "github-actions"],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     }
