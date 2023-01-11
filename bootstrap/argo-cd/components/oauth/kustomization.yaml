@@ -8,7 +8,7 @@ configMapGenerator:
   - name: argocd-cm
     behavior: merge
     literals:
-      - admin.enabled=true
+      - admin.enabled=false
     files:
       - oidc.config=config/oidc.yaml
   - name: argocd-rbac-cm
