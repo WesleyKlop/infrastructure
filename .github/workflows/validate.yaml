@@ -51,7 +51,7 @@ jobs:
           target: /home/runner/.local/bin/kube-linter
       - name: Prepare environment
         run: |
-          mkdir ../results
+          mkdir ./results
           chmod +x /home/runner/.local/bin/kube-linter
       - name: Lint apps on cloudlab
         run: |
