@@ -13,7 +13,7 @@
       "matchManagers": ["kustomize", "terraform", "github-actions"],
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "pr"
     },
     {
       "matchManagers": ["kustomize", "terraform"],
