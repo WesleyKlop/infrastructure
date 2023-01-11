@@ -57,7 +57,7 @@ jobs:
         run: |
           set +e
           cluster="javelin"
-          results="$(readlink -f "$GITHUB_WORKSPACE/../results")"
+          results="$(readlink -f "$GITHUB_WORKSPACE/./results")"
 
           for dir in $(find apps -type d -name "$cluster"); do ( 
             app="$(basename "$(dirname "$dir")")"
@@ -70,13 +70,13 @@ jobs:
 
             echo "Results written to $results/$app.$cluster.sarif"
           ); done
-          find ../results -type f -empty -print -delete
+          find ./results -type f -empty -print -delete
         continue-on-error: true
       - uses: actions/upload-artifact@v3
         with:
           name: kube-linter-results
-          path: ${{github.workspace}}/../results
+          path: ${{ github.workspace }}/results
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
-          wait-for-processing: false
+          wait-for-processing: true
