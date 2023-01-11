@@ -63,6 +63,28 @@ grafana:
   plugins:
     - grafana-piechart-panel
 
+  extraSecretMounts:
+    - name: grafana
+      secretName: grafana
+      defaultMode: 0440
+      mountPath: /etc/secrets/auth_generic_oauth
+      readOnly: true
+
+  grafana.ini:
+    server:
+      root_url: https://grafana.wesl.io/
+    auth.generic_oauth:
+      enabled: true
+      name: Keycloak
+      allow_sign_up: true
+      scopes: profile email groups
+      auth_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/auth
+      token_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/token
+      api_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/userinfo
+      client_id: grafana
+      client_secret: $__file{/etc/secrets/auth_generic_oauth/oauth-secret}
+      role_attribute_path: contains(groups[*], 'grafana-admins') && 'Admin' || 'Viewer'
+
 kubeEtcd:
   service:
     port: 2381
