@@ -72,6 +72,10 @@ jobs:
           ); done
           find ../results -type f -empty -print -delete
         continue-on-error: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: kube-linter-results
+          path: ../results
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
