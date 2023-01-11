@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
   "semanticCommits": "enabled",
-  "rebaseWhen": "conflicted",
+  "labels": ["dependencies"],
+  "configMigration": true,
 
   "github-actions": {},
   "kustomize": {},
@@ -13,7 +14,8 @@
       "matchManagers": ["kustomize", "terraform", "github-actions"],
       "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest", "digest"],
       "automerge": true,
-      "automergeType": "pr"
+      "automergeType": "pr",
+      "platformAutomerge": true
     },
     {
       "matchManagers": ["kustomize", "terraform"],
