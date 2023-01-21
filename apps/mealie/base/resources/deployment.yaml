@@ -6,6 +6,9 @@ spec:
   strategy:
     type: Recreate
   template:
+    metadata:
+      labels:
+        app.kubernetes.io/version: stable
     spec:
       automountServiceAccountToken: false
       containers:
