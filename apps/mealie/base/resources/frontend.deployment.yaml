@@ -27,14 +27,14 @@ spec:
             limits:
               cpu: 100m
               memory: 128Mi
-          readinessProbe:
-            httpGet:
-              port: 3000
-              path: /
-          livenessProbe:
-            httpGet:
-              port: 3000
-              path: /
+          # readinessProbe:
+          #   httpGet:
+          #     port: 3000
+          #     path: /
+          # livenessProbe:
+          #   httpGet:
+          #     port: 3000
+          #     path: /
           volumeMounts:
             - name: storage
               mountPath: /app/data
