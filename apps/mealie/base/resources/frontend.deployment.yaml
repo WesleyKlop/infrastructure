@@ -13,8 +13,8 @@ spec:
           image: hkotel/mealie:frontend-v1.0.0beta-4
           imagePullPolicy: Always
           securityContext:
-            runAsNonRoot: true
-            readOnlyRootFilesystem: true
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
           ports:
             - containerPort: 3000
           env:
