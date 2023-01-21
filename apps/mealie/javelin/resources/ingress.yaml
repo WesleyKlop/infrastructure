@@ -23,6 +23,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: mealie-frontend
+                name: mealie-beta
                 port:
-                  name: http
+                  name: web
