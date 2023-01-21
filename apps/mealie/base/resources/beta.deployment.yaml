@@ -28,9 +28,6 @@ spec:
             requests:
               cpu: 10m
               memory: 16Mi
-            limits:
-              cpu: 250m
-              memory: 256Mi
           # readinessProbe:
           #   httpGet:
           #     port: 9000
@@ -58,9 +55,6 @@ spec:
             requests:
               cpu: 10m
               memory: 16Mi
-            limits:
-              cpu: 100m
-              memory: 128Mi
           # readinessProbe:
           #   httpGet:
           #     port: 3000
