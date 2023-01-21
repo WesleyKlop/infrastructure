@@ -15,14 +15,4 @@ spec:
               service:
                 name: mealie
                 port:
-                  name: http
-    - host: mealie-beta.wesley.io
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: mealie-beta
-                port:
                   name: web

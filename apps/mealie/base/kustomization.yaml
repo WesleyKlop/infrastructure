@@ -5,6 +5,3 @@ resources:
   - resources/namespace.yaml
   - resources/deployment.yaml
   - resources/service.yaml
-  # Beta
-  - resources/beta.deployment.yaml
-  - resources/beta.service.yaml
