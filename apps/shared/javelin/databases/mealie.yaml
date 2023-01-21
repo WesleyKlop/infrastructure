@@ -11,3 +11,10 @@ spec:
         uuid-ossp: public
       schemas:
         public: {}
+    mealie-beta:
+      secretNamespace: mealie
+      defaultUsers: true
+      extensions:
+        uuid-ossp: public
+      schemas:
+        public: {}
