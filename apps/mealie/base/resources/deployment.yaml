@@ -18,9 +18,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: mealie-config
-          env:
-            - name: BASE_URL
-              value: 'https://recipes.wesley.io'
           resources:
             requests:
               cpu: 10m
