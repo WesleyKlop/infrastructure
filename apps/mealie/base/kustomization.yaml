@@ -5,3 +5,7 @@ resources:
   - resources/namespace.yaml
   - resources/deployment.yaml
   - resources/service.yaml
+  # Beta
+  - resources/backend.deployment.yaml
+  - resources/frontend.deployment.yaml
+  - resources/beta.service.yaml

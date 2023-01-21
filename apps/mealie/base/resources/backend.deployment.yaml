@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie-api
+  labels:
+    app.kubernetes.io/component: api
+spec:
+  template:
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: api
+          image: hkotel/mealie:api-v1.0.0beta-4
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: mealie-config
+          env:
+            - name: BASE_URL
+              value: 'https://mealie-beta.wesley.io'
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              port: 9000
+              path: /
+          livenessProbe:
+            httpGet:
+              port: 9000
+              path: /
+          volumeMounts:
+            - name: storage
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mealie-pvc-test
+            readOnly: false
+        - name: tmp
+          emptyDir: {}

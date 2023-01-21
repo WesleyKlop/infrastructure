@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie-frontend
+  labels:
+    app.kubernetes.io/component: frontend
+spec:
+  template:
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: frontend
+          image: hkotel/mealie:frontend-v1.0.0beta-4
+          imagePullPolicy: Always
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 3000
+          env:
+            - name: API_URL
+              value: http://mealie-api.mealie.svc.cluster.local:9000
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              port: 3000
+              path: /
+          livenessProbe:
+            httpGet:
+              port: 3000
+              path: /
+          volumeMounts:
+            - name: storage
+              mountPath: /app/data
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: mealie-pvc-test
+            readOnly: true
+        - name: tmp
+          emptyDir: {}
