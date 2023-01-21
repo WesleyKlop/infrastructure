@@ -13,7 +13,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: api
-          image: hkotel/mealie:api-v1.0.0beta-4
+          image: hkotel/mealie:api-v1.0.0beta-5
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
@@ -43,7 +43,7 @@ spec:
               mountPath: /tmp
 
         - name: frontend
-          image: hkotel/mealie:frontend-v1.0.0beta-4
+          image: hkotel/mealie:frontend-v1.0.0beta-5
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
