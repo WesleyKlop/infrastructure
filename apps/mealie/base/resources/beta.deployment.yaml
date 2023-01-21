@@ -5,6 +5,8 @@ metadata:
   labels:
     app.kubernetes.io/version: beta
 spec:
+  strategy:
+    type: Recreate
   template:
     spec:
       automountServiceAccountToken: false
