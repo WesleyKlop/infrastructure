@@ -53,7 +53,7 @@ spec:
       volumes:
         - name: storage
           persistentVolumeClaim:
-            claimName: mealie-pvc-test
+            claimName: mealie-pvc
             readOnly: false
         - name: tmp-api
           emptyDir: {}
