@@ -38,6 +38,7 @@ spec:
           volumeMounts:
             - name: storage
               mountPath: /app/data
+              readOnly: true
             - name: tmp
               mountPath: /tmp
       volumes:
