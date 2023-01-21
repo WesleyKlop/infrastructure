@@ -11,7 +11,7 @@ spec:
         uuid-ossp: public
       schemas:
         public: {}
-    mealie-beta:
+    mealiebeta:
       secretNamespace: mealie
       defaultUsers: true
       extensions:
