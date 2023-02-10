@@ -6,7 +6,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: plex
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.242
+  loadBalancerIP: 192.168.0.103
   ports:
     - protocol: TCP
       port: 3005
@@ -33,7 +33,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: plex
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.242
+  loadBalancerIP: 192.168.0.103
   ports:
     - protocol: UDP
       port: 1900

@@ -78,7 +78,7 @@ service:
   type: LoadBalancer
   annotations:
     metallb.universe.tf/allow-shared-ip: 'traefik'
-    metallb.universe.tf/loadBalancerIPs: 10.0.0.202
+    metallb.universe.tf/loadBalancerIPs: 192.168.0.101
 
 persistence:
   enabled: true

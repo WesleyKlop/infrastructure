@@ -6,7 +6,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: 'pihole'
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.240
+  loadBalancerIP: 192.168.0.102
   externalTrafficPolicy: Local
   ports:
     - port: 80
@@ -30,7 +30,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: 'pihole'
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.240
+  loadBalancerIP: 192.168.0.102
   externalTrafficPolicy: Local
   ports:
     - port: 53

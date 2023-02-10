@@ -16,7 +16,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: rutorrent
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.243
+  loadBalancerIP: 192.168.0.104
   ports:
     - protocol: TCP
       port: 50000
@@ -30,7 +30,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: rutorrent
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.243
+  loadBalancerIP: 192.168.0.104
   ports:
     - protocol: UDP
       port: 6881
