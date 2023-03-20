@@ -18,6 +18,11 @@ resource "null_resource" "control-plane-version" {
 
       apt update -qq
 
+      # Make sure the apt repo and keyrings is there
+      mkdir -p /etc/apt/keyrings /etc/apt/sources.list.d
+      curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+
       CURRENT_VERSION="$(dpkg -s kubeadm | grep '^Version:' | cut -d' ' -f2)"
       LONG_VERSION="${var.kube_version}-00"
       LATEST_VERSION="$(apt info kubeadm | grep '^Version:' | cut -d' ' -f2)"
@@ -74,6 +79,11 @@ resource "null_resource" "worker-version" {
       <<-BASH
       #!/usr/bin/env bash
       set -euxo pipefail
+
+      # Make sure the apt repo and keyrings is there
+      mkdir -p /etc/apt/keyrings /etc/apt/sources.list.d
+      curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
 
       apt update -qq
 

@@ -80,7 +80,7 @@ module "cloudlab-cluster" {
   }
 
   ssh_private_key = local.ssh_private_key
-  kube_version    = "1.25.5"
+  kube_version    = "1.26.3"
 
   depends_on = [
     module.control-plane,
@@ -95,5 +95,5 @@ module "homelab-cluster" {
   workers       = {}
 
   ssh_private_key = local.ssh_private_key
-  kube_version    = "1.25.8"
+  kube_version    = "1.26.3"
 }
