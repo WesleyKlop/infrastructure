@@ -8,13 +8,13 @@
   "github-actions": {},
   "kustomize": {},
   "terraform": {
-    "fileMatch": ["versions\\.tf"]
+    "fileMatch": ["versions\\.tf$"]
   },
   "kubernetes": {
     "fileMatch": [
-      "apps/.+/resources/[^/]+.ya?ml",
-      "bootstrap/.+/resources/[^/]+.ya?ml",
-      "init/.+/resources/[^/]+.ya?ml"
+      "apps/.+/resources/[^/]+.ya?ml$",
+      "bootstrap/.+/resources/[^/]+.ya?ml$",
+      "init/.+/resources/[^/]+.ya?ml$"
     ]
   },
 
