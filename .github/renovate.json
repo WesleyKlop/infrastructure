@@ -7,7 +7,9 @@
 
   "github-actions": {},
   "kustomize": {},
-  "terraform": {},
+  "terraform": {
+    "fileMatch": ["versions\\.tf"]
+  },
   "kubernetes": {
     "fileMatch": [
       "apps/.+/resources/[^/]+.ya?ml",
