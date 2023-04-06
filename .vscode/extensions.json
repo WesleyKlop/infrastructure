@@ -4,6 +4,7 @@
     "redhat.vscode-yaml",
     "editorconfig.editorconfig",
     "hashicorp.terraform",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "skellock.just"
   ]
 }
