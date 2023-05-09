@@ -16,6 +16,7 @@ spec:
           - path: apps/vote-system/exon
           - path: apps/vote-system/dev
           - path: apps/vote-system/syntax
+          - path: apps/vote-system/libra
   template:
     metadata:
       name: 'vote-system-{{ path.basename }}'
