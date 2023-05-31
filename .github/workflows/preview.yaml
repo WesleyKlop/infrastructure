@@ -40,6 +40,6 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       - name: Terraform PR
-        uses: tchupp/actions-terraform-pr@v1.0.23
+        uses: tchupp/actions-terraform-pr@v1.0.26
         with:
           github-token: ${{ github.token }}
