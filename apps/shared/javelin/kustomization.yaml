@@ -6,10 +6,10 @@ resources:
   - resources/cloudlab-db.yaml
   - resources/pull-secret.yaml
 
-patchesStrategicMerge:
-  - databases/mealie.yaml
-  - databases/volgendeverjaardag.yaml
-  - databases/vote-system.yaml
-  - databases/weatherstation.yaml
-  - databases/wesley.yaml
-  - databases/keycloak.yaml
+patches:
+  - path: databases/mealie.yaml
+  - path: databases/volgendeverjaardag.yaml
+  - path: databases/vote-system.yaml
+  - path: databases/weatherstation.yaml
+  - path: databases/wesley.yaml
+  - path: databases/keycloak.yaml

@@ -9,12 +9,12 @@ resources:
   - resources/secret.yaml
 
 configMapGenerator:
-  - name: vote-system-cfg
-    behavior: merge
+  - behavior: merge
     literals:
       - APP_NAME="Vote System Dev"
       - APP_URL="https://vote-system.wesley.io"
       - DB_DATABASE=votesystem_dev
+    name: vote-system-cfg
 
-patchesStrategicMerge:
-  - patches/deployment-credentials.yaml
+patches:
+  - path: patches/deployment-credentials.yaml

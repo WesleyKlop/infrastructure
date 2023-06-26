@@ -6,12 +6,10 @@ namespace: 1password
 resources:
   - ./resources/namespace.yaml
 
-patchesStrategicMerge:
-  - 'patches/patch-service.yaml'
-
 helmCharts:
   - name: connect
     releaseName: connect
     repo: https://1password.github.io/connect-helm-charts
     version: 1.10.0
-    includeCRDs: false
+patches:
+  - path: patches/patch-service.yaml

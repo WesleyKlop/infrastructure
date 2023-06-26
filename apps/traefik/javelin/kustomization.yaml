@@ -10,10 +10,10 @@ resources:
   - resources/traefik-ui.yaml
 
 helmCharts:
-  - name: traefik
+  - includeCRDs: true
+    name: traefik
+    namespace: traefik
     releaseName: traefik
     repo: https://helm.traefik.io/traefik
-    version: 16.2.0
     valuesFile: values.yaml
-    namespace: traefik
-    includeCRDs: true
+    version: 16.2.0

@@ -5,5 +5,5 @@ resources:
   - https://raw.githubusercontent.com/hetznercloud/hcloud-cloud-controller-manager/v1.12.1/deploy/ccm-networks.yaml
   - github.com/hetznercloud/csi-driver?ref=v2.3.2
 
-patchesStrategicMerge:
-  - 'patches/ccm.yaml'
+patches:
+  - path: patches/ccm.yaml

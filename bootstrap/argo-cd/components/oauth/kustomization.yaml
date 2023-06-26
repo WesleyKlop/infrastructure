@@ -5,15 +5,15 @@ resources:
   - resources/argocd-secret.yaml
 
 configMapGenerator:
-  - name: argocd-cm
-    behavior: merge
-    literals:
-      - admin.enabled=false
+  - behavior: merge
     files:
       - oidc.config=config/oidc.yaml
-  - name: argocd-rbac-cm
-    behavior: merge
     literals:
-      - policy.default=role:readonly
+      - admin.enabled=false
+    name: argocd-cm
+  - behavior: merge
     files:
       - policy.csv=config/rbac-policy.csv
+    literals:
+      - policy.default=role:readonly
+    name: argocd-rbac-cm

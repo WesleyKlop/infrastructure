@@ -15,9 +15,9 @@ labels:
       app.kubernetes.io/name: photoprism
 
 configMapGenerator:
-  - name: photoprism-cfg
-    envs:
+  - envs:
       - config/env.conf
+    name: photoprism-cfg
 
 images:
   - name: busybox

@@ -5,17 +5,17 @@ resources:
   - ./resources/namespace.yaml
 
 helmCharts:
-  - name: external-secrets
+  - includeCRDs: true
+    name: external-secrets
     releaseName: external-secrets
     repo: https://charts.external-secrets.io
-    version: 0.8.1
-    includeCRDs: true
     valuesInline:
+      certController:
+        serviceMonitor:
+          enabled: true
       serviceMonitor:
         enabled: true
       webhook:
         serviceMonitor:
           enabled: true
-      certController:
-        serviceMonitor:
-          enabled: true
+    version: 0.8.1
