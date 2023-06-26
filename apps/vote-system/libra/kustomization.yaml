@@ -8,13 +8,16 @@ resources:
   - resources/secret.yaml
   - resources/ingress.yaml
 
+patchesStrategicMerge:
+  - patches/deployment-credentials.yaml
+
 configMapGenerator:
-  - behavior: merge
+  - name: vote-system-cfg
+    behavior: merge
     literals:
       - APP_NAME="S.V. Libra ALV"
       - APP_URL="https://stem.wesley.io"
       - DB_DATABASE=votesystem_libra
-    name: vote-system-cfg
 
 labels:
   - pairs:
@@ -22,5 +25,3 @@ labels:
   - includeSelectors: true
     pairs:
       app.kubernetes.io/name: vote-system
-patches:
-  - path: patches/deployment-credentials.yaml

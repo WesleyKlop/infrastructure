@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ../base
 
-patches:
-  - path: patches/set-iface.yaml
+patchesStrategicMerge:
+  - patches/set-iface.yaml

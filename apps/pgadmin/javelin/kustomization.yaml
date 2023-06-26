@@ -7,9 +7,9 @@ resources:
   - resources/ingress.yaml
 
 configMapGenerator:
-  - files:
+  - name: pgadmin-config
+    files:
       - config/config_local.py
-    name: pgadmin-config
 
 labels:
   - pairs:
@@ -18,5 +18,5 @@ labels:
     pairs:
       app.kubernetes.io/name: pgadmin
 
-patches:
-  - path: patches/add-storage.yaml
+patchesStrategicMerge:
+  - patches/add-storage.yaml

@@ -5,7 +5,8 @@ resources:
   - ../base
 
 configMapGenerator:
-  - behavior: replace
+  - name: postgres-operator
+    behavior: replace
     literals:
       - enable_crd_registration=false
       - enable_pod_disruption_budget=false
@@ -16,4 +17,3 @@ configMapGenerator:
       - workers=4
       - watched_namespace=*
       - secret_name_template={username}.{cluster}.pg-credentials
-    name: postgres-operator

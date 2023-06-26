@@ -7,19 +7,21 @@ resources:
   - resources/service.yaml
 
 configMapGenerator:
-  - literals:
+  - name: vote-system-cfg
+    literals:
       - APP_ENV=production
       - APP_DEBUG=false
       - LOG_CHANNEL=daily
+
       - DB_CONNECTION=pgsql
       - DB_HOST=cloudlab-db.default.svc.cluster.local
       - DB_PORT=5432
+
       - BROADCAST_DRIVER=log
       - CACHE_DRIVER=file
       - QUEUE_CONNECTION=sync
       - SESSION_DRIVER=database
       - SESSION_LIFETIME=120
-    name: vote-system-cfg
 
 labels:
   - pairs:

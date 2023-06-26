@@ -6,9 +6,9 @@ resources:
   - resources/ingress.yaml
 
 configMapGenerator:
-  - behavior: merge
-    files:
-      - _global=config/global.json
-      - _pinnedCRD=config/pinnedCRD.json
-    name: kubernetes-dashboard-settings
+  - name: kubernetes-dashboard-settings
     namespace: kubernetes-dashboard
+    behavior: merge
+    files:
+      - '_global=config/global.json'
+      - '_pinnedCRD=config/pinnedCRD.json'

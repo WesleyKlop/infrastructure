@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - resources/deployment.yaml
   - resources/service.yaml
+
+patchesStrategicMerge: []

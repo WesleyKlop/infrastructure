@@ -9,5 +9,5 @@ helmCharts:
   - name: home-assistant
     releaseName: home-assistant
     repo: https://k8s-at-home.com/charts/
-    valuesFile: values.yaml
     version: 13.4.2
+    valuesFile: values.yaml

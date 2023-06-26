@@ -5,5 +5,5 @@ resources:
   - ../base
   - resources/ingress.yaml
 
-patches:
-  - path: patches/deployment-secrets.yaml
+patchesStrategicMerge:
+  - patches/deployment-secrets.yaml

@@ -5,10 +5,10 @@ resources:
   - resources/notifications-secret.yaml
 
 configMapGenerator:
-  - behavior: merge
+  - name: argocd-notifications-cm
+    behavior: merge
     files:
       - service.slack=config/service.slack.yaml
-    name: argocd-notifications-cm
 
-patches:
-  - patch: https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml
+patchesStrategicMerge:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/notifications_catalog/install.yaml

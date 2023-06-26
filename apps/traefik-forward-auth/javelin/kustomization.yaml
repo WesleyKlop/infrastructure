@@ -6,11 +6,12 @@ resources:
   - resources/secrets.yaml
   - resources/ingress-route.yaml
 
+patchesStrategicMerge:
+  - patches/deployment-config.yaml
+
 labels:
   - includeSelectors: true
     pairs:
       app.kubernetes.io/name: forward-auth
   - pairs:
       app.kubernetes.io/part-of: forward-auth
-patches:
-  - path: patches/deployment-config.yaml

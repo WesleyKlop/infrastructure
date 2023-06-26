@@ -12,18 +12,18 @@ components:
   - ../components/notifications
 
 configMapGenerator:
-  - behavior: merge
+  - name: argocd-cm
+    behavior: merge
     literals:
       - statusbadge.enabled="true"
       - kustomize.buildOptions="--enable-helm"
       - url="https://argocd.wesl.io"
-    name: argocd-cm
-  - behavior: merge
+  - name: argocd-cmd-params-cm
+    behavior: merge
     literals:
       - server.insecure="true"
-    name: argocd-cmd-params-cm
-  - behavior: merge
+  - name: argocd-notifications-cm
+    behavior: merge
     files:
       - subscriptions=config/subscriptions.yaml
       - context=config/context.yaml
-    name: argocd-notifications-cm

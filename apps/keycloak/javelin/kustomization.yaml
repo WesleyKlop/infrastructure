@@ -15,13 +15,14 @@ labels:
       app.kubernetes.io/name: keycloak
 
 configMapGenerator:
-  - files:
+  - name: keycloak-config
+    files:
       - keycloak.conf=config/keycloak.conf
-    name: keycloak-config
+
+patchesStrategicMerge:
+  - patches/ns-label.yaml
+  - patches/deployment-config.yaml
 
 images:
   - name: ghcr.io/wesleyklop/keycloak
-    newTag: 2.1.1
-patches:
-  - path: patches/ns-label.yaml
-  - path: patches/deployment-config.yaml
+    newTag: '2.1.1'
