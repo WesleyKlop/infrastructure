@@ -6,5 +6,9 @@ spec:
   ports:
     - protocol: TCP
       port: 9000
-      targetPort: http
-      name: http
+      targetPort: api
+      name: api
+    - protocol: TCP
+      port: 3000
+      targetPort: web
+      name: web
