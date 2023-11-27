@@ -15,4 +15,4 @@ spec:
               service:
                 name: mealie
                 port:
-                  name: web
+                  name: http
