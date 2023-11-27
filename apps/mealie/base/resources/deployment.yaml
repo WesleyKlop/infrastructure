@@ -3,18 +3,19 @@ kind: Deployment
 metadata:
   name: mealie
 spec:
+  selector: {}
   strategy:
     type: Recreate
   template:
     spec:
       automountServiceAccountToken: false
       containers:
-        - name: api
-          image: hkotel/mealie:api-v1.0.0beta-5
+        - name: mealie
+          image: ghcr.io/mealie-recipes/mealie:v1.0.0-rc2
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
-              name: api
+              name: http
           envFrom:
             - configMapRef:
                 name: mealie-config
@@ -25,34 +26,12 @@ spec:
           volumeMounts:
             - name: storage
               mountPath: /app/data
-            - name: tmp-api
-              mountPath: /tmp
-
-        - name: frontend
-          image: hkotel/mealie:frontend-v1.0.0beta-5
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
-              name: web
-          env:
-            - name: API_URL
-              value: http://localhost:9000
-          resources:
-            requests:
-              cpu: 10m
-              memory: 16Mi
-          volumeMounts:
-            - name: storage
-              mountPath: /app/data
-              readOnly: true
-            - name: tmp-frontend
+            - name: tmp
               mountPath: /tmp
       volumes:
         - name: storage
           persistentVolumeClaim:
             claimName: mealie-pvc
             readOnly: false
-        - name: tmp-api
-          emptyDir: {}
-        - name: tmp-frontend
+        - name: tmp
           emptyDir: {}
