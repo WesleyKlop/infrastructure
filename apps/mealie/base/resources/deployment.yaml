@@ -11,7 +11,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: mealie
-          image: ghcr.io/mealie-recipes/mealie:v1.0.0-rc2
+          image: ghcr.io/mealie-recipes/mealie:nightly
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
