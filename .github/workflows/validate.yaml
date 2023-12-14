@@ -66,8 +66,8 @@ jobs:
 
             cd "$dir" 
 
-            kustomize build --enable-helm | \
-            kube-linter lint --format sarif - \
+            kustomize build --enable-helm > "$app.yaml"
+            kube-linter lint --format sarif "$app.yaml" \
               > "$results/$app.$cluster.sarif"
 
             echo "Results written to $results/$app.$cluster.sarif"
