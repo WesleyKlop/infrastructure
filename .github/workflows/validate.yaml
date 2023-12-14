@@ -72,7 +72,7 @@ jobs:
 
             echo "Results written to $results/$app.$cluster.sarif"
           ); done
-          sarif "$results"
+          sarif copy "$results"
         continue-on-error: true
       - uses: actions/upload-artifact@v3
         with:
