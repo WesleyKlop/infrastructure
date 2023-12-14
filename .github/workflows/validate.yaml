@@ -46,7 +46,7 @@ jobs:
       - uses: dsaltares/fetch-gh-release-asset@1.1.1
         with:
           repo: 'stackrox/kube-linter'
-          version: 'tags/0.6.5'
+          version: 'tags/v0.6.5'
           file: 'kube-linter-linux'
           target: /home/runner/.local/bin/kube-linter
       - name: Prepare environment
