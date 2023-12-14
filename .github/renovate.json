@@ -16,6 +16,9 @@
       "init/.+/resources/[^/]+.ya?ml$"
     ]
   },
+  "major": {
+    "dependencyDashboardApproval": true
+  },
   "packageRules": [
     {
       "matchManagers": ["kustomize", "terraform", "github-actions"],
