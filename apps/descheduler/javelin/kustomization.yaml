@@ -5,8 +5,8 @@ resources:
   - ../base
 
 configMapGenerator:
-  - name: descheduler-policy-configmap
-    namespace: kube-system
-    behavior: replace
+  - behavior: replace
     files:
       - policy.yaml=config/policy.yaml
+    name: descheduler-policy-configmap
+    namespace: kube-system

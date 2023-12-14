@@ -8,9 +8,6 @@ resources:
   - resources/secret.yaml
   - resources/ingress.yaml
 
-patchesStrategicMerge:
-  - patches/deployment-credentials.yaml
-
 labels:
   - pairs:
       app.kubernetes.io/part-of: wesley-site
@@ -19,10 +16,12 @@ labels:
       app.kubernetes.io/name: wesley-site
 
 configMapGenerator:
-  - name: wesley-site-cfg
-    envs:
+  - envs:
       - env.conf
+    name: wesley-site-cfg
 
 images:
   - name: ghcr.io/wesleyklop/wesley.io
     newTag: v0.5.2
+patches:
+  - path: patches/deployment-credentials.yaml

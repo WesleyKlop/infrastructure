@@ -13,10 +13,10 @@ labels:
       app.kubernetes.io/name: weatherstation
 
 configMapGenerator:
-  - name: weatherstation-cfg
-    literals:
-      - 'APP_PORT=8080'
-      - 'APP_ADDRESS=0.0.0.0'
+  - literals:
+      - APP_PORT=8080
+      - APP_ADDRESS=0.0.0.0
+    name: weatherstation-cfg
 
 images:
   - name: ghcr.io/wesleyklop/weatherstation-api

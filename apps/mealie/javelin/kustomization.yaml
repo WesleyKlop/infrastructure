@@ -8,9 +8,6 @@ resources:
   - resources/ingress.yaml
   - resources/storage.yaml
 
-patchesStrategicMerge:
-  - 'patches/deployment-secrets.yaml'
-
 labels:
   - pairs:
       app.kubernetes.io/part-of: mealie
@@ -19,6 +16,8 @@ labels:
       app.kubernetes.io/name: mealie
 
 configMapGenerator:
-  - name: mealie-config
-    envs:
+  - envs:
       - config/mealie.env
+    name: mealie-config
+patches:
+  - path: patches/deployment-secrets.yaml
