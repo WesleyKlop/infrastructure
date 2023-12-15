@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: keycloak
 spec:
+  selector: {}
   strategy:
     type: RollingUpdate
   template:
@@ -11,7 +12,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: keycloak
-          image: ghcr.io/wesleyklop/keycloak:2.2.0
+          image: ghcr.io/wesleyklop/keycloak:2.2.1
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
