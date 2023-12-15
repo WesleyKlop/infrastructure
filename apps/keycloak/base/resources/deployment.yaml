@@ -11,7 +11,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: keycloak
-          image: ghcr.io/wesleyklop/keycloak:2.1.1
+          image: ghcr.io/wesleyklop/keycloak:2.2.0
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false

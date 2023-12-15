@@ -21,7 +21,7 @@ configMapGenerator:
 
 images:
   - name: ghcr.io/wesleyklop/keycloak
-    newTag: 2.1.1
+    newTag: 2.2.0
 patches:
   - path: patches/ns-label.yaml
   - path: patches/deployment-config.yaml
