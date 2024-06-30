@@ -18,12 +18,12 @@ OAUTH2_CONFIG = [
         'OAUTH2_CLIENT_SECRET': os.environ['APP_OAUTH_SECRET'],
         # URL to generate a token,
         # Ex: https://github.com/login/oauth/access_token
-        'OAUTH2_TOKEN_URL': 'https://keycloak.wesl.io/realms/master/protocol/openid-connect/token',
+        'OAUTH2_TOKEN_URL': 'https://keycloak.wesley.io/realms/master/protocol/openid-connect/token',
         # URL is used for authentication,
         # Ex: https://github.com/login/oauth/authorize
-        'OAUTH2_AUTHORIZATION_URL': 'https://keycloak.wesl.io/realms/master/protocol/openid-connect/auth',
+        'OAUTH2_AUTHORIZATION_URL': 'https://keycloak.wesley.io/realms/master/protocol/openid-connect/auth',
         # Oauth base url, ex: https://api.github.com/
-        'OAUTH2_API_BASE_URL': 'https://keycloak.wesl.io/realms/master/protocol/openid-connect/',
+        'OAUTH2_API_BASE_URL': 'https://keycloak.wesley.io/realms/master/protocol/openid-connect/',
         # Name of the Endpoint, ex: user
         'OAUTH2_USERINFO_ENDPOINT': 'userinfo',
         # Oauth scope, ex: 'openid email profile'

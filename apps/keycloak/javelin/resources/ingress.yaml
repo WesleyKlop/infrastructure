@@ -6,7 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-    - host: keycloak.wesl.io
+    - host: keycloak.wesley.io
       http:
         paths:
           - path: /realms

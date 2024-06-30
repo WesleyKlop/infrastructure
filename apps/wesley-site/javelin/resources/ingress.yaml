@@ -26,13 +26,3 @@ spec:
                 name: wesley-site
                 port:
                   name: http
-    - host: wesl.io
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: wesley-site
-                port:
-                  name: http

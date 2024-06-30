@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`auth.wesl.io`)
+    - match: Host(`auth.wesley.io`)
       kind: Rule
       services:
         - name: forward-auth

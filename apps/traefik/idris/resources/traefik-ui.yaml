@@ -7,7 +7,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik.wesl.io`)
+      match: Host(`traefik.wesley.io`)
       middlewares:
         - name: forward-auth
       services:

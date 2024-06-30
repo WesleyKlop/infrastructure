@@ -7,7 +7,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`grafana.wesl.io`)
+      match: Host(`grafana.wesley.io`)
       services:
         - name: kube-prometheus-stack-grafana
           port: http-web
@@ -21,7 +21,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`alertmanager.wesl.io`)
+      match: Host(`alertmanager.wesley.io`)
       middlewares:
         - name: forward-auth
           namespace: traefik
@@ -38,7 +38,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`prometheus.wesl.io`)
+      match: Host(`prometheus.wesley.io`)
       middlewares:
         - name: forward-auth
           namespace: traefik

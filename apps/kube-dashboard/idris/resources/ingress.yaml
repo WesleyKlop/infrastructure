@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`k8s.wesl.io`)
+    - match: Host(`k8s.wesley.io`)
       kind: Rule
       services:
         - name: kubernetes-dashboard

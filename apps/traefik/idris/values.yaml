@@ -64,9 +64,6 @@ ports:
         - main: wesleyklop.nl
           sans:
             - '*.wesleyklop.nl'
-        - main: wesl.io
-          sans:
-            - '*.wesl.io'
         - main: wesley.io
           sans:
             - '*.wesley.io'

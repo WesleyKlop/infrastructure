@@ -16,7 +16,7 @@ alertmanager:
 
   ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
   ##
-  externalUrl: 'https://alertmanager.wesl.io'
+  externalUrl: 'https://alertmanager.wesley.io'
 
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
@@ -72,15 +72,15 @@ grafana:
 
   grafana.ini:
     server:
-      root_url: https://grafana.wesl.io/
+      root_url: https://grafana.wesley.io/
     auth.generic_oauth:
       enabled: true
       name: Keycloak
       allow_sign_up: true
       scopes: profile email groups
-      auth_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/auth
-      token_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/token
-      api_url: https://keycloak.wesl.io/realms/master/protocol/openid-connect/userinfo
+      auth_url: https://keycloak.wesley.io/realms/master/protocol/openid-connect/auth
+      token_url: https://keycloak.wesley.io/realms/master/protocol/openid-connect/token
+      api_url: https://keycloak.wesley.io/realms/master/protocol/openid-connect/userinfo
       client_id: grafana
       client_secret: $__file{/etc/secrets/auth_generic_oauth/oauth-secret}
       role_attribute_path: contains(groups[*], 'grafana-admins') && 'Admin' || 'Viewer'
@@ -101,7 +101,7 @@ prometheus:
   prometheusSpec:
     ## External URL at which Prometheus will be reachable.
     ##
-    externalUrl: 'https://prometheus.wesl.io'
+    externalUrl: 'https://prometheus.wesley.io'
 
     ## Prometheus StorageSpec for persistent data
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md

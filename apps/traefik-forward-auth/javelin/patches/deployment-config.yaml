@@ -13,4 +13,4 @@ spec:
             - name: COOKIE_DOMAIN
               value: wesley.io
             - name: PROVIDER_URI
-              value: 'https://keycloak.wesl.io/realms/master'
+              value: 'https://keycloak.wesley.io/realms/master'

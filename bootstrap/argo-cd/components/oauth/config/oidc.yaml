@@ -1,5 +1,5 @@
 name: Keycloak
-issuer: https://keycloak.wesl.io/realms/master
+issuer: https://keycloak.wesley.io/realms/master
 clientID: argocd
 clientSecret: $oidc.keycloak.clientSecret
 requestedScopes: ['openid', 'profile', 'email', 'groups']

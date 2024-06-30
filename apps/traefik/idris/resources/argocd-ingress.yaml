@@ -8,13 +8,13 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`argocd.wesl.io`)
+      match: Host(`argocd.wesley.io`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.wesl.io`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.wesley.io`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server

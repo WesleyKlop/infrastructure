@@ -9,8 +9,8 @@ spec:
         - name: forward-auth
           env:
             - name: AUTH_HOST
-              value: auth.wesl.io
+              value: auth.wesley.io
             - name: COOKIE_DOMAIN
-              value: wesl.io
+              value: wesley.io
             - name: PROVIDER_URI
-              value: 'https://keycloak.wesl.io/realms/master'
+              value: 'https://keycloak.wesley.io/realms/master'

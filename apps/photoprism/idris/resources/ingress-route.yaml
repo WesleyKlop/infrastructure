@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`photos.wesl.io`)
+    - match: Host(`photos.wesley.io`)
       kind: Rule
       services:
         - name: photoprism

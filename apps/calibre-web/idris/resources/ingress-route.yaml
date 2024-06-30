@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`books.wesl.io`)
+    - match: Host(`books.wesley.io`)
       kind: Rule
       services:
         - name: calibre-web

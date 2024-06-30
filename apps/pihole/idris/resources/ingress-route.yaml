@@ -9,5 +9,5 @@ spec:
     - services:
         - name: pihole
           port: pihole-admin
-      match: Host(`pi-hole.wesl.io`)
+      match: Host(`pi-hole.wesley.io`)
       kind: Rule

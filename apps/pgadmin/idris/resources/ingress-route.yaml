@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`pgadmin.wesl.io`)
+    - match: Host(`pgadmin.wesley.io`)
       kind: Rule
       services:
         - name: pgadmin

@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ha.wesl.io`)
+    - match: Host(`ha.wesley.io`)
       kind: Rule
       services:
         - name: home-assistant
