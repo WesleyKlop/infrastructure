@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: calibre-web
-          image: ghcr.io/linuxserver/calibre-web:version-0.6.20
+          image: ghcr.io/linuxserver/calibre-web:version-0.6.21
           imagePullPolicy: Always
           env:
             - name: DOCKER_MODS
