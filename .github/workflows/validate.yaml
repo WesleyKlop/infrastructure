@@ -75,7 +75,7 @@ jobs:
           find "$results" -type f -empty -print -delete
           sarif copy "$results"
         continue-on-error: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: kube-linter-results
           path: ${{ github.workspace }}/results
