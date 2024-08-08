@@ -15,7 +15,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: npx prettier --check '.'
 
   tfsec:
@@ -25,7 +25,7 @@ jobs:
       security-events: write
       contents: read
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: aquasecurity/tfsec-sarif-action@v0.1.4
         with:
           sarif_file: tfsec.sarif
@@ -42,7 +42,7 @@ jobs:
       security-events: write
       contents: read
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dsaltares/fetch-gh-release-asset@1.1.2
         with:
           repo: 'stackrox/kube-linter'
