@@ -31,7 +31,7 @@ jobs:
           sarif_file: tfsec.sarif
           config_file: ./.github/tfsec.yaml
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: tfsec.sarif
 
@@ -80,7 +80,7 @@ jobs:
           name: kube-linter-results
           path: ${{ github.workspace }}/results
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           wait-for-processing: true
           sarif_file: ${{ github.workspace }}/out.sarif
