@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: bazarr
-          image: ghcr.io/linuxserver/bazarr:version-v1.4.0
+          image: ghcr.io/linuxserver/bazarr:version-v1.4.5
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
