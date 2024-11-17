@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: jackett
-          image: ghcr.io/linuxserver/jackett:version-v0.21.90
+          image: ghcr.io/linuxserver/jackett:version-v0.21.696
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
