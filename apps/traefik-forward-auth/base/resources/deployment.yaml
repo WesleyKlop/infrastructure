@@ -9,7 +9,7 @@ spec:
       serviceAccountName: forward-auth
       containers:
         - name: forward-auth
-          image: mesosphere/traefik-forward-auth:3.1.0
+          image: mesosphere/traefik-forward-auth:v3.2.0
           imagePullPolicy: Always
           securityContext:
             readOnlyRootFilesystem: true
